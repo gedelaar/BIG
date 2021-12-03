@@ -1,0 +1,58 @@
+CONTEXT Adres IN DUTCH
+
+    PATTERN Adres
+
+        --adres
+        CONCEPT Adres  "Bevat het adres van de Persoon zoals vastgelegd binnen de BRP."
+            PURPOSE CONCEPT Adres 
+                {+
+                In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de identificatie van de zorgverlener.
+                +}
+
+        CONCEPT Binnenlandsadres ""
+            PURPOSE CONCEPT Binnenlandsadres
+                {+
+
+                +}
+
+        CONCEPT Buitenlandsadres ""
+            PURPOSE CONCEPT Buitenlandsadres
+            {+
+            +}
+        
+
+    RELATION buitenlandsadres[Adres*Buitenlandsadres][UNI]
+    RELATION binnenlandsadres[Adres*Binnenlandsadres][UNI]
+
+    ENDPATTERN
+
+
+    INTERFACE "Adres" FOR USER: I[Adres]
+    BOX<TABS>
+        ["Adres" : I[Adres]
+            BOX <TABLE>
+            [ "Adres" : I[Adres] 
+            , "" : binnenlandsadres[Adres*Binnenlandsadres]
+            ]
+        ,
+        "Buitenlands\nadres" : I[Adres]
+            BOX <TABLE>
+            [ "Adres" : I[Adres] 
+            , "" : buitenlandsadres[Adres*Buitenlandsadres]
+            ]
+        , 
+        "Personen" : I[Adres]  cRud
+            BOX <TABLE>
+            [
+                "Personen" : I[Adres]  cRud
+            ,    "" : adres[Persoon*Adres]~ cRud
+            BOX <TABLE>
+                [
+                    "" : I LINKTO INTERFACE Persoon
+                ]
+            ]
+        ]
+
+
+
+ENDCONTEXT

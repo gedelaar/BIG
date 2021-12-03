@@ -1,0 +1,181 @@
+CONTEXT Big IN DUTCH
+
+    INCLUDE "Generic.adl"
+    INCLUDE "Register.adl"
+    INCLUDE "Inschrijfduur.adl"
+    INCLUDE "Registratie.adl"
+    INCLUDE "PersoonI.adl"
+
+    PATTERN Inschrijving
+      PURPOSE PATTERN Inschrijving 
+        {+
+        Inschrijving legt de relatie vast tussen Persoon en het Register.
+        +}
+
+        CONCEPT InschrijfId "De aanmelding van persoon in een register"
+            REPRESENT InschrijfId TYPE OBJECT
+            PURPOSE CONCEPT InschrijfId 
+                {+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+                +}
+            RELATION inschrijving [Persoon*InschrijfId][TOT,INJ]
+            MEANING "Elk persoon die BIG geregistreerd wil zijn, moet zijn ingeschreven. Een persoon kan meerdere inschrijvingen hebben."
+            POPULATION inschrijving[Persoon*InschrijfId]  CONTAINS 
+                [("P001", "I001")
+                ,("P002", "I002")
+                ,("P003", "I003")]
+             
+
+
+        --tijdstip van inschrijving
+        CONCEPT InschrijfTijdstip "Het inschrijftijdstip bevat de datum en tijdstip van inschrijving in Y-m-d h:i:s-formaat."
+            --REPRESENT InschrijfTijdstip TYPE DATETIME
+            PURPOSE CONCEPT InschrijfTijdstip
+                {+
+                In artikel 3 lid 2 is aangegeven dat de datum en het tijdstip van inschrijving een onderdeel is van de identificatie van de zorgverlener.
+                +}
+            RELATION inschrijftijdstip [InschrijfId*InschrijfTijdstip][UNI]
+            MEANING "Elke inschrijving vindt plaats op een tijdstip."
+{-            POPULATION inschrijftijdstip [Inschrijving*InschrijfTijdstip] CONTAINS 
+            [ ("I001",2015-06-03T13:21:58Z),
+                ("I002",2016-06-03T13:21:58Z),
+                ("I003",2017-06-03T13:21:58Z) ]
+                -}
+            PURPOSE RULE "Voeg_inschrijftijd_toe_(automatisch)"
+                {+
+                Het tijdstip waarop de inschrijving wordt vastgelegd.
+                +}
+            ROLE "ExecEngine" MAINTAINS "Voeg_inschrijftijd_toe_(automatisch)"
+            RULE "Voeg_inschrijftijd_toe_(automatisch)" :  I[InschrijfId]  |-  inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~
+            VIOLATION   (   TXT "{EX} InsAtom;InschrijfTijdstip"
+                        ,   TXT "{EX} InsPair;inschrijftijdstip;InschrijfId;", SRC I, TXT ";InschrijfTijdstip;{php}date(DATE_ISO8601)" -- Set the DateTime
+                        )
+
+
+        {- het bepalen van het volgende BIG-nummer is beter op te lossen  een programmeertaal en niet binnen AMpersand-}
+        CONCEPT Bignummer "Het identificatienummer van de BIG-ingeschrevene."
+            REPRESENT Bignummer TYPE OBJECT
+            PURPOSE CONCEPT Bignummer
+                {+
+                In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving  in het register  de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+                Het BIG-nummer identificeert de BIG-ingeschrevene.
+                +}
+
+            RELATION bignummer[InschrijfId*Bignummer][UNI,INJ]
+            PURPOSE RELATION bignummer
+                {+
+                De koppeling tussen een Persoon en een Bignummer. Dit is een één op één koppeling die automatisch wordt aangebracht.
+                +}
+            POPULATION bignummer CONTAINS 
+                [ ("I001", "B001")
+                , ("I002", "B002")
+                , ("I003", "B003") ]
+            ROLE USER MAINTAINS TotInschrijvingBig
+            RULE TotInschrijvingBig : I[InschrijfId]  |-  bignummer[InschrijfId*Bignummer];bignummer[InschrijfId*Bignummer]~
+            MEANING "meaning"
+            MESSAGE "Er moet een bignummer ingevuld worden."
+            VIOLATION ( TXT "Voor inschrijving ", SRC I , TXT " is geen bignummer aangemaakt.")
+
+            PURPOSE RULE "Voeg_Bignummer_toe(automatisch)"
+                {+
+                Nieuw persoon krijgt een BIGnummer.
+                +}
+            ROLE "ExecEngine" MAINTAINS "Voeg_Bignummer_toe(automatisch)"
+            RULE "Voeg_Bignummer_toe(automatisch)" :  I[InschrijfId]  |-  bignummer[InschrijfId*Bignummer];bignummer[InschrijfId*Bignummer]~
+            VIOLATION   (   TXT "{EX} InsAtom;Bignummer"
+                        ,   TXT "{EX} InsPair;bignummer;InschrijfId;", SRC I, TXT ";Bignummer;_NEW"
+                        )
+
+            RELATION inschrijving[RegisterId*InschrijfId][INJ]
+            MEANING "Het vastleggen van de koppeling tussen het register en de inschrijving."
+            POPULATION inschrijving[RegisterId*InschrijfId] CONTAINS 
+                [("1","I001")
+                ,("2","I002")
+                ,("1","I003" )]
+
+            VIEW RegisterId: RegisterId DEFAULT
+               { register : register
+               } ENDVIEW
+
+
+
+
+    ENDPATTERN
+
+    INTERFACE Inschrijvingen FOR USER: V[SESSION*InschrijfId] CRud
+    BOX<TABS>
+        ["Inschrijving": I[InschrijfId] CRud
+            BOX <TABLE sortable title="Inschrijving"  >
+                [ 
+                    "Inschrijving"    : I[InschrijfId] CRud
+                    , "Persoon"         : inschrijving[Persoon*InschrijfId]~ CRUd 
+                    BOX<TABLE>
+                        [ "Persoon"         :I LINKTO INTERFACE Persoon                    
+                        , "Naam"            : naam[Persoon*Naam] cRud 
+                        ]
+                    , "RegisterId"      : inschrijving[RegisterId*InschrijfId]~ cRUd
+                    , "Big-nummer"      : bignummer[InschrijfId*Bignummer]  cRud
+                    , "Inschrijvingstijd":inschrijftijdstip[InschrijfId*InschrijfTijdstip] cRud
+                    , "Registratie"     : registratie[Registratie*InschrijfId]~  cRud
+                ]    
+                ,
+        "Diploma": I[InschrijfId] 
+            BOX<TABLE>
+                ["Datums" : I[InschrijfId]
+                ,    "Diplomadatum" : diplomadatum[InschrijfId*Datum] CRUd
+                ,   "verklaringdatum" : verklaringdatum[InschrijfId*Datum] CRUd
+                ,   "getuigschriftdatum" : getuigschriftdatum[InschrijfId*Datum]CRUd
+                ,   "kwalificatiedatum" : kwalificatiedatum[InschrijfId*Datum] cRud
+                ]
+                ,
+        "Weigering" : I[InschrijfId]                                   
+              BOX <TABLE>
+                ["Weigering" : I[InschrijfId]
+                ,    "Weigeringsgrond" : inschrijvingsWeigering[InschrijfId*Weigering]   cRUd
+                ]
+
+          ]
+
+    INTERFACE Inschrijving FOR USER: I[InschrijfId] CRud
+    BOX<TABS>
+        ["Inschrijving": I[InschrijfId] CRud
+            BOX <TABLE sortable title="Inschrijving"  >
+                [ 
+                    "Inschrijving"    : I[InschrijfId] CRud
+                    , "Persoon"         : inschrijving[Persoon*InschrijfId]~ CRUd 
+                    BOX<TABLE>
+                        [ "Persoon"         :I LINKTO INTERFACE Persoon                    
+                        , "Naam"            : naam[Persoon*Naam] cRud 
+                        ]
+                    , "RegisterId"      : inschrijving[RegisterId*InschrijfId]~ cRUd
+                    , "Big-nummer"      : bignummer[InschrijfId*Bignummer]  cRud
+                    , "Inschrijvingstijd":inschrijftijdstip[InschrijfId*InschrijfTijdstip] cRud
+                    , "Registratie"     : registratie[Registratie*InschrijfId]~  cRud
+                ]    
+                ,
+        "Diploma": I[InschrijfId] 
+            BOX<TABLE>
+                ["Datums" : I[InschrijfId]
+                ,    "Diplomadatum" : diplomadatum[InschrijfId*Datum] CRUd
+                ,   "verklaringdatum" : verklaringdatum[InschrijfId*Datum] CRUd
+                ,   "getuigschriftdatum" : getuigschriftdatum[InschrijfId*Datum]CRUd
+                ,   "kwalificatiedatum" : kwalificatiedatum[InschrijfId*Datum] cRud
+                ]
+                ,
+        "Weigering" : I[InschrijfId]                                   
+              BOX <TABLE>
+                ["Weigering" : I[InschrijfId]
+                 ,   "Weigeringsgrond" : inschrijvingsWeigering[InschrijfId*Weigering]   cRUd
+                ]
+                ,
+        "Doorhaling" : I[InschrijfId]                                   
+              BOX <TABLE>
+                ["Doorhaling" : I[InschrijfId]
+                 ,   "Doorhalinggrond" : doorgehaald [InschrijfId*Doorhaling]    cRUd
+                ]
+
+            ]
+
+
+
+
+ENDCONTEXT

@@ -1,0 +1,82 @@
+CONTEXT Big IN DUTCH
+
+    PATTERN "Inschrijfduur"
+        PURPOSE PATTERN "Inschrijfduur"
+            {+ 
+            Inschrijvingen in een register zijn beperkt geldig. Artikel 8, eerste lid van de Wet BIG stelt: "Bij algemene maatregel van bestuur wordt bepaald dat de inschrijving in een bij de maatregel aangewezen register wordt doorgehaald
+            indien na de in het tweede lid bedoelde datum een bij de maatregel aangegeven periode is verstreken."             Artikel 2, tweede lid van het Besluit periodieke registratie Wet BIG stelt deze periode op vijf jaren.
+            +}
+
+
+          RELATION eerder[Datum*Datum]
+            PURPOSE RELATION eerder[Datum*Datum]
+                {+ 
+                Voor elke denkbare datum d1 en d2 geldt d1 eerder d2 dan en slechts dan als d1 < d2.
+                +}
+    
+        RELATION diplomadatum[InschrijfId*Datum]
+            MEANING "Er is een erkend diploma bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
+            PURPOSE RELATION diplomadatum[InschrijfId*Datum]
+                {+ 
+                Een register registreert de datum waarop de ingeschrevene een diploma heeft behaald op grond waarvan de ingeschrevene
+                een erkenning van beroepskwalificaties als bedoeld in de Algemene wet erkenning EU-beroepskwalificaties             heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere diploma's zijn, kunnen er dus ook meerdere diplomadata zijn voor dezelfde inschrijving.
+                +}
+
+        RELATION verklaringdatum[InschrijfId*Datum]
+            MEANING "Er is een verklaring bij een inschrijving geregistreerd die relevant is voor het bepalen van de geldigheid van die inschrijving."
+            PURPOSE RELATION verklaringdatum[InschrijfId*Datum]
+                {+ 
+                Een register registreert de datum waarop de ingeschrevene een in artikel 41, eerste lid, onder b, bedoelde verklaring heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere van dit soort verklaringen zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+                +}
+
+        RELATION getuigschriftdatum[InschrijfId*Datum]
+            MEANING "Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
+            PURPOSE RELATION getuigschriftdatum[InschrijfId*Datum]
+                {+ 
+                Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+                +}
+
+        RELATION kwalificatiedatum[InschrijfId*Datum]
+            PURPOSE RELATION kwalificatiedatum[InschrijfId*Datum]
+                {+ 
+                Om de inschrijvingsduur te bepalen rekenen we met de meest recente van de geregistreerde diplomadata, verklaringdata en getuigschriftdata. Uiteindelijk is er dus precies één datum die gebruikt wordt om de inschrijfduur te bepalen.
+                +}
+
+        ENFORCE kwalificatiedatum := getuigschriftdatum\/verklaringdatum\/diplomadatum
+        -- zie https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/the-enforce-statement
+        -- Voor het bepalen van de meest recente kwalificatiedatum hebben we dus het maximum van deze data nodig. -->  TODO.
+
+        RELATION einddatum[InschrijfId*Datum]
+            PURPOSE RELATION einddatum[InschrijfId*Datum]
+                {+ 
+                Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
+                +}
+        -- TODO: het rekenwerk voor het optellen van 5 jaar kan Ampersand niet. Daarvoor moeten we een stukje maatwerk-code toevoegen. Dat laten we
+        -- in deze afstudeeropdracht achterwege.
+
+        RELATION vandaag[Datum]
+
+        RELATION doorgehaald_ogv_artikel_8 [InschrijfId*Datum]
+            PURPOSE RELATION doorgehaald_ogv_artikel_8[InschrijfId*Datum]
+                {+
+                Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
+                +}
+
+        RELATION einddatum[InschrijfId*Datum]
+
+        --ENFORCE doorgehaald_ogv_artikel_8 := vandaag;eerder;einddatum~
+
+    ENDPATTERN
+      --rule 
+{-
+    RULE "voorkomen specialistenmaatregel" : doorhalingsMaatregel~;doorhalingsMaatregel |- -I[Maatregel]
+        PURPOSE RULE "voorkomen specialistenmaatregel"
+            {+
+            art.8.1 stelt: Bij algemene maatregel van bestuur wordt bepaald dat de inschrijving in een bij de maatregel aangewezen register wordt doorgehaald
+            indien na de in het tweede lid bedoelde datum een bij de maatregel aangegeven periode is verstreken.
+            Deze rule haalt de inschrijving door zodra er sprake is van het verstrijken van genoemde periode.
+            +}
+-}
+
+
+ENDCONTEXT

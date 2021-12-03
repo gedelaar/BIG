@@ -1,0 +1,34 @@
+CONTEXT Tandarts IN DUTCH HTML
+    PATTERN Tandarts
+        PURPOSE PATTERN Tandarts
+        {+
+        Het register voor tandarts bevat alle attributen van het register tandarts.
+        +}
+
+        RELATION getuigschriftdatum[InschrijfId*Datum]
+            MEANING "Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
+            PURPOSE RELATION getuigschriftdatum[InschrijfId*Datum]
+                {+ 
+                Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+                +}
+
+        RELATION tandarts [RegisterId*RegisterId]
+        POPULATION tandarts[RegisterId*RegisterId]  CONTAINS
+            [("2","2")]
+
+        RELATION herregistratie[RegisterId*Datum]
+            MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
+        
+{-            PURPOSE RULE "Bereken_herregistratie_datum(automatisch)"
+                {+
+                Het tijdstip waarop de inschrijving + 5 jaar.
+                +}
+            ROLE "ExecEngine" MAINTAINS "Bereken_herregistratie_datum(automatisch)"
+            RULE "Bereken_herregistratie_datum(automatisch)" :  I[Inschrijving]  |-  inschrijftijdstip [Inschrijving*InschrijfTijdstip];inschrijftijdstip [Inschrijving*InschrijfTijdstip]~
+            VIOLATION   (   TXT "{EX} InsAtom;InschrijfTijdstip"
+                        ,   TXT "{EX} InsPair;inschrijftijdstip;Inschrijving;", SRC I, TXT ";InschrijfTijdstip;{php}date+50000(DATE_ISO8601)" -- Set the DateTime
+                        )
+-}
+
+    ENDPATTERN
+ENDCONTEXT

@@ -1,0 +1,16 @@
+CONTEXT Big IN DUTCH
+
+    PATTERN RegistratieKosten
+        --concepts
+        --Bedrag
+        CONCEPT Bedrag  "art.5.2- het bedrag dat voor de behandeling van een aanvraag geldt"
+            REPRESENT Bedrag TYPE FLOAT 
+            PURPOSE CONCEPT Bedrag 
+                {+
+                In artikel 5 lid 2 wordt bij of krachtens algemene maatregel van bestuur regels gesteld over het bedrag dat voor de behandeling van een aanvraag als bedoeld in het eerste lid moet worden betaald alsmede over de wijze van indiening van een aanvrage en de daarbij te verstrekken gegevens of bescheiden, nodig voor de beoordeling van een aanvraag als bedoeld in het eerste lid. Het in de eerste volzin bedoelde bedrag wordt zodanig bepaald dat daarmee de kosten van de behandeling van een aanvraag als bedoeld in het eerste lid worden betaald.
+                +}
+            POPULATION "Bedrag" CONTAINS 85,00
+
+    ENDPATTERN
+
+ENDCONTEXT

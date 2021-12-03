@@ -1,0 +1,68 @@
+CONTEXT Persoon IN DUTCH
+
+    INCLUDE "Geslacht.adl"
+    INCLUDE "Nationaliteit.adl"
+    INCLUDE "Adres.adl"
+    INCLUDE "Inschrijving.adl"
+    INCLUDE "Persoon.adl"
+
+    INTERFACE "Personen" FOR USER: V[SESSION*Persoon] CRud
+    BOX <TABLE sortable title="Persoon">
+        [ "Naam"            : naam [Persoon*Naam] CRUD
+        , "Voorna(a)m(en)"  : voornaam [Persoon*Voornaam] CRUD 
+        , "Geslacht"        : geslacht [Persoon*Geslacht] cRUd
+        , "Adres"           : adres [Persoon*Adres] CRUD
+        BOX <TABLE>
+        [
+            ""              : I LINKTO INTERFACE Adres
+        ]
+        , "Geboortedatum"   : geboortedatum [Persoon*Datum] CRUd
+        , "Nationaliteit"   : nationaliteit [Persoon*Nationaliteitid] cRUd
+        , "Inschrijving"    : inschrijving [Persoon*InschrijfId] cRud
+        BOX<TABLE>
+            [ 
+                ""    : I LINKTO INTERFACE Inschrijving
+            ]
+        ]
+
+    INTERFACE "Persoon" FOR USER: I[Persoon] CRud
+    BOX 
+        [ "Persoon"         : I[Persoon] CRud
+        , "Naam"            : naam [Persoon*Naam] CRUD
+        , "Voorna(a)m(en)"  : voornaam [Persoon*Voornaam] CRUD 
+        , "Geslacht"        : geslacht [Persoon*Geslacht] cRUd
+        BOX <TABLE>
+           [   "Code"           : I[Geslacht] cRud
+           ,   "Omschrijving"   : geslacht [Geslacht*Omschrijving] cRud
+           ]
+        , "Adres"           : adres [Persoon*Adres] CRUD
+        , "Geboortedatum"   : geboortedatum [Persoon*Datum] CRUd
+        , "Nationaliteit"   : nationaliteit [Persoon*Nationaliteitid] cRUd
+        , "Inschrijving"    : inschrijving [Persoon*InschrijfId] cRud
+        BOX<TABLE>
+            [ 
+                ""    : I LINKTO INTERFACE Inschrijving
+            ]
+
+        ]
+
+
+    VIEW "Persoonsnaam": Naam
+       { 
+       "Naam": naam~
+       } 
+       HTML TEMPLATE "View-FILEOBJECT.html" ENDVIEW     
+
+    VIEW "Adres": Adres
+        {
+        "Adres" : binnenlandsadres[Adres*Binnenlandsadres]
+        } HTML TEMPLATE "View-FILEOBJECT.html" ENDVIEW
+
+
+    VIEW "Inschrijving": Inschrijving
+        {
+        "Inschrijving":  "Inschrijving"
+        } 
+        ENDVIEW
+
+ENDCONTEXT

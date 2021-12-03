@@ -1,0 +1,14 @@
+CONTEXT Big IN ENGLISH
+
+    PATTERN Verpleegkundige
+        --concepts
+        --categorie
+        CONCEPT VerpleegkundigeCategorie  "art.5.1-Voorschrijven UR-geneesmiddelen"
+            PURPOSE CONCEPT VerpleegkundigeCategorie 
+                {+
+                de aanvraag van een verpleegkundige tot vermelding in het register van de bevoegdheid van de aanvrager de krachtens artikel 36, veertiende lid, aangewezen UR-geneesmiddelen voor te schrijven. De vermelding houdt mede in de aanduiding van de categorie van verpleegkundigen waartoe de aanvrager behoort
+                +}
+            POPULATION "VerpleegkundigeCategorie" CONTAINS "UR-voorschrijven"
+    ENDPATTERN
+
+ENDCONTEXT

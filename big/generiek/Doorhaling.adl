@@ -1,0 +1,25 @@
+CONTEXT Bigregister IN DUTCH HTML
+
+    CONCEPT Doorhaling ""
+    PURPOSE CONCEPT Doorhaling 
+    {+
+    In Artikel 7 wordt beschreven in welke situatie de inschrijving wordt doorgehaald:
+    <OL>
+        <LI>in geval van overlijden van de ingeschrevene;</LI>
+        <LI>op verzoek van de ingeschrevene;</LI>
+        <LI>indien de ingeschrevene in een der in artikel 6, onder b of c, genoemde omstandigheden is komen te verkeren;</LI>
+        <LI>indien zulks voortvloeit uit een op grond van deze wet jegens de ingeschrevene genomen maatregel;</LI>
+        <LI>indien ten aanzien van de ingeschrevene een maatregel, berustende op een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing van kracht is, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep in het land waar de beslissing is gegeven tijdelijk of blijvend geheel heeft verloren;</LI>
+        <LI>indien zulks voortvloeit uit een maatregel, berustend op een op grond van de Wet medisch tuchtrecht BES opgelegde maatregel, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep tijdelijk of blijvend geheel heeft verloren.</LI>
+    </OL>
+    +}
+        POPULATION Doorhaling CONTAINS 
+        [ "Overlijden", "Verzoek ingerschrevene", "Wettelijke maatregel", "Buitenlandse Maatregel", "Medische maatregel"]
+
+
+        RELATION doorgehaald [InschrijfId*Doorhaling][UNI,INJ]
+            MEANING "In artikel 7 gestelde sitatuaties waarin de inschrijving wordt doorgehaald. Deze heeft ook consequenties op de bijbehorende registraties."
+
+
+
+ENDCONTEXT

@@ -1,0 +1,124 @@
+CONTEXT Registratie IN DUTCH HTML
+    INCLUDE "Inschrijving.adl"
+    INCLUDE "Doorhaling.adl"
+    INCLUDE "Weigering.adl"
+    INCLUDE "Aantekening.adl"
+
+    
+    
+    PATTERN Registratie
+        PURPOSE PATTERN Registratie
+        {+
+        <i>Een registratie is de inschrijving in een, door de Minister vastgesteld, zorgregister van een persoon.</i>
+        +}
+            
+
+        CONCEPT Registratie "Betreft een complete afgeronde inschrijving"
+            PURPOSE CONCEPT Registratie
+                {+<p><p>
+                Er is sprake van registratie van een ingeschrevene wanneer het inschrijvingsproces geheel afgerond is en aan alle voorwaarden is voldaan.
+                +}
+
+            RELATION registratiedatum[Registratie*Datum]
+            {-//TODO
+            ROLE USER MAINTAINS "Persoon mag niet in één register vaker voorkomen"
+            RULE "Persoon mag maar in een register voorkomen" : I[Inschrijving];inschrijving[Persoon*Inschrijving]~ |- -(inschrijving[Register*Inschrijving]~;inschrijving[Register*Inschrijving])
+            MEANING "Persoon mag maar in een register gelijktijdig voorkomen."
+            MESSAGE "Persoon mag maar in een register gelijktijdig voorkomen."
+            VIOLATION ( TXT "Voor persoon ", SRC I , TXT " mag niet in register opgenomen worden.")
+            -}
+            RELATION registratie [Registratie*InschrijfId][UNI,TOT,INJ]
+            POPULATION  registratie[Registratie*InschrijfId] CONTAINS
+            [
+                ("R001","I001")
+            ]
+
+
+            PURPOSE RULE "Voeg_Registratie_toe(automatisch)"
+                {+
+                Nieuw persoon krijgt een registratie.
+                +}
+            ROLE "ExecEngine" MAINTAINS "Voeg_Registratie_toe(automatisch)"
+            RULE "Voeg_Registratie_toe(automatisch)" :   I[InschrijfId]/\ inschrijving[RegisterId*InschrijfId]~;inschrijving[RegisterId*InschrijfId] |- registratie[Registratie*InschrijfId]~;registratie[Registratie*InschrijfId]  
+            VIOLATION   (   TXT "{EX} InsAtom;Registratie"
+                        ,   TXT "{EX} InsPair;registratie;Registratie;_NEW;InschrijfId;", SRC I
+                        )
+
+            PURPOSE RULE "Voeg datum registratie toe"
+            {+
+            	Bij het registreren wordt de datum vastgelegd.
+            +}
+            ROLE ExecEngine MAINTAINS "Voeg datum registratie toe"
+            RULE "Voeg datum registratie toe": I[Registratie] |- registratiedatum[Registratie*Datum];registratiedatum[Registratie*Datum]~
+            VIOLATION ( 
+                        TXT "{EX} InsPair;registratiedatum;Registratie;", SRC I, TXT ";Datum;{php}date(DATE_ISO8601)" -- Set the Date
+                      )
+
+{-            PURPOSE RULE "Plaats registratie in artsenregister"
+            {+
+            +}
+            ROLE ExecEngine MAINTAINS "Plaats registratie in artsenregister"
+            RULE "Plaats registratie in artsenregister" : inschrijving[RegisterId*Inschrijving];inschrijving[RegisterId*Inschrijving]~ |- V;"arts"[RegisterId]
+            VIOLATION ( TXT "{EX} InsAtom;Arts"
+                      , TXT "{EX} InsPair;artsRegistratie[Arts*RegisterId];Arts;_NEW;RegisterId;", TGT I
+            )
+-}
+    ENDPATTERN
+{-
+    PATTERN Beroepsbeoefenaar
+            RELATION beroepsbeoefenaar [Persoon * Registratie]
+            MEANING "beroepsbeoefenaar, komt in de relatie nadat de inschrijving is goedgekeurd."
+
+    ENDPATTERN
+-}
+  INTERFACE Registratie FOR USER: "_SESSION" cRud
+  BOX <TABS>
+      [ 
+        Register : V[SESSION*RegisterId] cRud
+          BOX <TABLE>
+            [ "Register"    : register[RegisterId*Register] cRud
+              , "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving[Persoon*InschrijfId]~ cRud
+              BOX <RAW>
+                 [
+                 "" : I LINKTO INTERFACE Persoon
+                 ]
+              , "Naam"      : (inschrijving[RegisterId*InschrijfId];inschrijving[Persoon*InschrijfId]~);naam[Persoon*Naam]
+              , "Bignummer" : inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer] cRud
+              , "Registratie" : inschrijving [RegisterId*InschrijfId];registratie [Registratie*InschrijfId]~  
+            ]
+
+          ,
+        Weigering : V[SESSION*Persoon]                                    cRud
+          BOX <TABLE>
+            ["Persoon"    : I                                                     cRud
+            , "Naam"      : naam[Persoon*Naam]     
+            , "Weigeringsgrond" : inschrijving[Persoon*InschrijfId] cRud
+              BOX <TABLE>
+                [
+                  "" : I[InschrijfId]  cRud
+                ,"Weigeringsgrond" : inschrijvingsWeigering[InschrijfId*Weigering]   cRUd
+                ]
+            ]
+          ,
+        Aantekening : V[SESSION*Persoon]                                          cRud
+          BOX <TABLE>
+            ["Persoon"    : I                                                     cRud
+            , "Naam"      : naam[Persoon*Naam]                                   cRud
+            , "Aantekening" : aantekening [Persoon*Aantekening]                   CRUD
+            ]
+          ,
+        Doorhaling : V[SESSION*Persoon]                                           cRud
+          BOX <TABLE>
+            ["Persoon"    : I                                                     cRud
+            , "Naam"      : naam[Persoon*Naam]                                   cRud
+            , "Doorhalingreden" : inschrijving[Persoon*InschrijfId] cRud
+              BOX <TABLE>
+                [
+                  "" : I[InschrijfId]  cRud
+                ,"Doorhalingreden" : doorgehaald [InschrijfId*Doorhaling]   cRUd
+                ]
+            ]
+      ]
+
+
+ENDCONTEXT

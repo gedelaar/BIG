@@ -1,0 +1,84 @@
+CONTEXT Bigregister IN DUTCH HTML
+  META "authors" "Gerard Edelaar"
+  PURPOSE CONTEXT Big
+    {+ 
+    <h2>De wet BIG</h2>
+    Het BIG-register is onderdeel van de Wet op de beroepen in de individuele gezondheidszorg (BIG). Het doel van de Wet BIG is te zorgen dat de kwaliteit van onze gezondheidszorg hoog is en blijft. Ook beschermt de Wet BIG patiënten tegen ondeskundig en onzorgvuldig handelen van zorgverleners.
+    </p>
+    De Wet BIG verdeelt beroepen die onder deze wet vallen in 3 groepen volgens hun wettelijke artikelnummer: artikel 3-, 34- en artikel 36a-beroepen. In het BIG-register worden alleen artikel 3 en artikel 36a-beroepen geregistreerd.
+    Daarnaast bestaan er ook wettelijk erkende specialismen. Deze vallen onder artikel 14. Een specialisme wordt aangetekend bij een artikel 3 beroep.
+    Beroepen die in het BIG-register staan geregistreerd vallen onder het tuchtrecht.
+    </p>
+    Naast het registreren en herregistreren van deze beroepsbeoefenaren en de uitvoering van het tuchtrecht valt ook het erkennen van (buitenlandse) diploma’s en onder de taken van het BIG-register.
+    Zorgverleners met een buitenlands diploma moeten voldoen aan de Nederlandse opleidingseisen. Hun opleidingsniveau moet gelijk zijn aan dat van een zorgverlener met een Nederlands diploma. Eventueel telt relevante werkervaring mee om het niveau te bepalen. Het CIBG neemt hierover een besluit op grond van het advies van de onafhankelijke deskundigencommissie, de Commissie buitenslands gediplomeerden volksgezondheid (CBGV).
+    </p>
+    Tevens kunnen zorgprofessionals bij het BIG-register terecht voor het aanvragen van verklaringen en zorgt het bigregister voor het aantekenen van specialismen en voorschrijfbevoegdheden.
+    </p>
+    Voor zorgconsumenten en organisaties biedt het BIG-register de mogelijkheid te controleren of zijn zorgverlener bevoegd is om zijn of haar beroep uit te oefenen.
+    </p> </p>
+    <h3>Opdrachtgever</h3>
+    De Directie MEVA van het Ministerie van VWS is opdrachtgever voor de uitvoering van de Wet BIG.
+
+
+    <h3>Onderliggende wetgeving</h3>
+    <UL>
+    <LI><A HREF="https://wetten.overheid.nl/BWBR0006251/2021-07-01" TARGET="_blank">Wet op de beroepen in de individuele gezondheidszorg</A></LI> 
+    <LI><A HREF=https://wetten.overheid.nl/BWBR0024841/2020-07-01 TARGET="_blank">Besluit periodieke registratie Wet BIG</A></LI>
+    <LI><A HREF=https://wetten.overheid.nl/BWBR0007648/2021-01-01 TARGET="_blank">Registratiebesluit BIG</A></LI>
+    <LI><A HREF=https://wetten.overheid.nl/BWBR0008688/2021-04-01 TARGET="_blank">Tuchtrechtbesluit BIG</A></LI>
+    <LI><A HREF=https://wetten.overheid.nl/BWBR0025605/2020-12-15 TARGET="_blank">Regeling periodieke registratie Wet BIG</A></LI>
+    <LI><A HREF=https://wetten.overheid.nl/BWBR0031720/2014-02-01 TARGET="_blank">Regeling tarieven registratie beroepsbeoefenaren Wet BIG</A></LI>
+    </UL>
+
+    </p>
+    Het BIGregister bevindt zich in een keten van informatieverstrekking en is sterk afhankelijk van informatie van derden. Zo zijn derden weer sterk afhankelijk van onze informatie.
+
+    <h3>Huidig informatiesysteem</h3>
+    De Wet BIG stamt uit 1993. Het huidige zaaksysteem (Zorro) is als opvolger van Ribiz ontwikkeld in 2007. Eind 2018 is het eerste deel van de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een volgend deel van de publieke website, waarmee op dat moment alleen de advieswijzer nog niet is omgezet.
+    
+    +}
+
+  INCLUDE "Weigering.adl"
+  --INCLUDE "Doorhaling.adl"
+  INCLUDE "Aantekening.adl"
+  INCLUDE "Specialisme.adl"
+  INCLUDE "Inschrijfduur.adl"
+  INCLUDE "Registratie.adl"
+  --INCLUDE "Register.adl"
+  INCLUDE "Persoon.adl"
+  INCLUDE "Inschrijving.adl"
+  INCLUDE "Beheer.adl"
+  INCLUDE "Generic.adl"
+
+
+
+
+    -- Invariant rules
+
+
+
+    -- Process rules 
+    -- art 8 geeft aan dat na een bepaalde datum (lees verstreken tijd) de maatregel is verstreken
+    -- moet nog vinden waar deze tijden staan en voor welke maatregel dat dan geldig is.
+    -- op dit moment kan je een maatregel weghalen, maar dat kan dan ook iedereen....
+
+
+
+    {-
+    -- Automated rules
+    PURPOSE RULE "inschrijftijdstip vastleggen"
+    {+Wanneer een persoon in het BIGregister wordt ingeschreven dan automatisch datum en tijd invullen.+}
+    ROLE "ExecEngine" MAINTAINS "inschrijftijdstip vastleggen"
+    RULE "inschrijftijdstip vastleggen": I[Persoon] |- heeft[Persoon*InschrijfTijdstip];heeft[Persoon*InschrijfTijdstip]~ 
+    VIOLATION (TXT "NewStruct;InschrijfTijdstip"
+                , TXT ";heeft[Persoon*InschrijfTijdstip];InschrijfTijdstip;_NEW;Persoon;", SRC I
+                , TXT ";heeft[Persoon*InschrijfTijdstip];Person;_NEW;InschrijfTijdstip;", TGT I             
+                , TXT ";InschrijfTijdstip;_NEW;Time;{php}Time(DATE_ISO8601)" -- Current date in ISO 8601 date format 
+              )
+    --rule werkt niet, hoe kan je automatisch een datum invullen
+    -}
+
+    
+
+
+ENDCONTEXT

@@ -1,0 +1,32 @@
+CONTEXT Big IN DUTCH
+
+  INTERFACE Beheer FOR  Beheerder       : "_SESSION"  cRud
+  BOX <TABS>
+    [ 
+        Geslacht                        : V[SESSION*Geslacht] cRud
+        BOX <TABLE sortable title="Geslacht">
+            [ 
+                "Geslacht"              : I[Geslacht] cRud
+            ,   "Omschrijving"          : geslacht[Geslacht*Omschrijving] cRud
+            ]
+            
+      , Nationaliteit                   : V[SESSION*Nationaliteitid] CRud
+        BOX <TABLE sortable title="Nationaliteit">
+            [ 
+                "Nationaliteit"         : nationaliteit[Nationaliteitid*Nationaliteit] CRUd
+            ,   "Ingangsdatum"          : ingangsdatum[Nationaliteitid*Datum] CRUd
+            ,   "Einddatum"             : einddatum[Nationaliteitid*Datum] CRUD
+            ]
+
+      , Register                        : V[SESSION*RegisterId] CRud
+        BOX <TABLE sortable title="Register">
+            [ 
+                "Register"              : register[RegisterId*Register] CRUd
+            ,   "Ingangsdatum"          : ingangsdatum[RegisterId*Datum] CRUd
+            ,   "Einddatum"             : einddatum[RegisterId*Datum] CRUd
+            ]
+
+    ]
+
+ 
+ENDCONTEXT

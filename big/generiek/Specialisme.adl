@@ -1,0 +1,21 @@
+CONTEXT Big IN DUTCH
+  PATTERN Specialisme
+  --concepts
+  --SpecialistenRegister
+    CONCEPT SpecialistenRegister "In artikel 8 lid 3 wordt aangegeven dat een ingeschrevene opgenomen in kan zijn in een specialistenregister."
+      PURPOSE CONCEPT SpecialistenRegister
+        {+
+          Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden dat degene die de opleiding tot specialist heeft voltooid wordt ingeschreven als specialist voor een bij de regeling bepaalde periode en dat een aansluitende hernieuwde inschrijving slechts plaatsvindt indien de specialist gedurende een bij die regeling bepaald tijdvak, voorafgaand aan de indiening van de aanvraag tot hernieuwde inschrijving, regelmatig op het desbetreffende deelgebied van de beroepsuitoefening werkzaam is geweest dan wel het beroep zal uitoefenen onder de bij de hernieuwde inschrijving aan te geven scholingsvoorwaarden.        
+          +}
+
+          RELATION specialist [Persoon*SpecialistenRegister][UNI]
+            MEANING "Een Persoon is specialist wanneer deze in het specialistenRegister is opgenomen."
+
+          RELATION opgenomenInSpecialistenRegister[Persoon*JaOfNee]
+            MEANING "Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister."
+
+  ENDPATTERN
+
+  
+
+ENDCONTEXT

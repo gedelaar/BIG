@@ -1,0 +1,63 @@
+CONTEXT Big IN DUTCH
+
+INCLUDE "Generic.adl"
+
+
+  PATTERN Nationaliteit
+      PURPOSE PATTERN Nationaliteit 
+        {+
+        Nationaliteit duidt de relatie aan tussen een individu en een staat.
+        +}
+
+    --*** concepts ***
+    CONCEPT Nationaliteitid "De Nationaliteit wordt aangeduid middels een 4-cijferige code."
+      PURPOSE CONCEPT Nationaliteitid 
+        {+
+        In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene bij Inschrijving moet worden vermeld, als onderdeel van de identificatie van de zorgverlener.
+        +}
+      POPULATION "Nationaliteitid" CONTAINS [ "0001","0052", "0077" ]
+
+    CONCEPT Nationaliteit "De omschrijving van een nationaliteit bevat de tekstuele uitvoering van de nationaliteitscodering."
+      PURPOSE CONCEPT Nationaliteit
+        {+
+        Door een omschrijving toe te voegen wordt de nationaliteitcodering leesbaar.
+        +}
+
+    -- relaties
+    RELATION nationaliteit[Nationaliteitid*Nationaliteit][UNI,TOT,INJ]
+      PRAGMA "Nationaliteit code " " heeft omschrijving " "."
+      MEANING "Het aanbrengen van de koppeling tussen de nationaliteitcode en de bijbehorende omschrijving. Bij elke code hoort maar één omschrijving en de omschrijving behoort maar tot één code."
+      POPULATION nationaliteit[Nationaliteitid*Nationaliteit] CONTAINS 
+      [ 
+        ("0001","Nederlandse"),
+        ("0052","Belgische"),
+        ("0077","Spaanse") 
+      ]
+
+    RELATION ingangsdatum[Nationaliteitid*Datum] [UNI]
+      PRAGMA "De Nationaliteit " " heeft als ingangsdatum " "."
+      MEANING "Ingangsdatum van de Nationaliteit."
+      POPULATION ingangsdatum[Nationaliteitid*Datum] CONTAINS 
+        [ 
+        ("0001",1975-01-01),
+        ("0052", 1965-01-01),
+        ("0077",1985-01-01) 
+        ]
+        ROLE USER MAINTAINS "Elke nationaliteit heeft een ingangsdatum"
+        RULE "Elke nationaliteit heeft een ingangsdatum" : I[Nationaliteitid] |- ingangsdatum[Nationaliteitid*Datum];ingangsdatum[Nationaliteitid*Datum]~
+        MEANING "Elk opgevoerde nationaliteit heeft een ingangsdatum voor het gebruik van de nationaliteit."
+        MESSAGE "De ingangsdatum van de nationaliteit moet ingevuld worden."
+        VIOLATION ( TXT "Voor nationaliteit ", SRC I, TXT " is geen ingangsdatum ingevuld.")
+
+    RELATION einddatum[Nationaliteitid*Datum] [UNI]
+      PRAGMA "De Nationaliteit " " heeft als einddatum " "."
+      MEANING "Einddatum van gebruik van de Nationaliteit."
+
+  ENDPATTERN
+ 
+         VIEW Nationaliteit: Nationaliteitid DEFAULT
+               { nationaliteit : nationaliteit[Nationaliteitid*Nationaliteit]
+               } ENDVIEW
+
+ 
+ENDCONTEXT

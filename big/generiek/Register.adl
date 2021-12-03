@@ -1,0 +1,123 @@
+CONTEXT Register IN DUTCH
+    INCLUDE "Generic.adl"
+    INCLUDE "../1_artsRegister/Main.adl"
+    INCLUDE "../2_tandartsRegister/Main.adl"
+
+
+    PATTERN Register
+        PURPOSE PATTERN Register
+            {+
+            Het BIG-register (Beroepen in de Individuele Gezondheidszorg) is een wettelijk, online en openbaar register. Alleen wie in het BIG-register staat, mag een beschermde beroepstitel voeren en mag de bij het beroep horende voorbehouden handelingen zelfstandig uitvoeren. Iedereen kan het register raadplegen. Het BIG-register verzorgt ook de erkenning van buitenlandse diploma’s.
+            +}
+
+        --concepts
+        CONCEPT RegisterId "Technisch element voor het register."
+
+
+        CONCEPT Register "Een register is een officiele lijst van personen die aan de, door het register gestelde voorwaarden voldoen."
+            PURPOSE CONCEPT Register
+                {+
+                In artikel 1 lid 5 wordt aangegeven dat elk Register wordt ingesteld en beheerd door Onze Minister. In artikel 3 lid 6 wordt gesteld dat de registers worden ingesteld ten einde te kunnen voldoen aan een verzoek om informatie als bedoeld in artikel 12 en ten behoeve van het toezicht op de uitvoering van de artikelen 4 en 17.
+                +}
+            REPRESENT Register TYPE OBJECT
+            POPULATION Register CONTAINS
+                [ "arts", "tandarts", "apotheker", "gezondheidszorgpsycholoog", "psychotherapeut", "fysiotherapeut", "verloskundige", "verpleegkundige", "physician assistant", "orthopedagoog-generalist", "klinisch technoloog" ]
+
+            RELATION register [RegisterId*Register][UNI,TOT,INJ]
+            POPULATION register[RegisterId*Register] CONTAINS
+                [ 
+                        ("1","arts")
+                    ,   ("2","tandarts")
+                    ,   ("3","apotheker")
+                    ,   ("4","gezondheidszorgpsycholoog")
+                    ,   ("5","psychotherapeut")
+                    ,   ("6","fysiotherapeut")
+                    ,   ("7","verloskundige")
+                    ,   ("8","verpleegkundige")
+                    ,   ("9","physician assistant")
+                    ,   ("10","orthopedagoog-generalist")
+                    ,   ("11","klinisch technoloog") ]
+
+        RELATION ingangsdatum[RegisterId*Datum][UNI,TOT]
+            POPULATION ingangsdatum[RegisterId*Datum] CONTAINS
+                [ 
+                        ("1",2000-01-01)
+                    ,   ("2",2000-01-01)
+                    ,   ("3",2000-01-01)
+                    ,   ("4",2000-01-01)
+                    ,   ("5",2000-01-01)
+                    ,   ("6",2000-01-01)
+                    ,   ("7",2000-01-01)
+                    ,   ("8",2000-01-01)
+                    ,   ("9",2000-01-01)
+                    ,   ("10",2000-01-01)
+                    ,   ("11",2000-01-01) ]
+
+
+        RELATION einddatum[RegisterId*Datum][UNI]
+
+        RELATION getuigschrift[RegisterId*Ja_of_Nee][UNI]
+        POPULATION getuigschrift[RegisterId*Ja_of_Nee] CONTAINS
+        [
+                ("1","Ja")
+            ,   ("2","Ja")
+            ,   ("3","Ja")
+            ,   ("4","Ja")
+            ,   ("5","Nee")
+            ,   ("6","Ja")
+            ,   ("7","Nee")
+            ,   ("8","Ja")
+            ,   ("9","Ja")
+            ,   ("10","Ja")
+            ,   ("11","Ja")
+        ]
+        ROLE USER MAINTAINS TotGetuigschrift
+        RULE TotGetuigschrift : I[RegisterId]  |-  getuigschrift[RegisterId*Ja_of_Nee];getuigschrift[RegisterId*Ja_of_Nee]~
+            MEANING "meaning"
+            MESSAGE "Het ja of nee moet ingevuld worden."
+            VIOLATION ( TXT "Voor register ", SRC I, TXT " is geen ja of nee ingevuld.")
+
+
+
+    ENDPATTERN
+
+      --*** interface
+  INTERFACE Register FOR  Beheerder       : "_SESSION"  cRud
+  BOX <TABS>
+    [ 
+       Register                        : V[SESSION*RegisterId] CRud
+        BOX <TABLE sortable title="Register">
+            [ 
+                "Register"              : register[RegisterId*Register] CRUd
+            ,   "Ingangsdatum"          : ingangsdatum[RegisterId*Datum] CRUd
+            ,   "Einddatum"             : einddatum[RegisterId*Datum] CRUd
+            ,   "Getuigschrift nodig"   : getuigschrift[RegisterId*Ja_of_Nee] cRUd
+            ]
+            ,
+        Arts: V[SESSION*RegisterId];(I /\ arts[RegisterId*RegisterId] )  cRud
+        BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
+            [
+               "Inschrijvingen"       : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
+            ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
+            ]
+            ,
+        Tandarts: V[SESSION*RegisterId];(I /\ tandarts[RegisterId*RegisterId] )  cRud
+        BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
+            [
+               "Inschrijvingen"       : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
+            ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ 
+            BOX<TABLE>
+            [
+               "" : I[Persoon] LINKTO INTERFACE Persoon
+             ,  "naam":naam [Persoon*Naam]
+            ]
+
+            ]
+
+    ]
+
+
+
+
+
+ENDCONTEXT

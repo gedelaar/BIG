@@ -1,0 +1,136 @@
+CONTEXT Persoon IN DUTCH
+
+    PATTERN Persoon
+        -- The concepts
+        -- Persoon
+        CONCEPT Persoon "Een Persoon representeerd een persoons-id dat opgenomen is in het BIG-register."
+            REPRESENT Persoon TYPE OBJECT
+            PURPOSE CONCEPT Persoon 
+                {+
+                In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving  in het register  de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+                Deze beroepsbeoefenaren zijn personen.
+                +}
+            POPULATION Persoon CONTAINS [ "P001", "P002", "P003" ]
+
+
+        --naam 
+        CONCEPT Naam "Aanduiding van de familienaam zoals vastgelegd in de BRP."
+            REPRESENT Naam TYPE ALPHANUMERIC
+            PURPOSE CONCEPT Naam
+                {+
+                In artikel 3 lid 2 is aangegeven dat de naam een onderdeel is van de identificatie van de zorgverlener.
+                +}
+            {-zoeken naar de data binnen de BRP-}
+            POPULATION Naam  CONTAINS 
+            [ 
+                "Edelaar",
+                "Jansen",
+                "Pietersen" ]
+
+
+        --voornaam
+        CONCEPT Voornaam "Alle voornamen van de Persoon zoals dit is vastgelegd binnen de BRP."
+            REPRESENT Voornaam TYPE ALPHANUMERIC
+            PURPOSE CONCEPT Voornaam
+                {+
+                In artikel 3 lid 2 is aangegeven dat de voorna(a)m(en) een onderdeel is/zijn van de identificatie van de zorgverlener.
+                +}
+
+        ---- relaties
+        RELATION naam [Persoon*Naam][UNI,TOT,SUR]
+            PRAGMA "De persoon met het id " " wordt " " genoemd."
+            MEANING "Elke ingeschrevene moet een naam hebben en een naam kan bij meerdere personen behoren."
+            POPULATION naam [Persoon*Naam] CONTAINS 
+            [ 
+                ("P001", "Edelaar"),
+                ("P002", "Jansen"),
+                ("P003", "Pietersen") ]
+        --IDENT "Persoon" : Persoon(naam[Persoon*Naam])
+        ROLE USER MAINTAINS TotNaam
+        RULE TotNaam : I[Persoon]  |-  naam[Persoon*Naam];naam[Persoon*Naam]~
+            MEANING "meaning"
+            MESSAGE "Er moet een naam ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I , TXT " is geen naam ingevuld.")
+
+
+        RELATION voornaam [Persoon*Voornaam][UNI]
+            PRAGMA "De persoon met het id " " heeft " " als voornaam."
+            MEANING "Elke ingeschrevene moet een voornaam hebben."
+            POPULATION voornaam [Persoon*Voornaam] CONTAINS 
+            [   ("P001","Gerard"),
+                ("P002","Jan"),
+                ("P003","Piet") ]
+        ROLE USER MAINTAINS TotVoornaam
+        RULE TotVoornaam : I[Persoon]  |-  voornaam[Persoon*Voornaam];voornaam[Persoon*Voornaam]~
+            MEANING "meaning"
+            MESSAGE "Er moet een voornaam ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I , TXT " is geen voornaam ingevuld.")
+
+
+
+        RELATION geboortedatum[Persoon*Datum][UNI]
+            MEANING "Elke ingeschrevene heeft een geboortedatum"
+            POPULATION geboortedatum [Persoon*Datum] CONTAINS 
+            [ ("P001",2000-01-01),
+                ("P002",1999-01-01),
+                ("P003",1970-12-13) ]
+        ROLE USER MAINTAINS TotGeboortedatum
+        RULE TotGeboortedatum : I[Persoon]  |-  geboortedatum[Persoon*Datum];geboortedatum[Persoon*Datum]~
+            MEANING "meaning"
+            MESSAGE "De geboortedatum ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I, TXT " is geen geboortedatum ingevuld.")
+
+
+        RELATION geslacht [Persoon*Geslacht][UNI]
+            MEANING "Elke ingeschrevene behoort tot een geslacht"
+            POPULATION geslacht [Persoon*Geslacht] CONTAINS [ 
+            ("P001","M"),
+            ("P002", "V"),
+            ("P003", "X") ]
+        ROLE USER MAINTAINS TotGeslacht
+        RULE TotGeslacht : I[Persoon]  |-  geslacht[Persoon*Geslacht];geslacht[Persoon*Geslacht]~
+            MEANING "meaning"
+            MESSAGE "Het geslacht moet ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I, TXT " is geen geslacht ingevuld.")
+
+
+        RELATION nationaliteit [Persoon*Nationaliteitid]
+            MEANING "Elke ingeschrevene heeft een nationaliteit"
+            POPULATION nationaliteit [Persoon * Nationaliteitid] CONTAINS 
+            [ ("P001","0001"),
+            ("P002", "0001"),
+            ("P003", "0052") ]
+        ROLE USER MAINTAINS "Elke persoon heeft een nationaliteit"
+        RULE "Elke persoon heeft een nationaliteit" : I[Persoon]  |-  nationaliteit[Persoon*Nationaliteitid];nationaliteit[Persoon*Nationaliteitid]~
+            MEANING "meaning"
+            MESSAGE "De nationaliteit moet ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I, TXT " is geen nationaliteit ingevuld.")
+
+
+
+        RELATION adres [Persoon*Adres]
+            MEANING "Elke ingeschrevene heeft een adres"
+            POPULATION adres [Persoon * Adres] CONTAINS 
+            [ ("P001","adres1"),
+            ("P002", "adres2"),
+            ("P003", "adres3") ]
+        ROLE USER MAINTAINS TotAdres
+        RULE TotAdres : I[Persoon]  |-  adres[Persoon*Adres];adres[Persoon*Adres]~
+            MEANING "meaning"
+            MESSAGE "Het adres moet ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I, TXT " met naam ", SRC naam[Persoon*Naam], TXT " is geen adres ingevuld.")
+
+        PURPOSE RULE "Create Inschrijving"
+        {+Nieuw persoon moet ingeschreven worden.+}
+        ROLE ExecEngine MAINTAINS "Create Inschrijving"
+        RULE "Create Inschrijving" :  I[Persoon]  |-  inschrijving[Persoon*InschrijfId];inschrijving[Persoon*InschrijfId]~
+        VIOLATION   (   TXT "{EX} InsAtom;InschrijfId"
+                    ,   TXT "{EX} InsPair;inschrijving;Persoon;", SRC I, TXT ";InschrijfId;_NEW"
+                    )
+
+
+
+    ENDPATTERN
+
+
+ENDCONTEXT

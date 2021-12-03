@@ -1,0 +1,27 @@
+CONTEXT CurrentDate
+
+    CONCEPT Datum ""
+    REPRESENT Datum TYPE DATE
+
+    CONCEPT Ja_of_Nee "description" ""
+    POPULATION   "Ja_of_Nee"  CONTAINS
+    ["Ja", "Nee"]
+
+    RELATION verplicht[Ja_of_Nee*Ja_of_Nee]
+    POPULATION verplicht CONTAINS
+    [("Ja","Ja")]
+
+    RELATION nietVerplicht[Ja_of_Nee*Ja_of_Nee]
+    POPULATION nietVerplicht CONTAINS
+    [("Nee","Nee")]
+
+
+
+    RELATION sessionToday[SESSION*Datum] -- or whatever the DateTime concept is called
+    REPRESENT Datum TYPE DATE
+    ROLE ExecEngine MAINTAINS "Initialize today's date"
+    RULE "Initialize today's date": I[SESSION] |- sessionToday;sessionToday~
+    VIOLATION (TXT "{EX} SetToday;sessionToday;SESSION;", SRC I, TXT ";Datum")
+
+
+ENDCONTEXT

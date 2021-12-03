@@ -1,0 +1,32 @@
+CONTEXT Big IN DUTCH
+    PATTERN Geslacht
+        PURPOSE PATTERN Geslacht
+        {+
+        
+        +}
+    --geslacht
+    CONCEPT Geslacht "De sekse van een individue."
+        PURPOSE CONCEPT Geslacht
+        {+
+        In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een onderdeel is van de identificatie van de zorgverlener. 
+        +}
+        POPULATION "Geslacht" CONTAINS [ "M", "V", "X" ]
+
+    CONCEPT Omschrijving "Omschrijving van het geslacht van een individue."
+        PURPOSE CONCEPT Omschrijving
+        {+
+        Nadere duiding van de afkorting die gebruik wordt voor geslacht.
+        +}
+        
+    RELATION geslacht[Geslacht*Omschrijving][UNI,TOT]
+        PRAGMA "De afkorting " " hoort bij de omschrijving " "."
+        POPULATION  geslacht  [Geslacht*Omschrijving] CONTAINS
+            [("M", "Man")
+            ,("V", "Vrouw")
+            ,("X", "Onbekend")]
+
+    ENDPATTERN
+
+
+
+ENDCONTEXT
