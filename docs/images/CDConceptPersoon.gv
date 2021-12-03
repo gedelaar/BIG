@@ -1,0 +1,37 @@
+digraph {
+	graph [bgcolor=white,
+		landscape=false,
+		mode=ipsep,
+		nodesep=1,
+		outputorder=edgesfirst,
+		overlap=voronoi,
+		rank=same,
+		rankdir=TB,
+		ranksep=2.5,
+		remincross=true,
+		sep=0.8
+	];
+	node [bgcolor=lightgray,
+		label="\N",
+		shape=box,
+		style="rounded,filled,bold"
+	];
+	edge [color=black,
+		len=4
+	];
+	cpt_1	[label=Adres];
+	cpt_2	[label=Datum];
+	cpt_3	[label=Geslacht];
+	cpt_4	[label=InschrijfId];
+	cpt_5	[label=Naam];
+	cpt_6	[label=Nationaliteitid];
+	cpt_7	[label=Persoon];
+	cpt_7 -> cpt_1	[label=adres];
+	cpt_7 -> cpt_2	[label="geboortedatum\n[uni]"];
+	cpt_7 -> cpt_3	[label="geslacht\n[uni]"];
+	cpt_7 -> cpt_4	[label="inschrijving\n[inj, tot]"];
+	cpt_7 -> cpt_5	[label="naam\n[uni, sur, tot]"];
+	cpt_7 -> cpt_6	[label=nationaliteit];
+	cpt_8	[label=Voornaam];
+	cpt_7 -> cpt_8	[label="voornaam\n[uni]"];
+}

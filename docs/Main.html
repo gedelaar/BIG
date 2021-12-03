@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl-NL" xml:lang="nl-NL">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Gerard Edelaar" />
+  <meta name="dcterms.date" content="2021-12-03" />
+  <title>Functioneel Ontwerp van ‘Big’</title>
+  <style>
+      </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Functioneel Ontwerp van Big</h1>
+<p class="author">Gerard Edelaar</p>
+<p class="date">3 december 2021</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:Intro"><span class="toc-section-number">1</span> Inleiding</a>
+<ul>
+<li><span class="toc-section-number">1.1</span> De wet BIG
+<ul>
+<li><span class="toc-section-number">1.1.1</span> Opdrachtgever</li>
+<li><span class="toc-section-number">1.1.2</span> Onderliggende wetgeving</li>
+<li><span class="toc-section-number">1.1.3</span> Huidig informatiesysteem</li>
+</ul></li>
+</ul></li>
+<li><a href="#sec:SharedLang"><span class="toc-section-number">2</span> Gemeenschappelijke taal</a>
+<ul>
+<li><a href="#sec:SharedLangtheme-525340773"><span class="toc-section-number">2.1</span> Weigering</a></li>
+<li><a href="#sec:SharedLangtheme-958700505"><span class="toc-section-number">2.2</span> Aantekening</a></li>
+<li><a href="#sec:SharedLangtheme-492427277"><span class="toc-section-number">2.3</span> Specialisme</a></li>
+<li><a href="#sec:SharedLangtheme--1889304666"><span class="toc-section-number">2.4</span> Inschrijfduur</a></li>
+<li><a href="#sec:SharedLangtheme-3323243"><span class="toc-section-number">2.5</span> Registratie</a></li>
+<li><a href="#sec:SharedLangtheme-511868836"><span class="toc-section-number">2.6</span> Inschrijving</a></li>
+<li><a href="#sec:SharedLangtheme--794606777"><span class="toc-section-number">2.7</span> Register</a></li>
+<li><a href="#sec:SharedLangtheme-1128353840"><span class="toc-section-number">2.8</span> Arts</a></li>
+<li><a href="#sec:SharedLangtheme-1982034445"><span class="toc-section-number">2.9</span> Tandarts</a></li>
+<li><a href="#sec:SharedLangtheme--231419835"><span class="toc-section-number">2.10</span> Apotheker</a></li>
+<li><a href="#sec:SharedLangtheme-1761117493"><span class="toc-section-number">2.11</span> Geslacht</a></li>
+<li><a href="#sec:SharedLangtheme--42209667"><span class="toc-section-number">2.12</span> Nationaliteit</a></li>
+<li><a href="#sec:SharedLangtheme-326791551"><span class="toc-section-number">2.13</span> Adres</a></li>
+<li><a href="#sec:SharedLangtheme-949118634"><span class="toc-section-number">2.14</span> Persoon</a></li>
+<li><a href="#sec:SharedLangtheme--1935921574"><span class="toc-section-number">2.15</span> Overig</a></li>
+<li><span class="toc-section-number">2.16</span> Referentietabel</li>
+</ul></li>
+<li><a href="#sec:Diagnosis"><span class="toc-section-number">3</span> Diagnose</a></li>
+<li><a href="#sec:ConceptualAnalysis"><span class="toc-section-number">4</span> Conceptuele Analyse</a>
+<ul>
+<li><span class="toc-section-number">4.1</span> De wet BIG
+<ul>
+<li><span class="toc-section-number">4.1.1</span> Opdrachtgever</li>
+<li><span class="toc-section-number">4.1.2</span> Onderliggende wetgeving</li>
+<li><span class="toc-section-number">4.1.3</span> Huidig informatiesysteem</li>
+</ul></li>
+<li><a href="#sec:SharedLangtheme-525340773"><span class="toc-section-number">4.2</span> Weigering</a></li>
+<li><a href="#sec:SharedLangtheme-958700505"><span class="toc-section-number">4.3</span> Aantekening</a></li>
+<li><a href="#sec:SharedLangtheme-492427277"><span class="toc-section-number">4.4</span> Specialisme</a></li>
+<li><a href="#sec:SharedLangtheme--1889304666"><span class="toc-section-number">4.5</span> Inschrijfduur</a></li>
+<li><a href="#sec:SharedLangtheme-3323243"><span class="toc-section-number">4.6</span> Registratie</a></li>
+<li><a href="#sec:SharedLangtheme-511868836"><span class="toc-section-number">4.7</span> Inschrijving</a>
+<ul>
+<li><span class="toc-section-number">4.7.1</span> InschrijfId</li>
+</ul></li>
+<li><a href="#sec:SharedLangtheme--794606777"><span class="toc-section-number">4.8</span> Register</a></li>
+<li><a href="#sec:SharedLangtheme-1128353840"><span class="toc-section-number">4.9</span> Arts</a></li>
+<li><a href="#sec:SharedLangtheme-1982034445"><span class="toc-section-number">4.10</span> Tandarts</a></li>
+<li><a href="#sec:SharedLangtheme--231419835"><span class="toc-section-number">4.11</span> Apotheker</a></li>
+<li><a href="#sec:SharedLangtheme-1761117493"><span class="toc-section-number">4.12</span> Geslacht</a></li>
+<li><a href="#sec:SharedLangtheme--42209667"><span class="toc-section-number">4.13</span> Nationaliteit</a>
+<ul>
+<li><span class="toc-section-number">4.13.1</span> Nationaliteitid</li>
+</ul></li>
+<li><a href="#sec:SharedLangtheme-326791551"><span class="toc-section-number">4.14</span> Adres</a></li>
+<li><a href="#sec:SharedLangtheme-949118634"><span class="toc-section-number">4.15</span> Persoon</a>
+<ul>
+<li><span class="toc-section-number">4.15.1</span> Persoon</li>
+</ul></li>
+<li><a href="#sec:SharedLangtheme--1935921574"><span class="toc-section-number">4.16</span> Overig</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="sec:Intro"><span class="header-section-number">1</span> Inleiding</h1>
+<h2 data-number="1.1"><span class="header-section-number">1.1</span> De wet BIG</h2>
+<p>Het BIG-register is onderdeel van de Wet op de beroepen in de individuele gezondheidszorg (BIG). Het doel van de Wet BIG is te zorgen dat de kwaliteit van onze gezondheidszorg hoog is en blijft. Ook beschermt de Wet BIG patiënten tegen ondeskundig en onzorgvuldig handelen van zorgverleners.</p>
+<p>De Wet BIG verdeelt beroepen die onder deze wet vallen in 3 groepen volgens hun wettelijke artikelnummer: artikel 3-, 34- en artikel 36a-beroepen. In het BIG-register worden alleen artikel 3 en artikel 36a-beroepen geregistreerd. Daarnaast bestaan er ook wettelijk erkende specialismen. Deze vallen onder artikel 14. Een specialisme wordt aangetekend bij een artikel 3 beroep. Beroepen die in het BIG-register staan geregistreerd vallen onder het tuchtrecht.</p>
+<p>Naast het registreren en herregistreren van deze beroepsbeoefenaren en de uitvoering van het tuchtrecht valt ook het erkennen van (buitenlandse) diploma’s en onder de taken van het BIG-register. Zorgverleners met een buitenlands diploma moeten voldoen aan de Nederlandse opleidingseisen. Hun opleidingsniveau moet gelijk zijn aan dat van een zorgverlener met een Nederlands diploma. Eventueel telt relevante werkervaring mee om het niveau te bepalen. Het CIBG neemt hierover een besluit op grond van het advies van de onafhankelijke deskundigencommissie, de Commissie buitenslands gediplomeerden volksgezondheid (CBGV).</p>
+<p>Tevens kunnen zorgprofessionals bij het BIG-register terecht voor het aanvragen van verklaringen en zorgt het bigregister voor het aantekenen van specialismen en voorschrijfbevoegdheden.</p>
+<p>Voor zorgconsumenten en organisaties biedt het BIG-register de mogelijkheid te controleren of zijn zorgverlener bevoegd is om zijn of haar beroep uit te oefenen.</p>
+<h3 data-number="1.1.1"><span class="header-section-number">1.1.1</span> Opdrachtgever</h3>
+<p>De Directie MEVA van het Ministerie van VWS is opdrachtgever voor de uitvoering van de Wet BIG.</p>
+<h3 data-number="1.1.2"><span class="header-section-number">1.1.2</span> Onderliggende wetgeving</h3>
+<ul>
+<li><a href="https://wetten.overheid.nl/BWBR0006251/2021-07-01">Wet op de beroepen in de individuele gezondheidszorg</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0024841/2020-07-01">Besluit periodieke registratie Wet BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0007648/2021-01-01">Registratiebesluit BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0008688/2021-04-01">Tuchtrechtbesluit BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0025605/2020-12-15">Regeling periodieke registratie Wet BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0031720/2014-02-01">Regeling tarieven registratie beroepsbeoefenaren Wet BIG</a></li>
+</ul>
+<p>Het BIGregister bevindt zich in een keten van informatieverstrekking en is sterk afhankelijk van informatie van derden. Zo zijn derden weer sterk afhankelijk van onze informatie.</p>
+<h3 data-number="1.1.3"><span class="header-section-number">1.1.3</span> Huidig informatiesysteem</h3>
+<p>De Wet BIG stamt uit 1993. Het huidige zaaksysteem (Zorro) is als opvolger van Ribiz ontwikkeld in 2007. Eind 2018 is het eerste deel van de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een volgend deel van de publieke website, waarmee op dat moment alleen de advieswijzer nog niet is omgezet.</p>
+<p>Dit document<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> definieert de functionaliteit van een informatiesysteem genaamd ‘Big’. Het definieert de database en de business-services van Big door middel van bedrijfsregels<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Deze afspraken staan opgesomd in  2 , geordend op thema. </p>
+<p>De diagnose in  3 is bedoeld voor de auteurs om gebreken uit hun Ampersand model op te sporen. </p>
+<p>De conceptuele analyse in  4 is bedoeld voor requirements engineers en architecten om de gemaakte afspraken te valideren en te formaliseren. Tevens is het bedoeld voor testers om eenduidige testgevallen te kunnen bepalen. De formalisatie in dit hoofdstuk maakt consistentie van de functionele specificatie bewijsbaar. Ook garandeert het een eenduidige interpretatie van de afspraken.</p>
+<h1 data-number="2" id="sec:SharedLang"><span class="header-section-number">2</span> Gemeenschappelijke taal</h1>
+<p>Dit hoofdstuk beschrijft functionele eisen ten behoeve van ‘Big’ in natuurlijke taal. Het hoofdstuk bevat definities en afspraken. Hiermee wordt beoogd dat verschillende belanghebbenden hun afspraken op dezelfde manier kunnen begrijpen. Alle definities en afspraken zijn genummerd omwille van de traceerbaarheid. </p>
+<h2 data-number="2.1" id="sec:SharedLangtheme-525340773"><span class="header-section-number">2.1</span> Weigering</h2>
+<p>In het volgende wordt de taal geïntroduceerd ten behoeve van Weigering.</p>
+<p>De inschrijving wordt geweigerd:</p>
+<ol>
+<li>indien de aanvrager niet voldoet aan de in hoofdstuk III bedoelde opleidingseisen;</li>
+<li>indien de aanvrager ingevolge in kracht van gewijsde gegane rechterlijke uitspraak onder curatele is gesteld wegens lichamelijke of geestelijke toestand;</li>
+<li>indien de aanvrager ingevolge rechterlijke uitspraak ontzet is van het recht het betrokken beroep uit te oefenen;</li>
+<li>indien zulks voortvloeit uit een op grond van deze wet jegens de aanvrager genomen maatregel;</li>
+<li>indien ten aanzien van de aanvrager een maatregel, berustende op een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing, van kracht is op grond waarvan de aanvrager zijn rechten ter zake van de uitoefening van het betrokken beroep in het land waar de beslissing is gegeven tijdelijk of blijvend geheel heeft verloren,</li>
+<li>indien de aanvrager de Nederlandse taal niet voldoende beheerst om zijn beroep in Nederland uit te kunnen oefenen.</li>
+</ol>
+<dl>
+<dt>Definitie Weigering:</dt>
+<dd>art.6-redenen voor afwijzing inschrijving.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 0: <span id="lst:SharedLangrelation-273471114">inschrijvingsWeigering[InschrijfId*Weigering]</span></dt>
+<dd>In artikel 6 staan de redenen voor het weigeren van de inschrijving bepaald.
+</dd>
+</dl>
+<h2 data-number="2.2" id="sec:SharedLangtheme-958700505"><span class="header-section-number">2.2</span> Aantekening</h2>
+Artikel 9 1. In het register wordt, indien zulks voortvloeit uit een op grond van deze wet genomen maatregel of besluit, een aantekening geplaatst van: a. een opgelegde berisping indien dit op grond van artikel 48, elfde lid, door het regionale tuchtcollege of het centraal tuchtcollege is beslist; b. een opgelegde geldboete indien dit op grond van artikel 48, elfde lid, door het regionale tuchtcollege of het centraal tuchtcollege is beslist; c. de schorsing van de bevoegdheid, bedoeld in artikel 48, eerste lid, onder d; d. de voorwaarden die zijn opgelegd; e. de gedeeltelijke ontzegging van de bevoegdheid het betrokken beroep uit te oefenen; f. de doorhaling van de inschrijving in het register op grond van artikel 7, onder c, d of e; g. de ontzegging van het recht wederom in het register te worden ingeschreven; h. het eindigen van een schorsing, anders dan ten gevolge van het verstrijken van de in een maatregel vastgestelde tijdsduur; i. het niet langer gelden van de onder e bedoelde voorwaarden, anders dan ten gevolge van het verstrijken van de proeftijd, en van de onder f bedoelde ontzegging; j. de bevoegdheid van een krachtens artikel 5 aangewezen beroepsbeoefenaar om de krachtens artikel 36, veertiende lid, aangewezen UR-geneesmiddelen voor te schrijven, onder vermelding van de categorie van beroepsbeoefenaren waartoe de betrokken beroepsbeoefenaar behoort; k. de op grond van artikel 48, tweede lid, opgelegde beperkingen met betrekking tot het beroepsmatig handelen op het gebied van de individuele gezondheidszorg; l. de beslissing als bedoeld in artikel 48a, tweede lid, tot de tenuitvoerlegging van een voorwaardelijke maatregel; m. de last tot onmiddellijke onthouding van de beroepsactiviteiten, bedoeld in artikel 85a. 2. In het register wordt ten aanzien van een geregistreerd of voormalig geregistreerd beroepsbeoefenaar een aantekening geplaatst van: a. een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing op grond waarvan de beroepsbeoefenaar zijn rechten ter zake van de uitoefening van het recht het betrokken beroep uit te oefenen in het land waar de beslissing is gegeven tijdelijk of blijvend geheel of gedeeltelijk heeft verloren. Indien die rechterlijke uitspraak tevens inhoudt een beperking in het recht om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die beperking eveneens aangetekend. b. een op grond van de Wet medisch tuchtrecht BES gegeven tuchtrechtelijke beslissing op grond waarvan de beroepsbeoefenaar zijn rechten ter zake van de uitoefening van het betrokken beroep op Bonaire, St. Eustatius en Saba tijdelijk of blijvend geheel of gedeeltelijk dan wel voorwaardelijk heeft verloren. Indien die tuchtrechtelijk beslissing tevens inhoudt een beperking in het recht om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die beperking eveneens aangetekend. 3. In het register wordt een aantekening geplaatst van een aan de beroepsbeoefenaar op grond van de Wet kwaliteit, klachten en geschillen zorg gegeven bevel of aanwijzing, indien dat bevel of die aanwijzing inhoudt dat aan de betrokkene een beperking is opgelegd in de uitoefening van het betrokken beroep. 4. In het register wordt ten aanzien van een geregistreerd of voormalig geregistreerd beroepsbeoefenaar een aantekening geplaatst van: a. rechterlijke uitspraken inhoudende de ontzetting van of beperking op het recht het betrokken beroep uit te oefenen. Indien die rechterlijke uitspraak tevens inhoudt een ontzetting van of beperking in het recht om ook andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die ontzetting of beperking eveneens aangetekend. b. een op grond van artikel 14c, tweede lid, van het Wetboek van Strafrecht gestelde bijzondere voorwaarde waaruit een inperking voortvloeit van de bevoegdheid het betrokken beroep uit te oefenen. Indien die bijzondere voorwaarde tevens inhoudt een beperking van de bevoegdheid om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die inperking eveneens aangetekend. 5. Bij een aantekening als bedoeld in het eerste tot en met vierde lid wordt vermeld: a. de datum waarop van de schorsing een aantekening wordt geplaatst alsmede de duur van de schorsing, indien die reeds bekend is; b. de datum waarop de berisping, de geldboete, de in het eerste lid bedoelde voorwaarden, de ontzegging, de doorhaling, de ontzegging van het recht op wederinschrijving, de last tot onmiddellijke onthouding van de beroepsactiviteiten of het bevel of de aanwijzing, bedoeld in het derde lid, zijn gaan gelden alsmede, ingeval de voorwaarden of de in het tweede lid bedoelde maatregel tot een proeftijd zijn beperkt, de duur daarvan dan wel c. de datum waarop de schorsing of de last tot onmiddellijke onthouding van de beroepsactiviteiten is geëindigd of vanaf welke de in eerste lid bedoelde voorwaarden of de in het tweede en derde lid bedoelde maatregelen niet langer gelden. 6. Indien de in het tweede lid bedoelde aantekening in het register is geplaatst, geldt de in het buitenland dan wel de op grond van de Wet medisch tuchtrecht BES opgelegde bevoegdheidsbeperking ook voor de beroepsuitoefening in Nederland. 7. De in het eerste, tweede, derde, vierde en achtste lid bedoelde aantekening wordt gedurende een bij algemene maatregel van bestuur bepaalde termijn in het register vermeld en daarbij wordt indien bekend de aard van het vergrijp vermeld dat tot de aantekening heeft geleid, alsmede een met redenen omklede toelichting op een genomen maatregel als bedoeld in artikel 48, eerste lid, onder b en c. 8. In het register wordt voorts een aantekening geplaatst van een maatregel als bedoeld in artikel 7, eerste lid, onderdelen b en c, van de Wet medisch tuchtrecht BES, indien dit op grond van artikel 7, vijfde lid, van de Wet medisch tuchtrecht BES, door het College is beslist.
+De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op het mogen uitvoeren van de zorgtaak.
+<dl>
+<dt>Definitie Aantekening:</dt>
+<dd>art.7a.2-zie artikel 9
+</dd>
+</dl>
+Een aantekening als bedoeld in artikel 9, tweede lid, onderdeel a van de Wet BIG is bedoeld om een maatregel ten aanzien van een ingeschrevene te registreren.
+<dl>
+<dt>Relatie 1: <span id="lst:SharedLangrelation--461188124">aantekening[Aantekening*RegisterId]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent en totaal.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 2: <span id="lst:SharedLangrelation-668542886">aantekening[Persoon*Aantekening]</span></dt>
+<dd>Bevat aantekening op een Big-ingeschrevene.
+</dd>
+</dl>
+Een register registreert een beschikking als bedoeld in artikel 10 van de Wet BIG om een aantekening in datzelfde register te onderbouwen.
+<dl>
+<dt>Relatie 3: <span id="lst:SharedLangrelation--1799783339">beschikking[Aantekening*Beschikking]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<h2 data-number="2.3" id="sec:SharedLangtheme-492427277"><span class="header-section-number">2.3</span> Specialisme</h2>
+<p>In het volgende wordt de taal geïntroduceerd ten behoeve van Specialisme.</p>
+Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden dat degene die de opleiding tot specialist heeft voltooid wordt ingeschreven als specialist voor een bij de regeling bepaalde periode en dat een aansluitende hernieuwde inschrijving slechts plaatsvindt indien de specialist gedurende een bij die regeling bepaald tijdvak, voorafgaand aan de indiening van de aanvraag tot hernieuwde inschrijving, regelmatig op het desbetreffende deelgebied van de beroepsuitoefening werkzaam is geweest dan wel het beroep zal uitoefenen onder de bij de hernieuwde inschrijving aan te geven scholingsvoorwaarden.
+<dl>
+<dt>Definitie SpecialistenRegister:</dt>
+<dd>In artikel 8 lid 3 wordt aangegeven dat een ingeschrevene opgenomen in kan zijn in een specialistenregister.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 4: <span id="lst:SharedLangrelation--848830822">opgenomenInSpecialistenRegister[Persoon*JaOfNee]</span></dt>
+<dd>Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 5: <span id="lst:SharedLangrelation-24842000">specialist[Persoon*SpecialistenRegister]</span></dt>
+<dd>Een Persoon is specialist wanneer deze in het specialistenRegister is opgenomen.
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<h2 data-number="2.4" id="sec:SharedLangtheme--1889304666"><span class="header-section-number">2.4</span> Inschrijfduur</h2>
+Inschrijvingen in een register zijn beperkt geldig. Artikel 8, eerste lid van de Wet BIG stelt: "Bij algemene maatregel van bestuur wordt bepaald dat de inschrijving in een bij de maatregel aangewezen register wordt doorgehaald indien na de in het tweede lid bedoelde datum een bij de maatregel aangegeven periode is verstreken." Artikel 2, tweede lid van het Besluit periodieke registratie Wet BIG stelt deze periode op vijf jaren.
+Een register registreert de datum waarop de ingeschrevene een diploma heeft behaald op grond waarvan de ingeschrevene een erkenning van beroepskwalificaties als bedoeld in de Algemene wet erkenning EU-beroepskwalificaties heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere diploma's zijn, kunnen er dus ook meerdere diplomadata zijn voor dezelfde inschrijving.
+<dl>
+<dt>Relatie 6: <span id="lst:SharedLangrelation--581170035">diplomadatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een erkend diploma bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
+<dl>
+<dt>Relatie 7: <span id="lst:SharedLangrelation-1159138999">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+Voor elke denkbare datum d1 en d2 geldt d1 eerder d2 dan en slechts dan als d1 &lt; d2.
+<dl>
+<dt>Relatie 8: <span id="lst:SharedLangrelation-91707643">eerder[Datum*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
+<dl>
+<dt>Relatie 9: <span id="lst:SharedLangrelation--1891032119">einddatum[InschrijfId*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+<dl>
+<dt>Relatie 10: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+Om de inschrijvingsduur te bepalen rekenen we met de meest recente van de geregistreerde diplomadata, verklaringdata en getuigschriftdata. Uiteindelijk is er dus precies één datum die gebruikt wordt om de inschrijfduur te bepalen.
+<dl>
+<dt>Relatie 11: <span id="lst:SharedLangrelation-621160912">kwalificatiedatum[InschrijfId*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Relatie 12: <span id="lst:SharedLangrelation--883250738">vandaag[Datum*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+Een register registreert de datum waarop de ingeschrevene een in artikel 41, eerste lid, onder b, bedoelde verklaring heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere van dit soort verklaringen zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+<dl>
+<dt>Relatie 13: <span id="lst:SharedLangrelation--358045080">verklaringdatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een verklaring bij een inschrijving geregistreerd die relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+<h2 data-number="2.5" id="sec:SharedLangtheme-3323243"><span class="header-section-number">2.5</span> Registratie</h2>
+<em>Een registratie is de inschrijving in een, door de Minister vastgesteld, zorgregister van een persoon.</em>
+<p>Er is sprake van registratie van een ingeschrevene wanneer het inschrijvingsproces geheel afgerond is en aan alle voorwaarden is voldaan.</p>
+<dl>
+<dt>Definitie Registratie:</dt>
+<dd>Betreft een complete afgeronde inschrijving
+</dd>
+</dl>
+<dl>
+<dt>Relatie 14: <span id="lst:SharedLangrelation--1758980505">registratie[Registratie*InschrijfId]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent, injectief en totaal.
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>R001<em> correspondeert met </em>I001<em> in de relatie </em>registratie.</li>
+</ul>
+<dl>
+<dt>Relatie 15: <span id="lst:SharedLangrelation-393734920">registratiedatum[Registratie*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+Bij het registreren wordt de datum vastgelegd.
+<dl>
+<dt>Afspraak 0: <span id="agr:SharedLangrule--1483780593">"Voeg datum registratie toe"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+Nieuw persoon krijgt een registratie.
+<dl>
+<dt>Afspraak 1: <span id="agr:SharedLangrule-119394377">"Voeg_Registratie_toe(automatisch)"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+<h2 data-number="2.6" id="sec:SharedLangtheme-511868836"><span class="header-section-number">2.6</span> Inschrijving</h2>
+Inschrijving legt de relatie vast tussen Persoon en het Register.
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+<dl>
+<dt>Definitie InschrijfId:</dt>
+<dd>De aanmelding van persoon in een register
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de datum en het tijdstip van inschrijving een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie InschrijfTijdstip:</dt>
+<dd>Het inschrijftijdstip bevat de datum en tijdstip van inschrijving in Y-m-d h:i:s-formaat.
+</dd>
+</dl>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Het BIG-nummer identificeert de BIG-ingeschrevene.
+<dl>
+<dt>Definitie Bignummer:</dt>
+<dd>Het identificatienummer van de BIG-ingeschrevene.
+</dd>
+</dl>
+De koppeling tussen een Persoon en een Bignummer. Dit is een één op één koppeling die automatisch wordt aangebracht.
+<dl>
+<dt>Relatie 16: <span id="lst:SharedLangrelation--1829674425">bignummer[InschrijfId*Bignummer]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent en injectief.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>I001<em> correspondeert met </em>B001<em> in de relatie </em>bignummer.</li>
+<li>I003<em> correspondeert met </em>B003<em> in de relatie </em>bignummer.</li>
+<li>I002<em> correspondeert met </em>B002<em> in de relatie </em>bignummer.</li>
+</ul>
+<dl>
+<dt>Relatie 17: <span id="lst:SharedLangrelation--365720889">inschrijftijdstip[InschrijfId*InschrijfTijdstip]</span></dt>
+<dd>Elke inschrijving vindt plaats op een tijdstip.
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 18: <span id="lst:SharedLangrelation--258475395">inschrijving[Persoon*InschrijfId]</span></dt>
+<dd>Elk persoon die BIG geregistreerd wil zijn, moet zijn ingeschreven. Een persoon kan meerdere inschrijvingen hebben.
+</dd>
+<dd>Deze relatie is injectief en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>P001<em> correspondeert met </em>I001<em> in de relatie </em>inschrijving.</li>
+<li>P002<em> correspondeert met </em>I002<em> in de relatie </em>inschrijving.</li>
+<li>P003<em> correspondeert met </em>I003<em> in de relatie </em>inschrijving.</li>
+</ul>
+<dl>
+<dt>Relatie 19: <span id="lst:SharedLangrelation--54273629">inschrijving[RegisterId*InschrijfId]</span></dt>
+<dd>Het vastleggen van de koppeling tussen het register en de inschrijving.
+</dd>
+<dd>Deze relatie is injectief.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>1<em> correspondeert met </em>I001<em> in de relatie </em>inschrijving.</li>
+<li>1<em> correspondeert met </em>I003<em> in de relatie </em>inschrijving.</li>
+<li>2<em> correspondeert met </em>I002<em> in de relatie </em>inschrijving.</li>
+</ul>
+<dl>
+<dt>Afspraak 2: <span id="agr:SharedLangrule-296661925">"TotInschrijvingBig"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+Nieuw persoon krijgt een BIGnummer.
+<dl>
+<dt>Afspraak 3: <span id="agr:SharedLangrule--636050350">"Voeg_Bignummer_toe(automatisch)"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+Het tijdstip waarop de inschrijving wordt vastgelegd.
+<dl>
+<dt>Afspraak 4: <span id="agr:SharedLangrule--1033180058">"Voeg_inschrijftijd_toe_(automatisch)"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+<h2 data-number="2.7" id="sec:SharedLangtheme--794606777"><span class="header-section-number">2.7</span> Register</h2>
+Het BIG-register (Beroepen in de Individuele Gezondheidszorg) is een wettelijk, online en openbaar register. Alleen wie in het BIG-register staat, mag een beschermde beroepstitel voeren en mag de bij het beroep horende voorbehouden handelingen zelfstandig uitvoeren. Iedereen kan het register raadplegen. Het BIG-register verzorgt ook de erkenning van buitenlandse diploma’s.
+<dl>
+<dt>Definitie RegisterId:</dt>
+<dd>Technisch element voor het register.
+</dd>
+</dl>
+In artikel 1 lid 5 wordt aangegeven dat elk Register wordt ingesteld en beheerd door Onze Minister. In artikel 3 lid 6 wordt gesteld dat de registers worden ingesteld ten einde te kunnen voldoen aan een verzoek om informatie als bedoeld in artikel 12 en ten behoeve van het toezicht op de uitvoering van de artikelen 4 en 17.
+<dl>
+<dt>Definitie Register:</dt>
+<dd>Een register is een officiele lijst van personen die aan de, door het register gestelde voorwaarden voldoen.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 20: <span id="lst:SharedLangrelation--1721361442">einddatum[RegisterId*Datum]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 21: <span id="lst:SharedLangrelation-814050500">getuigschrift[RegisterId*Ja_of_Nee]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>8<em> correspondeert met </em>Ja<em> in de relatie </em>getuigschrift.</li>
+<li>9<em> correspondeert met </em>Ja<em> in de relatie </em>getuigschrift.</li>
+<li>4<em> correspondeert met </em>Ja<em> in de relatie </em>getuigschrift.</li>
+</ul>
+<dl>
+<dt>Relatie 22: <span id="lst:SharedLangrelation-1611926677">ingangsdatum[RegisterId*Datum]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>8<em> correspondeert met </em>2000-01-01<em> in de relatie </em>ingangsdatum.</li>
+<li>9<em> correspondeert met </em>2000-01-01<em> in de relatie </em>ingangsdatum.</li>
+<li>4<em> correspondeert met </em>2000-01-01<em> in de relatie </em>ingangsdatum.</li>
+</ul>
+<dl>
+<dt>Relatie 23: <span id="lst:SharedLangrelation--1314261252">register[RegisterId*Register]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent, injectief en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>8<em> correspondeert met </em>verpleegkundige<em> in de relatie </em>register.</li>
+<li>9<em> correspondeert met </em>physician assistant<em> in de relatie </em>register.</li>
+<li>4<em> correspondeert met </em>gezondheidszorgpsycholoog<em> in de relatie </em>register.</li>
+</ul>
+<dl>
+<dt>Afspraak 5: <span id="agr:SharedLangrule-1788001325">"TotGetuigschrift"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<h2 data-number="2.8" id="sec:SharedLangtheme-1128353840"><span class="header-section-number">2.8</span> Arts</h2>
+Het register voor arts bevat alle attributen van het register arts.
+<dl>
+<dt>Relatie 24: <span id="lst:SharedLangrelation--2010660188">arts[RegisterId*RegisterId]</span></dt>
+<dd>
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>1<em> correspondeert met </em>1<em> in de relatie </em>arts.</li>
+</ul>
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+<dl>
+<dt>Relatie 25: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 26: <span id="lst:SharedLangrelation-1253029730">herregistratie[InschrijfId*Datum]</span></dt>
+<dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
+</dd>
+</dl>
+<h2 data-number="2.9" id="sec:SharedLangtheme-1982034445"><span class="header-section-number">2.9</span> Tandarts</h2>
+Het register voor tandarts bevat alle attributen van het register tandarts.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+<dl>
+<dt>Relatie 27: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 28: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 29: <span id="lst:SharedLangrelation-829158097">tandarts[RegisterId*RegisterId]</span></dt>
+<dd>
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>2<em> correspondeert met </em>2<em> in de relatie </em>tandarts.</li>
+</ul>
+<h2 data-number="2.10" id="sec:SharedLangtheme--231419835"><span class="header-section-number">2.10</span> Apotheker</h2>
+Het register voor tandarts bevat alle attributen van het register tandarts.
+<dl>
+<dt>Relatie 30: <span id="lst:SharedLangrelation-2039411417">apotheker[RegisterId*RegisterId]</span></dt>
+<dd>
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>3<em> correspondeert met </em>3<em> in de relatie </em>apotheker.</li>
+</ul>
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+<dl>
+<dt>Relatie 31: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
+<dd>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 32: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
+</dd>
+</dl>
+<h2 data-number="2.11" id="sec:SharedLangtheme-1761117493"><span class="header-section-number">2.11</span> Geslacht</h2>
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Geslacht:</dt>
+<dd>De sekse van een individue.
+</dd>
+</dl>
+Nadere duiding van de afkorting die gebruik wordt voor geslacht.
+<dl>
+<dt>Definitie Omschrijving:</dt>
+<dd>Omschrijving van het geslacht van een individue.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 33: <span id="lst:SharedLangrelation-204512575">geslacht[Geslacht*Omschrijving]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li><em>De afkorting </em> M <em> hoort bij de omschrijving </em> Man <em>.</em>.</li>
+<li><em>De afkorting </em> X <em> hoort bij de omschrijving </em> Onbekend <em>.</em>.</li>
+<li><em>De afkorting </em> V <em> hoort bij de omschrijving </em> Vrouw <em>.</em>.</li>
+</ul>
+<h2 data-number="2.12" id="sec:SharedLangtheme--42209667"><span class="header-section-number">2.12</span> Nationaliteit</h2>
+Nationaliteit duidt de relatie aan tussen een individu en een staat.
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene bij Inschrijving moet worden vermeld, als onderdeel van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Nationaliteitid:</dt>
+<dd>De Nationaliteit wordt aangeduid middels een 4-cijferige code.
+</dd>
+</dl>
+Door een omschrijving toe te voegen wordt de nationaliteitcodering leesbaar.
+<dl>
+<dt>Definitie Nationaliteit:</dt>
+<dd>De omschrijving van een nationaliteit bevat de tekstuele uitvoering van de nationaliteitscodering.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 34: <span id="lst:SharedLangrelation-1676492216">einddatum[Nationaliteitid*Datum]</span></dt>
+<dd>Einddatum van gebruik van de Nationaliteit.
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 35: <span id="lst:SharedLangrelation-987556695">ingangsdatum[Nationaliteitid*Datum]</span></dt>
+<dd>Ingangsdatum van de Nationaliteit.
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li><em>De Nationaliteit </em> 0052 <em> heeft als ingangsdatum </em> 1965-01-01 <em>.</em>.</li>
+<li><em>De Nationaliteit </em> 0001 <em> heeft als ingangsdatum </em> 1975-01-01 <em>.</em>.</li>
+<li><em>De Nationaliteit </em> 0077 <em> heeft als ingangsdatum </em> 1985-01-01 <em>.</em>.</li>
+</ul>
+<dl>
+<dt>Relatie 36: <span id="lst:SharedLangrelation--876518158">nationaliteit[Nationaliteitid*Nationaliteit]</span></dt>
+<dd>Het aanbrengen van de koppeling tussen de nationaliteitcode en de bijbehorende omschrijving. Bij elke code hoort maar één omschrijving en de omschrijving behoort maar tot één code.
+</dd>
+<dd>Deze relatie is univalent, injectief en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li><em>Nationaliteit code </em> 0052 <em> heeft omschrijving </em> Belgische <em>.</em>.</li>
+<li><em>Nationaliteit code </em> 0001 <em> heeft omschrijving </em> Nederlandse <em>.</em>.</li>
+<li><em>Nationaliteit code </em> 0077 <em> heeft omschrijving </em> Spaanse <em>.</em>.</li>
+</ul>
+<dl>
+<dt>Afspraak 6: <span id="agr:SharedLangrule--1253110974">"Elke nationaliteit heeft een ingangsdatum"</span>.</dt>
+<dd>Elk opgevoerde nationaliteit heeft een ingangsdatum voor het gebruik van de nationaliteit.
+</dd>
+</dl>
+<h2 data-number="2.13" id="sec:SharedLangtheme-326791551"><span class="header-section-number">2.13</span> Adres</h2>
+<p>In het volgende wordt de taal geïntroduceerd ten behoeve van Adres.</p>
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Adres:</dt>
+<dd>Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
+</dd>
+</dl>
+<dl>
+<dt>Definitie Binnenlandsadres:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Definitie Buitenlandsadres:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Relatie 37: <span id="lst:SharedLangrelation-1203540427">binnenlandsadres[Adres*Binnenlandsadres]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 38: <span id="lst:SharedLangrelation--524362813">buitenlandsadres[Adres*Buitenlandsadres]</span></dt>
+<dd>
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+<h2 data-number="2.14" id="sec:SharedLangtheme-949118634"><span class="header-section-number">2.14</span> Persoon</h2>
+<p>In het volgende wordt de taal geïntroduceerd ten behoeve van Persoon.</p>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn personen.
+<dl>
+<dt>Definitie Persoon:</dt>
+<dd>Een Persoon representeerd een persoons-id dat opgenomen is in het BIG-register.
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de naam een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Naam:</dt>
+<dd>Aanduiding van de familienaam zoals vastgelegd in de BRP.
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de voorna(a)m(en) een onderdeel is/zijn van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Voornaam:</dt>
+<dd>Alle voornamen van de Persoon zoals dit is vastgelegd binnen de BRP.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 39: <span id="lst:SharedLangrelation-684261894">adres[Persoon*Adres]</span></dt>
+<dd>Elke ingeschrevene heeft een adres
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>P001<em> correspondeert met </em>adres1<em> in de relatie </em>adres.</li>
+<li>P002<em> correspondeert met </em>adres2<em> in de relatie </em>adres.</li>
+<li>P003<em> correspondeert met </em>adres3<em> in de relatie </em>adres.</li>
+</ul>
+<dl>
+<dt>Relatie 40: <span id="lst:SharedLangrelation--1861015213">geboortedatum[Persoon*Datum]</span></dt>
+<dd>Elke ingeschrevene heeft een geboortedatum
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>P001<em> correspondeert met </em>2000-01-01<em> in de relatie </em>geboortedatum.</li>
+<li>P002<em> correspondeert met </em>1999-01-01<em> in de relatie </em>geboortedatum.</li>
+<li>P003<em> correspondeert met </em>1970-12-13<em> in de relatie </em>geboortedatum.</li>
+</ul>
+<dl>
+<dt>Relatie 41: <span id="lst:SharedLangrelation--2020436026">geslacht[Persoon*Geslacht]</span></dt>
+<dd>Elke ingeschrevene behoort tot een geslacht
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>P001<em> correspondeert met </em>M<em> in de relatie </em>geslacht.</li>
+<li>P002<em> correspondeert met </em>V<em> in de relatie </em>geslacht.</li>
+<li>P003<em> correspondeert met </em>X<em> in de relatie </em>geslacht.</li>
+</ul>
+<dl>
+<dt>Relatie 42: <span id="lst:SharedLangrelation-1393737542">naam[Persoon*Naam]</span></dt>
+<dd>Elke ingeschrevene moet een naam hebben en een naam kan bij meerdere personen behoren.
+</dd>
+<dd>Deze relatie is univalent, surjectief en totaal.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li><em>De persoon met het id </em> P001 <em> wordt </em> Edelaar <em> genoemd.</em>.</li>
+<li><em>De persoon met het id </em> P002 <em> wordt </em> Jansen <em> genoemd.</em>.</li>
+<li><em>De persoon met het id </em> P003 <em> wordt </em> Pietersen <em> genoemd.</em>.</li>
+</ul>
+<dl>
+<dt>Relatie 43: <span id="lst:SharedLangrelation-1108261645">nationaliteit[Persoon*Nationaliteitid]</span></dt>
+<dd>Elke ingeschrevene heeft een nationaliteit
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>P001<em> correspondeert met </em>0001<em> in de relatie </em>nationaliteit.</li>
+<li>P002<em> correspondeert met </em>0001<em> in de relatie </em>nationaliteit.</li>
+<li>P003<em> correspondeert met </em>0052<em> in de relatie </em>nationaliteit.</li>
+</ul>
+<dl>
+<dt>Relatie 44: <span id="lst:SharedLangrelation-1899248582">voornaam[Persoon*Voornaam]</span></dt>
+<dd>Elke ingeschrevene moet een voornaam hebben.
+</dd>
+<dd>Deze relatie is univalent.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li><em>De persoon met het id </em> P001 <em> heeft </em> Gerard <em> als voornaam.</em>.</li>
+<li><em>De persoon met het id </em> P002 <em> heeft </em> Jan <em> als voornaam.</em>.</li>
+<li><em>De persoon met het id </em> P003 <em> heeft </em> Piet <em> als voornaam.</em>.</li>
+</ul>
+Nieuw persoon moet ingeschreven worden.
+<dl>
+<dt>Afspraak 7: <span id="agr:SharedLangrule--1106692888">"Create Inschrijving"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 8: <span id="agr:SharedLangrule-1405707674">"Elke persoon heeft een nationaliteit"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 9: <span id="agr:SharedLangrule-1277176110">"TotAdres"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 10: <span id="agr:SharedLangrule--1068663821">"TotGeboortedatum"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 11: <span id="agr:SharedLangrule--1279815328">"TotGeslacht"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 12: <span id="agr:SharedLangrule-1369596896">"TotNaam"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<dl>
+<dt>Afspraak 13: <span id="agr:SharedLangrule--463375564">"TotVoornaam"</span>.</dt>
+<dd>meaning
+</dd>
+</dl>
+<h2 data-number="2.15" id="sec:SharedLangtheme--1935921574"><span class="header-section-number">2.15</span> Overig</h2>
+<p>Deze paragraaf beschrijft de relaties en concepten die niet in voorgaande secties zijn beschreven.</p>
+<dl>
+<dt>Definitie Datum:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Definitie Ja_of_Nee:</dt>
+<dd>description
+</dd>
+</dl>
+<p>In Artikel 7 wordt beschreven in welke situatie de inschrijving wordt doorgehaald:</p>
+<ol>
+<li>in geval van overlijden van de ingeschrevene;</li>
+<li>op verzoek van de ingeschrevene;</li>
+<li>indien de ingeschrevene in een der in artikel 6, onder b of c, genoemde omstandigheden is komen te verkeren;</li>
+<li>indien zulks voortvloeit uit een op grond van deze wet jegens de ingeschrevene genomen maatregel;</li>
+<li>indien ten aanzien van de ingeschrevene een maatregel, berustende op een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing van kracht is, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep in het land waar de beslissing is gegeven tijdelijk of blijvend geheel heeft verloren;</li>
+<li>indien zulks voortvloeit uit een maatregel, berustend op een op grond van de Wet medisch tuchtrecht BES opgelegde maatregel, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep tijdelijk of blijvend geheel heeft verloren.</li>
+</ol>
+<dl>
+<dt>Definitie Doorhaling:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Relatie 45: <span id="lst:SharedLangrelation--921375706">doorgehaald[InschrijfId*Doorhaling]</span></dt>
+<dd>In artikel 7 gestelde sitatuaties waarin de inschrijving wordt doorgehaald. Deze heeft ook consequenties op de bijbehorende registraties.
+</dd>
+<dd>Deze relatie is univalent en injectief.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 46: <span id="lst:SharedLangrelation-143006231">nietVerplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dd>
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>Nee<em> correspondeert met </em>Nee<em> in de relatie </em>nietVerplicht.</li>
+</ul>
+<dl>
+<dt>Relatie 47: <span id="lst:SharedLangrelation-147316858">sessionToday[SESSION*Datum]</span></dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Relatie 48: <span id="lst:SharedLangrelation--1355593863">verplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dd>
+</dd>
+</dl>
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+<ul>
+<li>Ja<em> correspondeert met </em>Ja<em> in de relatie </em>verplicht.</li>
+</ul>
+<dl>
+<dt>Afspraak 14: <span id="agr:SharedLangrule-64372945">"Initialize today's date"</span>.</dt>
+<dd>Deze regel  is ongedocumenteerd.
+</dd>
+</dl>
+<h2 data-number="2.16"><span class="header-section-number">2.16</span> Referentietabel</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Wet</th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">Artikel</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+
+</table>
+<h1 data-number="3" id="sec:Diagnosis"><span class="header-section-number">3</span> Diagnose</h1>
+<p>Dit hoofdstuk geeft een analyse van het Ampersand-script van <em>‘Big’</em>. Deze analyse is bedoeld voor de auteur(s) van dit script. Op basis hiervan kunnen zij het script completeren en mogelijke tekortkomingen verbeteren.</p>
+<p><em>Big</em> kent regels aan rollen toe. De volgende tabel toont welke regels door een bepaalde rol worden bewaakt.</p>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regel</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">Beheerder</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;">ExecEngine</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">MEDEWERKER</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;">USER</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Create Inschrijving</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Elke nationaliteit heeft een ingangsdatum</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Elke persoon heeft een nationaliteit</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Initialize today's date</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotAdres</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotGeboortedatum</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotGeslacht</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotGetuigschrift</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotInschrijvingBig</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotNaam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TotVoornaam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg datum registratie toe</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg_Bignummer_toe(automatisch)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg_Registratie_toe(automatisch)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg_inschrijftijd_toe_(automatisch)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Het oogmerk (purpose) van de concepten: Beschikking, Datum, JaOfNee, Ja_of_Nee, RegisterId, SESSION, Beschikking, JaOfNee en SESSION is niet gedocumenteerd.</p>
+<p>Van 16 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">apotheker[RegisterId*RegisterId]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">arts[RegisterId*RegisterId]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">binnenlandsadres[Adres*Binnenlandsadres]</annotation></semantics></math></p>
+<p>Het oogmerk (purpose) van 19 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>*</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">aantekening[Persoon*Aantekening]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>*</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">adres[Persoon*Adres]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald[InschrijfId*Doorhaling]</annotation></semantics></math></p>
+<p>De betekenis van relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">aantekening[Aantekening*RegisterId]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>*</mo><mi>B</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">beschikking[Aantekening*Beschikking]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">bignummer[InschrijfId*Bignummer]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">eerder[Datum*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">einddatum[InschrijfId*Datum]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">kwalificatiedatum[InschrijfId*Datum]</annotation></semantics></math> is niet gedocumenteerd.</p>
+<p>Alle concepten, die in dit document zijn voorzien van een definitie, worden gebruikt in relaties.</p>
+<p>Relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">aantekening</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">aantekening</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">apotheker</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">arts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">beschikking</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">binnenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">buitenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">diplomadatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">doorgehaald</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">eerder</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">geslacht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">getuigschriftdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">ingangsdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">inschrijvingsWeigering</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">kwalificatiedatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nationaliteit</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>V</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nietVerplicht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">opgenomenInSpecialistenRegister</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">register</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">tandarts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">vandaag</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">verklaringdatum</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">verplicht</annotation></semantics></math> worden niet gebruikt in regels. </p>
+<p> 3.1  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Weigering’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternWeigering.png" title="Conceptueel diagram van relaties in Weigering" id="fig:Conceptueel diagram van relaties in Weigering" alt="Figuur 3.1: Conceptueel diagram van relaties in Weigering" /><figcaption aria-hidden="true">Figuur 3.1: Conceptueel diagram van relaties in Weigering</figcaption>
+</figure>
+<p> 3.2  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Aantekening’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAantekening.png" title="Conceptueel diagram van relaties in Aantekening" id="fig:Conceptueel diagram van relaties in Aantekening" alt="Figuur 3.2: Conceptueel diagram van relaties in Aantekening" /><figcaption aria-hidden="true">Figuur 3.2: Conceptueel diagram van relaties in Aantekening</figcaption>
+</figure>
+<p> 3.3  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Specialisme’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternSpecialisme.png" title="Conceptueel diagram van relaties in Specialisme" id="fig:Conceptueel diagram van relaties in Specialisme" alt="Figuur 3.3: Conceptueel diagram van relaties in Specialisme" /><figcaption aria-hidden="true">Figuur 3.3: Conceptueel diagram van relaties in Specialisme</figcaption>
+</figure>
+<p> 3.4  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Inschrijfduur’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternInschrijfduur.png" title="Conceptueel diagram van relaties in Inschrijfduur" id="fig:Conceptueel diagram van relaties in Inschrijfduur" alt="Figuur 3.4: Conceptueel diagram van relaties in Inschrijfduur" /><figcaption aria-hidden="true">Figuur 3.4: Conceptueel diagram van relaties in Inschrijfduur</figcaption>
+</figure>
+<p> 3.5  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Inschrijving’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternInschrijving.png" title="Conceptueel diagram van relaties in Inschrijving" id="fig:Conceptueel diagram van relaties in Inschrijving" alt="Figuur 3.5: Conceptueel diagram van relaties in Inschrijving" /><figcaption aria-hidden="true">Figuur 3.5: Conceptueel diagram van relaties in Inschrijving</figcaption>
+</figure>
+<p> 3.6  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Register’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternRegister.png" title="Conceptueel diagram van relaties in Register" id="fig:Conceptueel diagram van relaties in Register" alt="Figuur 3.6: Conceptueel diagram van relaties in Register" /><figcaption aria-hidden="true">Figuur 3.6: Conceptueel diagram van relaties in Register</figcaption>
+</figure>
+<p> 3.7  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Arts’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternArts.png" title="Conceptueel diagram van relaties in Arts" id="fig:Conceptueel diagram van relaties in Arts" alt="Figuur 3.7: Conceptueel diagram van relaties in Arts" /><figcaption aria-hidden="true">Figuur 3.7: Conceptueel diagram van relaties in Arts</figcaption>
+</figure>
+<p> 3.8  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Tandarts’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternTandarts.png" title="Conceptueel diagram van relaties in Tandarts" id="fig:Conceptueel diagram van relaties in Tandarts" alt="Figuur 3.8: Conceptueel diagram van relaties in Tandarts" /><figcaption aria-hidden="true">Figuur 3.8: Conceptueel diagram van relaties in Tandarts</figcaption>
+</figure>
+<p> 3.9  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Apotheker’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternApotheker.png" title="Conceptueel diagram van relaties in Apotheker" id="fig:Conceptueel diagram van relaties in Apotheker" alt="Figuur 3.9: Conceptueel diagram van relaties in Apotheker" /><figcaption aria-hidden="true">Figuur 3.9: Conceptueel diagram van relaties in Apotheker</figcaption>
+</figure>
+<p> 3.10  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Geslacht’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternGeslacht.png" title="Conceptueel diagram van relaties in Geslacht" id="fig:Conceptueel diagram van relaties in Geslacht" alt="Figuur 3.10: Conceptueel diagram van relaties in Geslacht" /><figcaption aria-hidden="true">Figuur 3.10: Conceptueel diagram van relaties in Geslacht</figcaption>
+</figure>
+<p> 3.11  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Nationaliteit’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternNationaliteit.png" title="Conceptueel diagram van relaties in Nationaliteit" id="fig:Conceptueel diagram van relaties in Nationaliteit" alt="Figuur 3.11: Conceptueel diagram van relaties in Nationaliteit" /><figcaption aria-hidden="true">Figuur 3.11: Conceptueel diagram van relaties in Nationaliteit</figcaption>
+</figure>
+<p> 3.12  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Adres’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAdres.png" title="Conceptueel diagram van relaties in Adres" id="fig:Conceptueel diagram van relaties in Adres" alt="Figuur 3.12: Conceptueel diagram van relaties in Adres" /><figcaption aria-hidden="true">Figuur 3.12: Conceptueel diagram van relaties in Adres</figcaption>
+</figure>
+<p>De volgende regel heeft noch oogmerk (purpose), noch betekenis:</p>
+<ul>
+<li><p><em>Initialize today's date</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Generic.adl:23:5)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>S</mi><mi>E</mi><mi>S</mi><mi>S</mi><mi>I</mi><mi>O</mi><mi>N</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo>;</mo><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><msup><mi>y</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack SESSION \rbrack }\vdash sessionToday;sessionToday^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle s, s': Als s is equivalent met s' dan (Er is een d: s sessionToday d en s' sessionToday d)</p></li>
+</ul>
+<p>Van de volgende regels is het oogmerk (purpose) niet uitgelegd:</p>
+<ul>
+<li><p><em>Elke nationaliteit heeft een ingangsdatum</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Nationaliteit.adl:47:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Nationaliteitid \rbrack }\vdash ingangsdatum;ingangsdatum^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle n, n': Als n is equivalent met n' dan (Er is een d: De Nationaliteit n heeft als ingangsdatum d. en De Nationaliteit n' heeft als ingangsdatum d.)</p></li>
+<li><p><em>Elke persoon heeft een nationaliteit</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:104:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash nationaliteit;nationaliteit^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een n: p nationaliteit n en p' nationaliteit n)</p></li>
+<li><p><em>TotAdres</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:118:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>;</mo><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><msup><mi>s</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash adres;adres^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een a: p adres a en p' adres a)</p></li>
+<li><p><em>TotGeboortedatum</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:78:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash geboortedatum;geboortedatum^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een d: p geboortedatum d en p' geboortedatum d)</p></li>
+<li><p><em>TotGeslacht</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:91:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash geslacht;geslacht^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een g: p geslacht g en p' geslacht g)</p></li>
+<li><p><em>TotGetuigschrift</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Register.adl:76:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack RegisterId \rbrack }\vdash getuigschrift;getuigschrift^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle r, r': Als r is equivalent met r' dan (Er is een j: r getuigschrift j en r' getuigschrift j)</p></li>
+<li><p><em>TotInschrijvingBig</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Inschrijving.adl:73:13)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle i, i': Als i is equivalent met i' dan (Er is een b: i bignummer b en i' bignummer b)</p></li>
+<li><p><em>TotNaam</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:50:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash naam;naam^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een n: De persoon met het id p wordt n genoemd. en De persoon met het id p' wordt n genoemd.)</p></li>
+<li><p><em>TotVoornaam</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:64:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash voornaam;voornaam^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een v: De persoon met het id p heeft v als voornaam. en De persoon met het id p' heeft v als voornaam.)</p></li>
+</ul>
+<p>De volgende regels gaan niet vergezeld van een betekenis in natuurlijke taal:</p>
+<ul>
+<li><p><em>Create Inschrijving</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Persoon.adl:126:9)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle p, p': Als p is equivalent met p' dan (Er is een i: p inschrijving i en p' inschrijving i)</p></li>
+<li><p><em>Voeg datum registratie toe</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Registratie.adl:52:13)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Registratie \rbrack }\vdash registratiedatum;registratiedatum^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle r, r': Als r is equivalent met r' dan (Er is een d: r registratiedatum d en r' registratiedatum d)</p></li>
+<li><p><em>Voeg_Bignummer_toe(automatisch)</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Inschrijving.adl:83:13)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle i, i': Als i is equivalent met i' dan (Er is een b: i bignummer b en i' bignummer b)</p></li>
+<li><p><em>Voeg_Registratie_toe(automatisch)</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Registratie.adl:42:13)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>∩</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><msup><mi>e</mi><mo>⌣</mo></msup><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\cap inschrijving^{\smallsmile};inschrijving\vdash registratie^{\smallsmile};registratie</annotation></semantics></math></p>
+<p>Voor alle i, i': Als (i is equivalent met i') en (Er is een r': r' inschrijving i en r' inschrijving i') dan (Er is een r': r' registratie i en r' registratie i')</p></li>
+<li><p><em>Voeg_inschrijftijd_toe_(automatisch)</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Inschrijving.adl:48:13)</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>p</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><msup><mi>p</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash inschrijftijdstip;inschrijftijdstip^{\smallsmile}</annotation></semantics></math></p>
+<p>Voor alle i, i': Als i is equivalent met i' dan (Er is een i'': i inschrijftijdstip i'' en i' inschrijftijdstip i'')</p></li>
+</ul>
+<p>Onderstaande tabel bevat per thema (dwz. patroon) tellingen van het aantal relaties en regels, gevolgd door het aantal en het percentage daarvan dat een referentie bevat. Relaties die in meerdere thema's gedeclareerd worden, worden ook meerdere keren geteld.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Thema</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: center;">Relaties</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: center;">Met referentie</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: center;">%</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: center;">Regels</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: center;">Gehele context</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: center;">%</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Weigering</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aantekening</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Specialisme</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Inschrijfduur</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Registratie</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Inschrijving</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Register</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Arts</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tandarts</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Apotheker</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Geslacht</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nationaliteit</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adres</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gehele context</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+</table>
+<p>Onderstaande tabel bevat een overzicht van de signaalregels per rol.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">rol</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">thema</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;">regel</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Inschrijfduur</td>
+<td style="text-align: left;">Compute kwalificatiedatum[InschrijfId*Datum] using DelPair</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Inschrijfduur</td>
+<td style="text-align: left;">Compute kwalificatiedatum[InschrijfId*Datum] using InsPair</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">Create Inschrijving</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Nationaliteit</td>
+<td style="text-align: left;">Elke nationaliteit heeft een ingangsdatum</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">Elke persoon heeft een nationaliteit</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">--</td>
+<td style="text-align: left;">Initialize today's date</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">TotAdres</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">TotGeboortedatum</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">TotGeslacht</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Register</td>
+<td style="text-align: left;">TotGetuigschrift</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Inschrijving</td>
+<td style="text-align: left;">TotInschrijvingBig</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">TotNaam</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">TotVoornaam</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Registratie</td>
+<td style="text-align: left;">Voeg datum registratie toe</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Inschrijving</td>
+<td style="text-align: left;">Voeg_Bignummer_toe(automatisch)</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Registratie</td>
+<td style="text-align: left;">Voeg_Registratie_toe(automatisch)</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ExecEngine</td>
+<td style="text-align: left;">Inschrijving</td>
+<td style="text-align: left;">Voeg_inschrijftijd_toe_(automatisch)</td>
+</tr>
+</tbody>
+</table>
+<p>Dit script bevat onderhanden werk. De volgende tabellen geven details met regelnummers in de oorspronkelijk script-bestanden.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">regel</th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: right;">locatie</th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: right;">#taken</th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg datum registratie toe</td>
+<td style="text-align: right;">C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Registratie.adl:52:13</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg_Registratie_toe(automatisch)</td>
+<td style="text-align: right;">C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Registratie.adl:42:13</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voeg_inschrijftijd_toe_(automatisch)</td>
+<td style="text-align: right;">C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\generiek\Inschrijving.adl:48:13</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p>Afspraak <span class="citation" data-cites="agr:SharedLangrule--1483780593">[ @agr:SharedLangrule--1483780593 ]</span> ( ‘Voeg datum registratie toe’ ) luidt: </p>
+<p>Deze regel bevat nog werk (voor ExecEngine), te weten ‘RegistratieR001’.</p>
+<p>Afspraak <span class="citation" data-cites="agr:SharedLangrule-119394377">[ @agr:SharedLangrule-119394377 ]</span> ( ‘Voeg_Registratie_toe(automatisch)’ ) luidt: </p>
+<p>Deze regel bevat nog werk (voor ExecEngine). De volgende tabel laat de items zien die aandacht vragen.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">InschrijfId</th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">InschrijfId</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I003</td>
+<td style="text-align: left;">I003</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I002</td>
+<td style="text-align: left;">I002</td>
+</tr>
+</tbody>
+</table>
+<p>Afspraak <span class="citation" data-cites="agr:SharedLangrule--1033180058">[ @agr:SharedLangrule--1033180058 ]</span> ( ‘Voeg_inschrijftijd_toe_(automatisch)’ ) luidt: </p>
+<p>Deze regel bevat nog werk (voor ExecEngine). De volgende tabel laat de items zien die aandacht vragen.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">InschrijfId</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I001</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I003</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I002</td>
+</tr>
+</tbody>
+</table>
+<p>De populatie in dit script overtreedt 0 invarianten en 3 procesregels.</p>
+<ul>
+</ul>
+<ul>
+<li><p><em>Regel Voeg datum registratie toe</em></p>
+<p>Totaal aantal taken: 1</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>There is one violation of RULE "Voeg datum registratie toe": {EX} InsPair;registratiedatum;Registratie;"R001";Datum;{php}date(DATE_ISO8601) </strong></p></td>
+</tr>
+</tbody>
+</table></li>
+<li><p><em>Regel Voeg_Registratie_toe(automatisch)</em></p>
+<p>Totaal aantal taken: 2</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>There are 2 violations of RULE "Voeg_Registratie_toe(automatisch)": {EX} InsAtom;Registratie{EX} InsPair;registratie;Registratie;_NEW;InschrijfId;"I003" {EX} InsAtom;Registratie{EX} InsPair;registratie;Registratie;_NEW;InschrijfId;"I002" </strong></p></td>
+</tr>
+</tbody>
+</table></li>
+<li><p><em>Regel Voeg_inschrijftijd_toe_(automatisch)</em></p>
+<p>Totaal aantal taken: 3</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>There are 3 violations of RULE "Voeg_inschrijftijd_toe_(automatisch)": {EX} InsAtom;InschrijfTijdstip{EX} InsPair;inschrijftijdstip;InschrijfId;"I001";InschrijfTijdstip;{php}date(DATE_ISO8601) {EX} InsAtom;InschrijfTijdstip{EX} InsPair;inschrijftijdstip;InschrijfId;"I003";InschrijfTijdstip;{php}date(DATE_ISO8601) {EX} InsAtom;InschrijfTijdstip{EX} InsPair;inschrijftijdstip;InschrijfId;"I002";InschrijfTijdstip;{php}date(DATE_ISO8601) </strong></p></td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h1 data-number="4" id="sec:ConceptualAnalysis"><span class="header-section-number">4</span> Conceptuele Analyse</h1>
+<p>Dit hoofdstuk analyseert de "taal van de business", om functionele eisen ten behoeve van ‘Big’ te kunnen bespreken. Deze analyse beoogt om een bouwbare, maar oplossingsonafhankelijke specificatie op te leveren. Het begrijpen van tekst vereist deskundigheid op het gebied van conceptueel modelleren.</p>
+<h2 data-number="4.1"><span class="header-section-number">4.1</span> De wet BIG</h2>
+<p>Het BIG-register is onderdeel van de Wet op de beroepen in de individuele gezondheidszorg (BIG). Het doel van de Wet BIG is te zorgen dat de kwaliteit van onze gezondheidszorg hoog is en blijft. Ook beschermt de Wet BIG patiënten tegen ondeskundig en onzorgvuldig handelen van zorgverleners.</p>
+<p>De Wet BIG verdeelt beroepen die onder deze wet vallen in 3 groepen volgens hun wettelijke artikelnummer: artikel 3-, 34- en artikel 36a-beroepen. In het BIG-register worden alleen artikel 3 en artikel 36a-beroepen geregistreerd. Daarnaast bestaan er ook wettelijk erkende specialismen. Deze vallen onder artikel 14. Een specialisme wordt aangetekend bij een artikel 3 beroep. Beroepen die in het BIG-register staan geregistreerd vallen onder het tuchtrecht.</p>
+<p>Naast het registreren en herregistreren van deze beroepsbeoefenaren en de uitvoering van het tuchtrecht valt ook het erkennen van (buitenlandse) diploma’s en onder de taken van het BIG-register. Zorgverleners met een buitenlands diploma moeten voldoen aan de Nederlandse opleidingseisen. Hun opleidingsniveau moet gelijk zijn aan dat van een zorgverlener met een Nederlands diploma. Eventueel telt relevante werkervaring mee om het niveau te bepalen. Het CIBG neemt hierover een besluit op grond van het advies van de onafhankelijke deskundigencommissie, de Commissie buitenslands gediplomeerden volksgezondheid (CBGV).</p>
+<p>Tevens kunnen zorgprofessionals bij het BIG-register terecht voor het aanvragen van verklaringen en zorgt het bigregister voor het aantekenen van specialismen en voorschrijfbevoegdheden.</p>
+<p>Voor zorgconsumenten en organisaties biedt het BIG-register de mogelijkheid te controleren of zijn zorgverlener bevoegd is om zijn of haar beroep uit te oefenen.</p>
+<h3 data-number="4.1.1"><span class="header-section-number">4.1.1</span> Opdrachtgever</h3>
+<p>De Directie MEVA van het Ministerie van VWS is opdrachtgever voor de uitvoering van de Wet BIG.</p>
+<h3 data-number="4.1.2"><span class="header-section-number">4.1.2</span> Onderliggende wetgeving</h3>
+<ul>
+<li><a href="https://wetten.overheid.nl/BWBR0006251/2021-07-01">Wet op de beroepen in de individuele gezondheidszorg</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0024841/2020-07-01">Besluit periodieke registratie Wet BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0007648/2021-01-01">Registratiebesluit BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0008688/2021-04-01">Tuchtrechtbesluit BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0025605/2020-12-15">Regeling periodieke registratie Wet BIG</a></li>
+<li><a href="https://wetten.overheid.nl/BWBR0031720/2014-02-01">Regeling tarieven registratie beroepsbeoefenaren Wet BIG</a></li>
+</ul>
+<p>Het BIGregister bevindt zich in een keten van informatieverstrekking en is sterk afhankelijk van informatie van derden. Zo zijn derden weer sterk afhankelijk van onze informatie.</p>
+<h3 data-number="4.1.3"><span class="header-section-number">4.1.3</span> Huidig informatiesysteem</h3>
+<p>De Wet BIG stamt uit 1993. Het huidige zaaksysteem (Zorro) is als opvolger van Ribiz ontwikkeld in 2007. Eind 2018 is het eerste deel van de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een volgend deel van de publieke website, waarmee op dat moment alleen de advieswijzer nog niet is omgezet.</p>
+<h2 data-number="4.2" id="sec:SharedLangtheme-525340773"><span class="header-section-number">4.2</span> Weigering</h2>
+<p>De inschrijving wordt geweigerd:</p>
+<ol>
+<li>indien de aanvrager niet voldoet aan de in hoofdstuk III bedoelde opleidingseisen;</li>
+<li>indien de aanvrager ingevolge in kracht van gewijsde gegane rechterlijke uitspraak onder curatele is gesteld wegens lichamelijke of geestelijke toestand;</li>
+<li>indien de aanvrager ingevolge rechterlijke uitspraak ontzet is van het recht het betrokken beroep uit te oefenen;</li>
+<li>indien zulks voortvloeit uit een op grond van deze wet jegens de aanvrager genomen maatregel;</li>
+<li>indien ten aanzien van de aanvrager een maatregel, berustende op een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing, van kracht is op grond waarvan de aanvrager zijn rechten ter zake van de uitoefening van het betrokken beroep in het land waar de beslissing is gegeven tijdelijk of blijvend geheel heeft verloren,</li>
+<li>indien de aanvrager de Nederlandse taal niet voldoende beheerst om zijn beroep in Nederland uit te kunnen oefenen.</li>
+</ol>
+<dl>
+<dt>Definitie Weigering:</dt>
+<dd>art.6-redenen voor afwijzing inschrijving.
+</dd>
+</dl>
+<p> 4.1 Conceptueel diagram van ‘Weigering’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternWeigering.png" title="Conceptueel diagram van Weigering" id="fig:Conceptueel diagram van Weigering" alt="Figuur 4.1: Conceptueel diagram van Weigering" /><figcaption aria-hidden="true">Figuur 4.1: Conceptueel diagram van Weigering</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>inschrijvingsWeigering [InschrijfId*Weigering]</td>
+<td>In artikel 6 staan de redenen voor het weigeren van de inschrijving bepaald.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.3" id="sec:SharedLangtheme-958700505"><span class="header-section-number">4.3</span> Aantekening</h2>
+Artikel 9 1. In het register wordt, indien zulks voortvloeit uit een op grond van deze wet genomen maatregel of besluit, een aantekening geplaatst van: a. een opgelegde berisping indien dit op grond van artikel 48, elfde lid, door het regionale tuchtcollege of het centraal tuchtcollege is beslist; b. een opgelegde geldboete indien dit op grond van artikel 48, elfde lid, door het regionale tuchtcollege of het centraal tuchtcollege is beslist; c. de schorsing van de bevoegdheid, bedoeld in artikel 48, eerste lid, onder d; d. de voorwaarden die zijn opgelegd; e. de gedeeltelijke ontzegging van de bevoegdheid het betrokken beroep uit te oefenen; f. de doorhaling van de inschrijving in het register op grond van artikel 7, onder c, d of e; g. de ontzegging van het recht wederom in het register te worden ingeschreven; h. het eindigen van een schorsing, anders dan ten gevolge van het verstrijken van de in een maatregel vastgestelde tijdsduur; i. het niet langer gelden van de onder e bedoelde voorwaarden, anders dan ten gevolge van het verstrijken van de proeftijd, en van de onder f bedoelde ontzegging; j. de bevoegdheid van een krachtens artikel 5 aangewezen beroepsbeoefenaar om de krachtens artikel 36, veertiende lid, aangewezen UR-geneesmiddelen voor te schrijven, onder vermelding van de categorie van beroepsbeoefenaren waartoe de betrokken beroepsbeoefenaar behoort; k. de op grond van artikel 48, tweede lid, opgelegde beperkingen met betrekking tot het beroepsmatig handelen op het gebied van de individuele gezondheidszorg; l. de beslissing als bedoeld in artikel 48a, tweede lid, tot de tenuitvoerlegging van een voorwaardelijke maatregel; m. de last tot onmiddellijke onthouding van de beroepsactiviteiten, bedoeld in artikel 85a. 2. In het register wordt ten aanzien van een geregistreerd of voormalig geregistreerd beroepsbeoefenaar een aantekening geplaatst van: a. een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing op grond waarvan de beroepsbeoefenaar zijn rechten ter zake van de uitoefening van het recht het betrokken beroep uit te oefenen in het land waar de beslissing is gegeven tijdelijk of blijvend geheel of gedeeltelijk heeft verloren. Indien die rechterlijke uitspraak tevens inhoudt een beperking in het recht om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die beperking eveneens aangetekend. b. een op grond van de Wet medisch tuchtrecht BES gegeven tuchtrechtelijke beslissing op grond waarvan de beroepsbeoefenaar zijn rechten ter zake van de uitoefening van het betrokken beroep op Bonaire, St. Eustatius en Saba tijdelijk of blijvend geheel of gedeeltelijk dan wel voorwaardelijk heeft verloren. Indien die tuchtrechtelijk beslissing tevens inhoudt een beperking in het recht om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die beperking eveneens aangetekend. 3. In het register wordt een aantekening geplaatst van een aan de beroepsbeoefenaar op grond van de Wet kwaliteit, klachten en geschillen zorg gegeven bevel of aanwijzing, indien dat bevel of die aanwijzing inhoudt dat aan de betrokkene een beperking is opgelegd in de uitoefening van het betrokken beroep. 4. In het register wordt ten aanzien van een geregistreerd of voormalig geregistreerd beroepsbeoefenaar een aantekening geplaatst van: a. rechterlijke uitspraken inhoudende de ontzetting van of beperking op het recht het betrokken beroep uit te oefenen. Indien die rechterlijke uitspraak tevens inhoudt een ontzetting van of beperking in het recht om ook andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die ontzetting of beperking eveneens aangetekend. b. een op grond van artikel 14c, tweede lid, van het Wetboek van Strafrecht gestelde bijzondere voorwaarde waaruit een inperking voortvloeit van de bevoegdheid het betrokken beroep uit te oefenen. Indien die bijzondere voorwaarde tevens inhoudt een beperking van de bevoegdheid om andere beroepen in de individuele gezondheidszorg uit te oefenen, wordt die inperking eveneens aangetekend. 5. Bij een aantekening als bedoeld in het eerste tot en met vierde lid wordt vermeld: a. de datum waarop van de schorsing een aantekening wordt geplaatst alsmede de duur van de schorsing, indien die reeds bekend is; b. de datum waarop de berisping, de geldboete, de in het eerste lid bedoelde voorwaarden, de ontzegging, de doorhaling, de ontzegging van het recht op wederinschrijving, de last tot onmiddellijke onthouding van de beroepsactiviteiten of het bevel of de aanwijzing, bedoeld in het derde lid, zijn gaan gelden alsmede, ingeval de voorwaarden of de in het tweede lid bedoelde maatregel tot een proeftijd zijn beperkt, de duur daarvan dan wel c. de datum waarop de schorsing of de last tot onmiddellijke onthouding van de beroepsactiviteiten is geëindigd of vanaf welke de in eerste lid bedoelde voorwaarden of de in het tweede en derde lid bedoelde maatregelen niet langer gelden. 6. Indien de in het tweede lid bedoelde aantekening in het register is geplaatst, geldt de in het buitenland dan wel de op grond van de Wet medisch tuchtrecht BES opgelegde bevoegdheidsbeperking ook voor de beroepsuitoefening in Nederland. 7. De in het eerste, tweede, derde, vierde en achtste lid bedoelde aantekening wordt gedurende een bij algemene maatregel van bestuur bepaalde termijn in het register vermeld en daarbij wordt indien bekend de aard van het vergrijp vermeld dat tot de aantekening heeft geleid, alsmede een met redenen omklede toelichting op een genomen maatregel als bedoeld in artikel 48, eerste lid, onder b en c. 8. In het register wordt voorts een aantekening geplaatst van een maatregel als bedoeld in artikel 7, eerste lid, onderdelen b en c, van de Wet medisch tuchtrecht BES, indien dit op grond van artikel 7, vijfde lid, van de Wet medisch tuchtrecht BES, door het College is beslist.
+De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op het mogen uitvoeren van de zorgtaak.
+<dl>
+<dt>Definitie Aantekening:</dt>
+<dd>art.7a.2-zie artikel 9
+</dd>
+</dl>
+<p> 4.2 Conceptueel diagram van ‘Aantekening’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternAantekening.png" title="Conceptueel diagram van Aantekening" id="fig:Conceptueel diagram van Aantekening" alt="Figuur 4.2: Conceptueel diagram van Aantekening" /><figcaption aria-hidden="true">Figuur 4.2: Conceptueel diagram van Aantekening</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>aantekening [Aantekening*RegisterId]</td>
+<td>Een aantekening als bedoeld in artikel 9, tweede lid, onderdeel a van de Wet BIG is bedoeld om een maatregel ten aanzien van een ingeschrevene te registreren.</td>
+</tr>
+<tr class="even">
+<td>aantekening [Persoon*Aantekening]</td>
+<td>Bevat aantekening op een Big-ingeschrevene.</td>
+</tr>
+<tr class="odd">
+<td>beschikking [Aantekening*Beschikking]</td>
+<td>Een register registreert een beschikking als bedoeld in artikel 10 van de Wet BIG om een aantekening in datzelfde register te onderbouwen.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.4" id="sec:SharedLangtheme-492427277"><span class="header-section-number">4.4</span> Specialisme</h2>
+Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden dat degene die de opleiding tot specialist heeft voltooid wordt ingeschreven als specialist voor een bij de regeling bepaalde periode en dat een aansluitende hernieuwde inschrijving slechts plaatsvindt indien de specialist gedurende een bij die regeling bepaald tijdvak, voorafgaand aan de indiening van de aanvraag tot hernieuwde inschrijving, regelmatig op het desbetreffende deelgebied van de beroepsuitoefening werkzaam is geweest dan wel het beroep zal uitoefenen onder de bij de hernieuwde inschrijving aan te geven scholingsvoorwaarden.
+<dl>
+<dt>Definitie SpecialistenRegister:</dt>
+<dd>In artikel 8 lid 3 wordt aangegeven dat een ingeschrevene opgenomen in kan zijn in een specialistenregister.
+</dd>
+</dl>
+<p> 4.3 Conceptueel diagram van ‘Specialisme’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternSpecialisme.png" title="Conceptueel diagram van Specialisme" id="fig:Conceptueel diagram van Specialisme" alt="Figuur 4.3: Conceptueel diagram van Specialisme" /><figcaption aria-hidden="true">Figuur 4.3: Conceptueel diagram van Specialisme</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>opgenomenInSpecialistenRegister [Persoon*JaOfNee]</td>
+<td>Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister.</td>
+</tr>
+<tr class="even">
+<td>specialist (Attribuut van Persoon)</td>
+<td>Een Persoon is specialist wanneer deze in het specialistenRegister is opgenomen.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.5" id="sec:SharedLangtheme--1889304666"><span class="header-section-number">4.5</span> Inschrijfduur</h2>
+Inschrijvingen in een register zijn beperkt geldig. Artikel 8, eerste lid van de Wet BIG stelt: "Bij algemene maatregel van bestuur wordt bepaald dat de inschrijving in een bij de maatregel aangewezen register wordt doorgehaald indien na de in het tweede lid bedoelde datum een bij de maatregel aangegeven periode is verstreken." Artikel 2, tweede lid van het Besluit periodieke registratie Wet BIG stelt deze periode op vijf jaren.
+<p> 4.4 Conceptueel diagram van ‘Inschrijfduur’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternInschrijfduur.png" title="Conceptueel diagram van Inschrijfduur" id="fig:Conceptueel diagram van Inschrijfduur" alt="Figuur 4.4: Conceptueel diagram van Inschrijfduur" /><figcaption aria-hidden="true">Figuur 4.4: Conceptueel diagram van Inschrijfduur</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>diplomadatum [InschrijfId*Datum]</td>
+<td>Er is een erkend diploma bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert de datum waarop de ingeschrevene een diploma heeft behaald op grond waarvan de ingeschrevene een erkenning van beroepskwalificaties als bedoeld in de Algemene wet erkenning EU-beroepskwalificaties heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere diploma's zijn, kunnen er dus ook meerdere diplomadata zijn voor dezelfde inschrijving.</td>
+</tr>
+<tr class="even">
+<td>doorgehaald_ogv_artikel_8 [InschrijfId*Datum]</td>
+<td>Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.</td>
+</tr>
+<tr class="odd">
+<td>eerder [Datum*Datum]</td>
+<td>Voor elke denkbare datum d1 en d2 geldt d1 eerder d2 dan en slechts dan als d1 &lt; d2.</td>
+</tr>
+<tr class="even">
+<td>einddatum [InschrijfId*Datum]</td>
+<td>Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.</td>
+</tr>
+<tr class="odd">
+<td>getuigschriftdatum [InschrijfId*Datum]</td>
+<td>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.</td>
+</tr>
+<tr class="even">
+<td>kwalificatiedatum [InschrijfId*Datum]</td>
+<td>Om de inschrijvingsduur te bepalen rekenen we met de meest recente van de geregistreerde diplomadata, verklaringdata en getuigschriftdata. Uiteindelijk is er dus precies één datum die gebruikt wordt om de inschrijfduur te bepalen.</td>
+</tr>
+<tr class="odd">
+<td>vandaag [Datum*Datum]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>verklaringdatum [InschrijfId*Datum]</td>
+<td>Er is een verklaring bij een inschrijving geregistreerd die relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert de datum waarop de ingeschrevene een in artikel 41, eerste lid, onder b, bedoelde verklaring heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere van dit soort verklaringen zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.6" id="sec:SharedLangtheme-3323243"><span class="header-section-number">4.6</span> Registratie</h2>
+<em>Een registratie is de inschrijving in een, door de Minister vastgesteld, zorgregister van een persoon.</em>
+<p>Er is sprake van registratie van een ingeschrevene wanneer het inschrijvingsproces geheel afgerond is en aan alle voorwaarden is voldaan.</p>
+<dl>
+<dt>Definitie Registratie:</dt>
+<dd>Betreft een complete afgeronde inschrijving
+</dd>
+</dl>
+<p> 4.5 Conceptueel diagram van ‘Registratie’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternRegistratie.png" title="Conceptueel diagram van Registratie" id="fig:Conceptueel diagram van Registratie" alt="Figuur 4.5: Conceptueel diagram van Registratie" /><figcaption aria-hidden="true">Figuur 4.5: Conceptueel diagram van Registratie</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>registratie [Registratie*InschrijfId]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>registratiedatum [Registratie*Datum]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.7" id="sec:SharedLangtheme-511868836"><span class="header-section-number">4.7</span> Inschrijving</h2>
+Inschrijving legt de relatie vast tussen Persoon en het Register.
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+<dl>
+<dt>Definitie InschrijfId:</dt>
+<dd>De aanmelding van persoon in een register
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de datum en het tijdstip van inschrijving een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie InschrijfTijdstip:</dt>
+<dd>Het inschrijftijdstip bevat de datum en tijdstip van inschrijving in Y-m-d h:i:s-formaat.
+</dd>
+</dl>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Het BIG-nummer identificeert de BIG-ingeschrevene.
+<dl>
+<dt>Definitie Bignummer:</dt>
+<dd>Het identificatienummer van de BIG-ingeschrevene.
+</dd>
+</dl>
+<p> 4.6 Conceptueel diagram van ‘Inschrijving’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternInschrijving.png" title="Conceptueel diagram van Inschrijving" id="fig:Conceptueel diagram van Inschrijving" alt="Figuur 4.6: Conceptueel diagram van Inschrijving" /><figcaption aria-hidden="true">Figuur 4.6: Conceptueel diagram van Inschrijving</figcaption>
+</figure>
+<h3 data-number="4.7.1"><span class="header-section-number">4.7.1</span> InschrijfId</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>inschrijving</td>
+<td>Het vastleggen van de koppeling tussen het register en de inschrijving.</td>
+</tr>
+<tr class="even">
+<td>inschrijving</td>
+<td>Elk persoon die BIG geregistreerd wil zijn, moet zijn ingeschreven. Een persoon kan meerdere inschrijvingen hebben.</td>
+</tr>
+<tr class="odd">
+<td>inschrijftijdstip</td>
+<td>Elke inschrijving vindt plaats op een tijdstip.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bignummer [InschrijfId*Bignummer]</td>
+<td>De koppeling tussen een Persoon en een Bignummer. Dit is een één op één koppeling die automatisch wordt aangebracht.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.8" id="sec:SharedLangtheme--794606777"><span class="header-section-number">4.8</span> Register</h2>
+Het BIG-register (Beroepen in de Individuele Gezondheidszorg) is een wettelijk, online en openbaar register. Alleen wie in het BIG-register staat, mag een beschermde beroepstitel voeren en mag de bij het beroep horende voorbehouden handelingen zelfstandig uitvoeren. Iedereen kan het register raadplegen. Het BIG-register verzorgt ook de erkenning van buitenlandse diploma’s.
+<dl>
+<dt>Definitie RegisterId:</dt>
+<dd>Technisch element voor het register.
+</dd>
+</dl>
+In artikel 1 lid 5 wordt aangegeven dat elk Register wordt ingesteld en beheerd door Onze Minister. In artikel 3 lid 6 wordt gesteld dat de registers worden ingesteld ten einde te kunnen voldoen aan een verzoek om informatie als bedoeld in artikel 12 en ten behoeve van het toezicht op de uitvoering van de artikelen 4 en 17.
+<dl>
+<dt>Definitie Register:</dt>
+<dd>Een register is een officiele lijst van personen die aan de, door het register gestelde voorwaarden voldoen.
+</dd>
+</dl>
+<p> 4.7 Conceptueel diagram van ‘Register’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternRegister.png" title="Conceptueel diagram van Register" id="fig:Conceptueel diagram van Register" alt="Figuur 4.7: Conceptueel diagram van Register" /><figcaption aria-hidden="true">Figuur 4.7: Conceptueel diagram van Register</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>einddatum [RegisterId*Datum]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>getuigschrift [RegisterId*Ja_of_Nee]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ingangsdatum [RegisterId*Datum]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>register [RegisterId*Register]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.9" id="sec:SharedLangtheme-1128353840"><span class="header-section-number">4.9</span> Arts</h2>
+Het register voor arts bevat alle attributen van het register arts.
+<p> 4.8 Conceptueel diagram van ‘Arts’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternArts.png" title="Conceptueel diagram van Arts" id="fig:Conceptueel diagram van Arts" alt="Figuur 4.8: Conceptueel diagram van Arts" /><figcaption aria-hidden="true">Figuur 4.8: Conceptueel diagram van Arts</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>arts [RegisterId*RegisterId]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>getuigschriftdatum [InschrijfId*Datum]</td>
+<td>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.</td>
+</tr>
+<tr class="odd">
+<td>herregistratie [InschrijfId*Datum]</td>
+<td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.10" id="sec:SharedLangtheme-1982034445"><span class="header-section-number">4.10</span> Tandarts</h2>
+Het register voor tandarts bevat alle attributen van het register tandarts.
+<p> 4.9 Conceptueel diagram van ‘Tandarts’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternTandarts.png" title="Conceptueel diagram van Tandarts" id="fig:Conceptueel diagram van Tandarts" alt="Figuur 4.9: Conceptueel diagram van Tandarts" /><figcaption aria-hidden="true">Figuur 4.9: Conceptueel diagram van Tandarts</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>getuigschriftdatum [InschrijfId*Datum]</td>
+<td>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.</td>
+</tr>
+<tr class="even">
+<td>herregistratie [RegisterId*Datum]</td>
+<td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+<tr class="odd">
+<td>tandarts [RegisterId*RegisterId]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.11" id="sec:SharedLangtheme--231419835"><span class="header-section-number">4.11</span> Apotheker</h2>
+Het register voor tandarts bevat alle attributen van het register tandarts.
+<p> 4.10 Conceptueel diagram van ‘Apotheker’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternApotheker.png" title="Conceptueel diagram van Apotheker" id="fig:Conceptueel diagram van Apotheker" alt="Figuur 4.10: Conceptueel diagram van Apotheker" /><figcaption aria-hidden="true">Figuur 4.10: Conceptueel diagram van Apotheker</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>apotheker [RegisterId*RegisterId]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>getuigschriftdatum [InschrijfId*Datum]</td>
+<td>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
+Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.</td>
+</tr>
+<tr class="odd">
+<td>herregistratie [RegisterId*Datum]</td>
+<td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.12" id="sec:SharedLangtheme-1761117493"><span class="header-section-number">4.12</span> Geslacht</h2>
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Geslacht:</dt>
+<dd>De sekse van een individue.
+</dd>
+</dl>
+Nadere duiding van de afkorting die gebruik wordt voor geslacht.
+<dl>
+<dt>Definitie Omschrijving:</dt>
+<dd>Omschrijving van het geslacht van een individue.
+</dd>
+</dl>
+<p> 4.11 Conceptueel diagram van ‘Geslacht’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternGeslacht.png" title="Conceptueel diagram van Geslacht" id="fig:Conceptueel diagram van Geslacht" alt="Figuur 4.11: Conceptueel diagram van Geslacht" /><figcaption aria-hidden="true">Figuur 4.11: Conceptueel diagram van Geslacht</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>geslacht [Geslacht*Omschrijving]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.13" id="sec:SharedLangtheme--42209667"><span class="header-section-number">4.13</span> Nationaliteit</h2>
+Nationaliteit duidt de relatie aan tussen een individu en een staat.
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene bij Inschrijving moet worden vermeld, als onderdeel van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Nationaliteitid:</dt>
+<dd>De Nationaliteit wordt aangeduid middels een 4-cijferige code.
+</dd>
+</dl>
+Door een omschrijving toe te voegen wordt de nationaliteitcodering leesbaar.
+<dl>
+<dt>Definitie Nationaliteit:</dt>
+<dd>De omschrijving van een nationaliteit bevat de tekstuele uitvoering van de nationaliteitscodering.
+</dd>
+</dl>
+<p> 4.12 Conceptueel diagram van ‘Nationaliteit’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternNationaliteit.png" title="Conceptueel diagram van Nationaliteit" id="fig:Conceptueel diagram van Nationaliteit" alt="Figuur 4.12: Conceptueel diagram van Nationaliteit" /><figcaption aria-hidden="true">Figuur 4.12: Conceptueel diagram van Nationaliteit</figcaption>
+</figure>
+<h3 data-number="4.13.1"><span class="header-section-number">4.13.1</span> Nationaliteitid</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nationaliteit</td>
+<td>Het aanbrengen van de koppeling tussen de nationaliteitcode en de bijbehorende omschrijving. Bij elke code hoort maar één omschrijving en de omschrijving behoort maar tot één code.</td>
+</tr>
+<tr class="even">
+<td>ingangsdatum</td>
+<td>Ingangsdatum van de Nationaliteit.</td>
+</tr>
+<tr class="odd">
+<td>einddatum</td>
+<td>Einddatum van gebruik van de Nationaliteit.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h2 data-number="4.14" id="sec:SharedLangtheme-326791551"><span class="header-section-number">4.14</span> Adres</h2>
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Adres:</dt>
+<dd>Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
+</dd>
+</dl>
+<dl>
+<dt>Definitie Binnenlandsadres:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Definitie Buitenlandsadres:</dt>
+<dd>
+</dd>
+</dl>
+<p> 4.13 Conceptueel diagram van ‘Adres’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternAdres.png" title="Conceptueel diagram van Adres" id="fig:Conceptueel diagram van Adres" alt="Figuur 4.13: Conceptueel diagram van Adres" /><figcaption aria-hidden="true">Figuur 4.13: Conceptueel diagram van Adres</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>binnenlandsadres [Adres*Binnenlandsadres]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>buitenlandsadres [Adres*Buitenlandsadres]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.15" id="sec:SharedLangtheme-949118634"><span class="header-section-number">4.15</span> Persoon</h2>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn personen.
+<dl>
+<dt>Definitie Persoon:</dt>
+<dd>Een Persoon representeerd een persoons-id dat opgenomen is in het BIG-register.
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de naam een onderdeel is van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Naam:</dt>
+<dd>Aanduiding van de familienaam zoals vastgelegd in de BRP.
+</dd>
+</dl>
+In artikel 3 lid 2 is aangegeven dat de voorna(a)m(en) een onderdeel is/zijn van de identificatie van de zorgverlener.
+<dl>
+<dt>Definitie Voornaam:</dt>
+<dd>Alle voornamen van de Persoon zoals dit is vastgelegd binnen de BRP.
+</dd>
+</dl>
+<p> 4.14 Conceptueel diagram van ‘Persoon’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\CDPatternPersoon.png" title="Conceptueel diagram van Persoon" id="fig:Conceptueel diagram van Persoon" alt="Figuur 4.14: Conceptueel diagram van Persoon" /><figcaption aria-hidden="true">Figuur 4.14: Conceptueel diagram van Persoon</figcaption>
+</figure>
+<h3 data-number="4.15.1"><span class="header-section-number">4.15.1</span> Persoon</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>voornaam</td>
+<td>Elke ingeschrevene moet een voornaam hebben.</td>
+</tr>
+<tr class="even">
+<td>naam</td>
+<td>Elke ingeschrevene moet een naam hebben en een naam kan bij meerdere personen behoren.</td>
+</tr>
+<tr class="odd">
+<td>geslacht</td>
+<td>Elke ingeschrevene behoort tot een geslacht</td>
+</tr>
+<tr class="even">
+<td>geboortedatum</td>
+<td>Elke ingeschrevene heeft een geboortedatum</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>adres [Persoon*Adres]</td>
+<td>Elke ingeschrevene heeft een adres</td>
+</tr>
+<tr class="even">
+<td>nationaliteit [Persoon*Nationaliteitid]</td>
+<td>Elke ingeschrevene heeft een nationaliteit</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="4.16" id="sec:SharedLangtheme--1935921574"><span class="header-section-number">4.16</span> Overig</h2>
+<dl>
+<dt>Definitie Datum:</dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Definitie Ja_of_Nee:</dt>
+<dd>description
+</dd>
+</dl>
+<p>In Artikel 7 wordt beschreven in welke situatie de inschrijving wordt doorgehaald:</p>
+<ol>
+<li>in geval van overlijden van de ingeschrevene;</li>
+<li>op verzoek van de ingeschrevene;</li>
+<li>indien de ingeschrevene in een der in artikel 6, onder b of c, genoemde omstandigheden is komen te verkeren;</li>
+<li>indien zulks voortvloeit uit een op grond van deze wet jegens de ingeschrevene genomen maatregel;</li>
+<li>indien ten aanzien van de ingeschrevene een maatregel, berustende op een in het buitenland gegeven rechterlijke, tuchtrechtelijke of bestuursrechtelijke beslissing van kracht is, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep in het land waar de beslissing is gegeven tijdelijk of blijvend geheel heeft verloren;</li>
+<li>indien zulks voortvloeit uit een maatregel, berustend op een op grond van de Wet medisch tuchtrecht BES opgelegde maatregel, op grond waarvan de ingeschrevene zijn rechten ter zake van de uitoefening van het betrokken beroep tijdelijk of blijvend geheel heeft verloren.</li>
+</ol>
+<dl>
+<dt>Definitie Doorhaling:</dt>
+<dd>
+</dd>
+</dl>
+<table>
+<thead>
+<tr class="header">
+<th>Relatie</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>doorgehaald [InschrijfId*Doorhaling]</td>
+<td>In artikel 7 gestelde sitatuaties waarin de inschrijving wordt doorgehaald. Deze heeft ook consequenties op de bijbehorende registraties.</td>
+</tr>
+<tr class="even">
+<td>nietVerplicht [Ja_of_Nee*Ja_of_Nee]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>sessionToday [SESSION*Datum]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>verplicht [Ja_of_Nee*Ja_of_Nee]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 3-12-2021 om 21:32:37, dmv. Ampersand-v4.6.0 [HEAD:743e5ce*], build time: 22-Nov-21 15:44:23 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Het ontwerpen met bedrijfsregels is een kenmerk van de Ampersand aanpak, die gebruikt is bij het samenstellen van dit document. <a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

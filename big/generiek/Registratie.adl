@@ -54,15 +54,6 @@ CONTEXT Registratie IN DUTCH HTML
                         TXT "{EX} InsPair;registratiedatum;Registratie;", SRC I, TXT ";Datum;{php}date(DATE_ISO8601)" -- Set the Date
                       )
 
-{-            PURPOSE RULE "Plaats registratie in artsenregister"
-            {+
-            +}
-            ROLE ExecEngine MAINTAINS "Plaats registratie in artsenregister"
-            RULE "Plaats registratie in artsenregister" : inschrijving[RegisterId*Inschrijving];inschrijving[RegisterId*Inschrijving]~ |- V;"arts"[RegisterId]
-            VIOLATION ( TXT "{EX} InsAtom;Arts"
-                      , TXT "{EX} InsPair;artsRegistratie[Arts*RegisterId];Arts;_NEW;RegisterId;", TGT I
-            )
--}
     ENDPATTERN
 {-
     PATTERN Beroepsbeoefenaar

@@ -1,0 +1,19 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+	InschrijfId	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">InschrijfId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijving">o inschrijving : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijving">o inschrijving : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijftijdstip">o inschrijftijdstip : InschrijfTijdstip</TD></TR><TR><TD ALIGN="LEFT" PORT="doorgehaald">o doorgehaald : Doorhaling</TD></TR><TR><TD ALIGN="LEFT" PORT="bignummer">o bignummer : Bignummer</TD></TR></TABLE>>,
+		shape=plaintext];
+	Weigering	[label=Weigering,
+		shape=box3d];
+	InschrijfId:inschrijvingsWeigering -> Weigering	[arrowhead=onone,
+		headlabel="*",
+		label=inschrijvingsWeigering,
+		labelfloat=true,
+		taillabel="*"];
+}

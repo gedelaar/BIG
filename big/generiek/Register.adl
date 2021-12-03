@@ -2,6 +2,7 @@ CONTEXT Register IN DUTCH
     INCLUDE "Generic.adl"
     INCLUDE "../1_artsRegister/Main.adl"
     INCLUDE "../2_tandartsRegister/Main.adl"
+    INCLUDE "../3_apothekerRegister/Main.adl"
 
 
     PATTERN Register
@@ -99,18 +100,27 @@ CONTEXT Register IN DUTCH
             [
                "Inschrijvingen"       : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
             ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
+            ,   "Naam"   : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
+            ,   "BIG-nummer"   : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
             ]
             ,
         Tandarts: V[SESSION*RegisterId];(I /\ tandarts[RegisterId*RegisterId] )  cRud
         BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
             [
                "Inschrijvingen"       : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
-            ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ 
-            BOX<TABLE>
-            [
-               "" : I[Persoon] LINKTO INTERFACE Persoon
-             ,  "naam":naam [Persoon*Naam]
+            ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
+            ,   "Naam"   : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
+            ,   "BIG-nummer"   : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
+
             ]
+            ,
+        Apotheker: V[SESSION*RegisterId];(I /\ apotheker[RegisterId*RegisterId] )  cRud
+        BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
+            [
+               "Inschrijvingen"       : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
+            ,   "Persoon"   : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
+            ,   "Naam"   : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
+            ,   "BIG-nummer"   : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
 
             ]
 

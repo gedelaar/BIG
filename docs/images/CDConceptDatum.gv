@@ -1,0 +1,31 @@
+digraph {
+	graph [bgcolor=white,
+		landscape=false,
+		mode=ipsep,
+		nodesep=1,
+		outputorder=edgesfirst,
+		overlap=voronoi,
+		rank=same,
+		rankdir=TB,
+		ranksep=2.5,
+		remincross=true,
+		sep=0.8
+	];
+	node [bgcolor=lightgray,
+		label="\N",
+		shape=box,
+		style="rounded,filled,bold"
+	];
+	edge [color=black,
+		len=4
+	];
+	cpt_1	[label=Datum];
+	cpt_2	[label=Nationaliteitid];
+	cpt_2 -> cpt_1	[label="ingangsdatum\n[uni]"];
+	cpt_3	[label=Persoon];
+	cpt_3 -> cpt_1	[label="geboortedatum\n[uni]"];
+	cpt_4	[label=Registratie];
+	cpt_4 -> cpt_1	[label=registratiedatum];
+	cpt_5	[label=SESSION];
+	cpt_5 -> cpt_1	[label=sessionToday];
+}

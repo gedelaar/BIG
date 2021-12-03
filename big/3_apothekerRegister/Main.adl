@@ -1,6 +1,6 @@
-CONTEXT Tandarts IN DUTCH HTML
-    PATTERN Tandarts
-        PURPOSE PATTERN Tandarts
+CONTEXT Apotheker IN DUTCH HTML
+    PATTERN Apotheker
+        PURPOSE PATTERN Apotheker
         {+
         Het register voor tandarts bevat alle attributen van het register tandarts.
         +}
@@ -12,22 +12,22 @@ CONTEXT Tandarts IN DUTCH HTML
                 Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
                 +}
 
-        RELATION tandarts [RegisterId*RegisterId]
-        POPULATION tandarts[RegisterId*RegisterId]  CONTAINS
-            [("2","2")]
+        RELATION apotheker [RegisterId*RegisterId]
+        POPULATION apotheker[RegisterId*RegisterId]  CONTAINS
+            [("3","3")]
 
         RELATION herregistratie[RegisterId*Datum]
             MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
         
 
     ENDPATTERN
-    INTERFACE Tandarts FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ tandarts[RegisterId*RegisterId] )  cRud
-    BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
-        [
-            "Inschrijvingen" : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
-        ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
-        ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
-        ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
-        ]
+    INTERFACE Apotheker FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ apotheker[RegisterId*RegisterId] )  cRud
+        BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
+            [
+               "Inschrijvingen" : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
+            ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
+            ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
+            ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
+            ]
 
 ENDCONTEXT
