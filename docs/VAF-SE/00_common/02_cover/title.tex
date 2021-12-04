@@ -1,0 +1,70 @@
+\begin{titlepage}
+
+\begin{center}
+
+%% Insert the OU logo at the bottom of the page.
+\begin{tikzpicture}[remember picture,overlay]
+    \node at (current page.south)[anchor=south,inner sep=0pt]{
+        \includegraphics[scale=0.7]{cover/logo}
+    };
+\end{tikzpicture}
+
+%% Extra whitespace at the top.
+\vspace*{2\bigskipamount}
+
+%% Print the title in specific color.
+{\makeatletter
+%\titlestyle\color{ou-cyan}\Huge\@title
+\titlestyle\color{red}\Huge\@title
+\makeatother}
+
+%% Print the optional subtitle in black.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \bigskip
+    \titlefont\titleshape\LARGE\@subtitle
+\fi
+\makeatother}
+
+\bigskip
+\bigskip
+
+by
+%door
+
+\bigskip
+\bigskip
+
+%% Print the name of the author.
+{\makeatletter
+\titlefont\Large\bfseries\@author
+\makeatother}
+
+
+\bigskip
+\bigskip
+
+
+
+\bigskip
+\bigskip
+
+
+\begin{tabular}{lll}
+%% Add additional information here, per faculty requirements, e.g
+    Student number: & 836016215 \\
+    Course code: & \textsc{IM}9703\\
+    Thesis committee:
+        & prof. dr. ir. Stef Joosten (supervisor), & Open University \\
+        & dr. Bastiaan Heeren (second supervisor), & Open University
+\end{tabular}
+
+
+\bigskip
+
+
+\bigskip
+
+\end{center}
+
+\end{titlepage} 

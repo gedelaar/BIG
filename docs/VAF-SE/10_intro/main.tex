@@ -1,0 +1,65 @@
+\section{Introduction} \label{Introduction}
+
+This research is about the usefulness of Ampersand for designing register systems.
+
+Registry systems are designed and built for a legal task and thus have a specific purpose.
+In order to perform this statutory duty, register systems must be accessible to the target groups.
+The target groups need relevant information from such a register system.
+The statutory duty requires the registry systems to be up-to-date.
+The target groups must have confidence that the quality of the data is in order.
+That is why register systems that are built on the basis of legislation and regulations are always built and maintained by government agencies.
+
+The case addressed in this research concerns the \acrfull{big}.
+The \acrshort{big} is a compilation of legislation and regulations concerning the determination of the qualification of care providers.
+It is a register that falls under the responsibility of the Ministry of Health, Welfare and Sport.
+Within this ministry, the implementing organization CIBG is responsible for managing the register.
+The CIBG monitors all aspects that a register system must comply with.
+To be able to do this, she has built a register system to manage the data.
+The registry system, an information system called Zorro (\acrlong{zorro})~\footnote{\url{https://www.bigregister.nl/}} was built in 2008 and an \acrfull{alm} has established that it needs to be replaced~\citepNonPub{de_kok_analyse_2019}.
+\begin{wrapfigure}{r}{0.4\textwidth} 
+    \includegraphics[scale=0.13]
+        {images/big-register-cibg.png}
+    \caption{Big-register}
+    \label{fig:Big-register}
+\end{wrapfigure}
+
+
+The CIBG has asked whether it is possible to translate directly from the legislation and regulations into a design and possible implementation.
+We are going to use Ampersand for the design.
+We put the implementation part out of scope.
+Ampersand is a design method that designs and models from the source, i.e. the law and regulations.
+As a result, it is not necessary for the design process to rely on user information.
+The relevant concepts, relationships and rules are determined on the basis of legislation and regulations.
+Ampersand is therefore based on the relation algebra and enforces validation based on the concepts, relations and rules found~\citep{joosten_software_2017}.
+To make the design process visible, Ampersand has tooling to generate a functional design from a conceptual model.
+In addition, Ampersand offers the possibility to make a prototype.
+This prototype, together with the design, is used to validate the model.
+The involvement of the CIBG organization is essential for this validation process.
+
+The research concerns an authentic situation, namely the redesign of the registry system of \acrshort{big} is necessary.
+The case to be investigated is a real-life situation, also the \acrshort{big}.
+The demand and the support comes from the CIBG organization.
+The researcher himself knows the register system and, in general, the legislation and regulations from which the system originates, which makes it a participatory form.
+As a result, Action Research~\citep{Easterbrook} has been chosen as the approach.
+
+On the basis of action research, we investigate the usefulness of Ampersand for designing register systems.
+Usability indicates to what extent this method meets the need.
+It's about the ability to use Ampersand for register systems design.
+Is Ampersand immediately deployable, or is supporting knowledge required?
+It is also questionable whether the legislation and regulations are suitable as a source for Ampersand.
+The question for government organizations is what the strengths and weaknesses are of using Ampersand for registration systems.
+
+In the \nameref{context}, section \ref{context}, we discuss the related topics.
+This is a closer look at Ampersand's basics, namely relation algebra, in subsection \ref{relation_algebra}.
+Ampersand is also discussed in subsection \ref{ampersand}.
+We give an idea how an Ampersand script looks like.
+Unlike the common process approach, Ampersand uses an event-oriented approach.
+This is explained in subsection \ref{reactive_approach}.
+The current system, which focuses on a workflow that will be replaced, is Zorro and the case \acrshort{big} is also discussed.
+In section \ref{problem_analysis} we look at the topic of the action research, namely the \acrshort{big}.
+We determine the reason for the choice of action research.
+In section \ref{Research} we look at the main question and related issues.
+We also discuss the method, approach and validation of the action research.
+The last section \ref{planning} focuses on planning.
+
+
