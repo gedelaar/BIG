@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{00_common/ou-report-vaf}[2014/04/02 v0.1 Open Universiteit report class]
+\ProvidesClass{ou-report-vaf}[2014/04/02 v0.1 Open Universiteit report class]
 
 \newif\if@dutch
 \newif\if@english
