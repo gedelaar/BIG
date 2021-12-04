@@ -1,0 +1,105 @@
+\documentclass{ou-report-vaf}
+
+\usepackage{microtype}
+\usepackage{comment}
+% *** GRAPHICS RELATED PACKAGES *** %
+\usepackage{graphicx}
+% *** PDF, URL AND HYPERLINK PACKAGES ***%
+\usepackage{hyperref}
+% correct bad hyphenation here %
+\hyphenation{op-tical net-works semi-conduc-tor}
+% load package for Checkmark symbol: %
+\usepackage{bbding}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+%listings
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{float}
+\usepackage{svg}
+\usepackage{amsmath}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+%end-listings
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\include{acronyms}
+
+\citestyle{agu}
+
+% Dit template is gemaakt door P.J. Molijn in het kader van zijn afstuderen aan de OU in 2014.
+% Waarvoor hartelijk dank.
+% Minieme maar belangrijke wijzigingen zijn aangebracht door E.M. van Doorn
+% Het template is versimpeld door Sylvia Stuurman, 2019.
+
+\usepackage[]{multibib}
+\newcites{NonPub}{Non-published Readings}
+
+
+\begin{document}
+\pagenumbering{roman} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
+\pagestyle{plain}
+\title{Using relational algebra in designing public healthcare registers}
+\begin{comment}
+Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
+\end{comment}
+\author{Gerard Edelaar}
+
+\input{02_cover/title}
+\newpage
+\input{03_TOC/TOC}
+\newpage
+
+\pagenumbering{arabic} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
+
+\let\cleardoublepage\clearpage
+
+\input{10_intro/main}
+
+\input{20_context/main}
+
+\input{30_problem analysis/main}
+
+\input{40_research/main}
+
+\input{50_planning/main}
+
+\newpage
+\printglossary[type=\acronymtype]
+
+%\nocite{*}
+\bibliographystyle{plainnat}
+\bibliographystyleNonPub{plainnat}
+\bibliography{00_common/report}
+\bibliographyNonPub{00_common/reportNonPub}
+
+
+\end{document}
+
+
+
+
