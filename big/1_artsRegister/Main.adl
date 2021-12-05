@@ -19,14 +19,22 @@ CONTEXT Arts IN DUTCH HTML
         RELATION herregistratie[InschrijfId*Datum]
             MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
         
+        ROLE USER MAINTAINS DefaultDeelToegang
+        RULE DefaultDeelToegang : I[InschrijfId]  |-  deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+            MEANING "meaning"
+            MESSAGE "Het ja of nee moet ingevuld worden."
+            VIOLATION ( TXT "Voor register ", SRC I, TXT " is geen ja of nee ingevuld.")
+
 
     ENDPATTERN
     INTERFACE Arts FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ arts[RegisterId*RegisterId] )  cRud
-        BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
+        BOX <TABLE sortable title="Arts">
             [
                "Inschrijvingen" : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
             ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
             ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
             ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
+            ,   "Deeltoegang"   : inschrijving[RegisterId*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRUd
+
             ]
 ENDCONTEXT

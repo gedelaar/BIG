@@ -1,0 +1,218 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+	subgraph cluster_Inschrijving {
+		graph [bgcolor=ghostwhite,
+			label=Inschrijving
+		];
+		InschrijfId	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">InschrijfId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijving">o inschrijving : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijving">o inschrijving : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijftijdstip">o inschrijftijdstip : InschrijfTijdstip</TD></TR><TR><TD ALIGN="LEFT" PORT="doorgehaald">o doorgehaald : Doorhaling</TD></TR><TR><TD ALIGN="LEFT" PORT="bignummer">o bignummer : Bignummer</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Aantekening {
+		graph [bgcolor=ghostwhite,
+			label=Aantekening
+		];
+		Aantekening	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Aantekening</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="beschikking">o beschikking : Beschikking</TD></TR><TR><TD ALIGN="LEFT" PORT="aantekening">+ aantekening : RegisterId</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Adres {
+		graph [bgcolor=ghostwhite,
+			label=Adres
+		];
+		Adres	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Adres</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="buitenlandsadres">o buitenlandsadres : Buitenlandsadres</TD></TR><TR><TD ALIGN="LEFT" PORT="binnenlandsadres">o binnenlandsadres : Binnenlandsadres</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Geslacht {
+		graph [bgcolor=ghostwhite,
+			label=Geslacht
+		];
+		Geslacht	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Geslacht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">+ geslacht : Omschrijving</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Register {
+		graph [bgcolor=ghostwhite,
+			label=Register
+		];
+		RegisterId	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">RegisterId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="register">+ register : Register</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">+ ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="getuigschrift">o getuigschrift : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR></TABLE>>,
+			shape=plaintext];
+		RegisterId:apotheker -> RegisterId	[arrowhead=onone,
+			headlabel="*",
+			label=apotheker,
+			labelfloat=true,
+			taillabel="*"];
+		RegisterId:arts -> RegisterId	[arrowhead=onone,
+			headlabel="*",
+			label=arts,
+			labelfloat=true,
+			taillabel="*"];
+		RegisterId:tandarts -> RegisterId	[arrowhead=onone,
+			headlabel="*",
+			label=tandarts,
+			labelfloat=true,
+			taillabel="*"];
+	}
+	subgraph cluster_Persoon {
+		graph [bgcolor=ghostwhite,
+			label=Persoon
+		];
+		Persoon	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Registratie {
+		graph [bgcolor=ghostwhite,
+			label=Registratie
+		];
+		Registratie	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="registratie">+ registratie : InschrijfId</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Nationaliteit {
+		graph [bgcolor=ghostwhite,
+			label=Nationaliteit
+		];
+		Nationaliteitid	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Nationaliteitid</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="nationaliteit">+ nationaliteit : Nationaliteit</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">o ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	Aantekening:aantekening -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		label=aantekening,
+		labelfloat=true,
+		taillabel="*"];
+	Datum	[label=Datum,
+		shape=box3d];
+	InschrijfId:diplomadatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=diplomadatum,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:doorgehaald_ogv_artikel_8 -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=doorgehaald_ogv_artikel_8,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:einddatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=einddatum,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:getuigschriftdatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=getuigschriftdatum,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:herregistratie -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=herregistratie,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:kwalificatiedatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=kwalificatiedatum,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:verklaringdatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=verklaringdatum,
+		labelfloat=true,
+		taillabel="*"];
+	Weigering	[label=Weigering,
+		shape=box3d];
+	InschrijfId:inschrijvingsWeigering -> Weigering	[arrowhead=onone,
+		headlabel="*",
+		label=inschrijvingsWeigering,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon:aantekening -> Aantekening	[arrowhead=onone,
+		headlabel="*",
+		label=aantekening,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon:adres -> Adres	[arrowhead=onone,
+		headlabel="*",
+		label=adres,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon:geslacht -> Geslacht	[arrowhead=onone,
+		headlabel="0-1",
+		label=geslacht,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon:inschrijving -> InschrijfId	[arrowhead=onone,
+		headlabel="1-*",
+		label=inschrijving,
+		labelfloat=true,
+		taillabel="0-1"];
+	Persoon:nationaliteit -> Nationaliteitid	[arrowhead=onone,
+		headlabel="*",
+		label=nationaliteit,
+		labelfloat=true,
+		taillabel="*"];
+	JaOfNee	[label=JaOfNee,
+		shape=box3d];
+	Persoon:opgenomenInSpecialistenRegister -> JaOfNee	[arrowhead=onone,
+		headlabel="*",
+		label=opgenomenInSpecialistenRegister,
+		labelfloat=true,
+		taillabel="*"];
+	RegisterId:inschrijving -> InschrijfId	[arrowhead=onone,
+		headlabel="*",
+		label=inschrijving,
+		labelfloat=true,
+		taillabel="0-1"];
+	RegisterId:herregistratie -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=herregistratie,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie:registratie -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		label=registratie,
+		labelfloat=true,
+		taillabel="0-1"];
+	Registratie:registratiedatum -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=registratiedatum,
+		labelfloat=true,
+		taillabel="*"];
+	Datum:eerder -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=eerder,
+		labelfloat=true,
+		taillabel="*"];
+	Datum:vandaag -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=vandaag,
+		labelfloat=true,
+		taillabel="*"];
+	Ja_of_Nee	[label=Ja_of_Nee,
+		shape=box3d];
+	Ja_of_Nee:nietVerplicht -> Ja_of_Nee	[arrowhead=onone,
+		headlabel="*",
+		label=nietVerplicht,
+		labelfloat=true,
+		taillabel="*"];
+	Ja_of_Nee:verplicht -> Ja_of_Nee	[arrowhead=onone,
+		headlabel="*",
+		label=verplicht,
+		labelfloat=true,
+		taillabel="*"];
+	SESSION	[label=SESSION,
+		shape=box3d];
+	SESSION:sessionToday -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=sessionToday,
+		labelfloat=true,
+		taillabel="*"];
+}

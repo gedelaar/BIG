@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Gerard Edelaar" />
-  <meta name="dcterms.date" content="2021-12-04" />
+  <meta name="dcterms.date" content="2021-12-05" />
   <title>Functioneel Ontwerp van ‘Big’</title>
   <style>
       </style>
@@ -17,7 +17,7 @@
 <header id="title-block-header">
 <h1 class="title">Functioneel Ontwerp van Big</h1>
 <p class="author">Gerard Edelaar</p>
-<p class="date">4 december 2021</p>
+<p class="date">5 december 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -83,6 +83,78 @@
 </ul></li>
 <li><a href="#sec:SharedLangtheme--1935921574"><span class="toc-section-number">4.16</span> Overig</a></li>
 </ul></li>
+<li><a href="#sec:DataAnalysis"><span class="toc-section-number">5</span> Gegevensstructuur</a>
+<ul>
+<li><span class="toc-section-number">5.1</span> Regels
+<ul>
+<li><span class="toc-section-number">5.1.1</span> Procesregels</li>
+<li><span class="toc-section-number">5.1.2</span> Invarianten</li>
+</ul></li>
+<li><span class="toc-section-number">5.2</span> Logisch gegevensmodel
+<ul>
+<li><span class="toc-section-number">5.2.1</span> Gegevensverzameling: <em><strong>Aantekening</strong></em></li>
+<li><span class="toc-section-number">5.2.2</span> Gegevensverzameling: <em><strong>Adres</strong></em></li>
+<li><span class="toc-section-number">5.2.3</span> Gegevensverzameling: <em><strong>Geslacht</strong></em></li>
+<li><span class="toc-section-number">5.2.4</span> Gegevensverzameling: <em><strong>InschrijfId</strong></em></li>
+<li><span class="toc-section-number">5.2.5</span> Gegevensverzameling: <em><strong>Nationaliteitid</strong></em></li>
+<li><span class="toc-section-number">5.2.6</span> Gegevensverzameling: <em><strong>Persoon</strong></em></li>
+<li><span class="toc-section-number">5.2.7</span> Gegevensverzameling: <em><strong>RegisterId</strong></em></li>
+<li><span class="toc-section-number">5.2.8</span> Gegevensverzameling: <em><strong>Registratie</strong></em></li>
+</ul></li>
+<li><span class="toc-section-number">5.3</span> Technisch datamodel
+<ul>
+<li><span class="toc-section-number">5.3.1</span> Tabel: aantekening1</li>
+<li><span class="toc-section-number">5.3.2</span> Tabel: Aantekening2</li>
+<li><span class="toc-section-number">5.3.3</span> Tabel: adres1</li>
+<li><span class="toc-section-number">5.3.4</span> Tabel: Adres2</li>
+<li><span class="toc-section-number">5.3.5</span> Tabel: apotheker</li>
+<li><span class="toc-section-number">5.3.6</span> Tabel: arts</li>
+<li><span class="toc-section-number">5.3.7</span> Tabel: Beschikking</li>
+<li><span class="toc-section-number">5.3.8</span> Tabel: Bignummer</li>
+<li><span class="toc-section-number">5.3.9</span> Tabel: Binnenlandsadres</li>
+<li><span class="toc-section-number">5.3.10</span> Tabel: Buitenlandsadres</li>
+<li><span class="toc-section-number">5.3.11</span> Tabel: Datum</li>
+<li><span class="toc-section-number">5.3.12</span> Tabel: diplomadatum</li>
+<li><span class="toc-section-number">5.3.13</span> Tabel: doorgehaald_ogv_artikel_8</li>
+<li><span class="toc-section-number">5.3.14</span> Tabel: Doorhaling</li>
+<li><span class="toc-section-number">5.3.15</span> Tabel: eerder</li>
+<li><span class="toc-section-number">5.3.16</span> Tabel: einddatum</li>
+<li><span class="toc-section-number">5.3.17</span> Tabel: Geslacht</li>
+<li><span class="toc-section-number">5.3.18</span> Tabel: getuigschriftdatum</li>
+<li><span class="toc-section-number">5.3.19</span> Tabel: herregistratie1</li>
+<li><span class="toc-section-number">5.3.20</span> Tabel: herregistratie2</li>
+<li><span class="toc-section-number">5.3.21</span> Tabel: InschrijfId</li>
+<li><span class="toc-section-number">5.3.22</span> Tabel: InschrijfTijdstip</li>
+<li><span class="toc-section-number">5.3.23</span> Tabel: Inschrijving</li>
+<li><span class="toc-section-number">5.3.24</span> Tabel: inschrijvingsWeigering</li>
+<li><span class="toc-section-number">5.3.25</span> Tabel: Ja_of_Nee</li>
+<li><span class="toc-section-number">5.3.26</span> Tabel: JaOfNee</li>
+<li><span class="toc-section-number">5.3.27</span> Tabel: kwalificatiedatum</li>
+<li><span class="toc-section-number">5.3.28</span> Tabel: Naam</li>
+<li><span class="toc-section-number">5.3.29</span> Tabel: nationaliteit1</li>
+<li><span class="toc-section-number">5.3.30</span> Tabel: Nationaliteit2</li>
+<li><span class="toc-section-number">5.3.31</span> Tabel: Nationaliteitid</li>
+<li><span class="toc-section-number">5.3.32</span> Tabel: nietVerplicht</li>
+<li><span class="toc-section-number">5.3.33</span> Tabel: Omschrijving</li>
+<li><span class="toc-section-number">5.3.34</span> Tabel: ONE</li>
+<li><span class="toc-section-number">5.3.35</span> Tabel: opgenomenInSpecialistenRegister</li>
+<li><span class="toc-section-number">5.3.36</span> Tabel: Persoon</li>
+<li><span class="toc-section-number">5.3.37</span> Tabel: Register</li>
+<li><span class="toc-section-number">5.3.38</span> Tabel: RegisterId</li>
+<li><span class="toc-section-number">5.3.39</span> Tabel: Registratie</li>
+<li><span class="toc-section-number">5.3.40</span> Tabel: registratiedatum</li>
+<li><span class="toc-section-number">5.3.41</span> Tabel: SESSION</li>
+<li><span class="toc-section-number">5.3.42</span> Tabel: sessionToday</li>
+<li><span class="toc-section-number">5.3.43</span> Tabel: SpecialistenRegister</li>
+<li><span class="toc-section-number">5.3.44</span> Tabel: tandarts</li>
+<li><span class="toc-section-number">5.3.45</span> Tabel: vandaag</li>
+<li><span class="toc-section-number">5.3.46</span> Tabel: verklaringdatum</li>
+<li><span class="toc-section-number">5.3.47</span> Tabel: verplicht</li>
+<li><span class="toc-section-number">5.3.48</span> Tabel: Voornaam</li>
+<li><span class="toc-section-number">5.3.49</span> Tabel: Weigering</li>
+</ul></li>
+<li><span class="toc-section-number">5.4</span> Logisch gegevensmodel</li>
+</ul></li>
 </ul>
 </nav>
 <h1 data-number="1" id="sec:Intro"><span class="header-section-number">1</span> Inleiding</h1>
@@ -109,6 +181,8 @@
 <p>Dit document<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> definieert de functionaliteit van een informatiesysteem genaamd ‘Big’. Het definieert de database en de business-services van Big door middel van bedrijfsregels<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Deze afspraken staan opgesomd in  2 , geordend op thema. </p>
 <p>De diagnose in  3 is bedoeld voor de auteurs om gebreken uit hun Ampersand model op te sporen. </p>
 <p>De conceptuele analyse in  4 is bedoeld voor requirements engineers en architecten om de gemaakte afspraken te valideren en te formaliseren. Tevens is het bedoeld voor testers om eenduidige testgevallen te kunnen bepalen. De formalisatie in dit hoofdstuk maakt consistentie van de functionele specificatie bewijsbaar. Ook garandeert het een eenduidige interpretatie van de afspraken.</p>
+<p>De hoofdstukken die dan volgen zijn bedoeld voor de bouwers van ‘Big’. De gegevensanalyse in  5 beschrijft de gegevensverzamelingen waarop ‘Big’ wordt gebouwd. Elk volgend hoofdstuk definieert één business service. Hierdoor kunnen bouwers zich concentreren op één service tegelijk. </p>
+<p>Tezamen ondersteunen deze services alle geldende afspraken. Door alle functionaliteit uitsluitend via deze services te ontsluiten waarborgt ‘Big’ compliance ten aanzien van alle gestelde afspraken. </p>
 <h1 data-number="2" id="sec:SharedLang"><span class="header-section-number">2</span> Gemeenschappelijke taal</h1>
 <p>Dit hoofdstuk beschrijft functionele eisen ten behoeve van ‘Big’ in natuurlijke taal. Het hoofdstuk bevat definities en afspraken. Hiermee wordt beoogd dat verschillende belanghebbenden hun afspraken op dezelfde manier kunnen begrijpen. Alle definities en afspraken zijn genummerd omwille van de traceerbaarheid. </p>
 <h2 data-number="2.1" id="sec:SharedLangtheme-525340773"><span class="header-section-number">2.1</span> Weigering</h2>
@@ -2277,10 +2351,1935 @@ In artikel 3 lid 2 is aangegeven dat de voorna(a)m(en) een onderdeel is/zijn van
 </tr>
 </tbody>
 </table>
+<h1 data-number="5" id="sec:DataAnalysis"><span class="header-section-number">5</span> Gegevensstructuur</h1>
+<p>Dit hoofdstuk bevat het resultaat van de gegevensanalyse. De opbouw is als volgt:</p>
+<p>We beginnen met het classificatiemodel, gevolgd door een overzicht van alle relaties, die samen de basis vormen van de rest van deze analyse. Ten slotte volgen achtereenvolgend het logische- en technische gegevensmodel.</p>
+<h2 data-number="5.1"><span class="header-section-number">5.1</span> Regels</h2>
+<p>Nu volgt een opsomming van alle regels. Per regel wordt de formele expressie ervan gegeven. Eerst worden de procesregels gegeven, vervolgens de invarianten.</p>
+<h3 data-number="5.1.1"><span class="header-section-number">5.1.1</span> Procesregels</h3>
+<p>Procesregels zijn regels waarvan de overtredingen worden gesignaleerd.</p>
+<strong>Procesregel: <em>Compute kwalificatiedatum[InschrijfId*Datum] using DelPair</em></strong>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>∪</mo><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>∪</mo><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">kwalificatiedatum\vdash getuigschriftdatum\cup verklaringdatum\cup diplomadatum</annotation></semantics></math></p>
+<strong>Procesregel: <em>Compute kwalificatiedatum[InschrijfId*Datum] using InsPair</em></strong>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>∪</mo><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>∪</mo><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>⊢</mo><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">getuigschriftdatum\cup verklaringdatum\cup diplomadatum\vdash kwalificatiedatum</annotation></semantics></math></p>
+<strong>Procesregel: <em>Create Inschrijving</em></strong>
+Nieuw persoon moet ingeschreven worden.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Elke nationaliteit heeft een ingangsdatum</em></strong>
+Elk opgevoerde nationaliteit heeft een ingangsdatum voor het gebruik van de nationaliteit.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Nationaliteitid \rbrack }\vdash ingangsdatum;ingangsdatum^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Elke persoon heeft een nationaliteit</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash nationaliteit;nationaliteit^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Initialize today's date</em></strong>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>S</mi><mi>E</mi><mi>S</mi><mi>S</mi><mi>I</mi><mi>O</mi><mi>N</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo>;</mo><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><msup><mi>y</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack SESSION \rbrack }\vdash sessionToday;sessionToday^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotAdres</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>;</mo><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><msup><mi>s</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash adres;adres^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotGeboortedatum</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash geboortedatum;geboortedatum^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotGeslacht</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash geslacht;geslacht^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotGetuigschrift</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack RegisterId \rbrack }\vdash getuigschrift;getuigschrift^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotInschrijvingBig</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotNaam</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash naam;naam^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>TotVoornaam</em></strong>
+meaning
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash voornaam;voornaam^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Voeg datum registratie toe</em></strong>
+Bij het registreren wordt de datum vastgelegd.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Registratie \rbrack }\vdash registratiedatum;registratiedatum^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Voeg_Bignummer_toe(automatisch)</em></strong>
+Nieuw persoon krijgt een BIGnummer.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}</annotation></semantics></math></p>
+<strong>Procesregel: <em>Voeg_Registratie_toe(automatisch)</em></strong>
+Nieuw persoon krijgt een registratie.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>∩</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><msup><mi>e</mi><mo>⌣</mo></msup><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\cap inschrijving^{\smallsmile};inschrijving\vdash registratie^{\smallsmile};registratie</annotation></semantics></math></p>
+<strong>Procesregel: <em>Voeg_inschrijftijd_toe_(automatisch)</em></strong>
+Het tijdstip waarop de inschrijving wordt vastgelegd.
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>p</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><msup><mi>p</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash inschrijftijdstip;inschrijftijdstip^{\smallsmile}</annotation></semantics></math></p>
+<h3 data-number="5.1.2"><span class="header-section-number">5.1.2</span> Invarianten</h3>
+<p>Invarianten zijn regels die door de database worden afgedwongen. Er wordt gegarandeerd dat overtredingen niet kunnen voorkomen in de database.</p>
+<strong>Invariant: <em>INJ bignummer[InschrijfId*Bignummer]</em></strong>
+<p>bignummer[InschrijfId*Bignummer] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">bignummer^{\smallsmile}; \overline{I_{ \lbrack InschrijfId \rbrack }} ;bignummer\vdash  \overline{I_{ \lbrack Bignummer \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ doorgehaald[InschrijfId*Doorhaling]</em></strong>
+<p>doorgehaald[InschrijfId*Doorhaling] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msup><mi>d</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">doorgehaald^{\smallsmile}; \overline{I_{ \lbrack InschrijfId \rbrack }} ;doorgehaald\vdash  \overline{I_{ \lbrack Doorhaling \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ inschrijving[Persoon*InschrijfId]</em></strong>
+<p>inschrijving[Persoon*InschrijfId] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">inschrijving^{\smallsmile}; \overline{I_{ \lbrack Persoon \rbrack }} ;inschrijving\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ inschrijving[RegisterId*InschrijfId]</em></strong>
+<p>inschrijving[RegisterId*InschrijfId] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">inschrijving^{\smallsmile}; \overline{I_{ \lbrack RegisterId \rbrack }} ;inschrijving\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ nationaliteit[Nationaliteitid*Nationaliteit]</em></strong>
+<p>nationaliteit[Nationaliteitid*Nationaliteit] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">nationaliteit^{\smallsmile}; \overline{I_{ \lbrack Nationaliteitid \rbrack }} ;nationaliteit\vdash  \overline{I_{ \lbrack Nationaliteit \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ register[RegisterId*Register]</em></strong>
+<p>register[RegisterId*Register] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">register^{\smallsmile}; \overline{I_{ \lbrack RegisterId \rbrack }} ;register\vdash  \overline{I_{ \lbrack Register \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>INJ registratie[Registratie*InschrijfId]</em></strong>
+<p>registratie[Registratie*InschrijfId] is injectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><msup><mi>e</mi><mo>⌣</mo></msup><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">registratie^{\smallsmile}; \overline{I_{ \lbrack Registratie \rbrack }} ;registratie\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>SUR naam[Persoon*Naam]</em></strong>
+<p>naam[Persoon*Naam] is surjectief</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>;</mo><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">I_{ \lbrack Naam \rbrack }\vdash naam^{\smallsmile};naam</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT aantekening[Aantekening*RegisterId]</em></strong>
+<p>aantekening[Aantekening*RegisterId] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Aantekening \rbrack }\vdash aantekening;aantekening^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT geslacht[Geslacht*Omschrijving]</em></strong>
+<p>geslacht[Geslacht*Omschrijving] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>G</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo>;</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Geslacht \rbrack }\vdash geslacht;geslacht^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT ingangsdatum[RegisterId*Datum]</em></strong>
+<p>ingangsdatum[RegisterId*Datum] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack RegisterId \rbrack }\vdash ingangsdatum;ingangsdatum^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT inschrijving[Persoon*InschrijfId]</em></strong>
+<p>inschrijving[Persoon*InschrijfId] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT naam[Persoon*Naam]</em></strong>
+<p>naam[Persoon*Naam] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Persoon \rbrack }\vdash naam;naam^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT nationaliteit[Nationaliteitid*Nationaliteit]</em></strong>
+<p>nationaliteit[Nationaliteitid*Nationaliteit] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>;</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><msup><mi>t</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Nationaliteitid \rbrack }\vdash nationaliteit;nationaliteit^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT register[RegisterId*Register]</em></strong>
+<p>register[RegisterId*Register] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack RegisterId \rbrack }\vdash register;register^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>TOT registratie[Registratie*InschrijfId]</em></strong>
+<p>registratie[Registratie*InschrijfId] is totaal</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><msup><mi>e</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack Registratie \rbrack }\vdash registratie;registratie^{\smallsmile}</annotation></semantics></math></p>
+<strong>Invariant: <em>UNI aantekening[Aantekening*RegisterId]</em></strong>
+<p>aantekening[Aantekening*RegisterId] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">aantekening; \overline{I_{ \lbrack RegisterId \rbrack }} ;aantekening^{\smallsmile}\vdash  \overline{I_{ \lbrack Aantekening \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI beschikking[Aantekening*Beschikking]</em></strong>
+<p>beschikking[Aantekening*Beschikking] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">beschikking; \overline{I_{ \lbrack Beschikking \rbrack }} ;beschikking^{\smallsmile}\vdash  \overline{I_{ \lbrack Aantekening \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI bignummer[InschrijfId*Bignummer]</em></strong>
+<p>bignummer[InschrijfId*Bignummer] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">bignummer; \overline{I_{ \lbrack Bignummer \rbrack }} ;bignummer^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI binnenlandsadres[Adres*Binnenlandsadres]</em></strong>
+<p>binnenlandsadres[Adres*Binnenlandsadres] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><msup><mi>s</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">binnenlandsadres; \overline{I_{ \lbrack Binnenlandsadres \rbrack }} ;binnenlandsadres^{\smallsmile}\vdash  \overline{I_{ \lbrack Adres \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI buitenlandsadres[Adres*Buitenlandsadres]</em></strong>
+<p>buitenlandsadres[Adres*Buitenlandsadres] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><msup><mi>s</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">buitenlandsadres; \overline{I_{ \lbrack Buitenlandsadres \rbrack }} ;buitenlandsadres^{\smallsmile}\vdash  \overline{I_{ \lbrack Adres \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI doorgehaald[InschrijfId*Doorhaling]</em></strong>
+<p>doorgehaald[InschrijfId*Doorhaling] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msup><mi>d</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">doorgehaald; \overline{I_{ \lbrack Doorhaling \rbrack }} ;doorgehaald^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI einddatum[Nationaliteitid*Datum]</em></strong>
+<p>einddatum[Nationaliteitid*Datum] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">einddatum; \overline{I_{ \lbrack Datum \rbrack }} ;einddatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI einddatum[RegisterId*Datum]</em></strong>
+<p>einddatum[RegisterId*Datum] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">einddatum; \overline{I_{ \lbrack Datum \rbrack }} ;einddatum^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI geboortedatum[Persoon*Datum]</em></strong>
+<p>geboortedatum[Persoon*Datum] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>g</mi><mi>e</mi><mi>b</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">geboortedatum; \overline{I_{ \lbrack Datum \rbrack }} ;geboortedatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI geslacht[Geslacht*Omschrijving]</em></strong>
+<p>geslacht[Geslacht*Omschrijving] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>O</mi><mi>m</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>G</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">geslacht; \overline{I_{ \lbrack Omschrijving \rbrack }} ;geslacht^{\smallsmile}\vdash  \overline{I_{ \lbrack Geslacht \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI geslacht[Persoon*Geslacht]</em></strong>
+<p>geslacht[Persoon*Geslacht] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>G</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">geslacht; \overline{I_{ \lbrack Geslacht \rbrack }} ;geslacht^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI getuigschrift[RegisterId*Ja_of_Nee]</em></strong>
+<p>getuigschrift[RegisterId*Ja_of_Nee] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">getuigschrift; \overline{I_{ \lbrack Ja_of_Nee \rbrack }} ;getuigschrift^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI ingangsdatum[Nationaliteitid*Datum]</em></strong>
+<p>ingangsdatum[Nationaliteitid*Datum] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">ingangsdatum; \overline{I_{ \lbrack Datum \rbrack }} ;ingangsdatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI ingangsdatum[RegisterId*Datum]</em></strong>
+<p>ingangsdatum[RegisterId*Datum] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">ingangsdatum; \overline{I_{ \lbrack Datum \rbrack }} ;ingangsdatum^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI inschrijftijdstip[InschrijfId*InschrijfTijdstip]</em></strong>
+<p>inschrijftijdstip[InschrijfId*InschrijfTijdstip] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>p</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>T</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>p</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>t</mi><mi>i</mi><mi>j</mi><mi>d</mi><mi>s</mi><mi>t</mi><mi>i</mi><msup><mi>p</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">inschrijftijdstip; \overline{I_{ \lbrack InschrijfTijdstip \rbrack }} ;inschrijftijdstip^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI naam[Persoon*Naam]</em></strong>
+<p>naam[Persoon*Naam] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">naam; \overline{I_{ \lbrack Naam \rbrack }} ;naam^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI nationaliteit[Nationaliteitid*Nationaliteit]</em></strong>
+<p>nationaliteit[Nationaliteitid*Nationaliteit] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">nationaliteit; \overline{I_{ \lbrack Nationaliteit \rbrack }} ;nationaliteit^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI register[RegisterId*Register]</em></strong>
+<p>register[RegisterId*Register] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><msup><mi>r</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">register; \overline{I_{ \lbrack Register \rbrack }} ;register^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI registratie[Registratie*InschrijfId]</em></strong>
+<p>registratie[Registratie*InschrijfId] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><msup><mi>e</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">registratie; \overline{I_{ \lbrack InschrijfId \rbrack }} ;registratie^{\smallsmile}\vdash  \overline{I_{ \lbrack Registratie \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI specialist[Persoon*SpecialistenRegister]</em></strong>
+<p>specialist[Persoon*SpecialistenRegister] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><msup><mi>t</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">specialist; \overline{I_{ \lbrack SpecialistenRegister \rbrack }} ;specialist^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} </annotation></semantics></math></p>
+<strong>Invariant: <em>UNI voornaam[Persoon*Voornaam]</em></strong>
+<p>voornaam[Persoon*Voornaam] is univalent</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo>;</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover><mo>;</mo><mi>v</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><msup><mi>m</mi><mo>⌣</mo></msup><mo>⊢</mo><mover><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">voornaam; \overline{I_{ \lbrack Voornaam \rbrack }} ;voornaam^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} </annotation></semantics></math></p>
+<h2 data-number="5.2"><span class="header-section-number">5.2</span> Logisch gegevensmodel</h2>
+<p>De afspraken zijn vertaald naar een gegevensmodel. Dit gegevensmodel is in  5.1 weergegeven.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\LogicalDataModel.png" title="Logisch gegevensmodel van Big" id="fig:Logisch gegevensmodel van Big" alt="Figuur 5.1: Logisch gegevensmodel van Big" /><figcaption aria-hidden="true">Figuur 5.1: Logisch gegevensmodel van Big</figcaption>
+</figure>
+<p>Er zijn 8 gegevensverzamelingen. De details van elk van deze gegevensverzameling worden, op alfabetische volgorde, in de twee nu volgende tabellen beschreven:</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 50%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">Betekenis</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;">Aantal</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">Vullingsgraad</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aantekening</td>
+<td style="text-align: left;">art.7a.2-zie artikel 9
+De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op het mogen uitvoeren van de zorgtaak.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">"0"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adres</td>
+<td style="text-align: left;">Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de identificatie van de zorgverlener.</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">"0(0%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Geslacht</td>
+<td style="text-align: left;">De sekse van een individue.
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een onderdeel is van de identificatie van de zorgverlener.</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">"3(100%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">InschrijfId</td>
+<td style="text-align: left;">De aanmelding van persoon in een register
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">"9(60%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nationaliteitid</td>
+<td style="text-align: left;">De Nationaliteit wordt aangeduid middels een 4-cijferige code.
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene bij Inschrijving moet worden vermeld, als onderdeel van de identificatie van de zorgverlener.</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">"6(67%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Persoon</td>
+<td style="text-align: left;">Een Persoon representeerd een persoons-id dat opgenomen is in het BIG-register.
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn personen.</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">"12(80%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">RegisterId</td>
+<td style="text-align: left;">Technisch element voor het register.</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">"33(75%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Registratie</td>
+<td style="text-align: left;">Betreft een complete afgeronde inschrijving
+<p>Er is sprake van registratie van een ingeschrevene wanneer het inschrijvingsproces geheel afgerond is en aan alle voorwaarden is voldaan.</p></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">"1(100%)"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 66%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">Voorbeelden</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;">Aantal</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschikking</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bignummer</td>
+<td style="text-align: left;">"B002"</td>
+<td style="text-align: left;">"B003"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Binnenlandsadres</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Buitenlandsadres</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">1965-01-01</td>
+<td style="text-align: left;">1970-12-13</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Doorhaling</td>
+<td style="text-align: left;">"Medische maatregel"</td>
+<td style="text-align: left;">"Verzoek ingerschrevene"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">InschrijfTijdstip</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Inschrijving</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">JaOfNee</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ja_of_Nee</td>
+<td style="text-align: left;">"Nee"</td>
+<td style="text-align: left;">"Ja"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Naam</td>
+<td style="text-align: left;">"Jansen"</td>
+<td style="text-align: left;">"Pietersen"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nationaliteit</td>
+<td style="text-align: left;">"Nederlandse"</td>
+<td style="text-align: left;">"Belgische"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ONE</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Omschrijving</td>
+<td style="text-align: left;">"Man"</td>
+<td style="text-align: left;">"Vrouw"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Register</td>
+<td style="text-align: left;">"klinisch technoloog"</td>
+<td style="text-align: left;">"psychotherapeut"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SESSION</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SpecialistenRegister</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Voornaam</td>
+<td style="text-align: left;">"Gerard"</td>
+<td style="text-align: left;">"Piet"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Weigering</td>
+<td style="text-align: left;">"Opleidingseisen"</td>
+<td style="text-align: left;">"Onder curatele gesteld"</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.1"><span class="header-section-number">5.2.1</span> Gegevensverzameling: <em><strong>Aantekening</strong></em></h3>
+De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op het mogen uitvoeren van de zorgtaak.
+<p>Deze gegevensverzameling heeft 0 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>aantekening_1</td>
+<td>RegisterId(11)</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>beschikking</td>
+<td>Beschikking(0)</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Aantekening heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aantekening(0)</td>
+<td>0</td>
+<td>aantekening(0)</td>
+<td>RegisterId(11)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>Persoon(3)</td>
+<td>0(0%)</td>
+<td>aantekening(0)</td>
+<td>Aantekening(0)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.2"><span class="header-section-number">5.2.2</span> Gegevensverzameling: <em><strong>Adres</strong></em></h3>
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de identificatie van de zorgverlener.
+<p>Deze gegevensverzameling heeft 3 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>binnenlandsadres</td>
+<td>Binnenlandsadres(0)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>buitenlandsadres</td>
+<td>Buitenlandsadres(0)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Adres heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>adres(3)</td>
+<td>Adres(3)</td>
+<td>3(100%)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.3"><span class="header-section-number">5.2.3</span> Gegevensverzameling: <em><strong>Geslacht</strong></em></h3>
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een onderdeel is van de identificatie van de zorgverlener.
+<p>Deze gegevensverzameling heeft 3 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>geslacht_1</td>
+<td>Omschrijving(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Geslacht heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>geslacht(3)</td>
+<td>Geslacht(3)</td>
+<td>3(100%)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.4"><span class="header-section-number">5.2.4</span> Gegevensverzameling: <em><strong>InschrijfId</strong></em></h3>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+<p>Deze gegevensverzameling heeft 3 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bignummer</td>
+<td>Bignummer(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>doorgehaald</td>
+<td>Doorhaling(5)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>inschrijftijdstip</td>
+<td>InschrijfTijdstip(0)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>inschrijving</td>
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>inschrijving_1</td>
+<td>RegisterId(11)</td>
+<td>3(100%)</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>InschrijfId heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>diplomadatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>doorgehaald_ogv_artikel_8(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>einddatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>getuigschriftdatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>herregistratie(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>inschrijving(3)</td>
+<td>InschrijfId(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="odd">
+<td>RegisterId(11)</td>
+<td>2(18%)</td>
+<td>inschrijving(3)</td>
+<td>InschrijfId(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="even">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>inschrijvingsWeigering(0)</td>
+<td>Weigering(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>kwalificatiedatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>Registratie(1)</td>
+<td>1(100%)</td>
+<td>registratie(1)</td>
+<td>InschrijfId(3)</td>
+<td>1(33%)</td>
+</tr>
+<tr class="odd">
+<td>InschrijfId(3)</td>
+<td>0(0%)</td>
+<td>verklaringdatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.5"><span class="header-section-number">5.2.5</span> Gegevensverzameling: <em><strong>Nationaliteitid</strong></em></h3>
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene bij Inschrijving moet worden vermeld, als onderdeel van de identificatie van de zorgverlener.
+<p>Deze gegevensverzameling heeft 3 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>einddatum</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>ingangsdatum</td>
+<td>Datum(6)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>nationaliteit</td>
+<td>Nationaliteit(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Nationaliteitid heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>nationaliteit(3)</td>
+<td>Nationaliteitid(3)</td>
+<td>2(67%)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.6"><span class="header-section-number">5.2.6</span> Gegevensverzameling: <em><strong>Persoon</strong></em></h3>
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving wordt vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn personen.
+<p>Deze gegevensverzameling heeft 3 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>geboortedatum</td>
+<td>Datum(6)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>geslacht</td>
+<td>Geslacht(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>naam</td>
+<td>Naam(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>specialist</td>
+<td>SpecialistenRegister(0)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>voornaam</td>
+<td>Voornaam(3)</td>
+<td>3(100%)</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Persoon heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>0(0%)</td>
+<td>aantekening(0)</td>
+<td>Aantekening(0)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>adres(3)</td>
+<td>Adres(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>geslacht(3)</td>
+<td>Geslacht(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="even">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>inschrijving(3)</td>
+<td>InschrijfId(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="odd">
+<td>Persoon(3)</td>
+<td>3(100%)</td>
+<td>nationaliteit(3)</td>
+<td>Nationaliteitid(3)</td>
+<td>2(67%)</td>
+</tr>
+<tr class="even">
+<td>Persoon(3)</td>
+<td>0(0%)</td>
+<td>opgenomenInSpecialistenRegister(0)</td>
+<td>JaOfNee(0)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.7"><span class="header-section-number">5.2.7</span> Gegevensverzameling: <em><strong>RegisterId</strong></em></h3>
+<p>Deze gegevensverzameling heeft 11 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>einddatum</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>getuigschrift</td>
+<td>Ja_of_Nee(2)</td>
+<td>11(100%)</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>ingangsdatum</td>
+<td>Datum(6)</td>
+<td>11(100%)</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>register</td>
+<td>Register(11)</td>
+<td>11(100%)</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p>RegisterId heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aantekening(0)</td>
+<td>0</td>
+<td>aantekening(0)</td>
+<td>RegisterId(11)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>apotheker(1)</td>
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+</tr>
+<tr class="odd">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>arts(1)</td>
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+</tr>
+<tr class="even">
+<td>RegisterId(11)</td>
+<td>0(0%)</td>
+<td>herregistratie(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>RegisterId(11)</td>
+<td>2(18%)</td>
+<td>inschrijving(3)</td>
+<td>InschrijfId(3)</td>
+<td>3(100%)</td>
+</tr>
+<tr class="even">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>tandarts(1)</td>
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="5.2.8"><span class="header-section-number">5.2.8</span> Gegevensverzameling: <em><strong>Registratie</strong></em></h3>
+<p>Er is sprake van registratie van een ingeschrevene wanneer het inschrijvingsproces geheel afgerond is en aan alle voorwaarden is voldaan.</p>
+<p>Deze gegevensverzameling heeft 1 elementen en bevat de volgende attributen: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Attribuut</th>
+<th>Type</th>
+<th>gevuld</th>
+<th>#uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>registratie_1</td>
+<td>InschrijfId(3)</td>
+<td>1(100%)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Registratie heeft de volgende associaties: </p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>uniek</th>
+<th>Associatie</th>
+<th>Target</th>
+<th>uniek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Registratie(1)</td>
+<td>1(100%)</td>
+<td>registratie(1)</td>
+<td>InschrijfId(3)</td>
+<td>1(33%)</td>
+</tr>
+<tr class="even">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
+<td>registratiedatum(0)</td>
+<td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="5.3"><span class="header-section-number">5.3</span> Technisch datamodel</h2>
+<p>De afspraken zijn vertaald naar een technisch datamodel. Dit model is in  5.2 weergegeven.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\TechnicalDataModel.png" title="Technisch gegevensmodel van Big" id="fig:Technisch gegevensmodel van Big" alt="Figuur 5.2: Technisch gegevensmodel van Big" /><figcaption aria-hidden="true">Figuur 5.2: Technisch gegevensmodel van Big</figcaption>
+</figure>
+<p>Het technisch datamodel bestaat uit de volgende 49 tabellen:</p>
+<h3 data-number="5.3.1"><span class="header-section-number">5.3.1</span> Tabel: aantekening1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {aantekening} Aantekening</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Persoon</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Persoon<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Aantekening</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Aantekening<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.2"><span class="header-section-number">5.3.2</span> Tabel: Aantekening2</h3>
+<p>Deze tabel heeft de volgende 3 attributen:</p>
+<ul>
+<li><p><strong>Aantekening</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>aantekening_1</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>beschikking</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Beschikking<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+</ul>
+<h3 data-number="5.3.3"><span class="header-section-number">5.3.3</span> Tabel: adres1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {adres} Adres</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Persoon</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Persoon<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Adres</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Adres<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.4"><span class="header-section-number">5.3.4</span> Tabel: Adres2</h3>
+<p>Deze tabel heeft de volgende 3 attributen:</p>
+<ul>
+<li><p><strong>Adres</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>binnenlandsadres</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Binnenlandsadres<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>buitenlandsadres</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Buitenlandsadres<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+</ul>
+<h3 data-number="5.3.5"><span class="header-section-number">5.3.5</span> Tabel: apotheker</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {apotheker} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>TgtRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.6"><span class="header-section-number">5.3.6</span> Tabel: arts</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {arts} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>TgtRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.7"><span class="header-section-number">5.3.7</span> Tabel: Beschikking</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Beschikking</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.8"><span class="header-section-number">5.3.8</span> Tabel: Bignummer</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Bignummer</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.9"><span class="header-section-number">5.3.9</span> Tabel: Binnenlandsadres</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Binnenlandsadres</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.10"><span class="header-section-number">5.3.10</span> Tabel: Buitenlandsadres</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Buitenlandsadres</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.11"><span class="header-section-number">5.3.11</span> Tabel: Datum</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Datum</strong><br />
+Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Datum</annotation></semantics></math>.<br />
+<code>DATE</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.12"><span class="header-section-number">5.3.12</span> Tabel: diplomadatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {diplomadatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.13"><span class="header-section-number">5.3.13</span> Tabel: doorgehaald_ogv_artikel_8</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {doorgehaald_ogv_artikel_8} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.14"><span class="header-section-number">5.3.14</span> Tabel: Doorhaling</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Doorhaling</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.15"><span class="header-section-number">5.3.15</span> Tabel: eerder</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>→</mo><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Datum \rightarrow {eerder} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcDatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Verplicht.</p></li>
+<li><p><strong>TgtDatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.16"><span class="header-section-number">5.3.16</span> Tabel: einddatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {einddatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.17"><span class="header-section-number">5.3.17</span> Tabel: Geslacht</h3>
+<p>Deze tabel heeft de volgende 2 attributen:</p>
+<ul>
+<li><p><strong>Geslacht</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>geslacht_1</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Omschrijving<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.18"><span class="header-section-number">5.3.18</span> Tabel: getuigschriftdatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {getuigschriftdatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.19"><span class="header-section-number">5.3.19</span> Tabel: herregistratie1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {herregistratie} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.20"><span class="header-section-number">5.3.20</span> Tabel: herregistratie2</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {herregistratie} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.21"><span class="header-section-number">5.3.21</span> Tabel: InschrijfId</h3>
+<p>Deze tabel heeft de volgende 6 attributen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>bignummer</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Bignummer<br />
+<code>OBJECT</code>, Optioneel, Uniek.</p></li>
+<li><p><strong>doorgehaald</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Doorhaling<br />
+<code>OBJECT</code>, Optioneel, Uniek.</p></li>
+<li><p><strong>inschrijftijdstip</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfTijdstip<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>inschrijving</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Persoon<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>inschrijving_1</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+</ul>
+<h3 data-number="5.3.22"><span class="header-section-number">5.3.22</span> Tabel: InschrijfTijdstip</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>InschrijfTijdstip</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.23"><span class="header-section-number">5.3.23</span> Tabel: Inschrijving</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Inschrijving</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.24"><span class="header-section-number">5.3.24</span> Tabel: inschrijvingsWeigering</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {inschrijvingsWeigering} Weigering</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Weigering</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Weigering<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.25"><span class="header-section-number">5.3.25</span> Tabel: Ja_of_Nee</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Ja_of_Nee</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.26"><span class="header-section-number">5.3.26</span> Tabel: JaOfNee</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>JaOfNee</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.27"><span class="header-section-number">5.3.27</span> Tabel: kwalificatiedatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {kwalificatiedatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.28"><span class="header-section-number">5.3.28</span> Tabel: Naam</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Naam</strong><br />
+Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Naam</annotation></semantics></math>.<br />
+<code>ALPHANUMERIC</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.29"><span class="header-section-number">5.3.29</span> Tabel: nationaliteit1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {nationaliteit} Nationaliteitid</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Persoon</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Persoon<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Nationaliteitid</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Nationaliteitid<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.30"><span class="header-section-number">5.3.30</span> Tabel: Nationaliteit2</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Nationaliteit</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.31"><span class="header-section-number">5.3.31</span> Tabel: Nationaliteitid</h3>
+<p>Deze tabel heeft de volgende 4 attributen:</p>
+<ul>
+<li><p><strong>Nationaliteitid</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>einddatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Optioneel.</p></li>
+<li><p><strong>ingangsdatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Optioneel.</p></li>
+<li><p><strong>nationaliteit</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Nationaliteit<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.32"><span class="header-section-number">5.3.32</span> Tabel: nietVerplicht</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>n</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>V</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {nietVerplicht} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcJa_of_Nee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>TgtJa_of_Nee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.33"><span class="header-section-number">5.3.33</span> Tabel: Omschrijving</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Omschrijving</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.34"><span class="header-section-number">5.3.34</span> Tabel: ONE</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>ONE</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.35"><span class="header-section-number">5.3.35</span> Tabel: opgenomenInSpecialistenRegister</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><mi>J</mi><mi>a</mi><mi>O</mi><mi>f</mi><mi>N</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {opgenomenInSpecialistenRegister} JaOfNee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Persoon</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Persoon<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>JaOfNee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel JaOfNee<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.36"><span class="header-section-number">5.3.36</span> Tabel: Persoon</h3>
+<p>Deze tabel heeft de volgende 6 attributen:</p>
+<ul>
+<li><p><strong>Persoon</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>geboortedatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Optioneel.</p></li>
+<li><p><strong>geslacht</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Geslacht<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>naam</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Naam<br />
+<code>ALPHANUMERIC</code>, Verplicht.</p></li>
+<li><p><strong>specialist</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialistenRegister<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>voornaam</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Voornaam<br />
+<code>ALPHANUMERIC</code>, Optioneel.</p></li>
+</ul>
+<h3 data-number="5.3.37"><span class="header-section-number">5.3.37</span> Tabel: Register</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Register</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.38"><span class="header-section-number">5.3.38</span> Tabel: RegisterId</h3>
+<p>Deze tabel heeft de volgende 5 attributen:</p>
+<ul>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>einddatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Optioneel.</p></li>
+<li><p><strong>getuigschrift</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
+<code>OBJECT</code>, Optioneel.</p></li>
+<li><p><strong>ingangsdatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Verplicht.</p></li>
+<li><p><strong>register</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Register<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.39"><span class="header-section-number">5.3.39</span> Tabel: Registratie</h3>
+<p>Deze tabel heeft de volgende 2 attributen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+<li><p><strong>registratie_1</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.40"><span class="header-section-number">5.3.40</span> Tabel: registratiedatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {registratiedatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Registratie<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.41"><span class="header-section-number">5.3.41</span> Tabel: SESSION</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>SESSION</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.42"><span class="header-section-number">5.3.42</span> Tabel: sessionToday</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>E</mi><mi>S</mi><mi>S</mi><mi>I</mi><mi>O</mi><mi>N</mi><mo>→</mo><mrow><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>y</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">SESSION \rightarrow {sessionToday} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SESSION</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SESSION<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.43"><span class="header-section-number">5.3.43</span> Tabel: SpecialistenRegister</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>SpecialistenRegister</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.44"><span class="header-section-number">5.3.44</span> Tabel: tandarts</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {tandarts} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>TgtRegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.45"><span class="header-section-number">5.3.45</span> Tabel: vandaag</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>→</mo><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Datum \rightarrow {vandaag} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcDatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Verplicht.</p></li>
+<li><p><strong>TgtDatum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>DATE</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.46"><span class="header-section-number">5.3.46</span> Tabel: verklaringdatum</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {verklaringdatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>InschrijfId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>Datum</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Datum<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.47"><span class="header-section-number">5.3.47</span> Tabel: verplicht</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {verplicht} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>SrcJa_of_Nee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>TgtJa_of_Nee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.48"><span class="header-section-number">5.3.48</span> Tabel: Voornaam</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Voornaam</strong><br />
+Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Voornaam</annotation></semantics></math>.<br />
+<code>ALPHANUMERIC</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.49"><span class="header-section-number">5.3.49</span> Tabel: Weigering</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>Weigering</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h2 data-number="5.4"><span class="header-section-number">5.4</span> Logisch gegevensmodel</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>C</th>
+<th>R</th>
+<th>U</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aantekening</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Adres</td>
+<td></td>
+<td>Adres</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Adres</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Adres</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Bignummer</td>
+<td></td>
+<td>Apotheker</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bignummer</td>
+<td></td>
+<td>Arts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Bignummer</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bignummer</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Bignummer</td>
+<td></td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bignummer</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Bignummer</td>
+<td></td>
+<td>Tandarts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Binnenlandsadres</td>
+<td></td>
+<td>Adres</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Buitenlandsadres</td>
+<td></td>
+<td>Adres</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Datum</td>
+<td></td>
+<td>Beheer</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Datum</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Datum</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Datum</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Datum</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Datum</td>
+<td></td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Doorhaling</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Doorhaling</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Geslacht</td>
+<td></td>
+<td>Beheer</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Geslacht</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Geslacht</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>InschrijfTijdstip</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>InschrijfTijdstip</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ja_of_Nee</td>
+<td></td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Naam</td>
+<td></td>
+<td>Apotheker</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Naam</td>
+<td></td>
+<td>Arts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Naam</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Naam</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Naam</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Naam</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Naam</td>
+<td></td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Naam</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Naam</td>
+<td></td>
+<td>Tandarts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nationaliteitid</td>
+<td></td>
+<td>Beheer</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nationaliteitid</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nationaliteitid</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Omschrijving</td>
+<td></td>
+<td>Beheer</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Omschrijving</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>Apotheker</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RegisterId</td>
+<td></td>
+<td>Arts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>Beheer</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RegisterId</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RegisterId</td>
+<td></td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RegisterId</td>
+<td></td>
+<td>Tandarts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Registratie</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Registratie</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Registratie</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Voornaam</td>
+<td></td>
+<td>Personen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Voornaam</td>
+<td></td>
+<td>Persoon</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Weigering</td>
+<td></td>
+<td>Inschrijving</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Weigering</td>
+<td></td>
+<td>Inschrijvingen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Weigering</td>
+<td></td>
+<td>Registratie</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 4-12-2021 om 14:27:22, dmv. Ampersand-v4.6.0 [HEAD:743e5ce*], build time: 22-Nov-21 15:44:23 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 5-12-2021 om 18:49:40, dmv. Ampersand-v4.6.0 [HEAD:743e5ce*], build time: 22-Nov-21 15:44:23 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Het ontwerpen met bedrijfsregels is een kenmerk van de Ampersand aanpak, die gebruikt is bij het samenstellen van dit document. <a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

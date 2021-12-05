@@ -124,7 +124,7 @@
 
 \title{Functioneel Ontwerp van Big}
 \author{Gerard Edelaar}
-\date{4 december 2021}
+\date{5 december 2021}
 
 \begin{document}
 \maketitle
@@ -212,8 +212,8 @@ de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een
 volgend deel van de publieke website, waarmee op dat moment alleen de
 advieswijzer nog niet is omgezet.
 
-Dit document\footnote{Dit document is gegenereerd op 4-12-2021 om
-  14:27:09, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
+Dit document\footnote{Dit document is gegenereerd op 5-12-2021 om
+  18:49:22, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
   22-Nov-21 15:44:23 Coordinated Universal Time.} definieert de
 functionaliteit van een informatiesysteem genaamd ‘Big’. Het definieert
 de database en de business-services van Big door middel van
@@ -230,6 +230,15 @@ Tevens is het bedoeld voor testers om eenduidige testgevallen te kunnen
 bepalen. De formalisatie in dit hoofdstuk maakt consistentie van de
 functionele specificatie bewijsbaar. Ook garandeert het een eenduidige
 interpretatie van de afspraken.
+
+De hoofdstukken die dan volgen zijn bedoeld voor de bouwers van ‘Big’.
+De gegevensanalyse in 5 beschrijft de gegevensverzamelingen waarop ‘Big’
+wordt gebouwd. Elk volgend hoofdstuk definieert één business service.
+Hierdoor kunnen bouwers zich concentreren op één service tegelijk.
+
+Tezamen ondersteunen deze services alle geldende afspraken. Door alle
+functionaliteit uitsluitend via deze services te ontsluiten waarborgt
+‘Big’ compliance ten aanzien van alle gestelde afspraken.
 
 \hypertarget{sec:SharedLang}{%
 \chapter{Gemeenschappelijke taal}\label{sec:SharedLang}}
@@ -3129,6 +3138,1602 @@ consequenties op de bijbehorende registraties. \\
 nietVerplicht {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
 sessionToday {[}SESSION*Datum{]} & \\
 verplicht {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{sec:DataAnalysis}{%
+\chapter{Gegevensstructuur}\label{sec:DataAnalysis}}
+
+Dit hoofdstuk bevat het resultaat van de gegevensanalyse. De opbouw is
+als volgt:
+
+We beginnen met het classificatiemodel, gevolgd door een overzicht van
+alle relaties, die samen de basis vormen van de rest van deze analyse.
+Ten slotte volgen achtereenvolgend het logische- en technische
+gegevensmodel.
+
+\section{Regels}
+
+Nu volgt een opsomming van alle regels. Per regel wordt de formele
+expressie ervan gegeven. Eerst worden de procesregels gegeven,
+vervolgens de invarianten.
+
+\subsection{Procesregels}
+
+Procesregels zijn regels waarvan de overtredingen worden gesignaleerd.
+
+\textbf{Procesregel: \emph{Compute
+kwalificatiedatum{[}InschrijfId*Datum{]} using DelPair}}
+
+\(kwalificatiedatum\vdash getuigschriftdatum\cup verklaringdatum\cup diplomadatum\)
+
+\textbf{Procesregel: \emph{Compute
+kwalificatiedatum{[}InschrijfId*Datum{]} using InsPair}}
+
+\(getuigschriftdatum\cup verklaringdatum\cup diplomadatum\vdash kwalificatiedatum\)
+
+\textbf{Procesregel: \emph{Create Inschrijving}}
+
+Nieuw persoon moet ingeschreven worden.
+
+\(I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Elke nationaliteit heeft een ingangsdatum}}
+
+Elk opgevoerde nationaliteit heeft een ingangsdatum voor het gebruik van
+de nationaliteit.
+
+\(I_{ \lbrack Nationaliteitid \rbrack }\vdash ingangsdatum;ingangsdatum^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Elke persoon heeft een nationaliteit}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash nationaliteit;nationaliteit^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Initialize today's date}}
+
+\(I_{ \lbrack SESSION \rbrack }\vdash sessionToday;sessionToday^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotAdres}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash adres;adres^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotGeboortedatum}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash geboortedatum;geboortedatum^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotGeslacht}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash geslacht;geslacht^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotGetuigschrift}}
+
+meaning
+
+\(I_{ \lbrack RegisterId \rbrack }\vdash getuigschrift;getuigschrift^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotInschrijvingBig}}
+
+meaning
+
+\(I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotNaam}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash naam;naam^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{TotVoornaam}}
+
+meaning
+
+\(I_{ \lbrack Persoon \rbrack }\vdash voornaam;voornaam^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Voeg datum registratie toe}}
+
+Bij het registreren wordt de datum vastgelegd.
+
+\(I_{ \lbrack Registratie \rbrack }\vdash registratiedatum;registratiedatum^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Voeg\_Bignummer\_toe(automatisch)}}
+
+Nieuw persoon krijgt een BIGnummer.
+
+\(I_{ \lbrack InschrijfId \rbrack }\vdash bignummer;bignummer^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{Voeg\_Registratie\_toe(automatisch)}}
+
+Nieuw persoon krijgt een registratie.
+
+\(I_{ \lbrack InschrijfId \rbrack }\cap inschrijving^{\smallsmile};inschrijving\vdash registratie^{\smallsmile};registratie\)
+
+\textbf{Procesregel: \emph{Voeg\_inschrijftijd\_toe\_(automatisch)}}
+
+Het tijdstip waarop de inschrijving wordt vastgelegd.
+
+\(I_{ \lbrack InschrijfId \rbrack }\vdash inschrijftijdstip;inschrijftijdstip^{\smallsmile}\)
+
+\subsection{Invarianten}
+
+Invarianten zijn regels die door de database worden afgedwongen. Er
+wordt gegarandeerd dat overtredingen niet kunnen voorkomen in de
+database.
+
+\textbf{Invariant: \emph{INJ bignummer{[}InschrijfId*Bignummer{]}}}
+
+bignummer{[}InschrijfId*Bignummer{]} is injectief
+
+\(bignummer^{\smallsmile}; \overline{I_{ \lbrack InschrijfId \rbrack }} ;bignummer\vdash  \overline{I_{ \lbrack Bignummer \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ doorgehaald{[}InschrijfId*Doorhaling{]}}}
+
+doorgehaald{[}InschrijfId*Doorhaling{]} is injectief
+
+\(doorgehaald^{\smallsmile}; \overline{I_{ \lbrack InschrijfId \rbrack }} ;doorgehaald\vdash  \overline{I_{ \lbrack Doorhaling \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ inschrijving{[}Persoon*InschrijfId{]}}}
+
+inschrijving{[}Persoon*InschrijfId{]} is injectief
+
+\(inschrijving^{\smallsmile}; \overline{I_{ \lbrack Persoon \rbrack }} ;inschrijving\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ inschrijving{[}RegisterId*InschrijfId{]}}}
+
+inschrijving{[}RegisterId*InschrijfId{]} is injectief
+
+\(inschrijving^{\smallsmile}; \overline{I_{ \lbrack RegisterId \rbrack }} ;inschrijving\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ
+nationaliteit{[}Nationaliteitid*Nationaliteit{]}}}
+
+nationaliteit{[}Nationaliteitid*Nationaliteit{]} is injectief
+
+\(nationaliteit^{\smallsmile}; \overline{I_{ \lbrack Nationaliteitid \rbrack }} ;nationaliteit\vdash  \overline{I_{ \lbrack Nationaliteit \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ register{[}RegisterId*Register{]}}}
+
+register{[}RegisterId*Register{]} is injectief
+
+\(register^{\smallsmile}; \overline{I_{ \lbrack RegisterId \rbrack }} ;register\vdash  \overline{I_{ \lbrack Register \rbrack }} \)
+
+\textbf{Invariant: \emph{INJ registratie{[}Registratie*InschrijfId{]}}}
+
+registratie{[}Registratie*InschrijfId{]} is injectief
+
+\(registratie^{\smallsmile}; \overline{I_{ \lbrack Registratie \rbrack }} ;registratie\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{SUR naam{[}Persoon*Naam{]}}}
+
+naam{[}Persoon*Naam{]} is surjectief
+
+\(I_{ \lbrack Naam \rbrack }\vdash naam^{\smallsmile};naam\)
+
+\textbf{Invariant: \emph{TOT aantekening{[}Aantekening*RegisterId{]}}}
+
+aantekening{[}Aantekening*RegisterId{]} is totaal
+
+\(I_{ \lbrack Aantekening \rbrack }\vdash aantekening;aantekening^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT geslacht{[}Geslacht*Omschrijving{]}}}
+
+geslacht{[}Geslacht*Omschrijving{]} is totaal
+
+\(I_{ \lbrack Geslacht \rbrack }\vdash geslacht;geslacht^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT ingangsdatum{[}RegisterId*Datum{]}}}
+
+ingangsdatum{[}RegisterId*Datum{]} is totaal
+
+\(I_{ \lbrack RegisterId \rbrack }\vdash ingangsdatum;ingangsdatum^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT inschrijving{[}Persoon*InschrijfId{]}}}
+
+inschrijving{[}Persoon*InschrijfId{]} is totaal
+
+\(I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT naam{[}Persoon*Naam{]}}}
+
+naam{[}Persoon*Naam{]} is totaal
+
+\(I_{ \lbrack Persoon \rbrack }\vdash naam;naam^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT
+nationaliteit{[}Nationaliteitid*Nationaliteit{]}}}
+
+nationaliteit{[}Nationaliteitid*Nationaliteit{]} is totaal
+
+\(I_{ \lbrack Nationaliteitid \rbrack }\vdash nationaliteit;nationaliteit^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT register{[}RegisterId*Register{]}}}
+
+register{[}RegisterId*Register{]} is totaal
+
+\(I_{ \lbrack RegisterId \rbrack }\vdash register;register^{\smallsmile}\)
+
+\textbf{Invariant: \emph{TOT registratie{[}Registratie*InschrijfId{]}}}
+
+registratie{[}Registratie*InschrijfId{]} is totaal
+
+\(I_{ \lbrack Registratie \rbrack }\vdash registratie;registratie^{\smallsmile}\)
+
+\textbf{Invariant: \emph{UNI aantekening{[}Aantekening*RegisterId{]}}}
+
+aantekening{[}Aantekening*RegisterId{]} is univalent
+
+\(aantekening; \overline{I_{ \lbrack RegisterId \rbrack }} ;aantekening^{\smallsmile}\vdash  \overline{I_{ \lbrack Aantekening \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI beschikking{[}Aantekening*Beschikking{]}}}
+
+beschikking{[}Aantekening*Beschikking{]} is univalent
+
+\(beschikking; \overline{I_{ \lbrack Beschikking \rbrack }} ;beschikking^{\smallsmile}\vdash  \overline{I_{ \lbrack Aantekening \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI bignummer{[}InschrijfId*Bignummer{]}}}
+
+bignummer{[}InschrijfId*Bignummer{]} is univalent
+
+\(bignummer; \overline{I_{ \lbrack Bignummer \rbrack }} ;bignummer^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI
+binnenlandsadres{[}Adres*Binnenlandsadres{]}}}
+
+binnenlandsadres{[}Adres*Binnenlandsadres{]} is univalent
+
+\(binnenlandsadres; \overline{I_{ \lbrack Binnenlandsadres \rbrack }} ;binnenlandsadres^{\smallsmile}\vdash  \overline{I_{ \lbrack Adres \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI
+buitenlandsadres{[}Adres*Buitenlandsadres{]}}}
+
+buitenlandsadres{[}Adres*Buitenlandsadres{]} is univalent
+
+\(buitenlandsadres; \overline{I_{ \lbrack Buitenlandsadres \rbrack }} ;buitenlandsadres^{\smallsmile}\vdash  \overline{I_{ \lbrack Adres \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI doorgehaald{[}InschrijfId*Doorhaling{]}}}
+
+doorgehaald{[}InschrijfId*Doorhaling{]} is univalent
+
+\(doorgehaald; \overline{I_{ \lbrack Doorhaling \rbrack }} ;doorgehaald^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI einddatum{[}Nationaliteitid*Datum{]}}}
+
+einddatum{[}Nationaliteitid*Datum{]} is univalent
+
+\(einddatum; \overline{I_{ \lbrack Datum \rbrack }} ;einddatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI einddatum{[}RegisterId*Datum{]}}}
+
+einddatum{[}RegisterId*Datum{]} is univalent
+
+\(einddatum; \overline{I_{ \lbrack Datum \rbrack }} ;einddatum^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI geboortedatum{[}Persoon*Datum{]}}}
+
+geboortedatum{[}Persoon*Datum{]} is univalent
+
+\(geboortedatum; \overline{I_{ \lbrack Datum \rbrack }} ;geboortedatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI geslacht{[}Geslacht*Omschrijving{]}}}
+
+geslacht{[}Geslacht*Omschrijving{]} is univalent
+
+\(geslacht; \overline{I_{ \lbrack Omschrijving \rbrack }} ;geslacht^{\smallsmile}\vdash  \overline{I_{ \lbrack Geslacht \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI geslacht{[}Persoon*Geslacht{]}}}
+
+geslacht{[}Persoon*Geslacht{]} is univalent
+
+\(geslacht; \overline{I_{ \lbrack Geslacht \rbrack }} ;geslacht^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI getuigschrift{[}RegisterId*Ja\_of\_Nee{]}}}
+
+getuigschrift{[}RegisterId*Ja\_of\_Nee{]} is univalent
+
+\(getuigschrift; \overline{I_{ \lbrack Ja_of_Nee \rbrack }} ;getuigschrift^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI ingangsdatum{[}Nationaliteitid*Datum{]}}}
+
+ingangsdatum{[}Nationaliteitid*Datum{]} is univalent
+
+\(ingangsdatum; \overline{I_{ \lbrack Datum \rbrack }} ;ingangsdatum^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI ingangsdatum{[}RegisterId*Datum{]}}}
+
+ingangsdatum{[}RegisterId*Datum{]} is univalent
+
+\(ingangsdatum; \overline{I_{ \lbrack Datum \rbrack }} ;ingangsdatum^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI
+inschrijftijdstip{[}InschrijfId*InschrijfTijdstip{]}}}
+
+inschrijftijdstip{[}InschrijfId*InschrijfTijdstip{]} is univalent
+
+\(inschrijftijdstip; \overline{I_{ \lbrack InschrijfTijdstip \rbrack }} ;inschrijftijdstip^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI naam{[}Persoon*Naam{]}}}
+
+naam{[}Persoon*Naam{]} is univalent
+
+\(naam; \overline{I_{ \lbrack Naam \rbrack }} ;naam^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI
+nationaliteit{[}Nationaliteitid*Nationaliteit{]}}}
+
+nationaliteit{[}Nationaliteitid*Nationaliteit{]} is univalent
+
+\(nationaliteit; \overline{I_{ \lbrack Nationaliteit \rbrack }} ;nationaliteit^{\smallsmile}\vdash  \overline{I_{ \lbrack Nationaliteitid \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI register{[}RegisterId*Register{]}}}
+
+register{[}RegisterId*Register{]} is univalent
+
+\(register; \overline{I_{ \lbrack Register \rbrack }} ;register^{\smallsmile}\vdash  \overline{I_{ \lbrack RegisterId \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI registratie{[}Registratie*InschrijfId{]}}}
+
+registratie{[}Registratie*InschrijfId{]} is univalent
+
+\(registratie; \overline{I_{ \lbrack InschrijfId \rbrack }} ;registratie^{\smallsmile}\vdash  \overline{I_{ \lbrack Registratie \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI
+specialist{[}Persoon*SpecialistenRegister{]}}}
+
+specialist{[}Persoon*SpecialistenRegister{]} is univalent
+
+\(specialist; \overline{I_{ \lbrack SpecialistenRegister \rbrack }} ;specialist^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI voornaam{[}Persoon*Voornaam{]}}}
+
+voornaam{[}Persoon*Voornaam{]} is univalent
+
+\(voornaam; \overline{I_{ \lbrack Voornaam \rbrack }} ;voornaam^{\smallsmile}\vdash  \overline{I_{ \lbrack Persoon \rbrack }} \)
+
+\section{Logisch gegevensmodel}
+
+De afspraken zijn vertaald naar een gegevensmodel. Dit gegevensmodel is
+in 5.1 weergegeven.
+
+\begin{figure}
+\hypertarget{fig:Logischux20gegevensmodelux20vanux20Big}{%
+\centering
+\includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/LogicalDataModel.dot}
+\caption{Figuur 5.1: Logisch gegevensmodel van
+Big}\label{fig:Logischux20gegevensmodelux20vanux20Big}
+}
+\end{figure}
+
+Er zijn 8 gegevensverzamelingen. De details van elk van deze
+gegevensverzameling worden, op alfabetische volgorde, in de twee nu
+volgende tabellen beschreven:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.12}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.50}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.12}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.12}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.12}}@{}}
+\toprule
+Concept & & & & \\
+Betekenis & & & & \\
+Aantal & & & & \\
+Vullingsgraad & & & & \\
+\midrule
+\endhead
+Aantekening & art.7a.2-zie artikel 9
+
+De aantekening wordt op het register geplaatst bij een
+beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op
+het mogen uitvoeren van de zorgtaak. & 0 & "0" & \\
+Adres & Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
+
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de
+identificatie van de zorgverlener. & 3 & "0(0\%)" & \\
+Geslacht & De sekse van een individue.
+
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een
+onderdeel is van de identificatie van de zorgverlener. & 3 & "3(100\%)"
+& \\
+InschrijfId & De aanmelding van persoon in een register
+
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in
+het register vermeld de naam, voornamen, geslacht, geboortedatum,
+nationaliteit en adres van de betrokkene en het nummer en het tijdstip
+van inschrijving. Bij ministeriële regeling kunnen gegevens worden
+aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren
+bij de inschrijving worden vermeld. & 3 & "9(60\%)" & \\
+Nationaliteitid & De Nationaliteit wordt aangeduid middels een
+4-cijferige code.
+
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene
+bij Inschrijving moet worden vermeld, als onderdeel van de identificatie
+van de zorgverlener. & 3 & "6(67\%)" & \\
+Persoon & Een Persoon representeerd een persoons-id dat opgenomen is in
+het BIG-register.
+
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het
+register de naam, voornamen, geslacht, geboortedatum, nationaliteit en
+adres van de betrokkene en het nummer en het tijdstip van inschrijving
+wordt vermeld. Bij ministeriële regeling kunnen gegevens worden
+aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren
+bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn
+personen. & 3 & "12(80\%)" & \\
+RegisterId & Technisch element voor het register. & 11 & "33(75\%)" & \\
+Registratie & Betreft een complete afgeronde inschrijving
+
+Er is sprake van registratie van een ingeschrevene wanneer het
+inschrijvingsproces geheel afgerond is en aan alle voorwaarden is
+voldaan. & 1 & "1(100\%)" & \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.67}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+\toprule
+Concept & & \\
+Voorbeelden & & \\
+Aantal & & \\
+\midrule
+\endhead
+Beschikking & 0 & \\
+Bignummer & "B002" & "B003" \\
+Binnenlandsadres & 0 & \\
+Buitenlandsadres & 0 & \\
+Datum & 1965-01-01 & 1970-12-13 \\
+Doorhaling & "Medische maatregel" & "Verzoek ingerschrevene" \\
+InschrijfTijdstip & 0 & \\
+Inschrijving & 0 & \\
+JaOfNee & 0 & \\
+Ja\_of\_Nee & "Nee" & "Ja" \\
+Naam & "Jansen" & "Pietersen" \\
+Nationaliteit & "Nederlandse" & "Belgische" \\
+ONE & 1 & 1 \\
+Omschrijving & "Man" & "Vrouw" \\
+Register & "klinisch technoloog" & "psychotherapeut" \\
+SESSION & 0 & \\
+SpecialistenRegister & 0 & \\
+Voornaam & "Gerard" & "Piet" \\
+Weigering & "Opleidingseisen" & "Onder curatele gesteld" \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Aantekening}}}{Gegevensverzameling: Aantekening}}
+
+De aantekening wordt op het register geplaatst bij een
+beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op
+het mogen uitvoeren van de zorgtaak.
+
+Deze gegevensverzameling heeft 0 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+aantekening\_1 & RegisterId(11) & 0 & 0 \\
+beschikking & Beschikking(0) & 0 & 0 \\
+\bottomrule
+\end{longtable}
+
+Aantekening heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Aantekening(0) & 0 & aantekening(0) & RegisterId(11) & 0(0\%) \\
+Persoon(3) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Adres}}}{Gegevensverzameling: Adres}}
+
+In artikel 3 lid 2 is aangegeven dat het adres een onderdeel is van de
+identificatie van de zorgverlener.
+
+Deze gegevensverzameling heeft 3 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+binnenlandsadres & Binnenlandsadres(0) & 0(0\%) & 0 \\
+buitenlandsadres & Buitenlandsadres(0) & 0(0\%) & 0 \\
+\bottomrule
+\end{longtable}
+
+Adres heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Persoon(3) & 3(100\%) & adres(3) & Adres(3) & 3(100\%) \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Geslacht}}}{Gegevensverzameling: Geslacht}}
+
+In Artikel 3 lid 2 is bepaald dat het geslacht van de inschrijver een
+onderdeel is van de identificatie van de zorgverlener.
+
+Deze gegevensverzameling heeft 3 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+geslacht\_1 & Omschrijving(3) & 3(100\%) & 3 \\
+\bottomrule
+\end{longtable}
+
+Geslacht heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Persoon(3) & 3(100\%) & geslacht(3) & Geslacht(3) & 3(100\%) \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{InschrijfId}}}{Gegevensverzameling: InschrijfId}}
+
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving worden in
+het register vermeld de naam, voornamen, geslacht, geboortedatum,
+nationaliteit en adres van de betrokkene en het nummer en het tijdstip
+van inschrijving. Bij ministeriële regeling kunnen gegevens worden
+aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren
+bij de inschrijving worden vermeld.
+
+Deze gegevensverzameling heeft 3 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+bignummer & Bignummer(3) & 3(100\%) & 3 \\
+doorgehaald & Doorhaling(5) & 0(0\%) & 0 \\
+inschrijftijdstip & InschrijfTijdstip(0) & 0(0\%) & 0 \\
+inschrijving & Persoon(3) & 3(100\%) & 3 \\
+inschrijving\_1 & RegisterId(11) & 3(100\%) & 2 \\
+\bottomrule
+\end{longtable}
+
+InschrijfId heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+InschrijfId(3) & 0(0\%) & diplomadatum(0) & Datum(6) & 0(0\%) \\
+InschrijfId(3) & 0(0\%) & doorgehaald\_ogv\_artikel\_8(0) & Datum(6) &
+0(0\%) \\
+InschrijfId(3) & 0(0\%) & einddatum(0) & Datum(6) & 0(0\%) \\
+InschrijfId(3) & 0(0\%) & getuigschriftdatum(0) & Datum(6) & 0(0\%) \\
+InschrijfId(3) & 0(0\%) & herregistratie(0) & Datum(6) & 0(0\%) \\
+Persoon(3) & 3(100\%) & inschrijving(3) & InschrijfId(3) & 3(100\%) \\
+RegisterId(11) & 2(18\%) & inschrijving(3) & InschrijfId(3) &
+3(100\%) \\
+InschrijfId(3) & 0(0\%) & inschrijvingsWeigering(0) & Weigering(6) &
+0(0\%) \\
+InschrijfId(3) & 0(0\%) & kwalificatiedatum(0) & Datum(6) & 0(0\%) \\
+Registratie(1) & 1(100\%) & registratie(1) & InschrijfId(3) & 1(33\%) \\
+InschrijfId(3) & 0(0\%) & verklaringdatum(0) & Datum(6) & 0(0\%) \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Nationaliteitid}}}{Gegevensverzameling: Nationaliteitid}}
+
+In artikel 3 lid 2 is aangegeven dat de Nationaliteit van de betrokkene
+bij Inschrijving moet worden vermeld, als onderdeel van de identificatie
+van de zorgverlener.
+
+Deze gegevensverzameling heeft 3 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+einddatum & Datum(6) & 0(0\%) & 0 \\
+ingangsdatum & Datum(6) & 3(100\%) & 3 \\
+nationaliteit & Nationaliteit(3) & 3(100\%) & 3 \\
+\bottomrule
+\end{longtable}
+
+Nationaliteitid heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Persoon(3) & 3(100\%) & nationaliteit(3) & Nationaliteitid(3) &
+2(67\%) \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Persoon}}}{Gegevensverzameling: Persoon}}
+
+In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het
+register de naam, voornamen, geslacht, geboortedatum, nationaliteit en
+adres van de betrokkene en het nummer en het tijdstip van inschrijving
+wordt vermeld. Bij ministeriële regeling kunnen gegevens worden
+aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren
+bij de inschrijving worden vermeld. Deze beroepsbeoefenaren zijn
+personen.
+
+Deze gegevensverzameling heeft 3 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+geboortedatum & Datum(6) & 3(100\%) & 3 \\
+geslacht & Geslacht(3) & 3(100\%) & 3 \\
+naam & Naam(3) & 3(100\%) & 3 \\
+specialist & SpecialistenRegister(0) & 0(0\%) & 0 \\
+voornaam & Voornaam(3) & 3(100\%) & 3 \\
+\bottomrule
+\end{longtable}
+
+Persoon heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Persoon(3) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
+Persoon(3) & 3(100\%) & adres(3) & Adres(3) & 3(100\%) \\
+Persoon(3) & 3(100\%) & geslacht(3) & Geslacht(3) & 3(100\%) \\
+Persoon(3) & 3(100\%) & inschrijving(3) & InschrijfId(3) & 3(100\%) \\
+Persoon(3) & 3(100\%) & nationaliteit(3) & Nationaliteitid(3) &
+2(67\%) \\
+Persoon(3) & 0(0\%) & opgenomenInSpecialistenRegister(0) & JaOfNee(0) &
+0 \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{RegisterId}}}{Gegevensverzameling: RegisterId}}
+
+Deze gegevensverzameling heeft 11 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+einddatum & Datum(6) & 0(0\%) & 0 \\
+getuigschrift & Ja\_of\_Nee(2) & 11(100\%) & 2 \\
+ingangsdatum & Datum(6) & 11(100\%) & 1 \\
+register & Register(11) & 11(100\%) & 11 \\
+\bottomrule
+\end{longtable}
+
+RegisterId heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Aantekening(0) & 0 & aantekening(0) & RegisterId(11) & 0(0\%) \\
+RegisterId(11) & 1(9\%) & apotheker(1) & RegisterId(11) & 1(9\%) \\
+RegisterId(11) & 1(9\%) & arts(1) & RegisterId(11) & 1(9\%) \\
+RegisterId(11) & 0(0\%) & herregistratie(0) & Datum(6) & 0(0\%) \\
+RegisterId(11) & 2(18\%) & inschrijving(3) & InschrijfId(3) &
+3(100\%) \\
+RegisterId(11) & 1(9\%) & tandarts(1) & RegisterId(11) & 1(9\%) \\
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{Gegevensverzameling:
+\emph{\textbf{Registratie}}}{Gegevensverzameling: Registratie}}
+
+Er is sprake van registratie van een ingeschrevene wanneer het
+inschrijvingsproces geheel afgerond is en aan alle voorwaarden is
+voldaan.
+
+Deze gegevensverzameling heeft 1 elementen en bevat de volgende
+attributen:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Attribuut & Type & gevuld & \#uniek \\
+\midrule
+\endhead
+registratie\_1 & InschrijfId(3) & 1(100\%) & 1 \\
+\bottomrule
+\end{longtable}
+
+Registratie heeft de volgende associaties:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Source & uniek & Associatie & Target & uniek \\
+\midrule
+\endhead
+Registratie(1) & 1(100\%) & registratie(1) & InschrijfId(3) & 1(33\%) \\
+Registratie(1) & 0(0\%) & registratiedatum(0) & Datum(6) & 0(0\%) \\
+\bottomrule
+\end{longtable}
+
+\section{Technisch datamodel}
+
+De afspraken zijn vertaald naar een technisch datamodel. Dit model is in
+5.2 weergegeven.
+
+\begin{figure}
+\hypertarget{fig:Technischux20gegevensmodelux20vanux20Big}{%
+\centering
+\includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/TechnicalDataModel.dot}
+\caption{Figuur 5.2: Technisch gegevensmodel van
+Big}\label{fig:Technischux20gegevensmodelux20vanux20Big}
+}
+\end{figure}
+
+Het technisch datamodel bestaat uit de volgende 49 tabellen:
+
+\subsection{Tabel: aantekening1}
+
+Dit is een koppeltabel, die de relatie
+\(Persoon \rightarrow {aantekening} Aantekening\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Persoon}\\
+  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Aantekening}\\
+  Dit attribuut verwijst naar een rij in de tabel Aantekening\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Aantekening2}
+
+Deze tabel heeft de volgende 3 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Aantekening}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{aantekening\_1}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{beschikking}\\
+  Dit attribuut verwijst naar een rij in de tabel Beschikking\\
+  \texttt{OBJECT}, Optioneel.
+\end{itemize}
+
+\subsection{Tabel: adres1}
+
+Dit is een koppeltabel, die de relatie
+\(Persoon \rightarrow {adres} Adres\) implementeert. De tabel bestaat
+uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Persoon}\\
+  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Adres}\\
+  Dit attribuut verwijst naar een rij in de tabel Adres\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Adres2}
+
+Deze tabel heeft de volgende 3 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Adres}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{binnenlandsadres}\\
+  Dit attribuut verwijst naar een rij in de tabel Binnenlandsadres\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{buitenlandsadres}\\
+  Dit attribuut verwijst naar een rij in de tabel Buitenlandsadres\\
+  \texttt{OBJECT}, Optioneel.
+\end{itemize}
+
+\subsection{Tabel: apotheker}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {apotheker} RegisterId\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: arts}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {arts} RegisterId\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Beschikking}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Beschikking}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Bignummer}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Bignummer}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Binnenlandsadres}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Binnenlandsadres}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Buitenlandsadres}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Buitenlandsadres}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Datum}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Datum}\\
+  Dit attribuut implementeert de identiteitsrelatie van \(Datum\).\\
+  \texttt{DATE}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: diplomadatum}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {diplomadatum} Datum\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: doorgehaald\_ogv\_artikel\_8}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {doorgehaald_ogv_artikel_8} Datum\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Doorhaling}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Doorhaling}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: eerder}
+
+Dit is een koppeltabel, die de relatie
+\(Datum \rightarrow {eerder} Datum\) implementeert. De tabel bestaat uit
+de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcDatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Verplicht.
+\item
+  \textbf{TgtDatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: einddatum}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {einddatum} Datum\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Geslacht}
+
+Deze tabel heeft de volgende 2 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Geslacht}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{geslacht\_1}\\
+  Dit attribuut verwijst naar een rij in de tabel Omschrijving\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: getuigschriftdatum}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {getuigschriftdatum} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: herregistratie1}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {herregistratie} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: herregistratie2}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {herregistratie} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: InschrijfId}
+
+Deze tabel heeft de volgende 6 attributen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{bignummer}\\
+  Dit attribuut verwijst naar een rij in de tabel Bignummer\\
+  \texttt{OBJECT}, Optioneel, Uniek.
+\item
+  \textbf{doorgehaald}\\
+  Dit attribuut verwijst naar een rij in de tabel Doorhaling\\
+  \texttt{OBJECT}, Optioneel, Uniek.
+\item
+  \textbf{inschrijftijdstip}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfTijdstip\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{inschrijving}\\
+  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{inschrijving\_1}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Optioneel.
+\end{itemize}
+
+\subsection{Tabel: InschrijfTijdstip}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfTijdstip}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Inschrijving}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Inschrijving}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: inschrijvingsWeigering}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {inschrijvingsWeigering} Weigering\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Weigering}\\
+  Dit attribuut verwijst naar een rij in de tabel Weigering\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Ja\_of\_Nee}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Ja\_of\_Nee}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: JaOfNee}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{JaOfNee}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: kwalificatiedatum}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {kwalificatiedatum} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Naam}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Naam}\\
+  Dit attribuut implementeert de identiteitsrelatie van \(Naam\).\\
+  \texttt{ALPHANUMERIC}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: nationaliteit1}
+
+Dit is een koppeltabel, die de relatie
+\(Persoon \rightarrow {nationaliteit} Nationaliteitid\) implementeert.
+De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Persoon}\\
+  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Nationaliteitid}\\
+  Dit attribuut verwijst naar een rij in de tabel Nationaliteitid\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Nationaliteit2}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Nationaliteit}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Nationaliteitid}
+
+Deze tabel heeft de volgende 4 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Nationaliteitid}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{einddatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Optioneel.
+\item
+  \textbf{ingangsdatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Optioneel.
+\item
+  \textbf{nationaliteit}\\
+  Dit attribuut verwijst naar een rij in de tabel Nationaliteit\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: nietVerplicht}
+
+Dit is een koppeltabel, die de relatie
+\(Ja_of_Nee \rightarrow {nietVerplicht} Ja_of_Nee\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Omschrijving}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Omschrijving}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: ONE}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{ONE}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: opgenomenInSpecialistenRegister}
+
+Dit is een koppeltabel, die de relatie
+\(Persoon \rightarrow {opgenomenInSpecialistenRegister} JaOfNee\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Persoon}\\
+  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{JaOfNee}\\
+  Dit attribuut verwijst naar een rij in de tabel JaOfNee\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Persoon}
+
+Deze tabel heeft de volgende 6 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Persoon}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{geboortedatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Optioneel.
+\item
+  \textbf{geslacht}\\
+  Dit attribuut verwijst naar een rij in de tabel Geslacht\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{naam}\\
+  Dit attribuut verwijst naar een rij in de tabel Naam\\
+  \texttt{ALPHANUMERIC}, Verplicht.
+\item
+  \textbf{specialist}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialistenRegister\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{voornaam}\\
+  Dit attribuut verwijst naar een rij in de tabel Voornaam\\
+  \texttt{ALPHANUMERIC}, Optioneel.
+\end{itemize}
+
+\subsection{Tabel: Register}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Register}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: RegisterId}
+
+Deze tabel heeft de volgende 5 attributen:
+
+\begin{itemize}
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{einddatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Optioneel.
+\item
+  \textbf{getuigschrift}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Optioneel.
+\item
+  \textbf{ingangsdatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Verplicht.
+\item
+  \textbf{register}\\
+  Dit attribuut verwijst naar een rij in de tabel Register\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Registratie}
+
+Deze tabel heeft de volgende 2 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\item
+  \textbf{registratie\_1}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: registratiedatum}
+
+Dit is een koppeltabel, die de relatie
+\(Registratie \rightarrow {registratiedatum} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: SESSION}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{SESSION}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: sessionToday}
+
+Dit is een koppeltabel, die de relatie
+\(SESSION \rightarrow {sessionToday} Datum\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SESSION}\\
+  Dit attribuut verwijst naar een rij in de tabel SESSION\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: SpecialistenRegister}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{SpecialistenRegister}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: tandarts}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {tandarts} RegisterId\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtRegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: vandaag}
+
+Dit is een koppeltabel, die de relatie
+\(Datum \rightarrow {vandaag} Datum\) implementeert. De tabel bestaat
+uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcDatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Verplicht.
+\item
+  \textbf{TgtDatum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{DATE}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: verklaringdatum}
+
+Dit is een koppeltabel, die de relatie
+\(InschrijfId \rightarrow {verklaringdatum} Datum\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{InschrijfId}\\
+  Dit attribuut verwijst naar een rij in de tabel InschrijfId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{Datum}\\
+  Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: verplicht}
+
+Dit is een koppeltabel, die de relatie
+\(Ja_of_Nee \rightarrow {verplicht} Ja_of_Nee\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Voornaam}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Voornaam}\\
+  Dit attribuut implementeert de identiteitsrelatie van \(Voornaam\).\\
+  \texttt{ALPHANUMERIC}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: Weigering}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{Weigering}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\section{Logisch gegevensmodel}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Concept & C & R & U & D \\
+\midrule
+\endhead
+Aantekening & & Registratie & & \\
+Adres & & Adres & & \\
+Adres & & Personen & & \\
+Adres & & Persoon & & \\
+Bignummer & & Apotheker & & \\
+Bignummer & & Arts & & \\
+Bignummer & & Inschrijving & & \\
+Bignummer & & Inschrijvingen & & \\
+Bignummer & & Register & & \\
+Bignummer & & Registratie & & \\
+Bignummer & & Tandarts & & \\
+Binnenlandsadres & & Adres & & \\
+Buitenlandsadres & & Adres & & \\
+Datum & & Beheer & & \\
+Datum & & Inschrijving & & \\
+Datum & & Inschrijvingen & & \\
+Datum & & Personen & & \\
+Datum & & Persoon & & \\
+Datum & & Register & & \\
+Doorhaling & & Inschrijving & & \\
+Doorhaling & & Registratie & & \\
+Geslacht & & Beheer & & \\
+Geslacht & & Personen & & \\
+Geslacht & & Persoon & & \\
+InschrijfTijdstip & & Inschrijving & & \\
+InschrijfTijdstip & & Inschrijvingen & & \\
+Ja\_of\_Nee & & Register & & \\
+Naam & & Apotheker & & \\
+Naam & & Arts & & \\
+Naam & & Inschrijving & & \\
+Naam & & Inschrijvingen & & \\
+Naam & & Personen & & \\
+Naam & & Persoon & & \\
+Naam & & Register & & \\
+Naam & & Registratie & & \\
+Naam & & Tandarts & & \\
+Nationaliteitid & & Beheer & & \\
+Nationaliteitid & & Personen & & \\
+Nationaliteitid & & Persoon & & \\
+Omschrijving & & Beheer & & \\
+Omschrijving & & Persoon & & \\
+RegisterId & & Apotheker & & \\
+RegisterId & & Arts & & \\
+RegisterId & & Beheer & & \\
+RegisterId & & Inschrijving & & \\
+RegisterId & & Inschrijvingen & & \\
+RegisterId & & Register & & \\
+RegisterId & & Registratie & & \\
+RegisterId & & Tandarts & & \\
+Registratie & & Inschrijving & & \\
+Registratie & & Inschrijvingen & & \\
+Registratie & & Registratie & & \\
+Voornaam & & Personen & & \\
+Voornaam & & Persoon & & \\
+Weigering & & Inschrijving & & \\
+Weigering & & Inschrijvingen & & \\
+Weigering & & Registratie & & \\
 \bottomrule
 \end{longtable}
 

@@ -1,0 +1,9 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+}

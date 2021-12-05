@@ -10,9 +10,17 @@ CONTEXT CurrentDate
     RELATION verplicht[Ja_of_Nee*Ja_of_Nee]
     POPULATION verplicht CONTAINS
     [("Ja","Ja")]
+    
+    RELATION ja[Ja_of_Nee*Ja_of_Nee]
+    POPULATION ja CONTAINS
+    [("Ja","Ja")]
 
     RELATION nietVerplicht[Ja_of_Nee*Ja_of_Nee]
     POPULATION nietVerplicht CONTAINS
+    [("Nee","Nee")]
+
+    RELATION nee[Ja_of_Nee*Ja_of_Nee]
+    POPULATION nee CONTAINS
     [("Nee","Nee")]
 
 

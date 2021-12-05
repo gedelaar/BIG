@@ -1,0 +1,216 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+	aantekening1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">aantekening1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR></TABLE>>,
+		shape=plaintext];
+	Aantekening2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Aantekening2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR><TR><TD ALIGN="LEFT" PORT="aantekening_1">+ aantekening_1 : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="beschikking">o beschikking : Beschikking</TD></TR></TABLE>>,
+		shape=plaintext];
+	aantekening1:Aantekening -> Aantekening2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR></TABLE>>,
+		shape=plaintext];
+	aantekening1:Persoon -> Persoon	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	RegisterId	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">RegisterId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="getuigschrift">o getuigschrift : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">+ ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="register">+ register : Register</TD></TR></TABLE>>,
+		shape=plaintext];
+	Aantekening2:aantekening_1 -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		label=aantekening,
+		labelfloat=true,
+		taillabel="*"];
+	adres1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">adres1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="Adres">+ Adres : Adres</TD></TR></TABLE>>,
+		shape=plaintext];
+	Adres2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Adres2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Adres">+ Adres : Adres</TD></TR><TR><TD ALIGN="LEFT" PORT="binnenlandsadres">o binnenlandsadres : Binnenlandsadres</TD></TR><TR><TD ALIGN="LEFT" PORT="buitenlandsadres">o buitenlandsadres : Buitenlandsadres</TD></TR></TABLE>>,
+		shape=plaintext];
+	adres1:Adres -> Adres2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	adres1:Persoon -> Persoon	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	apotheker	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">apotheker</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	apotheker:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	apotheker:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	arts	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">arts</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	arts:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	arts:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	diplomadatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">diplomadatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	InschrijfId	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">InschrijfId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="bignummer">o bignummer : Bignummer</TD></TR><TR><TD ALIGN="LEFT" PORT="doorgehaald">o doorgehaald : Doorhaling</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijftijdstip">o inschrijftijdstip : InschrijfTijdstip</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR></TABLE>>,
+		shape=plaintext];
+	diplomadatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	doorgehaald_ogv_artikel_8	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">doorgehaald_ogv_artikel_8</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	doorgehaald_ogv_artikel_8:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	eerder	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">eerder</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcDatum">+ SrcDatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtDatum">+ TgtDatum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	einddatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">einddatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	einddatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	Geslacht	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Geslacht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Geslacht">+ Geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht_1">+ geslacht_1 : Omschrijving</TD></TR></TABLE>>,
+		shape=plaintext];
+	getuigschriftdatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">getuigschriftdatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	getuigschriftdatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	herregistratie1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">herregistratie1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	herregistratie1:RegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	herregistratie2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">herregistratie2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	herregistratie2:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	InschrijfId:inschrijving -> Persoon	[arrowhead=onone,
+		headlabel="0-1",
+		label=inschrijving,
+		labelfloat=true,
+		taillabel="1-*"];
+	InschrijfId:inschrijving_1 -> RegisterId	[arrowhead=onone,
+		headlabel="0-1",
+		label=inschrijving,
+		labelfloat=true,
+		taillabel="*"];
+	inschrijvingsWeigering	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">inschrijvingsWeigering</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Weigering">+ Weigering : Weigering</TD></TR></TABLE>>,
+		shape=plaintext];
+	inschrijvingsWeigering:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	kwalificatiedatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">kwalificatiedatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	kwalificatiedatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	nationaliteit1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">nationaliteit1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="Nationaliteitid">+ Nationaliteitid : Nationaliteitid</TD></TR></TABLE>>,
+		shape=plaintext];
+	Nationaliteitid	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Nationaliteitid</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Nationaliteitid">+ Nationaliteitid : Nationaliteitid</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">o ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="nationaliteit">+ nationaliteit : Nationaliteit</TD></TR></TABLE>>,
+		shape=plaintext];
+	nationaliteit1:Nationaliteitid -> Nationaliteitid	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	nationaliteit1:Persoon -> Persoon	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	nietVerplicht	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">nietVerplicht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
+		shape=plaintext];
+	opgenomenInSpecialistenRegister	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">opgenomenInSpecialistenRegister</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="JaOfNee">+ JaOfNee : JaOfNee</TD></TR></TABLE>>,
+		shape=plaintext];
+	opgenomenInSpecialistenRegister:Persoon -> Persoon	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	Persoon:geslacht -> Geslacht	[arrowhead=onone,
+		headlabel="0-1",
+		label=geslacht,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="registratie_1">+ registratie_1 : InschrijfId</TD></TR></TABLE>>,
+		shape=plaintext];
+	Registratie:registratie_1 -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		label=registratie,
+		labelfloat=true,
+		taillabel="0-1"];
+	registratiedatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">registratiedatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	registratiedatum:Registratie -> Registratie	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	sessionToday	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">sessionToday</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SESSION">+ SESSION : SESSION</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	tandarts	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">tandarts</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	tandarts:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	tandarts:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	vandaag	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">vandaag</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcDatum">+ SrcDatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtDatum">+ TgtDatum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	verklaringdatum	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">verklaringdatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	verklaringdatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	verplicht	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">verplicht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
+		shape=plaintext];
+}
