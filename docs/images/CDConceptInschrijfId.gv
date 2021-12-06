@@ -24,10 +24,12 @@ digraph {
 	cpt_2 -> cpt_1	[label="bignummer\n[uni, inj]"];
 	cpt_3	[label=InschrijfTijdstip];
 	cpt_2 -> cpt_3	[label="inschrijftijdstip\n[uni]"];
-	cpt_4	[label=Persoon];
-	cpt_4 -> cpt_2	[label="inschrijving\n[inj, tot]"];
-	cpt_5	[label=RegisterId];
-	cpt_5 -> cpt_2	[label="inschrijving\n[inj]"];
-	cpt_6	[label=Registratie];
-	cpt_6 -> cpt_2	[label="registratie\n[uni, inj, tot]"];
+	cpt_4	[label=Ja_of_Nee];
+	cpt_2 -> cpt_4	[label="deelToegang\n[uni]"];
+	cpt_5	[label=Persoon];
+	cpt_5 -> cpt_2	[label="inschrijving\n[inj, tot]"];
+	cpt_6	[label=RegisterId];
+	cpt_6 -> cpt_2	[label="inschrijving\n[inj]"];
+	cpt_7	[label=Registratie];
+	cpt_7 -> cpt_2	[label="registratie\n[uni, inj, tot]"];
 }

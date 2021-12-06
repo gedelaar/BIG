@@ -124,7 +124,7 @@
 
 \title{Functioneel Ontwerp van Big}
 \author{Gerard Edelaar}
-\date{5 december 2021}
+\date{6 december 2021}
 
 \begin{document}
 \maketitle
@@ -198,6 +198,9 @@ uitvoering van de Wet BIG.
 \item
   \href{https://wetten.overheid.nl/BWBR0031720/2014-02-01}{Regeling
   tarieven registratie beroepsbeoefenaren Wet BIG}
+\item
+  \href{https://wetten.overheid.nl/BWBR0023066/2018-09-19}{Algemene wet
+  erkenning EU-beroepskwalificaties}
 \end{itemize}
 
 Het BIGregister bevindt zich in een keten van informatieverstrekking en
@@ -212,8 +215,8 @@ de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een
 volgend deel van de publieke website, waarmee op dat moment alleen de
 advieswijzer nog niet is omgezet.
 
-Dit document\footnote{Dit document is gegenereerd op 5-12-2021 om
-  18:49:22, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
+Dit document\footnote{Dit document is gegenereerd op 6-12-2021 om
+  20:49:08, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
   22-Nov-21 15:44:23 Coordinated Universal Time.} definieert de
 functionaliteit van een informatiesysteem genaamd ‘Big’. Het definieert
 de database en de business-services van Big door middel van
@@ -404,15 +407,7 @@ registreren.
 \begin{description}
 \tightlist
 \item[Relatie 1:
-\protect\hypertarget{lst:SharedLangrelation--461188124}{}{aantekening{[}Aantekening*RegisterId{]}}]
-Deze relatie is univalent en totaal.
-\end{description}
-
-\begin{description}
-\tightlist
-\item[Relatie 2:
-\protect\hypertarget{lst:SharedLangrelation-668542886}{}{aantekening{[}Persoon*Aantekening{]}}]
-Bevat aantekening op een Big-ingeschrevene.
+\protect\hypertarget{lst:SharedLangrelation-1467844663}{}{aantekening{[}Registratie*Aantekening{]}}]
 \end{description}
 
 Een register registreert een beschikking als bedoeld in artikel 10 van
@@ -420,7 +415,7 @@ de Wet BIG om een aantekening in datzelfde register te onderbouwen.
 
 \begin{description}
 \tightlist
-\item[Relatie 3:
+\item[Relatie 2:
 \protect\hypertarget{lst:SharedLangrelation--1799783339}{}{beschikking{[}Aantekening*Beschikking{]}}]
 Deze relatie is univalent.
 \end{description}
@@ -450,15 +445,15 @@ kan zijn in een specialistenregister.
 
 \begin{description}
 \tightlist
-\item[Relatie 4:
-\protect\hypertarget{lst:SharedLangrelation--848830822}{}{opgenomenInSpecialistenRegister{[}Persoon*JaOfNee{]}}]
+\item[Relatie 3:
+\protect\hypertarget{lst:SharedLangrelation-594202218}{}{opgenomenInSpecialistenRegister{[}Persoon*Ja\_Of\_Nee{]}}]
 Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een
 specialistenregister.
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 5:
+\item[Relatie 4:
 \protect\hypertarget{lst:SharedLangrelation-24842000}{}{specialist{[}Persoon*SpecialistenRegister{]}}]
 Een Persoon is specialist wanneer deze in het specialistenRegister is
 opgenomen.
@@ -486,7 +481,7 @@ meerdere diplomadata zijn voor dezelfde inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 6:
+\item[Relatie 5:
 \protect\hypertarget{lst:SharedLangrelation--581170035}{}{diplomadatum{[}InschrijfId*Datum{]}}]
 Er is een erkend diploma bij een inschrijving geregistreerd dat relevant
 is voor het bepalen van de geldigheid van die inschrijving.
@@ -499,7 +494,7 @@ verlenging krijgt.
 
 \begin{description}
 \tightlist
-\item[Relatie 7:
+\item[Relatie 6:
 \protect\hypertarget{lst:SharedLangrelation-1159138999}{}{doorgehaald\_ogv\_artikel\_8{[}InschrijfId*Datum{]}}]
 \end{description}
 
@@ -508,7 +503,7 @@ als d1 \textless{} d2.
 
 \begin{description}
 \tightlist
-\item[Relatie 8:
+\item[Relatie 7:
 \protect\hypertarget{lst:SharedLangrelation-91707643}{}{eerder{[}Datum*Datum{]}}]
 \end{description}
 
@@ -519,7 +514,7 @@ verlenging krijgt.
 
 \begin{description}
 \tightlist
-\item[Relatie 9:
+\item[Relatie 8:
 \protect\hypertarget{lst:SharedLangrelation--1891032119}{}{einddatum{[}InschrijfId*Datum{]}}]
 \end{description}
 
@@ -549,7 +544,7 @@ inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 10:
+\item[Relatie 9:
 \protect\hypertarget{lst:SharedLangrelation--1405365405}{}{getuigschriftdatum{[}InschrijfId*Datum{]}}]
 Er is een getuigschrift bij een inschrijving geregistreerd dat relevant
 is voor het bepalen van de geldigheid van die inschrijving.
@@ -562,13 +557,13 @@ inschrijfduur te bepalen.
 
 \begin{description}
 \tightlist
-\item[Relatie 11:
+\item[Relatie 10:
 \protect\hypertarget{lst:SharedLangrelation-621160912}{}{kwalificatiedatum{[}InschrijfId*Datum{]}}]
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 12:
+\item[Relatie 11:
 \protect\hypertarget{lst:SharedLangrelation--883250738}{}{vandaag{[}Datum*Datum{]}}]
 \end{description}
 
@@ -580,7 +575,7 @@ dezelfde inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 13:
+\item[Relatie 12:
 \protect\hypertarget{lst:SharedLangrelation--358045080}{}{verklaringdatum{[}InschrijfId*Datum{]}}]
 Er is een verklaring bij een inschrijving geregistreerd die relevant is
 voor het bepalen van de geldigheid van die inschrijving.
@@ -604,7 +599,7 @@ Betreft een complete afgeronde inschrijving
 
 \begin{description}
 \tightlist
-\item[Relatie 14:
+\item[Relatie 13:
 \protect\hypertarget{lst:SharedLangrelation--1758980505}{}{registratie{[}Registratie*InschrijfId{]}}]
 Deze relatie is univalent, injectief en totaal.
 \end{description}
@@ -619,7 +614,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 15:
+\item[Relatie 14:
 \protect\hypertarget{lst:SharedLangrelation-393734920}{}{registratiedatum{[}Registratie*Datum{]}}]
 \end{description}
 
@@ -688,7 +683,7 @@ koppeling die automatisch wordt aangebracht.
 
 \begin{description}
 \tightlist
-\item[Relatie 16:
+\item[Relatie 15:
 \protect\hypertarget{lst:SharedLangrelation--1829674425}{}{bignummer{[}InschrijfId*Bignummer{]}}]
 Deze relatie is univalent en injectief.
 \end{description}
@@ -704,6 +699,22 @@ Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
 \item
   I002\emph{ correspondeert met }B002\emph{ in de relatie }bignummer.
 \end{itemize}
+
+In Artikel 3, lid 4 van de Wet Big wordt aangegeven dat indien de
+inschrijving van een beroepsbeoefenaar plaatsvindt op basis van een
+gedeeltelijke toegang als bedoeld in artikel 12, eerste lid, van de
+Algemene wet erkenning EU-beroepskwalificaties, wordt dit bij de
+inschrijving aangetekend, waarbij wordt vermeld voor welke
+beroepswerkzaamheden de gedeeltelijke toegang geldt en onder welke
+beroepstitel die beroepsbeoefenaar zijn beroepswerkzaamheden op grond
+van artikel 12, derde lid, uitvoert.
+
+\begin{description}
+\tightlist
+\item[Relatie 16:
+\protect\hypertarget{lst:SharedLangrelation-1594042936}{}{deelToegang{[}InschrijfId*Ja\_of\_Nee{]}}]
+Deze relatie is univalent.
+\end{description}
 
 \begin{description}
 \tightlist
@@ -940,6 +951,13 @@ is voor het bepalen van de geldigheid van die inschrijving.
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
 registratie.
+\end{description}
+
+\begin{description}
+\tightlist
+\item[Afspraak 6:
+\protect\hypertarget{agr:SharedLangrule-198099578}{}{"DefaultDeelToegang"}.]
+meaning
 \end{description}
 
 \hypertarget{sec:SharedLangtheme-1982034445}{%
@@ -1192,7 +1210,7 @@ Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Afspraak 6:
+\item[Afspraak 7:
 \protect\hypertarget{agr:SharedLangrule--1253110974}{}{"Elke nationaliteit heeft een ingangsdatum"}.]
 Elk opgevoerde nationaliteit heeft een ingangsdatum voor het gebruik van
 de nationaliteit.
@@ -1211,6 +1229,8 @@ identificatie van de zorgverlener.
 \item[Definitie 13:]
 Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
 \end{description}
+
+Adres van de persoon conform BRP.
 
 \begin{description}
 \tightlist
@@ -1407,49 +1427,49 @@ Nieuw persoon moet ingeschreven worden.
 
 \begin{description}
 \tightlist
-\item[Afspraak 7:
+\item[Afspraak 8:
 \protect\hypertarget{agr:SharedLangrule--1106692888}{}{"Create Inschrijving"}.]
 Deze regel  is ongedocumenteerd.
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 8:
+\item[Afspraak 9:
 \protect\hypertarget{agr:SharedLangrule-1405707674}{}{"Elke persoon heeft een nationaliteit"}.]
 meaning
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 9:
+\item[Afspraak 10:
 \protect\hypertarget{agr:SharedLangrule-1277176110}{}{"TotAdres"}.]
 meaning
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 10:
+\item[Afspraak 11:
 \protect\hypertarget{agr:SharedLangrule--1068663821}{}{"TotGeboortedatum"}.]
 meaning
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 11:
+\item[Afspraak 12:
 \protect\hypertarget{agr:SharedLangrule--1279815328}{}{"TotGeslacht"}.]
 meaning
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 12:
+\item[Afspraak 13:
 \protect\hypertarget{agr:SharedLangrule-1369596896}{}{"TotNaam"}.]
 meaning
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Afspraak 13:
+\item[Afspraak 14:
 \protect\hypertarget{agr:SharedLangrule--463375564}{}{"TotVoornaam"}.]
 meaning
 \end{description}
@@ -1518,6 +1538,34 @@ Deze relatie is univalent en injectief.
 \begin{description}
 \tightlist
 \item[Relatie 46:
+\protect\hypertarget{lst:SharedLangrelation--879543879}{}{ja{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
+\end{description}
+
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+
+\begin{itemize}
+\tightlist
+\item
+  Ja\emph{ correspondeert met }Ja\emph{ in de relatie }ja.
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Relatie 47:
+\protect\hypertarget{lst:SharedLangrelation-1347772322}{}{nee{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
+\end{description}
+
+Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
+
+\begin{itemize}
+\tightlist
+\item
+  Nee\emph{ correspondeert met }Nee\emph{ in de relatie }nee.
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Relatie 48:
 \protect\hypertarget{lst:SharedLangrelation-143006231}{}{nietVerplicht{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1531,13 +1579,13 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 47:
+\item[Relatie 49:
 \protect\hypertarget{lst:SharedLangrelation-147316858}{}{sessionToday{[}SESSION*Datum{]}}]
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 48:
+\item[Relatie 50:
 \protect\hypertarget{lst:SharedLangrelation--1355593863}{}{verplicht{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1551,7 +1599,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Afspraak 14:
+\item[Afspraak 15:
 \protect\hypertarget{agr:SharedLangrule-64372945}{}{"Initialize today's date"}.]
 Deze regel  is ongedocumenteerd.
 \end{description}
@@ -1591,6 +1639,7 @@ USER & & & & \\
 \midrule
 \endhead
 Create Inschrijving & & & & \\
+DefaultDeelToegang & & & & \\
 Elke nationaliteit heeft een ingangsdatum & & & & \\
 Elke persoon heeft een nationaliteit & & & & \\
 Initialize today's date & & & & \\
@@ -1608,33 +1657,35 @@ Voeg\_inschrijftijd\_toe\_(automatisch) & & & & \\
 \bottomrule
 \end{longtable}
 
-Het oogmerk (purpose) van de concepten: Beschikking, Datum, JaOfNee,
-Ja\_of\_Nee, RegisterId, SESSION, Beschikking, JaOfNee en
+Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja\_Of\_Nee,
+Ja\_of\_Nee, RegisterId, SESSION, Beschikking, Ja\_Of\_Nee en
 SESSION is niet gedocumenteerd.
 
-Van 16 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: \(apotheker[RegisterId*RegisterId]\),
+Van 18 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: \(apotheker[RegisterId*RegisterId]\),
 \(arts[RegisterId*RegisterId]\) en
 \(binnenlandsadres[Adres*Binnenlandsadres]\)
 
-Het oogmerk (purpose) van 19 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: \(aantekening[Persoon*Aantekening]\),
-\(adres[Persoon*Adres]\) en \(doorgehaald[InschrijfId*Doorhaling]\)
+Het oogmerk (purpose) van 18 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: \(adres[Persoon*Adres]\),
+\(doorgehaald[InschrijfId*Doorhaling]\) en
+\(einddatum[Nationaliteitid*Datum]\)
 
-De betekenis van relaties \(aantekening[Aantekening*RegisterId]\),
+De betekenis van relaties \(aantekening[Registratie*Aantekening]\),
 \(beschikking[Aantekening*Beschikking]\),
 \(bignummer[InschrijfId*Bignummer]\),
+\(deelToegang[InschrijfId*Ja_of_Nee]\),
 \(doorgehaald_ogv_artikel_8[InschrijfId*Datum]\),
 \(eerder[Datum*Datum]\), \(einddatum[InschrijfId*Datum]\) en
 \(kwalificatiedatum[InschrijfId*Datum]\) is niet gedocumenteerd.
 
 Alle concepten, die in dit document zijn voorzien van een definitie, worden gebruikt in relaties.
 
-Relaties \(aantekening\), \(aantekening\), \(apotheker\), \(arts\),
-\(beschikking\), \(binnenlandsadres\), \(buitenlandsadres\),
-\(diplomadatum\), \(doorgehaald\), \(doorgehaald_ogv_artikel_8\),
-\(eerder\), \(einddatum\), \(einddatum\), \(einddatum\), \(geslacht\),
+Relaties \(aantekening\), \(apotheker\), \(arts\), \(beschikking\),
+\(binnenlandsadres\), \(buitenlandsadres\), \(diplomadatum\),
+\(doorgehaald\), \(doorgehaald_ogv_artikel_8\), \(eerder\),
+\(einddatum\), \(einddatum\), \(einddatum\), \(geslacht\),
 \(getuigschriftdatum\), \(herregistratie\), \(herregistratie\),
-\(ingangsdatum\), \(inschrijvingsWeigering\), \(kwalificatiedatum\),
-\(nationaliteit\), \(nietVerplicht\),
+\(ingangsdatum\), \(inschrijvingsWeigering\), \(ja\),
+\(kwalificatiedatum\), \(nationaliteit\), \(nee\), \(nietVerplicht\),
 \(opgenomenInSpecialistenRegister\), \(register\), \(specialist\),
 \(tandarts\), \(vandaag\), \(verklaringdatum\) en
 \(verplicht\) worden niet gebruikt in regels. 
@@ -1788,7 +1839,7 @@ De volgende regel heeft noch oogmerk (purpose), noch betekenis:
 \begin{itemize}
 \item
   \emph{Initialize today's date}
-  (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash generiek\textbackslash Generic.adl:23:5)
+  (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash generiek\textbackslash Generic.adl:31:5)
 
   \(I_{ \lbrack SESSION \rbrack }\vdash sessionToday;sessionToday^{\smallsmile}\)
 
@@ -1799,6 +1850,14 @@ De volgende regel heeft noch oogmerk (purpose), noch betekenis:
 Van de volgende regels is het oogmerk (purpose) niet uitgelegd:
 
 \begin{itemize}
+\item
+  \emph{DefaultDeelToegang}
+  (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:23:9)
+
+  \(I_{ \lbrack InschrijfId \rbrack }\vdash deelToegang;deelToegang^{\smallsmile}\)
+
+  Voor alle i, i': Als i is equivalent met i' dan (Er is een j: i
+  deelToegang j en i' deelToegang j)
 \item
   \emph{Elke nationaliteit heeft een ingangsdatum}
   (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash generiek\textbackslash Nationaliteit.adl:47:9)
@@ -1943,20 +2002,20 @@ Gehele context & & & & & & \\
 \midrule
 \endhead
 Weigering & 1 & 0 & 0\% & 0 & 0 & - \\
-Aantekening & 3 & 0 & 0\% & 0 & 0 & - \\
+Aantekening & 2 & 0 & 0\% & 0 & 0 & - \\
 Specialisme & 2 & 0 & 0\% & 0 & 0 & - \\
 Inschrijfduur & 8 & 0 & 0\% & 0 & 0 & - \\
 Registratie & 2 & 0 & 0\% & 2 & 0 & 0\% \\
-Inschrijving & 4 & 0 & 0\% & 3 & 0 & 0\% \\
+Inschrijving & 5 & 0 & 0\% & 3 & 0 & 0\% \\
 Register & 4 & 0 & 0\% & 1 & 0 & 0\% \\
-Arts & 3 & 0 & 0\% & 0 & 0 & - \\
+Arts & 3 & 0 & 0\% & 1 & 0 & 0\% \\
 Tandarts & 3 & 0 & 0\% & 0 & 0 & - \\
 Apotheker & 3 & 0 & 0\% & 0 & 0 & - \\
 Geslacht & 1 & 0 & 0\% & 0 & 0 & - \\
 Nationaliteit & 3 & 0 & 0\% & 1 & 0 & 0\% \\
 Adres & 2 & 0 & 0\% & 0 & 0 & - \\
 Persoon & 6 & 0 & 0\% & 7 & 0 & 0\% \\
-Gehele context & 45 & 0 & 0\% & 15 & 0 & 0\% \\
+Gehele context & 47 & 0 & 0\% & 16 & 0 & 0\% \\
 \bottomrule
 \end{longtable}
 
@@ -1977,6 +2036,7 @@ Compute kwalificatiedatum{[}InschrijfId*Datum{]} using DelPair \\
 ExecEngine & Inschrijfduur &
 Compute kwalificatiedatum{[}InschrijfId*Datum{]} using InsPair \\
 ExecEngine & Persoon & Create Inschrijving \\
+USER & Arts & DefaultDeelToegang \\
 USER & Nationaliteit & Elke nationaliteit heeft een ingangsdatum \\
 USER & Persoon & Elke persoon heeft een nationaliteit \\
 ExecEngine & -\/- & Initialize today's date \\
@@ -2006,6 +2066,9 @@ locatie & & \\
 \#taken & & \\
 \midrule
 \endhead
+DefaultDeelToegang &
+C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:23:9
+& 3 \\
 Voeg datum registratie toe &
 C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash generiek\textbackslash Registratie.adl:52:13
 & 1 \\
@@ -2015,6 +2078,25 @@ C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash 
 Voeg\_inschrijftijd\_toe\_(automatisch) &
 C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash generiek\textbackslash Inschrijving.adl:48:13
 & 3 \\
+\bottomrule
+\end{longtable}
+
+Afspraak {[} @agr:SharedLangrule-198099578 {]} ( ‘DefaultDeelToegang’
+) luidt: 
+
+meaning
+
+Deze regel bevat nog werk (voor USER). De volgende tabel laat de items zien die aandacht vragen.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
+\toprule
+InschrijfId \\
+\midrule
+\endhead
+I001 \\
+I003 \\
+I002 \\
 \bottomrule
 \end{longtable}
 
@@ -2058,9 +2140,26 @@ I002 \\
 \bottomrule
 \end{longtable}
 
-De populatie in dit script overtreedt 0 invarianten en 3 procesregels.
+De populatie in dit script overtreedt 0 invarianten en 4 procesregels.
 
 \begin{itemize}
+\item
+  \emph{Regel DefaultDeelToegang}
+
+  Totaal aantal taken: 3
+
+  \begin{longtable}[]{@{}
+    >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
+  \toprule
+  meaning \\
+  \midrule
+  \endhead
+  \textbf{There are 3 violations of RULE "DefaultDeelToegang": Voor
+  register "I001" is geen ja of nee ingevuld. Voor register "I003" is
+  geen ja of nee ingevuld. Voor register "I002" is geen ja of nee
+  ingevuld. } \\
+  \bottomrule
+  \end{longtable}
 \item
   \emph{Regel Voeg datum registratie toe}
 
@@ -2186,6 +2285,9 @@ uitvoering van de Wet BIG.
 \item
   \href{https://wetten.overheid.nl/BWBR0031720/2014-02-01}{Regeling
   tarieven registratie beroepsbeoefenaren Wet BIG}
+\item
+  \href{https://wetten.overheid.nl/BWBR0023066/2018-09-19}{Algemene wet
+  erkenning EU-beroepskwalificaties}
 \end{itemize}
 
 Het BIGregister bevindt zich in een keten van informatieverstrekking en
@@ -2375,11 +2477,9 @@ Aantekening}\label{fig:Conceptueelux20diagramux20vanux20Aantekening}
 Relatie & Betekenis \\
 \midrule
 \endhead
-aantekening {[}Aantekening*RegisterId{]} & Een aantekening als bedoeld
+aantekening {[}Registratie*Aantekening{]} & Een aantekening als bedoeld
 in artikel 9, tweede lid, onderdeel a van de Wet BIG is bedoeld om een
 maatregel ten aanzien van een ingeschrevene te registreren. \\
-aantekening {[}Persoon*Aantekening{]} & Bevat aantekening op een
-Big-ingeschrevene. \\
 beschikking {[}Aantekening*Beschikking{]} & Een register registreert een
 beschikking als bedoeld in artikel 10 van de Wet BIG om een aantekening
 in datzelfde register te onderbouwen. \\
@@ -2423,8 +2523,9 @@ Specialisme}\label{fig:Conceptueelux20diagramux20vanux20Specialisme}
 Relatie & Betekenis \\
 \midrule
 \endhead
-opgenomenInSpecialistenRegister {[}Persoon*JaOfNee{]} & Zoals artikel 14
-aangeeft kan een persoon opgenomen zijn in een specialistenregister. \\
+opgenomenInSpecialistenRegister {[}Persoon*Ja\_Of\_Nee{]} & Zoals
+artikel 14 aangeeft kan een persoon opgenomen zijn in een
+specialistenregister. \\
 specialist (Attribuut van Persoon) & Een Persoon is specialist wanneer
 deze in het specialistenRegister is opgenomen. \\
 \bottomrule
@@ -2636,6 +2737,14 @@ Relatie & Betekenis \\
 bignummer {[}InschrijfId*Bignummer{]} & De koppeling tussen een Persoon
 en een Bignummer. Dit is een één op één koppeling die automatisch wordt
 aangebracht. \\
+deelToegang {[}InschrijfId*Ja\_of\_Nee{]} & In Artikel 3, lid 4 van de
+Wet Big wordt aangegeven dat indien de inschrijving van een
+beroepsbeoefenaar plaatsvindt op basis van een gedeeltelijke toegang als
+bedoeld in artikel 12, eerste lid, van de Algemene wet erkenning
+EU-beroepskwalificaties, wordt dit bij de inschrijving aangetekend,
+waarbij wordt vermeld voor welke beroepswerkzaamheden de gedeeltelijke
+toegang geldt en onder welke beroepstitel die beroepsbeoefenaar zijn
+beroepswerkzaamheden op grond van artikel 12, derde lid, uitvoert. \\
 \bottomrule
 \end{longtable}
 
@@ -2975,6 +3084,8 @@ identificatie van de zorgverlener.
 Bevat het adres van de Persoon zoals vastgelegd binnen de BRP.
 \end{description}
 
+Adres van de persoon conform BRP.
+
 \begin{description}
 \tightlist
 \item[Definitie 14:]
@@ -3135,6 +3246,8 @@ Relatie & Betekenis \\
 doorgehaald {[}InschrijfId*Doorhaling{]} & In artikel 7 gestelde
 sitatuaties waarin de inschrijving wordt doorgehaald. Deze heeft ook
 consequenties op de bijbehorende registraties. \\
+ja {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
+nee {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
 nietVerplicht {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
 sessionToday {[}SESSION*Datum{]} & \\
 verplicht {[}Ja\_of\_Nee*Ja\_of\_Nee{]} & \\
@@ -3177,6 +3290,12 @@ kwalificatiedatum{[}InschrijfId*Datum{]} using InsPair}}
 Nieuw persoon moet ingeschreven worden.
 
 \(I_{ \lbrack Persoon \rbrack }\vdash inschrijving;inschrijving^{\smallsmile}\)
+
+\textbf{Procesregel: \emph{DefaultDeelToegang}}
+
+meaning
+
+\(I_{ \lbrack InschrijfId \rbrack }\vdash deelToegang;deelToegang^{\smallsmile}\)
 
 \textbf{Procesregel: \emph{Elke nationaliteit heeft een ingangsdatum}}
 
@@ -3316,12 +3435,6 @@ naam{[}Persoon*Naam{]} is surjectief
 
 \(I_{ \lbrack Naam \rbrack }\vdash naam^{\smallsmile};naam\)
 
-\textbf{Invariant: \emph{TOT aantekening{[}Aantekening*RegisterId{]}}}
-
-aantekening{[}Aantekening*RegisterId{]} is totaal
-
-\(I_{ \lbrack Aantekening \rbrack }\vdash aantekening;aantekening^{\smallsmile}\)
-
 \textbf{Invariant: \emph{TOT geslacht{[}Geslacht*Omschrijving{]}}}
 
 geslacht{[}Geslacht*Omschrijving{]} is totaal
@@ -3365,12 +3478,6 @@ registratie{[}Registratie*InschrijfId{]} is totaal
 
 \(I_{ \lbrack Registratie \rbrack }\vdash registratie;registratie^{\smallsmile}\)
 
-\textbf{Invariant: \emph{UNI aantekening{[}Aantekening*RegisterId{]}}}
-
-aantekening{[}Aantekening*RegisterId{]} is univalent
-
-\(aantekening; \overline{I_{ \lbrack RegisterId \rbrack }} ;aantekening^{\smallsmile}\vdash  \overline{I_{ \lbrack Aantekening \rbrack }} \)
-
 \textbf{Invariant: \emph{UNI beschikking{[}Aantekening*Beschikking{]}}}
 
 beschikking{[}Aantekening*Beschikking{]} is univalent
@@ -3396,6 +3503,12 @@ buitenlandsadres{[}Adres*Buitenlandsadres{]}}}
 buitenlandsadres{[}Adres*Buitenlandsadres{]} is univalent
 
 \(buitenlandsadres; \overline{I_{ \lbrack Buitenlandsadres \rbrack }} ;buitenlandsadres^{\smallsmile}\vdash  \overline{I_{ \lbrack Adres \rbrack }} \)
+
+\textbf{Invariant: \emph{UNI deelToegang{[}InschrijfId*Ja\_of\_Nee{]}}}
+
+deelToegang{[}InschrijfId*Ja\_of\_Nee{]} is univalent
+
+\(deelToegang; \overline{I_{ \lbrack Ja_of_Nee \rbrack }} ;deelToegang^{\smallsmile}\vdash  \overline{I_{ \lbrack InschrijfId \rbrack }} \)
 
 \textbf{Invariant: \emph{UNI doorgehaald{[}InschrijfId*Doorhaling{]}}}
 
@@ -3548,7 +3661,7 @@ het register vermeld de naam, voornamen, geslacht, geboortedatum,
 nationaliteit en adres van de betrokkene en het nummer en het tijdstip
 van inschrijving. Bij ministeriële regeling kunnen gegevens worden
 aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren
-bij de inschrijving worden vermeld. & 3 & "9(60\%)" & \\
+bij de inschrijving worden vermeld. & 3 & "9(50\%)" & \\
 Nationaliteitid & De Nationaliteit wordt aangeduid middels een
 4-cijferige code.
 
@@ -3592,7 +3705,7 @@ Datum & 1965-01-01 & 1970-12-13 \\
 Doorhaling & "Medische maatregel" & "Verzoek ingerschrevene" \\
 InschrijfTijdstip & 0 & \\
 Inschrijving & 0 & \\
-JaOfNee & 0 & \\
+Ja\_Of\_Nee & 0 & \\
 Ja\_of\_Nee & "Nee" & "Ja" \\
 Naam & "Jansen" & "Pietersen" \\
 Nationaliteit & "Nederlandse" & "Belgische" \\
@@ -3621,7 +3734,6 @@ attributen:
 Attribuut & Type & gevuld & \#uniek \\
 \midrule
 \endhead
-aantekening\_1 & RegisterId(11) & 0 & 0 \\
 beschikking & Beschikking(0) & 0 & 0 \\
 \bottomrule
 \end{longtable}
@@ -3633,8 +3745,7 @@ Aantekening heeft de volgende associaties:
 Source & uniek & Associatie & Target & uniek \\
 \midrule
 \endhead
-Aantekening(0) & 0 & aantekening(0) & RegisterId(11) & 0(0\%) \\
-Persoon(3) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
+Registratie(1) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
 \bottomrule
 \end{longtable}
 
@@ -3716,6 +3827,7 @@ Attribuut & Type & gevuld & \#uniek \\
 \midrule
 \endhead
 bignummer & Bignummer(3) & 3(100\%) & 3 \\
+deelToegang & Ja\_of\_Nee(2) & 0(0\%) & 0 \\
 doorgehaald & Doorhaling(5) & 0(0\%) & 0 \\
 inschrijftijdstip & InschrijfTijdstip(0) & 0(0\%) & 0 \\
 inschrijving & Persoon(3) & 3(100\%) & 3 \\
@@ -3814,14 +3926,13 @@ Persoon heeft de volgende associaties:
 Source & uniek & Associatie & Target & uniek \\
 \midrule
 \endhead
-Persoon(3) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
 Persoon(3) & 3(100\%) & adres(3) & Adres(3) & 3(100\%) \\
 Persoon(3) & 3(100\%) & geslacht(3) & Geslacht(3) & 3(100\%) \\
 Persoon(3) & 3(100\%) & inschrijving(3) & InschrijfId(3) & 3(100\%) \\
 Persoon(3) & 3(100\%) & nationaliteit(3) & Nationaliteitid(3) &
 2(67\%) \\
-Persoon(3) & 0(0\%) & opgenomenInSpecialistenRegister(0) & JaOfNee(0) &
-0 \\
+Persoon(3) & 0(0\%) & opgenomenInSpecialistenRegister(0) &
+Ja\_Of\_Nee(0) & 0 \\
 \bottomrule
 \end{longtable}
 
@@ -3850,7 +3961,6 @@ RegisterId heeft de volgende associaties:
 Source & uniek & Associatie & Target & uniek \\
 \midrule
 \endhead
-Aantekening(0) & 0 & aantekening(0) & RegisterId(11) & 0(0\%) \\
 RegisterId(11) & 1(9\%) & apotheker(1) & RegisterId(11) & 1(9\%) \\
 RegisterId(11) & 1(9\%) & arts(1) & RegisterId(11) & 1(9\%) \\
 RegisterId(11) & 0(0\%) & herregistratie(0) & Datum(6) & 0(0\%) \\
@@ -3886,6 +3996,7 @@ Registratie heeft de volgende associaties:
 Source & uniek & Associatie & Target & uniek \\
 \midrule
 \endhead
+Registratie(1) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
 Registratie(1) & 1(100\%) & registratie(1) & InschrijfId(3) & 1(33\%) \\
 Registratie(1) & 0(0\%) & registratiedatum(0) & Datum(6) & 0(0\%) \\
 \bottomrule
@@ -3905,18 +4016,18 @@ Big}\label{fig:Technischux20gegevensmodelux20vanux20Big}
 }
 \end{figure}
 
-Het technisch datamodel bestaat uit de volgende 49 tabellen:
+Het technisch datamodel bestaat uit de volgende 51 tabellen:
 
 \subsection{Tabel: aantekening1}
 
 Dit is een koppeltabel, die de relatie
-\(Persoon \rightarrow {aantekening} Aantekening\) implementeert. De
+\(Registratie \rightarrow {aantekening} Aantekening\) implementeert. De
 tabel bestaat uit de volgende kolommen:
 
 \begin{itemize}
 \item
-  \textbf{Persoon}\\
-  Dit attribuut verwijst naar een rij in de tabel Persoon\\
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
   \texttt{OBJECT}, Verplicht.
 \item
   \textbf{Aantekening}\\
@@ -3926,17 +4037,13 @@ tabel bestaat uit de volgende kolommen:
 
 \subsection{Tabel: Aantekening2}
 
-Deze tabel heeft de volgende 3 attributen:
+Deze tabel heeft de volgende 2 attributen:
 
 \begin{itemize}
 \item
   \textbf{Aantekening}\\
   Dit attribuut is de primaire sleutel.\\
   \texttt{OBJECT}, Verplicht, Uniek.
-\item
-  \textbf{aantekening\_1}\\
-  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
-  \texttt{OBJECT}, Verplicht.
 \item
   \textbf{beschikking}\\
   Dit attribuut verwijst naar een rij in de tabel Beschikking\\
@@ -4215,7 +4322,7 @@ tabel bestaat uit de volgende kolommen:
 
 \subsection{Tabel: InschrijfId}
 
-Deze tabel heeft de volgende 6 attributen:
+Deze tabel heeft de volgende 7 attributen:
 
 \begin{itemize}
 \item
@@ -4226,6 +4333,10 @@ Deze tabel heeft de volgende 6 attributen:
   \textbf{bignummer}\\
   Dit attribuut verwijst naar een rij in de tabel Bignummer\\
   \texttt{OBJECT}, Optioneel, Uniek.
+\item
+  \textbf{deelToegang}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Optioneel.
 \item
   \textbf{doorgehaald}\\
   Dit attribuut verwijst naar een rij in de tabel Doorhaling\\
@@ -4283,7 +4394,24 @@ implementeert. De tabel bestaat uit de volgende kolommen:
   \texttt{OBJECT}, Verplicht.
 \end{itemize}
 
-\subsection{Tabel: Ja\_of\_Nee}
+\subsection{Tabel: ja}
+
+Dit is een koppeltabel, die de relatie
+\(Ja_of_Nee \rightarrow {ja} Ja_of_Nee\) implementeert. De tabel bestaat
+uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Ja\_of\_Nee1}
 
 Deze tabel heeft de volgende 1 attributen:
 
@@ -4294,13 +4422,13 @@ Deze tabel heeft de volgende 1 attributen:
   \texttt{OBJECT}, Verplicht, Uniek.
 \end{itemize}
 
-\subsection{Tabel: JaOfNee}
+\subsection{Tabel: Ja\_Of\_Nee2}
 
 Deze tabel heeft de volgende 1 attributen:
 
 \begin{itemize}
 \item
-  \textbf{JaOfNee}\\
+  \textbf{Ja\_Of\_Nee}\\
   Dit attribuut is de primaire sleutel.\\
   \texttt{OBJECT}, Verplicht, Uniek.
 \end{itemize}
@@ -4384,6 +4512,23 @@ Deze tabel heeft de volgende 4 attributen:
   \texttt{OBJECT}, Verplicht, Uniek.
 \end{itemize}
 
+\subsection{Tabel: nee}
+
+Dit is een koppeltabel, die de relatie
+\(Ja_of_Nee \rightarrow {nee} Ja_of_Nee\) implementeert. De tabel
+bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{SrcJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{TgtJa\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
 \subsection{Tabel: nietVerplicht}
 
 Dit is een koppeltabel, die de relatie
@@ -4426,7 +4571,7 @@ Deze tabel heeft de volgende 1 attributen:
 \subsection{Tabel: opgenomenInSpecialistenRegister}
 
 Dit is een koppeltabel, die de relatie
-\(Persoon \rightarrow {opgenomenInSpecialistenRegister} JaOfNee\)
+\(Persoon \rightarrow {opgenomenInSpecialistenRegister} Ja_Of_Nee\)
 implementeert. De tabel bestaat uit de volgende kolommen:
 
 \begin{itemize}
@@ -4435,8 +4580,8 @@ implementeert. De tabel bestaat uit de volgende kolommen:
   Dit attribuut verwijst naar een rij in de tabel Persoon\\
   \texttt{OBJECT}, Verplicht.
 \item
-  \textbf{JaOfNee}\\
-  Dit attribuut verwijst naar een rij in de tabel JaOfNee\\
+  \textbf{Ja\_Of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_Of\_Nee\\
   \texttt{OBJECT}, Verplicht.
 \end{itemize}
 
@@ -4677,16 +4822,17 @@ Deze tabel heeft de volgende 1 attributen:
 Concept & C & R & U & D \\
 \midrule
 \endhead
-Aantekening & & Registratie & & \\
+Aantekening & & RegistratieB & & \\
 Adres & & Adres & & \\
 Adres & & Personen & & \\
 Adres & & Persoon & & \\
 Bignummer & & Apotheker & & \\
-Bignummer & & Arts & & \\
+Bignummer & & Artsen & & \\
 Bignummer & & Inschrijving & & \\
 Bignummer & & Inschrijvingen & & \\
 Bignummer & & Register & & \\
 Bignummer & & Registratie & & \\
+Bignummer & & RegistratieB & & \\
 Bignummer & & Tandarts & & \\
 Binnenlandsadres & & Adres & & \\
 Buitenlandsadres & & Adres & & \\
@@ -4703,9 +4849,12 @@ Geslacht & & Personen & & \\
 Geslacht & & Persoon & & \\
 InschrijfTijdstip & & Inschrijving & & \\
 InschrijfTijdstip & & Inschrijvingen & & \\
+Ja\_of\_Nee & & Inschrijving & & \\
+Ja\_of\_Nee & & Inschrijvingen & & \\
 Ja\_of\_Nee & & Register & & \\
+Ja\_of\_Nee & & RegistratieB & & \\
 Naam & & Apotheker & & \\
-Naam & & Arts & & \\
+Naam & & Artsen & & \\
 Naam & & Inschrijving & & \\
 Naam & & Inschrijvingen & & \\
 Naam & & Personen & & \\
@@ -4719,16 +4868,19 @@ Nationaliteitid & & Persoon & & \\
 Omschrijving & & Beheer & & \\
 Omschrijving & & Persoon & & \\
 RegisterId & & Apotheker & & \\
-RegisterId & & Arts & & \\
+RegisterId & & Artsen & & \\
 RegisterId & & Beheer & & \\
 RegisterId & & Inschrijving & & \\
 RegisterId & & Inschrijvingen & & \\
 RegisterId & & Register & & \\
 RegisterId & & Registratie & & \\
+RegisterId & & RegistratieB & & \\
 RegisterId & & Tandarts & & \\
+Registratie & & Artsen & & \\
 Registratie & & Inschrijving & & \\
 Registratie & & Inschrijvingen & & \\
 Registratie & & Registratie & & \\
+Registratie & & RegistratieB & & \\
 Voornaam & & Personen & & \\
 Voornaam & & Persoon & & \\
 Weigering & & Inschrijving & & \\

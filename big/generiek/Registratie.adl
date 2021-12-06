@@ -91,13 +91,6 @@ CONTEXT Registratie IN DUTCH HTML
                 ]
             ]
           ,
-        Aantekening : V[SESSION*Persoon]                                          cRud
-          BOX <TABLE>
-            ["Persoon"    : I                                                     cRud
-            , "Naam"      : naam[Persoon*Naam]                                   cRud
-            , "Aantekening" : aantekening [Persoon*Aantekening]                   CRUD
-            ]
-          ,
         Doorhaling : V[SESSION*Persoon]                                           cRud
           BOX <TABLE>
             ["Persoon"    : I                                                     cRud

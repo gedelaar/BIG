@@ -1,4 +1,4 @@
-CONTEXT Big IN DUTCH
+CONTEXT Big IN DUTCH MARKDOWN
   PATTERN Aantekening
   PURPOSE PATTERN Aantekening 
   {+
@@ -45,8 +45,8 @@ c.	de datum waarop de schorsing of de last tot onmiddellijke onthouding van de b
       De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aantekening heeft conform Artikel 9 betrekking op het mogen uitvoeren van de zorgtaak.
       +}
 
-    RELATION aantekening[Aantekening*RegisterId] [UNI,TOT]
-         PURPOSE RELATION aantekening[Aantekening*RegisterId]
+    RELATION aantekening[Registratie*Aantekening]
+         PURPOSE RELATION aantekening[Registratie*Aantekening]
             {+
             Een aantekening als bedoeld in artikel 9, tweede lid, onderdeel a van de Wet BIG is bedoeld om een maatregel ten aanzien van een ingeschrevene te registreren.
             +}
@@ -56,9 +56,6 @@ c.	de datum waarop de schorsing of de last tot onmiddellijke onthouding van de b
             {+ 
             Een register registreert een beschikking als bedoeld in artikel 10 van de Wet BIG om een aantekening in datzelfde register te onderbouwen.
             +}
-
-      RELATION  aantekening [Persoon*Aantekening]
-      MEANING "Bevat aantekening op een Big-ingeschrevene."
 
 
   ENDPATTERN

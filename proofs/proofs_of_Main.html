@@ -1,4 +1,4 @@
-<p>Confluence analysis statistics from 262 expressions.<br />
+<p>Confluence analysis statistics from 266 expressions.<br />
 </p>
 <p>This script contains<br />
 28 non-confluent expressions<br />
@@ -99,19 +99,6 @@ expression: registratie [Registratie*InschrijfId]~; -I[Registratie];registratie 
 <p> {  }</p></li>
 </ul>
 <p><br />
-expression: aantekening [Aantekening*RegisterId]; -I[RegisterId];aantekening [Aantekening*RegisterId]~ |-  -I[Aantekening]<br />
-</p>
-<ul>
-<li><p> -I[Aantekening]\/ - -I[RegisterId];aantekening [Aantekening*RegisterId]~;aantekening [Aantekening*RegisterId]</p>
-<p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[Aantekening], B-&gt;I[Aantekening], r-&gt;aantekening [Aantekening*RegisterId];-I[RegisterId];aantekening [Aantekening*RegisterId]~, s-&gt;I[Aantekening]} }</p>
-<p> -I[Aantekening]/\ -I[RegisterId];aantekening [Aantekening*RegisterId]~;aantekening [Aantekening*RegisterId]</p>
-<p> {  }</p></li>
-<li><p> -I[Aantekening]\/ - -I[RegisterId];aantekening [Aantekening*RegisterId]~;aantekening [Aantekening*RegisterId]</p>
-<p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[Aantekening], B-&gt;I[Aantekening], r-&gt;I[Aantekening], s-&gt;aantekening [Aantekening*RegisterId];-I[RegisterId];aantekening [Aantekening*RegisterId]~} }</p>
-<p> -I[Aantekening]/\ -I[RegisterId];aantekening [Aantekening*RegisterId]~;aantekening [Aantekening*RegisterId]</p>
-<p> {  }</p></li>
-</ul>
-<p><br />
 expression: beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~ |-  -I[Aantekening]<br />
 </p>
 <ul>
@@ -161,6 +148,19 @@ expression: buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buit
 <li><p> -I[Adres]\/ - -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]</p>
 <p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[Adres], B-&gt;I[Adres], r-&gt;I[Adres], s-&gt;buitenlandsadres [Adres*Buitenlandsadres];-I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~} }</p>
 <p> -I[Adres]/\ -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]</p>
+<p> {  }</p></li>
+</ul>
+<p><br />
+expression: deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~ |-  -I[InschrijfId]<br />
+</p>
+<ul>
+<li><p> -I[InschrijfId]\/ - -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]</p>
+<p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[InschrijfId], B-&gt;I[InschrijfId], r-&gt;deelToegang [InschrijfId*Ja_of_Nee];-I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~, s-&gt;I[InschrijfId]} }</p>
+<p> -I[InschrijfId]/\ -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]</p>
+<p> {  }</p></li>
+<li><p> -I[InschrijfId]\/ - -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]</p>
+<p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[InschrijfId], B-&gt;I[InschrijfId], r-&gt;I[InschrijfId], s-&gt;deelToegang [InschrijfId*Ja_of_Nee];-I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~} }</p>
+<p> -I[InschrijfId]/\ -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]</p>
 <p> {  }</p></li>
 </ul>
 <p><br />
@@ -391,6 +391,11 @@ formalExpression r: I[Persoon] |- inschrijving [Persoon*InschrijfId];inschrijvin
 conjNF:  -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~<br />
 conj:  -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~<br />
 </p></li>
+<li><p>rule r: DefaultDeelToegang<br />
+formalExpression r: I[InschrijfId] |- deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
+conjNF:  -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
+conj:  -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
+</p></li>
 <li><p>rule r: Elke nationaliteit heeft een ingangsdatum<br />
 formalExpression r: I[Nationaliteitid] |- ingangsdatum [Nationaliteitid*Datum];ingangsdatum [Nationaliteitid*Datum]~<br />
 conjNF:  -I[Nationaliteitid]\/ingangsdatum [Nationaliteitid*Datum];ingangsdatum [Nationaliteitid*Datum]~<br />
@@ -445,11 +450,6 @@ conj:  -I[SESSION]\/sessionToday [SESSION*Datum];sessionToday [SESSION*Datum]~<b
 formalExpression r: I[Naam] |- naam [Persoon*Naam]~;naam [Persoon*Naam]<br />
 conjNF:  -I[Naam]\/naam [Persoon*Naam]~;naam [Persoon*Naam]<br />
 conj:  -I[Naam]\/naam [Persoon*Naam]~;naam [Persoon*Naam]<br />
-</p></li>
-<li><p>rule r: TOT aantekening[Aantekening*RegisterId]<br />
-formalExpression r: I[Aantekening] |- aantekening [Aantekening*RegisterId];aantekening [Aantekening*RegisterId]~<br />
-conjNF:  -I[Aantekening]\/aantekening [Aantekening*RegisterId];aantekening [Aantekening*RegisterId]~<br />
-conj:  -I[Aantekening]\/aantekening [Aantekening*RegisterId];aantekening [Aantekening*RegisterId]~<br />
 </p></li>
 <li><p>rule r: TOT geslacht[Geslacht*Omschrijving]<br />
 formalExpression r: I[Geslacht] |- geslacht [Geslacht*Omschrijving];geslacht [Geslacht*Omschrijving]~<br />
@@ -521,11 +521,6 @@ formalExpression r: I[Persoon] |- voornaam [Persoon*Voornaam];voornaam [Persoon*
 conjNF:  -I[Persoon]\/voornaam [Persoon*Voornaam];voornaam [Persoon*Voornaam]~<br />
 conj:  -I[Persoon]\/voornaam [Persoon*Voornaam];voornaam [Persoon*Voornaam]~<br />
 </p></li>
-<li><p>rule r: UNI aantekening[Aantekening*RegisterId]<br />
-formalExpression r: aantekening [Aantekening*RegisterId]; -I[RegisterId];aantekening [Aantekening*RegisterId]~ |-  -I[Aantekening]<br />
-conjNF:  -aantekening [Aantekening*RegisterId]; -I[RegisterId];aantekening [Aantekening*RegisterId]~\/ -I[Aantekening]<br />
-conj:  -aantekening [Aantekening*RegisterId]; -I[RegisterId];aantekening [Aantekening*RegisterId]~\/ -I[Aantekening]<br />
-</p></li>
 <li><p>rule r: UNI beschikking[Aantekening*Beschikking]<br />
 formalExpression r: beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~ |-  -I[Aantekening]<br />
 conjNF:  -beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~\/ -I[Aantekening]<br />
@@ -545,6 +540,11 @@ conj:  -binnenlandsadres [Adres*Binnenlandsadres]; -I[Binnenlandsadres];binnenla
 formalExpression r: buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~ |-  -I[Adres]<br />
 conjNF:  -buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~\/ -I[Adres]<br />
 conj:  -buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~\/ -I[Adres]<br />
+</p></li>
+<li><p>rule r: UNI deelToegang[InschrijfId*Ja_of_Nee]<br />
+formalExpression r: deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~ |-  -I[InschrijfId]<br />
+conjNF:  -deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~\/ -I[InschrijfId]<br />
+conj:  -deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~\/ -I[InschrijfId]<br />
 </p></li>
 <li><p>rule r: UNI doorgehaald[InschrijfId*Doorhaling]<br />
 formalExpression r: doorgehaald [InschrijfId*Doorhaling]; -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~ |-  -I[InschrijfId]<br />

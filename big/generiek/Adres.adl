@@ -12,7 +12,7 @@ CONTEXT Adres IN DUTCH
         CONCEPT Binnenlandsadres ""
             PURPOSE CONCEPT Binnenlandsadres
                 {+
-
+                Adres van de persoon conform BRP.
                 +}
 
         CONCEPT Buitenlandsadres ""

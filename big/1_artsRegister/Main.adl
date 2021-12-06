@@ -27,14 +27,26 @@ CONTEXT Arts IN DUTCH HTML
 
 
     ENDPATTERN
-    INTERFACE Arts FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ arts[RegisterId*RegisterId] )  cRud
-        BOX <TABLE sortable title="Arts">
+    INTERFACE Artsen FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ arts[RegisterId*RegisterId] )  cRud
+        BOX <TABLE  hideOnNoRecords title="Artsen"  sortable >
             [
                "Inschrijvingen" : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving
             ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
             ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
             ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
-            ,   "Deeltoegang"   : inschrijving[RegisterId*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRUd
+            ,   "Registratie"   :  inschrijving[RegisterId*InschrijfId];registratie [Registratie*InschrijfId]~ LINKTO INTERFACE RegistratieB
+
+            ]
+
+    INTERFACE RegistratieB FOR MEDEWERKER : I[Registratie] cRud
+        BOX <FORM  hideOnNoRecords  title="Beroepregister"  showNavMenu>
+            [   "Register"      : registratie [Registratie*InschrijfId];inschrijving[RegisterId*InschrijfId]~ cRud
+            ,   "Registratie"   : I[Registratie] cRud
+            ,   "Inschrijving"  : registratie [Registratie*InschrijfId] LINKTO INTERFACE Inschrijving
+            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRUd
+            ,   "Persoon"       : registratie [Registratie*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon  
+            ,   "BIG-nummer"    : registratie [Registratie*InschrijfId];bignummer[InschrijfId*Bignummer] cRud    
+            ,   "Aantekening"   : aantekening [Registratie*Aantekening] CRUD
 
             ]
 ENDCONTEXT

@@ -19,4 +19,7 @@ digraph {
 	edge [color=black,
 		len=4
 	];
+	cpt_1	[label=InschrijfId];
+	cpt_2	[label=Ja_of_Nee];
+	cpt_1 -> cpt_2	[label="deelToegang\n[uni]"];
 }

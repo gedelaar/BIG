@@ -7,28 +7,20 @@ digraph {
 		minlen=4
 	];
 	aantekening1	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">aantekening1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR></TABLE>>,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">aantekening1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR></TABLE>>,
 		shape=plaintext];
 	Aantekening2	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Aantekening2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR><TR><TD ALIGN="LEFT" PORT="aantekening_1">+ aantekening_1 : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="beschikking">o beschikking : Beschikking</TD></TR></TABLE>>,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Aantekening2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Aantekening">+ Aantekening : Aantekening</TD></TR><TR><TD ALIGN="LEFT" PORT="beschikking">o beschikking : Beschikking</TD></TR></TABLE>>,
 		shape=plaintext];
 	aantekening1:Aantekening -> Aantekening2	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
-	Persoon	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR></TABLE>>,
+	Registratie	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="registratie_1">+ registratie_1 : InschrijfId</TD></TR></TABLE>>,
 		shape=plaintext];
-	aantekening1:Persoon -> Persoon	[arrowhead=onone,
+	aantekening1:Registratie -> Registratie	[arrowhead=onone,
 		headlabel=1,
-		labelfloat=true,
-		taillabel="*"];
-	RegisterId	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">RegisterId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="getuigschrift">o getuigschrift : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">+ ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="register">+ register : Register</TD></TR></TABLE>>,
-		shape=plaintext];
-	Aantekening2:aantekening_1 -> RegisterId	[arrowhead=onone,
-		headlabel=1,
-		label=aantekening,
 		labelfloat=true,
 		taillabel="*"];
 	adres1	[color=purple,
@@ -41,12 +33,18 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
+	Persoon	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR></TABLE>>,
+		shape=plaintext];
 	adres1:Persoon -> Persoon	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
 	apotheker	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">apotheker</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	RegisterId	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">RegisterId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="getuigschrift">o getuigschrift : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">+ ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="register">+ register : Register</TD></TR></TABLE>>,
 		shape=plaintext];
 	apotheker:SrcRegisterId -> RegisterId	[arrowhead=onone,
 		headlabel=1,
@@ -71,7 +69,7 @@ digraph {
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">diplomadatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
 	InschrijfId	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">InschrijfId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="bignummer">o bignummer : Bignummer</TD></TR><TR><TD ALIGN="LEFT" PORT="doorgehaald">o doorgehaald : Doorhaling</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijftijdstip">o inschrijftijdstip : InschrijfTijdstip</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR></TABLE>>,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">InschrijfId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="bignummer">o bignummer : Bignummer</TD></TR><TR><TD ALIGN="LEFT" PORT="deelToegang">o deelToegang : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="doorgehaald">o doorgehaald : Doorhaling</TD></TR><TR><TD ALIGN="LEFT" PORT="inschrijftijdstip">o inschrijftijdstip : InschrijfTijdstip</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR></TABLE>>,
 		shape=plaintext];
 	diplomadatum:InschrijfId -> InschrijfId	[arrowhead=onone,
 		headlabel=1,
@@ -135,6 +133,9 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
+	ja	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">ja</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
+		shape=plaintext];
 	kwalificatiedatum	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">kwalificatiedatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
@@ -156,11 +157,14 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
+	nee	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">nee</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
+		shape=plaintext];
 	nietVerplicht	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">nietVerplicht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
 		shape=plaintext];
 	opgenomenInSpecialistenRegister	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">opgenomenInSpecialistenRegister</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="JaOfNee">+ JaOfNee : JaOfNee</TD></TR></TABLE>>,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">opgenomenInSpecialistenRegister</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Persoon">+ Persoon : Persoon</TD></TR><TR><TD ALIGN="LEFT" PORT="Ja_Of_Nee">+ Ja_Of_Nee : Ja_Of_Nee</TD></TR></TABLE>>,
 		shape=plaintext];
 	opgenomenInSpecialistenRegister:Persoon -> Persoon	[arrowhead=onone,
 		headlabel=1,
@@ -171,9 +175,6 @@ digraph {
 		label=geslacht,
 		labelfloat=true,
 		taillabel="*"];
-	Registratie	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="registratie_1">+ registratie_1 : InschrijfId</TD></TR></TABLE>>,
-		shape=plaintext];
 	Registratie:registratie_1 -> InschrijfId	[arrowhead=onone,
 		headlabel=1,
 		label=registratie,
