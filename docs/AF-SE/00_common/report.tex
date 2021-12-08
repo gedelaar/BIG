@@ -62,11 +62,19 @@
 \usepackage[]{multibib}
 \newcites{NonPub}{Non-published Readings}
 
+\usepackage{afterpage}
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+\usepackage{titling}
 
 \begin{document}
 \pagenumbering{roman} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
 \pagestyle{plain}
-\title{Using relational algebra in designing public healthcare registers}
+\title{Using relational algebra in designing public healthcare registers} 
 \begin{comment}
 Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \end{comment}
@@ -74,6 +82,7 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 
 \input{02_cover/title}
 \newpage
+
 \input{03_TOC/TOC}
 \newpage
 
@@ -91,8 +100,10 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 
 \input{../50_planning/main}
 
-%\input{../../Main.ltx}
+\input{../60_test/main}
 
+%\input{../../Main.ltx}
+\newpage
 \newpage
 \printglossary[type=\acronymtype]
 
