@@ -1,5 +1,8 @@
 \documentclass{ou-report-vaf}
 
+%\usepackage[subpreambles=true]{standalone}
+%\usepackage{import}
+
 \usepackage{microtype}
 \usepackage{comment}
 % *** GRAPHICS RELATED PACKAGES *** %
@@ -78,15 +81,17 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 
 \let\cleardoublepage\clearpage
 
-\input{10_intro/main}
+\input{../10_intro/main}
 
-\input{20_context/main}
+\input{../20_context/main}
 
-\input{30_problem analysis/main}
+\input{../30_problem_analysis/main}
 
-\input{40_research/main}
+\input{../40_research/main}
 
-\input{50_planning/main}
+\input{../50_planning/main}
+
+%\input{../../Main.ltx}
 
 \newpage
 \printglossary[type=\acronymtype]
@@ -94,8 +99,8 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 %\nocite{*}
 \bibliographystyle{plainnat}
 \bibliographystyleNonPub{plainnat}
-\bibliography{00_common/report}
-\bibliographyNonPub{00_common/reportNonPub}
+\bibliography{report}
+\bibliographyNonPub{reportNonPub}
 
 
 \end{document}
