@@ -88,9 +88,9 @@ digraph {
 		label=nationaliteit,
 		labelfloat=true,
 		taillabel="*"];
-	Ja_Of_Nee	[label=Ja_Of_Nee,
+	Ja_of_Nee	[label=Ja_of_Nee,
 		shape=box3d];
-	Persoon:opgenomenInSpecialistenRegister -> Ja_Of_Nee	[arrowhead=onone,
+	Persoon:opgenomenInSpecialistenRegister -> Ja_of_Nee	[arrowhead=onone,
 		headlabel="*",
 		label=opgenomenInSpecialistenRegister,
 		labelfloat=true,
@@ -151,8 +151,6 @@ digraph {
 		label=vandaag,
 		labelfloat=true,
 		taillabel="*"];
-	Ja_of_Nee	[label=Ja_of_Nee,
-		shape=box3d];
 	Ja_of_Nee:ja -> Ja_of_Nee	[arrowhead=onone,
 		headlabel="*",
 		label=ja,

@@ -124,7 +124,7 @@
 
 \title{Functioneel Ontwerp van Big}
 \author{Gerard Edelaar}
-\date{6 december 2021}
+\date{11 december 2021}
 
 \begin{document}
 \maketitle
@@ -215,8 +215,8 @@ de publieke website vernieuwd. Medio 2019 volgt vernieuwing van een
 volgend deel van de publieke website, waarmee op dat moment alleen de
 advieswijzer nog niet is omgezet.
 
-Dit document\footnote{Dit document is gegenereerd op 6-12-2021 om
-  20:49:08, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
+Dit document\footnote{Dit document is gegenereerd op 11-12-2021 om
+  08:15:48, dmv. Ampersand-v4.6.0 {[}HEAD:743e5ce*{]}, build time:
   22-Nov-21 15:44:23 Coordinated Universal Time.} definieert de
 functionaliteit van een informatiesysteem genaamd ‘Big’. Het definieert
 de database en de business-services van Big door middel van
@@ -446,7 +446,7 @@ kan zijn in een specialistenregister.
 \begin{description}
 \tightlist
 \item[Relatie 3:
-\protect\hypertarget{lst:SharedLangrelation-594202218}{}{opgenomenInSpecialistenRegister{[}Persoon*Ja\_Of\_Nee{]}}]
+\protect\hypertarget{lst:SharedLangrelation--1774455478}{}{opgenomenInSpecialistenRegister{[}Persoon*Ja\_of\_Nee{]}}]
 Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een
 specialistenregister.
 \end{description}
@@ -1657,9 +1657,8 @@ Voeg\_inschrijftijd\_toe\_(automatisch) & & & & \\
 \bottomrule
 \end{longtable}
 
-Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja\_Of\_Nee,
-Ja\_of\_Nee, RegisterId, SESSION, Beschikking, Ja\_Of\_Nee en
-SESSION is niet gedocumenteerd.
+Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja\_of\_Nee,
+RegisterId, SESSION, Beschikking en SESSION is niet gedocumenteerd.
 
 Van 18 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: \(apotheker[RegisterId*RegisterId]\),
 \(arts[RegisterId*RegisterId]\) en
@@ -2523,7 +2522,7 @@ Specialisme}\label{fig:Conceptueelux20diagramux20vanux20Specialisme}
 Relatie & Betekenis \\
 \midrule
 \endhead
-opgenomenInSpecialistenRegister {[}Persoon*Ja\_Of\_Nee{]} & Zoals
+opgenomenInSpecialistenRegister {[}Persoon*Ja\_of\_Nee{]} & Zoals
 artikel 14 aangeeft kan een persoon opgenomen zijn in een
 specialistenregister. \\
 specialist (Attribuut van Persoon) & Een Persoon is specialist wanneer
@@ -3705,7 +3704,6 @@ Datum & 1965-01-01 & 1970-12-13 \\
 Doorhaling & "Medische maatregel" & "Verzoek ingerschrevene" \\
 InschrijfTijdstip & 0 & \\
 Inschrijving & 0 & \\
-Ja\_Of\_Nee & 0 & \\
 Ja\_of\_Nee & "Nee" & "Ja" \\
 Naam & "Jansen" & "Pietersen" \\
 Nationaliteit & "Nederlandse" & "Belgische" \\
@@ -3932,7 +3930,7 @@ Persoon(3) & 3(100\%) & inschrijving(3) & InschrijfId(3) & 3(100\%) \\
 Persoon(3) & 3(100\%) & nationaliteit(3) & Nationaliteitid(3) &
 2(67\%) \\
 Persoon(3) & 0(0\%) & opgenomenInSpecialistenRegister(0) &
-Ja\_Of\_Nee(0) & 0 \\
+Ja\_of\_Nee(2) & 0(0\%) \\
 \bottomrule
 \end{longtable}
 
@@ -4016,7 +4014,7 @@ Big}\label{fig:Technischux20gegevensmodelux20vanux20Big}
 }
 \end{figure}
 
-Het technisch datamodel bestaat uit de volgende 51 tabellen:
+Het technisch datamodel bestaat uit de volgende 50 tabellen:
 
 \subsection{Tabel: aantekening1}
 
@@ -4411,24 +4409,13 @@ uit de volgende kolommen:
   \texttt{OBJECT}, Verplicht.
 \end{itemize}
 
-\subsection{Tabel: Ja\_of\_Nee1}
+\subsection{Tabel: Ja\_of\_Nee}
 
 Deze tabel heeft de volgende 1 attributen:
 
 \begin{itemize}
 \item
   \textbf{Ja\_of\_Nee}\\
-  Dit attribuut is de primaire sleutel.\\
-  \texttt{OBJECT}, Verplicht, Uniek.
-\end{itemize}
-
-\subsection{Tabel: Ja\_Of\_Nee2}
-
-Deze tabel heeft de volgende 1 attributen:
-
-\begin{itemize}
-\item
-  \textbf{Ja\_Of\_Nee}\\
   Dit attribuut is de primaire sleutel.\\
   \texttt{OBJECT}, Verplicht, Uniek.
 \end{itemize}
@@ -4571,7 +4558,7 @@ Deze tabel heeft de volgende 1 attributen:
 \subsection{Tabel: opgenomenInSpecialistenRegister}
 
 Dit is een koppeltabel, die de relatie
-\(Persoon \rightarrow {opgenomenInSpecialistenRegister} Ja_Of_Nee\)
+\(Persoon \rightarrow {opgenomenInSpecialistenRegister} Ja_of_Nee\)
 implementeert. De tabel bestaat uit de volgende kolommen:
 
 \begin{itemize}
@@ -4580,8 +4567,8 @@ implementeert. De tabel bestaat uit de volgende kolommen:
   Dit attribuut verwijst naar een rij in de tabel Persoon\\
   \texttt{OBJECT}, Verplicht.
 \item
-  \textbf{Ja\_Of\_Nee}\\
-  Dit attribuut verwijst naar een rij in de tabel Ja\_Of\_Nee\\
+  \textbf{Ja\_of\_Nee}\\
+  Dit attribuut verwijst naar een rij in de tabel Ja\_of\_Nee\\
   \texttt{OBJECT}, Verplicht.
 \end{itemize}
 

@@ -1,0 +1,12 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+	Geslacht	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Geslacht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">+ geslacht : Omschrijving</TD></TR></TABLE>>,
+		shape=plaintext];
+}

@@ -43,7 +43,7 @@ CONTEXT Arts IN DUTCH HTML
             [   "Register"      : registratie [Registratie*InschrijfId];inschrijving[RegisterId*InschrijfId]~ cRud
             ,   "Registratie"   : I[Registratie] cRud
             ,   "Inschrijving"  : registratie [Registratie*InschrijfId] LINKTO INTERFACE Inschrijving
-            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRUd
+            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRud
             ,   "Persoon"       : registratie [Registratie*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon  
             ,   "BIG-nummer"    : registratie [Registratie*InschrijfId];bignummer[InschrijfId*Bignummer] cRud    
             ,   "Aantekening"   : aantekening [Registratie*Aantekening] CRUD

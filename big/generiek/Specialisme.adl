@@ -11,7 +11,7 @@ CONTEXT Big IN DUTCH
           RELATION specialist [Persoon*SpecialistenRegister][UNI]
             MEANING "Een Persoon is specialist wanneer deze in het specialistenRegister is opgenomen."
 
-          RELATION opgenomenInSpecialistenRegister[Persoon*Ja_Of_Nee]
+          RELATION opgenomenInSpecialistenRegister[Persoon*Ja_of_Nee]
             MEANING "Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister."
 
   ENDPATTERN

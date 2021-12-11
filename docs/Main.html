@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Gerard Edelaar" />
-  <meta name="dcterms.date" content="2021-12-06" />
+  <meta name="dcterms.date" content="2021-12-11" />
   <title>Functioneel Ontwerp van ‘Big’</title>
   <style>
       </style>
@@ -17,7 +17,7 @@
 <header id="title-block-header">
 <h1 class="title">Functioneel Ontwerp van Big</h1>
 <p class="author">Gerard Edelaar</p>
-<p class="date">6 december 2021</p>
+<p class="date">11 december 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -128,32 +128,31 @@
 <li><span class="toc-section-number">5.3.23</span> Tabel: Inschrijving</li>
 <li><span class="toc-section-number">5.3.24</span> Tabel: inschrijvingsWeigering</li>
 <li><span class="toc-section-number">5.3.25</span> Tabel: ja</li>
-<li><span class="toc-section-number">5.3.26</span> Tabel: Ja_of_Nee1</li>
-<li><span class="toc-section-number">5.3.27</span> Tabel: Ja_Of_Nee2</li>
-<li><span class="toc-section-number">5.3.28</span> Tabel: kwalificatiedatum</li>
-<li><span class="toc-section-number">5.3.29</span> Tabel: Naam</li>
-<li><span class="toc-section-number">5.3.30</span> Tabel: nationaliteit1</li>
-<li><span class="toc-section-number">5.3.31</span> Tabel: Nationaliteit2</li>
-<li><span class="toc-section-number">5.3.32</span> Tabel: Nationaliteitid</li>
-<li><span class="toc-section-number">5.3.33</span> Tabel: nee</li>
-<li><span class="toc-section-number">5.3.34</span> Tabel: nietVerplicht</li>
-<li><span class="toc-section-number">5.3.35</span> Tabel: Omschrijving</li>
-<li><span class="toc-section-number">5.3.36</span> Tabel: ONE</li>
-<li><span class="toc-section-number">5.3.37</span> Tabel: opgenomenInSpecialistenRegister</li>
-<li><span class="toc-section-number">5.3.38</span> Tabel: Persoon</li>
-<li><span class="toc-section-number">5.3.39</span> Tabel: Register</li>
-<li><span class="toc-section-number">5.3.40</span> Tabel: RegisterId</li>
-<li><span class="toc-section-number">5.3.41</span> Tabel: Registratie</li>
-<li><span class="toc-section-number">5.3.42</span> Tabel: registratiedatum</li>
-<li><span class="toc-section-number">5.3.43</span> Tabel: SESSION</li>
-<li><span class="toc-section-number">5.3.44</span> Tabel: sessionToday</li>
-<li><span class="toc-section-number">5.3.45</span> Tabel: SpecialistenRegister</li>
-<li><span class="toc-section-number">5.3.46</span> Tabel: tandarts</li>
-<li><span class="toc-section-number">5.3.47</span> Tabel: vandaag</li>
-<li><span class="toc-section-number">5.3.48</span> Tabel: verklaringdatum</li>
-<li><span class="toc-section-number">5.3.49</span> Tabel: verplicht</li>
-<li><span class="toc-section-number">5.3.50</span> Tabel: Voornaam</li>
-<li><span class="toc-section-number">5.3.51</span> Tabel: Weigering</li>
+<li><span class="toc-section-number">5.3.26</span> Tabel: Ja_of_Nee</li>
+<li><span class="toc-section-number">5.3.27</span> Tabel: kwalificatiedatum</li>
+<li><span class="toc-section-number">5.3.28</span> Tabel: Naam</li>
+<li><span class="toc-section-number">5.3.29</span> Tabel: nationaliteit1</li>
+<li><span class="toc-section-number">5.3.30</span> Tabel: Nationaliteit2</li>
+<li><span class="toc-section-number">5.3.31</span> Tabel: Nationaliteitid</li>
+<li><span class="toc-section-number">5.3.32</span> Tabel: nee</li>
+<li><span class="toc-section-number">5.3.33</span> Tabel: nietVerplicht</li>
+<li><span class="toc-section-number">5.3.34</span> Tabel: Omschrijving</li>
+<li><span class="toc-section-number">5.3.35</span> Tabel: ONE</li>
+<li><span class="toc-section-number">5.3.36</span> Tabel: opgenomenInSpecialistenRegister</li>
+<li><span class="toc-section-number">5.3.37</span> Tabel: Persoon</li>
+<li><span class="toc-section-number">5.3.38</span> Tabel: Register</li>
+<li><span class="toc-section-number">5.3.39</span> Tabel: RegisterId</li>
+<li><span class="toc-section-number">5.3.40</span> Tabel: Registratie</li>
+<li><span class="toc-section-number">5.3.41</span> Tabel: registratiedatum</li>
+<li><span class="toc-section-number">5.3.42</span> Tabel: SESSION</li>
+<li><span class="toc-section-number">5.3.43</span> Tabel: sessionToday</li>
+<li><span class="toc-section-number">5.3.44</span> Tabel: SpecialistenRegister</li>
+<li><span class="toc-section-number">5.3.45</span> Tabel: tandarts</li>
+<li><span class="toc-section-number">5.3.46</span> Tabel: vandaag</li>
+<li><span class="toc-section-number">5.3.47</span> Tabel: verklaringdatum</li>
+<li><span class="toc-section-number">5.3.48</span> Tabel: verplicht</li>
+<li><span class="toc-section-number">5.3.49</span> Tabel: Voornaam</li>
+<li><span class="toc-section-number">5.3.50</span> Tabel: Weigering</li>
 </ul></li>
 <li><span class="toc-section-number">5.4</span> Logisch gegevensmodel</li>
 </ul></li>
@@ -240,7 +239,7 @@ Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden d
 </dd>
 </dl>
 <dl>
-<dt>Relatie 3: <span id="lst:SharedLangrelation-594202218">opgenomenInSpecialistenRegister[Persoon*Ja_Of_Nee]</span></dt>
+<dt>Relatie 3: <span id="lst:SharedLangrelation--1774455478">opgenomenInSpecialistenRegister[Persoon*Ja_of_Nee]</span></dt>
 <dd>Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister.
 </dd>
 </dl>
@@ -1106,7 +1105,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 </tr>
 </tbody>
 </table>
-<p>Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja_Of_Nee, Ja_of_Nee, RegisterId, SESSION, Beschikking, Ja_Of_Nee en SESSION is niet gedocumenteerd.</p>
+<p>Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja_of_Nee, RegisterId, SESSION, Beschikking en SESSION is niet gedocumenteerd.</p>
 <p>Van 18 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">apotheker[RegisterId*RegisterId]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">arts[RegisterId*RegisterId]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">binnenlandsadres[Adres*Binnenlandsadres]</annotation></semantics></math></p>
 <p>Het oogmerk (purpose) van 18 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>*</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">adres[Persoon*Adres]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald[InschrijfId*Doorhaling]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">einddatum[Nationaliteitid*Datum]</annotation></semantics></math></p>
 <p>De betekenis van relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>*</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">aantekening[Registratie*Aantekening]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>*</mo><mi>B</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">beschikking[Aantekening*Beschikking]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">bignummer[InschrijfId*Bignummer]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>e</mi><mi>e</mi><mi>l</mi><mi>T</mi><mi>o</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">deelToegang[InschrijfId*Ja_of_Nee]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">eerder[Datum*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">einddatum[InschrijfId*Datum]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">kwalificatiedatum[InschrijfId*Datum]</annotation></semantics></math> is niet gedocumenteerd.</p>
@@ -1914,7 +1913,7 @@ Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden d
 </thead>
 <tbody>
 <tr class="odd">
-<td>opgenomenInSpecialistenRegister [Persoon*Ja_Of_Nee]</td>
+<td>opgenomenInSpecialistenRegister [Persoon*Ja_of_Nee]</td>
 <td>Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister.</td>
 </tr>
 <tr class="even">
@@ -2833,13 +2832,6 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 </tbody>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Ja_Of_Nee</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-<tbody>
-<tr class="odd">
 <td style="text-align: left;">Ja_of_Nee</td>
 <td style="text-align: left;">"Nee"</td>
 <td style="text-align: left;">"Ja"</td>
@@ -3326,8 +3318,8 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 <td>Persoon(3)</td>
 <td>0(0%)</td>
 <td>opgenomenInSpecialistenRegister(0)</td>
-<td>Ja_Of_Nee(0)</td>
-<td>0</td>
+<td>Ja_of_Nee(2)</td>
+<td>0(0%)</td>
 </tr>
 </tbody>
 </table>
@@ -3479,7 +3471,7 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 <figure>
 <img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\TechnicalDataModel.png" title="Technisch gegevensmodel van Big" id="fig:Technisch gegevensmodel van Big" alt="Figuur 5.2: Technisch gegevensmodel van Big" /><figcaption aria-hidden="true">Figuur 5.2: Technisch gegevensmodel van Big</figcaption>
 </figure>
-<p>Het technisch datamodel bestaat uit de volgende 51 tabellen:</p>
+<p>Het technisch datamodel bestaat uit de volgende 50 tabellen:</p>
 <h3 data-number="5.3.1"><span class="header-section-number">5.3.1</span> Tabel: aantekening1</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {aantekening} Aantekening</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
@@ -3724,21 +3716,14 @@ Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.26"><span class="header-section-number">5.3.26</span> Tabel: Ja_of_Nee1</h3>
+<h3 data-number="5.3.26"><span class="header-section-number">5.3.26</span> Tabel: Ja_of_Nee</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Ja_of_Nee</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.27"><span class="header-section-number">5.3.27</span> Tabel: Ja_Of_Nee2</h3>
-<p>Deze tabel heeft de volgende 1 attributen:</p>
-<ul>
-<li><p><strong>Ja_Of_Nee</strong><br />
-Dit attribuut is de primaire sleutel.<br />
-<code>OBJECT</code>, Verplicht, Uniek.</p></li>
-</ul>
-<h3 data-number="5.3.28"><span class="header-section-number">5.3.28</span> Tabel: kwalificatiedatum</h3>
+<h3 data-number="5.3.27"><span class="header-section-number">5.3.27</span> Tabel: kwalificatiedatum</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {kwalificatiedatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>InschrijfId</strong><br />
@@ -3748,14 +3733,14 @@ Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.29"><span class="header-section-number">5.3.29</span> Tabel: Naam</h3>
+<h3 data-number="5.3.28"><span class="header-section-number">5.3.28</span> Tabel: Naam</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Naam</strong><br />
 Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Naam</annotation></semantics></math>.<br />
 <code>ALPHANUMERIC</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.30"><span class="header-section-number">5.3.30</span> Tabel: nationaliteit1</h3>
+<h3 data-number="5.3.29"><span class="header-section-number">5.3.29</span> Tabel: nationaliteit1</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {nationaliteit} Nationaliteitid</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>Persoon</strong><br />
@@ -3765,14 +3750,14 @@ Dit attribuut verwijst naar een rij in de tabel Persoon<br />
 Dit attribuut verwijst naar een rij in de tabel Nationaliteitid<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.31"><span class="header-section-number">5.3.31</span> Tabel: Nationaliteit2</h3>
+<h3 data-number="5.3.30"><span class="header-section-number">5.3.30</span> Tabel: Nationaliteit2</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Nationaliteit</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.32"><span class="header-section-number">5.3.32</span> Tabel: Nationaliteitid</h3>
+<h3 data-number="5.3.31"><span class="header-section-number">5.3.31</span> Tabel: Nationaliteitid</h3>
 <p>Deze tabel heeft de volgende 4 attributen:</p>
 <ul>
 <li><p><strong>Nationaliteitid</strong><br />
@@ -3788,7 +3773,7 @@ Dit attribuut verwijst naar een rij in de tabel Datum<br />
 Dit attribuut verwijst naar een rij in de tabel Nationaliteit<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.33"><span class="header-section-number">5.3.33</span> Tabel: nee</h3>
+<h3 data-number="5.3.32"><span class="header-section-number">5.3.32</span> Tabel: nee</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>n</mi><mi>e</mi><mi>e</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {nee} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcJa_of_Nee</strong><br />
@@ -3798,7 +3783,7 @@ Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.34"><span class="header-section-number">5.3.34</span> Tabel: nietVerplicht</h3>
+<h3 data-number="5.3.33"><span class="header-section-number">5.3.33</span> Tabel: nietVerplicht</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>n</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>V</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {nietVerplicht} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcJa_of_Nee</strong><br />
@@ -3808,31 +3793,31 @@ Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.35"><span class="header-section-number">5.3.35</span> Tabel: Omschrijving</h3>
+<h3 data-number="5.3.34"><span class="header-section-number">5.3.34</span> Tabel: Omschrijving</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Omschrijving</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.36"><span class="header-section-number">5.3.36</span> Tabel: ONE</h3>
+<h3 data-number="5.3.35"><span class="header-section-number">5.3.35</span> Tabel: ONE</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>ONE</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.37"><span class="header-section-number">5.3.37</span> Tabel: opgenomenInSpecialistenRegister</h3>
-<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>O</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {opgenomenInSpecialistenRegister} Ja_Of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<h3 data-number="5.3.36"><span class="header-section-number">5.3.36</span> Tabel: opgenomenInSpecialistenRegister</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>→</mo><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Persoon \rightarrow {opgenomenInSpecialistenRegister} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>Persoon</strong><br />
 Dit attribuut verwijst naar een rij in de tabel Persoon<br />
 <code>OBJECT</code>, Verplicht.</p></li>
-<li><p><strong>Ja_Of_Nee</strong><br />
-Dit attribuut verwijst naar een rij in de tabel Ja_Of_Nee<br />
+<li><p><strong>Ja_of_Nee</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.38"><span class="header-section-number">5.3.38</span> Tabel: Persoon</h3>
+<h3 data-number="5.3.37"><span class="header-section-number">5.3.37</span> Tabel: Persoon</h3>
 <p>Deze tabel heeft de volgende 6 attributen:</p>
 <ul>
 <li><p><strong>Persoon</strong><br />
@@ -3854,14 +3839,14 @@ Dit attribuut verwijst naar een rij in de tabel SpecialistenRegister<br />
 Dit attribuut verwijst naar een rij in de tabel Voornaam<br />
 <code>ALPHANUMERIC</code>, Optioneel.</p></li>
 </ul>
-<h3 data-number="5.3.39"><span class="header-section-number">5.3.39</span> Tabel: Register</h3>
+<h3 data-number="5.3.38"><span class="header-section-number">5.3.38</span> Tabel: Register</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Register</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.40"><span class="header-section-number">5.3.40</span> Tabel: RegisterId</h3>
+<h3 data-number="5.3.39"><span class="header-section-number">5.3.39</span> Tabel: RegisterId</h3>
 <p>Deze tabel heeft de volgende 5 attributen:</p>
 <ul>
 <li><p><strong>RegisterId</strong><br />
@@ -3880,7 +3865,7 @@ Dit attribuut verwijst naar een rij in de tabel Datum<br />
 Dit attribuut verwijst naar een rij in de tabel Register<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.41"><span class="header-section-number">5.3.41</span> Tabel: Registratie</h3>
+<h3 data-number="5.3.40"><span class="header-section-number">5.3.40</span> Tabel: Registratie</h3>
 <p>Deze tabel heeft de volgende 2 attributen:</p>
 <ul>
 <li><p><strong>Registratie</strong><br />
@@ -3890,7 +3875,7 @@ Dit attribuut is de primaire sleutel.<br />
 Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.42"><span class="header-section-number">5.3.42</span> Tabel: registratiedatum</h3>
+<h3 data-number="5.3.41"><span class="header-section-number">5.3.41</span> Tabel: registratiedatum</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {registratiedatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>Registratie</strong><br />
@@ -3900,14 +3885,14 @@ Dit attribuut verwijst naar een rij in de tabel Registratie<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.43"><span class="header-section-number">5.3.43</span> Tabel: SESSION</h3>
+<h3 data-number="5.3.42"><span class="header-section-number">5.3.42</span> Tabel: SESSION</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>SESSION</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.44"><span class="header-section-number">5.3.44</span> Tabel: sessionToday</h3>
+<h3 data-number="5.3.43"><span class="header-section-number">5.3.43</span> Tabel: sessionToday</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>E</mi><mi>S</mi><mi>S</mi><mi>I</mi><mi>O</mi><mi>N</mi><mo>→</mo><mrow><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>y</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">SESSION \rightarrow {sessionToday} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SESSION</strong><br />
@@ -3917,14 +3902,14 @@ Dit attribuut verwijst naar een rij in de tabel SESSION<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.45"><span class="header-section-number">5.3.45</span> Tabel: SpecialistenRegister</h3>
+<h3 data-number="5.3.44"><span class="header-section-number">5.3.44</span> Tabel: SpecialistenRegister</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>SpecialistenRegister</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.46"><span class="header-section-number">5.3.46</span> Tabel: tandarts</h3>
+<h3 data-number="5.3.45"><span class="header-section-number">5.3.45</span> Tabel: tandarts</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {tandarts} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcRegisterId</strong><br />
@@ -3934,7 +3919,7 @@ Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.47"><span class="header-section-number">5.3.47</span> Tabel: vandaag</h3>
+<h3 data-number="5.3.46"><span class="header-section-number">5.3.46</span> Tabel: vandaag</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>→</mo><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Datum \rightarrow {vandaag} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcDatum</strong><br />
@@ -3944,7 +3929,7 @@ Dit attribuut verwijst naar een rij in de tabel Datum<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>DATE</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.48"><span class="header-section-number">5.3.48</span> Tabel: verklaringdatum</h3>
+<h3 data-number="5.3.47"><span class="header-section-number">5.3.47</span> Tabel: verklaringdatum</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {verklaringdatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>InschrijfId</strong><br />
@@ -3954,7 +3939,7 @@ Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.49"><span class="header-section-number">5.3.49</span> Tabel: verplicht</h3>
+<h3 data-number="5.3.48"><span class="header-section-number">5.3.48</span> Tabel: verplicht</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {verplicht} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcJa_of_Nee</strong><br />
@@ -3964,14 +3949,14 @@ Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.50"><span class="header-section-number">5.3.50</span> Tabel: Voornaam</h3>
+<h3 data-number="5.3.49"><span class="header-section-number">5.3.49</span> Tabel: Voornaam</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Voornaam</strong><br />
 Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Voornaam</annotation></semantics></math>.<br />
 <code>ALPHANUMERIC</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.51"><span class="header-section-number">5.3.51</span> Tabel: Weigering</h3>
+<h3 data-number="5.3.50"><span class="header-section-number">5.3.50</span> Tabel: Weigering</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Weigering</strong><br />
@@ -4443,7 +4428,7 @@ Dit attribuut is de primaire sleutel.<br />
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 6-12-2021 om 20:49:24, dmv. Ampersand-v4.6.0 [HEAD:743e5ce*], build time: 22-Nov-21 15:44:23 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 11-12-2021 om 08:16:04, dmv. Ampersand-v4.6.0 [HEAD:743e5ce*], build time: 22-Nov-21 15:44:23 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Het ontwerpen met bedrijfsregels is een kenmerk van de Ampersand aanpak, die gebruikt is bij het samenstellen van dit document. <a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
