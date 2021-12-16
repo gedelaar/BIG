@@ -1,4 +1,7 @@
 CONTEXT Arts IN DUTCH HTML
+    INCLUDE "../generiek/Inschrijving.adl"
+
+    
     PATTERN Arts
         PURPOSE PATTERN Arts
         {+
