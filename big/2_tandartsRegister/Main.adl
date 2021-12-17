@@ -1,4 +1,6 @@
 CONTEXT Tandarts IN DUTCH HTML
+INCLUDE "../generiek/Main.adl"
+
     PATTERN Tandarts
         PURPOSE PATTERN Tandarts
         {+
