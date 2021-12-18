@@ -1,4 +1,6 @@
 CONTEXT Apotheker IN DUTCH HTML
+INCLUDE "../generiek/Main.adl"
+
     PATTERN Apotheker
         PURPOSE PATTERN Apotheker
         {+

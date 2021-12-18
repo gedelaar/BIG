@@ -1,7 +1,6 @@
 CONTEXT Arts IN DUTCH HTML
-    INCLUDE "../generiek/Inschrijving.adl"
+INCLUDE "../generiek/Main.adl"
 
-    
     PATTERN Arts
         PURPOSE PATTERN Arts
         {+
@@ -27,7 +26,6 @@ CONTEXT Arts IN DUTCH HTML
             MEANING "meaning"
             MESSAGE "Het ja of nee moet ingevuld worden."
             VIOLATION ( TXT "Voor register ", SRC I, TXT " is geen ja of nee ingevuld.")
-
 
     ENDPATTERN
     INTERFACE Artsen FOR  MEDEWERKER       : V[SESSION*RegisterId];(I /\ arts[RegisterId*RegisterId] )  cRud
