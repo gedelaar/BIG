@@ -12,6 +12,7 @@ services:
     container_name: arts
     build:
       context: .
+      dockerfile: 1_artsRegister/Dockerfile
     restart: unless-stopped
     depends_on:
       - prototype-db
