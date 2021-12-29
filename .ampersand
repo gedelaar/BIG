@@ -2,4 +2,11 @@ big/generiek/Main.adl
 big/1_artsRegister/Main.adl
 big/2_tandartsRegister/Main.adl
 big/3_apothekerRegister/Main.adl
-big/8_verpleegkundigeRegister/Verpleegkundige.adl
+big/4_gezondheidszorgpsycholoogRegister/Main.adl
+big/5_psychotherapeutRegister/Main.adl
+big/6_fysiotherapeutRegister/Main.adl
+big/7_verloskundigeRegister/Main.adl
+big/8_verpleegkundigeRegister/Main.adl
+big/9_physician_assistantRegister/Main.adl
+big/10_orthopedagoog_generalistRegister/Main.adl
+big/11_klinisch_technoloogRegister/Main.adl

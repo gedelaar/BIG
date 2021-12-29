@@ -3,6 +3,14 @@ CONTEXT Register IN DUTCH
     INCLUDE "../1_artsRegister/Main.adl"
     INCLUDE "../2_tandartsRegister/Main.adl"
     INCLUDE "../3_apothekerRegister/Main.adl"
+    INCLUDE "../4_gezondheidszorgpsycholoogRegister/Main.adl"
+    INCLUDE "../5_psychotherapeutRegister/Main.adl"
+    INCLUDE "../6_fysiotherapeutRegister/Main.adl"
+    INCLUDE "../7_verloskundigeRegister/Main.adl"
+    INCLUDE "../8_verpleegkundigeRegister/Main.adl"
+    INCLUDE "../9_physician_assistantRegister/Main.adl"
+    INCLUDE "../10_orthopedagoog_generalistRegister/Main.adl"
+    INCLUDE "../11_klinisch_technoloogRegister/Main.adl"
 
 
     PATTERN Register

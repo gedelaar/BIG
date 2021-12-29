@@ -1,10 +1,10 @@
 CONTEXT Apotheker IN DUTCH HTML
 INCLUDE "../0_generiek/Main.adl"
 
-    PATTERN Apotheker
-        PURPOSE PATTERN Apotheker
+    PATTERN Fysiotherapeut
+        PURPOSE PATTERN Fysiotherapeut
         {+
-        Het register voor apotheker bevat alle attributen van het register apotheker.
+        Het register voor fysiotherapeut bevat alle attributen van het register fysiotherapeut.
         +}
 
         RELATION getuigschriftdatum[InschrijfId*Datum]
@@ -14,16 +14,16 @@ INCLUDE "../0_generiek/Main.adl"
                 Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
                 +}
 
-        RELATION apotheker [RegisterId*RegisterId]
-        POPULATION apotheker[RegisterId*RegisterId]  CONTAINS
-            [("3","3")]
+        RELATION fysiotherapeut [RegisterId*RegisterId]
+        POPULATION fysiotherapeut [RegisterId*RegisterId]  CONTAINS
+            [("6","6")]
 
         RELATION herregistratie[RegisterId*Datum]
             MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
         
 
     ENDPATTERN
-    INTERFACE Apotheker FOR  MEDEWERKER3       : V[SESSION*RegisterId];(I /\ apotheker[RegisterId*RegisterId] )  cRud
+    INTERFACE Fysiotherapeut FOR  MEDEWERKER6       : V[SESSION*RegisterId];(I /\ fysiotherapeut[RegisterId*RegisterId] )  cRud
         BOX <TABLE  hideOnNoRecords sortable  order="asc" showNavMenu>
             [
                "Inschrijvingen" : inschrijving[RegisterId*InschrijfId]  LINKTO INTERFACE Inschrijving

@@ -1,4 +1,4 @@
-FROM ampersandtarski/prototype-framework:v1.10.3
+FROM ampersandtarski/prototype-framework:v1.13.0
 
 # Lines to add specific compiler version (from Github releases)
 # ADD https://github.com/AmpersandTarski/Ampersand/releases/download/Ampersand-v4.1.0/ampersand /usr/local/bin/ampersand
@@ -9,7 +9,7 @@ FROM ampersandtarski/prototype-framework:v1.10.3
 # The script content
 COPY big /usr/local/project/
 
-WORKDIR /usr/local/project/generiek
+WORKDIR /usr/local/project/0_generiek
 
 # Generate prototype application from folder
 RUN ampersand proto Main.adl \

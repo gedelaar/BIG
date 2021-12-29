@@ -1,5 +1,5 @@
 CONTEXT Arts IN DUTCH HTML
-INCLUDE "../generiek/Main.adl"
+INCLUDE "../0_generiek/Main.adl"
 
     PATTERN Arts
         PURPOSE PATTERN Arts

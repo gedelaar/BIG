@@ -102,6 +102,14 @@ CONTEXT Big IN DUTCH
             {+
                 In Artikel 3, lid 4 van de Wet Big wordt aangegeven dat indien de inschrijving van een beroepsbeoefenaar plaatsvindt op basis van een gedeeltelijke toegang als bedoeld in artikel 12, eerste lid, van de Algemene wet erkenning EU-beroepskwalificaties, wordt dit bij de inschrijving aangetekend, waarbij wordt vermeld voor welke beroepswerkzaamheden de gedeeltelijke toegang geldt en onder welke beroepstitel die beroepsbeoefenaar zijn beroepswerkzaamheden op grond van artikel 12, derde lid, uitvoert.
             +}
+            PURPOSE RULE "Voeg_default_deeltoegang_toe_(automatisch)"
+                {+
+                De default waarde voor de deeltoegang is "nee"
+                +}
+            ROLE "ExecEngine" MAINTAINS "Voeg_default_deeltoegang_toe_(automatisch)"
+            RULE "Voeg_default_deeltoegang_toe_(automatisch)" :  I[InschrijfId]  |-  deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+            VIOLATION   (  TXT "{EX} InsPair;deelToegang;InschrijfId;", SRC I, TXT ";Ja_of_Nee;Nee"
+                        )
 
 
     ENDPATTERN
