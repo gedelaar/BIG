@@ -1,26 +1,13 @@
 \subsection{Design method} \label{design_method}
 The method used in this study is the Ampersand method.
-% SJ 2021-12-13
-% Het bovenstaande klinkt alsof je een keuze hebt gemaakt voor Ampersand. Dat is niet zo.
-% De onderzoeksvraag is "Hoe bruikbaar is Ampersand in een realistische situatie?" Om die reden moet je Ampersand inleiden.
-% Het is daarbij natuurlijk nuttig om iets te vertellen over relatiealgebra,
-% maar vergeet niet om te vertellen wat Ampersand beoogt (het ontwerpen van informatiesystemen, zodat de lezer straks begrijpt waarom je een informatiesysteem voor BIG ontwerpt),
-% wat Ampersand belooft en niet belooft (omdat je die beloftes in dit onderzoek gaat toetsen).
-% Op deze plek draag je dus bij aan de rode draad in je verhaal.
 The Ampersand method is based on relational algebra.
 Ampersand makes it possible to make a conceptual analysis of problems. The data model created thereby makes it possible to accelerate implementation.
 
 
 \subsubsection{Relation Algebra} \label{relation_algebra}
 The field of the relation algebra, founded by De Morgan, focuses on operations with sets.
-% SJ 2021-12-13
-% Bovenstaande stelling is onjuist. De relatiealgebra definieert operaties op relaties. Omdat elke relatie kan worden opgevat als een verzameling van tweetallen zijn relaties ook verzamelingen.
-% In Ampersand zie je dat terug omdat voor elke relatie $r[S*T]$ geldt dat $r\subseteq S\times T$ (waarbij $\times$ het cartesisch product is. Dat betekent: $a\in S\wedge b\in T\ \Rightarrow\ (a,b)\in S\times T$).
-% Daarom verwacht je in de relatiealgebra ook de verzamelingenoperatoren zoals $\cup$, $\cap$ en $-$.
-%
 The signature item of relational algebra is the relationship, as the name implies.
 This relationship has several properties, namely the attributes.
-% De volgende zin hoort niet thuis in een bespreking van relatiealgebra.
 The attributes in the example of \acrshort{big} would be the surname, first names, gender, date of birth, nationality and address of the person concerned and the number and time of registration~\footnote{\acrlong{big} article 3, paragraph 2}.
 In addition, the relationship consists of tuples.
 Since the relationship is always between two objects, this is called 2-tuples.
@@ -28,12 +15,10 @@ The tuples contain the attributes of the relation.
 
 Basically the operations on sets are the following:
 \begin{itemize}
-    \item Union, $R \cup S$ %vereniging
+\item Union, $R \cup S$ %vereniging
     \item Intersection, $R \cap S$ %doorsnede
     \item Difference, $R - S$ or $S - R$ %verschil
 \end{itemize}
-% SJ 2021-12-13
-% Bespreek ook 
 A distinction must be made between relation algebra and relational algebra.
 Ampersand uses relation algebra, so is tuple related and the relational algebra is the foundation of e.g. relational databases.
 This includes projections, selections and joins.
