@@ -8,15 +8,58 @@ INCLUDE "../0_generiek/Main.adl"
         +}
         -- dit mag niet gewijzigd worden
         RELATION arts[RegisterId*RegisterId]
+            MEANING "Het identificerende nummer van de het artsenregister."
         POPULATION arts[RegisterId*RegisterId]  CONTAINS [("1","1")] 
         -- 
 
-        RELATION getuigschriftdatum[InschrijfId*Datum]
-            MEANING "Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
-            PURPOSE RELATION getuigschriftdatum[InschrijfId*Datum]
-                {+ 
-                Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
-                +}
+        --specialismen
+        --CONCEPT Specialisme ""
+        --POPULATION Specialisme CONTAINS
+        --["Anesthesioloog","Arts klinische chemie","Arts maatschappij en gezondheid"]
+
+        RELATION specialisme [RegisterId*SpecialismeArts]
+        MEANING "Alle specialismes voor arts." 
+        POPULATION specialisme [RegisterId*SpecialismeArts] CONTAINS
+        [
+            ("1","Anesthesioloog"),
+            ("1","Arts klinische chemie"),
+            ("1","Arts maatschappij en gezondheid"),
+            ("1","Arts-microbioloog"),
+            ("1","Bedrijfsarts"),
+            ("1","Cardioloog"),
+            ("1","Cardiothoracaal chirurg"),
+            ("1","Chirurg"),
+            ("1","Dermatoloog"),
+            ("1","Gynaecoloog"),
+            ("1","Huisarts"),
+            ("1","Internist"),
+            ("1","Keel-,neus-en oorarts"),
+            ("1","Kinderarts"),
+            ("1","Klinisch geneticus"),
+            ("1","Klinisch geriater"),
+            ("1","Longarts"),
+            ("1","Maag-,darm-en leverarts"),
+            ("1","Neurochirurg"),
+            ("1","Neuroloog"),
+            ("1","Nucleair geneeskundige"),
+            ("1","Oogarts"),
+            ("1","Orthopedisch chirurg"),
+            ("1","Patholoog"),
+            ("1","Plastisch chirurg"),
+            ("1","Psychiater"),
+            ("1","Radioloog"),
+            ("1","Radiotherapeut"),
+            ("1","Reumatoloog"),
+            ("1","Revalidatiearts"),
+            ("1","Specialist ouderen geneeskunde"),
+            ("1","Sportarts"),
+            ("1","Uroloog"),
+            ("1","Verzekeringsarts")
+        ]
+        RELATION specialist [Registratie*SpecialismeArts] 
+        MEANING "De specialist is een uitbreiding van arts met een specialisme."
+
+
 
         RELATION herregistratie[InschrijfId*Datum]
             MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
@@ -35,19 +78,20 @@ INCLUDE "../0_generiek/Main.adl"
             ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
             ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
             ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
-            ,   "Registratie"   :  inschrijving[RegisterId*InschrijfId];registratie [Registratie*InschrijfId]~ LINKTO INTERFACE RegistratieB
+            ,   "Registratie"   :  (arts[RegisterId*RegisterId];inschrijving[RegisterId*InschrijfId]);registratie [Registratie*InschrijfId]~ LINKTO INTERFACE RegistratieArts
 
             ]
 
-    INTERFACE RegistratieB FOR MEDEWERKER : I[Registratie] cRud
-        BOX <FORM  hideOnNoRecords  title="Beroepregister"  showNavMenu>
+    INTERFACE RegistratieArts FOR MEDEWERKER : I[Registratie] cRud
+        BOX <FORM  hideOnNoRecords  title="Beroepregister"  showNavMenu > 
             [   "Register"      : registratie [Registratie*InschrijfId];inschrijving[RegisterId*InschrijfId]~ cRud
-            ,   "Registratie"   : I[Registratie] cRud
+            ,   "Registratie"   : I[Registratie];(registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~) LINKTO INTERFACE RegistratieArts
             ,   "Inschrijving"  : registratie [Registratie*InschrijfId] LINKTO INTERFACE Inschrijving
-            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang[InschrijfId*Ja_of_Nee] cRud
+            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang [InschrijfId*Ja_of_Nee] cRud
             ,   "Persoon"       : registratie [Registratie*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon  
-            ,   "BIG-nummer"    : registratie [Registratie*InschrijfId];bignummer[InschrijfId*Bignummer] cRud    
+            ,   "BIG-nummer"    : registratie [Registratie*InschrijfId];bignummer [InschrijfId*Bignummer] cRud 
+            ,   "Specialisme"   : specialist [Registratie * SpecialismeArts] cRUd
             ,   "Aantekening"   : aantekening [Registratie*Aantekening] CRUD
-
             ]
+
 ENDCONTEXT

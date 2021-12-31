@@ -1,4 +1,4 @@
-<p>Confluence analysis statistics from 266 expressions.<br />
+<p>Confluence analysis statistics from 298 expressions.<br />
 </p>
 <p>This script contains<br />
 28 non-confluent expressions<br />
@@ -6,7 +6,7 @@
 <p><br />
 Total number of derived expressions: 56<br />
 </p>
-<p>Confluence analysis for Big</p>
+<p>Confluence analysis for Persoon</p>
 <p><br />
 expression: bignummer [InschrijfId*Bignummer]~; -I[InschrijfId];bignummer [InschrijfId*Bignummer] |-  -I[Bignummer]<br />
 </p>
@@ -374,7 +374,7 @@ expression: voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam
 <p><br />
 --------------<br />
 </p>
-<p>Rules and their conjuncts for Big</p>
+<p>Rules and their conjuncts for Persoon</p>
 <ul>
 <li><p>rule r: Compute kwalificatiedatum[InschrijfId*Datum] using DelPair<br />
 formalExpression r: kwalificatiedatum [InschrijfId*Datum] |- getuigschriftdatum [InschrijfId*Datum]\/verklaringdatum [InschrijfId*Datum]\/diplomadatum [InschrijfId*Datum]<br />
@@ -640,6 +640,11 @@ conj:  -I[InschrijfId]\/bignummer [InschrijfId*Bignummer];bignummer [InschrijfId
 formalExpression r: I[InschrijfId]/\inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId] |- registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]<br />
 conjNF:  -I[InschrijfId]\/ -inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId]\/registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]<br />
 conj:  -I[InschrijfId]\/ -inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId]\/registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]<br />
+</p></li>
+<li><p>rule r: Voeg_default_deeltoegang_toe_(automatisch)<br />
+formalExpression r: I[InschrijfId] |- deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
+conjNF:  -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
+conj:  -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~<br />
 </p></li>
 <li><p>rule r: Voeg_inschrijftijd_toe_(automatisch)<br />
 formalExpression r: I[InschrijfId] |- inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~<br />

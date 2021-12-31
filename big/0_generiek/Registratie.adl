@@ -32,7 +32,7 @@ CONTEXT Registratie IN DUTCH HTML
             [
                 ("R001","I001")
             ]
-
+            RELATION registratie [Registratie*RegisterId]
 
             PURPOSE RULE "Voeg_Registratie_toe(automatisch)"
                 {+

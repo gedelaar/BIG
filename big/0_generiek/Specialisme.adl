@@ -14,6 +14,8 @@ CONTEXT Big IN DUTCH
           RELATION opgenomenInSpecialistenRegister[Persoon*Ja_of_Nee]
             MEANING "Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister."
 
+    
+
   ENDPATTERN
 
   

@@ -39,47 +39,24 @@ CONTEXT Bigregister IN DUTCH HTML
     
     +}
 
-  INCLUDE "Weigering.adl"
+  INCLUDE "Persoon.adl"
+  INCLUDE "Inschrijving.adl"
+  INCLUDE "Inschrijfduur.adl"
+  INCLUDE "Registratie.adl"  
   --INCLUDE "Doorhaling.adl"
   INCLUDE "Aantekening.adl"
   INCLUDE "Specialisme.adl"
-  INCLUDE "Inschrijfduur.adl"
-  INCLUDE "Registratie.adl"
   --INCLUDE "Register.adl"
-  INCLUDE "Persoon.adl"
-  INCLUDE "Inschrijving.adl"
   INCLUDE "Beheer.adl"
   INCLUDE "Generic.adl"
+  INCLUDE "Weigering.adl"
 
-
-
-
-    -- Invariant rules
-
-
+  
 
     -- Process rules 
     -- art 8 geeft aan dat na een bepaalde datum (lees verstreken tijd) de maatregel is verstreken
     -- moet nog vinden waar deze tijden staan en voor welke maatregel dat dan geldig is.
     -- op dit moment kan je een maatregel weghalen, maar dat kan dan ook iedereen....
-
-
-
-    {-
-    -- Automated rules
-    PURPOSE RULE "inschrijftijdstip vastleggen"
-    {+Wanneer een persoon in het BIGregister wordt ingeschreven dan automatisch datum en tijd invullen.+}
-    ROLE "ExecEngine" MAINTAINS "inschrijftijdstip vastleggen"
-    RULE "inschrijftijdstip vastleggen": I[Persoon] |- heeft[Persoon*InschrijfTijdstip];heeft[Persoon*InschrijfTijdstip]~ 
-    VIOLATION (TXT "NewStruct;InschrijfTijdstip"
-                , TXT ";heeft[Persoon*InschrijfTijdstip];InschrijfTijdstip;_NEW;Persoon;", SRC I
-                , TXT ";heeft[Persoon*InschrijfTijdstip];Person;_NEW;InschrijfTijdstip;", TGT I             
-                , TXT ";InschrijfTijdstip;_NEW;Time;{php}Time(DATE_ISO8601)" -- Current date in ISO 8601 date format 
-              )
-    --rule werkt niet, hoe kan je automatisch een datum invullen
-    -}
-
-    
-
+   
 
 ENDCONTEXT

@@ -7,12 +7,6 @@ INCLUDE "../0_generiek/Main.adl"
         Het register voor verloskundige bevat alle attributen van het register verloskundige.
         +}
 
-        RELATION getuigschriftdatum[InschrijfId*Datum]
-            MEANING "Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
-            PURPOSE RELATION getuigschriftdatum[InschrijfId*Datum]
-                {+ 
-                Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
-                +}
 
         RELATION verloskundige [RegisterId*RegisterId]
         POPULATION verloskundige [RegisterId*RegisterId]  CONTAINS

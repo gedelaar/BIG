@@ -1,0 +1,24 @@
+digraph {
+	graph [bgcolor=white,
+		rankdir=LR
+	];
+	node [label="\N"];
+	edge [fontsize=11,
+		minlen=4
+	];
+	RegisterId	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">RegisterId</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="register">+ register : Register</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">+ ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="getuigschrift">o getuigschrift : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR></TABLE>>,
+		shape=plaintext];
+	RegisterId:gezondheidszorgpsycholoog -> RegisterId	[arrowhead=onone,
+		headlabel="*",
+		label=gezondheidszorgpsycholoog,
+		labelfloat=true,
+		taillabel="*"];
+	Datum	[label=Datum,
+		shape=box3d];
+	RegisterId:herregistratie -> Datum	[arrowhead=onone,
+		headlabel="*",
+		label=herregistratie,
+		labelfloat=true,
+		taillabel="*"];
+}

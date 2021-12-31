@@ -7,16 +7,21 @@ INCLUDE "../0_generiek/Main.adl"
         Het register voor apotheker bevat alle attributen van het register apotheker.
         +}
 
-        RELATION getuigschriftdatum[InschrijfId*Datum]
-            MEANING "Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving."
-            PURPOSE RELATION getuigschriftdatum[InschrijfId*Datum]
-                {+ 
-                Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
-                +}
-
         RELATION apotheker [RegisterId*RegisterId]
         POPULATION apotheker[RegisterId*RegisterId]  CONTAINS
             [("3","3")]
+
+        RELATION specialisme [RegisterId*SpecialismeApotheker]
+        MEANING "Alle specialismes voor Apotheker." 
+        POPULATION specialisme [RegisterId*SpecialismeApotheker] CONTAINS
+        [
+            ("3","Ziekenhuisapotheker"),
+            ("3","Openbaar apotheker")
+        
+        ]
+        RELATION specialist [Registratie*SpecialismeApotheker] 
+        MEANING "De specialist is een uitbreiding van tandarts met een specialisme."
+
 
         RELATION herregistratie[RegisterId*Datum]
             MEANING "Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie."
@@ -30,6 +35,19 @@ INCLUDE "../0_generiek/Main.adl"
             ,   "Persoon"       : inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon
             ,   "Naam"          : (inschrijving[RegisterId*InschrijfId];inschrijving [Persoon*InschrijfId]~) ; naam[Persoon*Naam]
             ,   "BIG-nummer"    : (inschrijving[RegisterId*InschrijfId];bignummer[InschrijfId*Bignummer]) cRud
+            ,   "Registratie"   :  inschrijving[RegisterId*InschrijfId];registratie [Registratie*InschrijfId]~ LINKTO INTERFACE ApothekerRegistratie
+            ]
+
+    INTERFACE ApothekerRegistratie FOR MEDEWERKER3 : I cRud
+        BOX <FORM  hideOnNoRecords  title="Beroepregister"  showNavMenu>
+            [   "Register"      : registratie [Registratie*InschrijfId];inschrijving[RegisterId*InschrijfId]~ cRud
+            ,   "Registratie"   : I[Registratie] cRud
+            ,   "Inschrijving"  : registratie [Registratie*InschrijfId] LINKTO INTERFACE Inschrijving
+            ,   "Deeltoegang"   : registratie [Registratie*InschrijfId];deelToegang [InschrijfId*Ja_of_Nee] cRud
+            ,   "Persoon"       : registratie [Registratie*InschrijfId];inschrijving [Persoon*InschrijfId]~ LINKTO INTERFACE Persoon  
+            ,   "BIG-nummer"    : registratie [Registratie*InschrijfId];bignummer [InschrijfId*Bignummer] cRud 
+            ,   "Specialisme"   : specialist [Registratie * SpecialismeApotheker] cRUd
+            ,   "Aantekening"   : aantekening [Registratie*Aantekening] CRUD
             ]
  
 ENDCONTEXT

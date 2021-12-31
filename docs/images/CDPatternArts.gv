@@ -11,11 +11,6 @@ digraph {
 		shape=plaintext];
 	Datum	[label=Datum,
 		shape=box3d];
-	InschrijfId:getuigschriftdatum -> Datum	[arrowhead=onone,
-		headlabel="*",
-		label=getuigschriftdatum,
-		labelfloat=true,
-		taillabel="*"];
 	InschrijfId:herregistratie -> Datum	[arrowhead=onone,
 		headlabel="*",
 		label=herregistratie,

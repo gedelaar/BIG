@@ -92,6 +92,17 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
+	fysiotherapeut	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">fysiotherapeut</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	fysiotherapeut:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	fysiotherapeut:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
 	Geslacht	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Geslacht</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Geslacht">+ Geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht_1">+ geslacht_1 : Omschrijving</TD></TR></TABLE>>,
 		shape=plaintext];
@@ -99,6 +110,17 @@ digraph {
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">getuigschriftdatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
 	getuigschriftdatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	gezondheidszorgpsycholoog	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">gezondheidszorgpsycholoog</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	gezondheidszorgpsycholoog:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	gezondheidszorgpsycholoog:TgtRegisterId -> RegisterId	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
@@ -136,6 +158,17 @@ digraph {
 	ja	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">ja</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcJa_of_Nee">+ SrcJa_of_Nee : Ja_of_Nee</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtJa_of_Nee">+ TgtJa_of_Nee : Ja_of_Nee</TD></TR></TABLE>>,
 		shape=plaintext];
+	klinisch_technoloog	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">klinisch_technoloog</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	klinisch_technoloog:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	klinisch_technoloog:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
 	kwalificatiedatum	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">kwalificatiedatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
@@ -170,9 +203,42 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
+	orthopedagoog_generalist	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">orthopedagoog_generalist</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	orthopedagoog_generalist:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	orthopedagoog_generalist:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
 	Persoon:geslacht -> Geslacht	[arrowhead=onone,
 		headlabel="0-1",
 		label=geslacht,
+		labelfloat=true,
+		taillabel="*"];
+	physician_assistant	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">physician_assistant</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	physician_assistant:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	physician_assistant:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	psychotherapeut	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">psychotherapeut</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	psychotherapeut:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	psychotherapeut:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
 	Registratie:registratie_1 -> InschrijfId	[arrowhead=onone,
@@ -208,6 +274,28 @@ digraph {
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">verklaringdatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="InschrijfId">+ InschrijfId : InschrijfId</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
 	verklaringdatum:InschrijfId -> InschrijfId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	verloskundige	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">verloskundige</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	verloskundige:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	verloskundige:TgtRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	verpleegkundige	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">verpleegkundige</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	verpleegkundige:SrcRegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	verpleegkundige:TgtRegisterId -> RegisterId	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
