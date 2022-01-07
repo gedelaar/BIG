@@ -16,10 +16,10 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
-	Registratie	[color=purple,
-		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="registratie_1">+ registratie_1 : InschrijfId</TD></TR></TABLE>>,
+	Registratie2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="registratie_1">+ registratie_1 : InschrijfId</TD></TR></TABLE>>,
 		shape=plaintext];
-	aantekening1:Registratie -> Registratie	[arrowhead=onone,
+	aantekening1:Registratie -> Registratie2	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
@@ -241,7 +241,18 @@ digraph {
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
-	Registratie:registratie_1 -> InschrijfId	[arrowhead=onone,
+	registratie1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">registratie1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR></TABLE>>,
+		shape=plaintext];
+	registratie1:RegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	registratie1:Registratie -> Registratie2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie2:registratie_1 -> InschrijfId	[arrowhead=onone,
 		headlabel=1,
 		label=registratie,
 		labelfloat=true,
@@ -249,13 +260,55 @@ digraph {
 	registratiedatum	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">registratiedatum</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
-	registratiedatum:Registratie -> Registratie	[arrowhead=onone,
+	registratiedatum:Registratie -> Registratie2	[arrowhead=onone,
 		headlabel=1,
 		labelfloat=true,
 		taillabel="*"];
 	sessionToday	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">sessionToday</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SESSION">+ SESSION : SESSION</TD></TR><TR><TD ALIGN="LEFT" PORT="Datum">+ Datum : Datum</TD></TR></TABLE>>,
 		shape=plaintext];
+	specialisme1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialisme1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeTandarts">+ SpecialismeTandarts : SpecialismeTandarts</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialisme1:RegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	specialisme2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialisme2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeArts">+ SpecialismeArts : SpecialismeArts</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialisme2:RegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	specialisme3	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialisme3</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="RegisterId">+ RegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeApotheker">+ SpecialismeApotheker : SpecialismeApotheker</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialisme3:RegisterId -> RegisterId	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	specialist1	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialist1</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeTandarts">+ SpecialismeTandarts : SpecialismeTandarts</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialist1:Registratie -> Registratie2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	specialist2	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialist2</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeArts">+ SpecialismeArts : SpecialismeArts</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialist2:Registratie -> Registratie2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
+	specialist3	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">specialist3</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="Registratie">+ Registratie : Registratie</TD></TR><TR><TD ALIGN="LEFT" PORT="SpecialismeApotheker">+ SpecialismeApotheker : SpecialismeApotheker</TD></TR></TABLE>>,
+		shape=plaintext];
+	specialist3:Registratie -> Registratie2	[arrowhead=onone,
+		headlabel=1,
+		labelfloat=true,
+		taillabel="*"];
 	tandarts	[color=purple,
 		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">tandarts</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="SrcRegisterId">+ SrcRegisterId : RegisterId</TD></TR><TR><TD ALIGN="LEFT" PORT="TgtRegisterId">+ TgtRegisterId : RegisterId</TD></TR></TABLE>>,
 		shape=plaintext];

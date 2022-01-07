@@ -20,6 +20,11 @@ digraph {
 		label=registratie,
 		labelfloat=true,
 		taillabel="0-1"];
+	Registratie:registratie -> RegisterId	[arrowhead=onone,
+		headlabel="*",
+		label=registratie,
+		labelfloat=true,
+		taillabel="*"];
 	Datum	[label=Datum,
 		shape=box3d];
 	Registratie:registratiedatum -> Datum	[arrowhead=onone,

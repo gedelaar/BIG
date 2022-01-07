@@ -5,7 +5,6 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Gerard Edelaar" />
-  <meta name="dcterms.date" content="2021-12-29" />
   <title>Functioneel Ontwerp van ‘Persoon’</title>
   <style>
       </style>
@@ -17,7 +16,7 @@
 <header id="title-block-header">
 <h1 class="title">Functioneel Ontwerp van Persoon</h1>
 <p class="author">Gerard Edelaar</p>
-<p class="date">29 december 2021</p>
+<p class="date">5 januari 2022</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -150,19 +149,29 @@
 <li><span class="toc-section-number">5.3.43</span> Tabel: psychotherapeut</li>
 <li><span class="toc-section-number">5.3.44</span> Tabel: Register</li>
 <li><span class="toc-section-number">5.3.45</span> Tabel: RegisterId</li>
-<li><span class="toc-section-number">5.3.46</span> Tabel: Registratie</li>
-<li><span class="toc-section-number">5.3.47</span> Tabel: registratiedatum</li>
-<li><span class="toc-section-number">5.3.48</span> Tabel: SESSION</li>
-<li><span class="toc-section-number">5.3.49</span> Tabel: sessionToday</li>
-<li><span class="toc-section-number">5.3.50</span> Tabel: SpecialistenRegister</li>
-<li><span class="toc-section-number">5.3.51</span> Tabel: tandarts</li>
-<li><span class="toc-section-number">5.3.52</span> Tabel: vandaag</li>
-<li><span class="toc-section-number">5.3.53</span> Tabel: verklaringdatum</li>
-<li><span class="toc-section-number">5.3.54</span> Tabel: verloskundige</li>
-<li><span class="toc-section-number">5.3.55</span> Tabel: verpleegkundige</li>
-<li><span class="toc-section-number">5.3.56</span> Tabel: verplicht</li>
-<li><span class="toc-section-number">5.3.57</span> Tabel: Voornaam</li>
-<li><span class="toc-section-number">5.3.58</span> Tabel: Weigering</li>
+<li><span class="toc-section-number">5.3.46</span> Tabel: registratie1</li>
+<li><span class="toc-section-number">5.3.47</span> Tabel: Registratie2</li>
+<li><span class="toc-section-number">5.3.48</span> Tabel: registratiedatum</li>
+<li><span class="toc-section-number">5.3.49</span> Tabel: SESSION</li>
+<li><span class="toc-section-number">5.3.50</span> Tabel: sessionToday</li>
+<li><span class="toc-section-number">5.3.51</span> Tabel: specialisme1</li>
+<li><span class="toc-section-number">5.3.52</span> Tabel: specialisme2</li>
+<li><span class="toc-section-number">5.3.53</span> Tabel: specialisme3</li>
+<li><span class="toc-section-number">5.3.54</span> Tabel: SpecialismeApotheker</li>
+<li><span class="toc-section-number">5.3.55</span> Tabel: SpecialismeArts</li>
+<li><span class="toc-section-number">5.3.56</span> Tabel: SpecialismeTandarts</li>
+<li><span class="toc-section-number">5.3.57</span> Tabel: specialist1</li>
+<li><span class="toc-section-number">5.3.58</span> Tabel: specialist2</li>
+<li><span class="toc-section-number">5.3.59</span> Tabel: specialist3</li>
+<li><span class="toc-section-number">5.3.60</span> Tabel: SpecialistenRegister</li>
+<li><span class="toc-section-number">5.3.61</span> Tabel: tandarts</li>
+<li><span class="toc-section-number">5.3.62</span> Tabel: vandaag</li>
+<li><span class="toc-section-number">5.3.63</span> Tabel: verklaringdatum</li>
+<li><span class="toc-section-number">5.3.64</span> Tabel: verloskundige</li>
+<li><span class="toc-section-number">5.3.65</span> Tabel: verpleegkundige</li>
+<li><span class="toc-section-number">5.3.66</span> Tabel: verplicht</li>
+<li><span class="toc-section-number">5.3.67</span> Tabel: Voornaam</li>
+<li><span class="toc-section-number">5.3.68</span> Tabel: Weigering</li>
 </ul></li>
 <li><span class="toc-section-number">5.4</span> Logisch gegevensmodel</li>
 </ul></li>
@@ -472,7 +481,7 @@ Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
 Het register voor arts bevat alle attributen van het register arts.
 <dl>
 <dt>Relatie 15: <span id="lst:SharedLangrelation--2010660188">arts[RegisterId*RegisterId]</span></dt>
-<dd>
+<dd>Het identificerende nummer van de het artsenregister.
 </dd>
 </dl>
 Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
@@ -485,6 +494,22 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 </dd>
 </dl>
 <dl>
+<dt>Relatie 17: <span id="lst:SharedLangrelation--1194493976">specialisme[RegisterId*SpecialismeArts]</span></dt>
+<dd>Alle specialismes voor arts.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>1<em> correspondeert met </em>Orthopedisch chirurg<em> in de relatie </em>specialisme.</li>
+<li>1<em> correspondeert met </em>Psychiater<em> in de relatie </em>specialisme.</li>
+<li>1<em> correspondeert met </em>Revalidatiearts<em> in de relatie </em>specialisme.</li>
+</ul>
+<dl>
+<dt>Relatie 18: <span id="lst:SharedLangrelation--1974488137">specialist[Registratie*SpecialismeArts]</span></dt>
+<dd>De specialist is een uitbreiding van arts met een specialisme.
+</dd>
+</dl>
+<dl>
 <dt>Afspraak 12: <span id="agr:SharedLangrule-198099578">"DefaultDeelToegang"</span>.</dt>
 <dd>meaning
 </dd>
@@ -492,12 +517,27 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.5" id="sec:SharedLangtheme-1982034445"><span class="header-section-number">2.5</span> Tandarts</h2>
 Het register voor tandarts bevat alle attributen van het register tandarts.
 <dl>
-<dt>Relatie 17: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 19: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 18: <span id="lst:SharedLangrelation-829158097">tandarts[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 20: <span id="lst:SharedLangrelation--1338030531">specialisme[RegisterId*SpecialismeTandarts]</span></dt>
+<dd>Alle specialismes voor tandarts.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>2<em> correspondeert met </em>MKA-chirurg<em> in de relatie </em>specialisme.</li>
+<li>2<em> correspondeert met </em>Orthodontist<em> in de relatie </em>specialisme.</li>
+</ul>
+<dl>
+<dt>Relatie 21: <span id="lst:SharedLangrelation--1439821794">specialist[Registratie*SpecialismeTandarts]</span></dt>
+<dd>De specialist is een uitbreiding van tandarts met een specialisme.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 22: <span id="lst:SharedLangrelation-829158097">tandarts[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -508,7 +548,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.6" id="sec:SharedLangtheme--231419835"><span class="header-section-number">2.6</span> Apotheker</h2>
 Het register voor apotheker bevat alle attributen van het register apotheker.
 <dl>
-<dt>Relatie 19: <span id="lst:SharedLangrelation-2039411417">apotheker[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 23: <span id="lst:SharedLangrelation-2039411417">apotheker[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -517,14 +557,29 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>3<em> correspondeert met </em>3<em> in de relatie </em>apotheker.</li>
 </ul>
 <dl>
-<dt>Relatie 20: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 24: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
+</dd>
+</dl>
+<dl>
+<dt>Relatie 25: <span id="lst:SharedLangrelation--1504501699">specialisme[RegisterId*SpecialismeApotheker]</span></dt>
+<dd>Alle specialismes voor Apotheker.
+</dd>
+</dl>
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+<ul>
+<li>3<em> correspondeert met </em>Ziekenhuisapotheker<em> in de relatie </em>specialisme.</li>
+<li>3<em> correspondeert met </em>Openbaar apotheker<em> in de relatie </em>specialisme.</li>
+</ul>
+<dl>
+<dt>Relatie 26: <span id="lst:SharedLangrelation--1996515994">specialist[Registratie*SpecialismeApotheker]</span></dt>
+<dd>De specialist is een uitbreiding van tandarts met een specialisme.
 </dd>
 </dl>
 <h2 data-number="2.7" id="sec:SharedLangtheme--1301178947"><span class="header-section-number">2.7</span> Gezondheidszorgpsycholoog</h2>
 Het register voor gezondheidszorgpsycholoog bevat alle attributen van het register gezondheidszorgpsycholoog.
 <dl>
-<dt>Relatie 21: <span id="lst:SharedLangrelation-1567154049">gezondheidszorgpsycholoog[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 27: <span id="lst:SharedLangrelation-1567154049">gezondheidszorgpsycholoog[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -533,19 +588,19 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>4<em> correspondeert met </em>4<em> in de relatie </em>gezondheidszorgpsycholoog.</li>
 </ul>
 <dl>
-<dt>Relatie 22: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 28: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <h2 data-number="2.8" id="sec:SharedLangtheme--2121800444"><span class="header-section-number">2.8</span> Psychotherapeut</h2>
 Het register voor psychotherapeut bevat alle attributen van het register psychotherapeut.
 <dl>
-<dt>Relatie 23: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 29: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 24: <span id="lst:SharedLangrelation--204395792">psychotherapeut[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 30: <span id="lst:SharedLangrelation--204395792">psychotherapeut[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -556,7 +611,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.9" id="sec:SharedLangtheme-1234576"><span class="header-section-number">2.9</span> Fysiotherapeut</h2>
 Het register voor fysiotherapeut bevat alle attributen van het register fysiotherapeut.
 <dl>
-<dt>Relatie 25: <span id="lst:SharedLangrelation--1019300156">fysiotherapeut[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 31: <span id="lst:SharedLangrelation--1019300156">fysiotherapeut[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -565,19 +620,19 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>6<em> correspondeert met </em>6<em> in de relatie </em>fysiotherapeut.</li>
 </ul>
 <dl>
-<dt>Relatie 26: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 32: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <h2 data-number="2.10" id="sec:SharedLangtheme-908175254"><span class="header-section-number">2.10</span> Verloskundige</h2>
 Het register voor verloskundige bevat alle attributen van het register verloskundige.
 <dl>
-<dt>Relatie 27: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 33: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 28: <span id="lst:SharedLangrelation--756873734">verloskundige[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 34: <span id="lst:SharedLangrelation--756873734">verloskundige[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -588,12 +643,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.11" id="sec:SharedLangtheme--1955328653"><span class="header-section-number">2.11</span> Verpleegkundige</h2>
 Het register voor verpleegkundige bevat alle attributen van het register verpleegkundige.
 <dl>
-<dt>Relatie 29: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 35: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 30: <span id="lst:SharedLangrelation-860225615">verpleegkundige[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 36: <span id="lst:SharedLangrelation-860225615">verpleegkundige[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -604,12 +659,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.12" id="sec:SharedLangtheme--1716533637"><span class="header-section-number">2.12</span> Physician_assistant</h2>
 Het register voor physician_assistant bevat alle attributen van het register physician_assistant.
 <dl>
-<dt>Relatie 31: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 37: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 32: <span id="lst:SharedLangrelation-1465323143">physician_assistant[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 38: <span id="lst:SharedLangrelation-1465323143">physician_assistant[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -620,12 +675,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.13" id="sec:SharedLangtheme-878085727"><span class="header-section-number">2.13</span> Orthopedagoog_generalist</h2>
 Het register voor orthopedagoog_generalist bevat alle attributen van het register orthopedagoog_generalist.
 <dl>
-<dt>Relatie 33: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 39: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 34: <span id="lst:SharedLangrelation-1291158979">orthopedagoog_generalist[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 40: <span id="lst:SharedLangrelation-1291158979">orthopedagoog_generalist[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -636,12 +691,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <h2 data-number="2.14" id="sec:SharedLangtheme-871874478"><span class="header-section-number">2.14</span> Klinisch_technoloog</h2>
 Het register voor klinisch_technoloog bevat alle attributen van het register klinisch_technoloog.
 <dl>
-<dt>Relatie 35: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
+<dt>Relatie 41: <span id="lst:SharedLangrelation--573712027">herregistratie[RegisterId*Datum]</span></dt>
 <dd>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 36: <span id="lst:SharedLangrelation--1464693950">klinisch_technoloog[RegisterId*RegisterId]</span></dt>
+<dt>Relatie 42: <span id="lst:SharedLangrelation--1464693950">klinisch_technoloog[RegisterId*RegisterId]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -653,48 +708,48 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 Inschrijvingen in een register zijn beperkt geldig. Artikel 8, eerste lid van de Wet BIG stelt: "Bij algemene maatregel van bestuur wordt bepaald dat de inschrijving in een bij de maatregel aangewezen register wordt doorgehaald indien na de in het tweede lid bedoelde datum een bij de maatregel aangegeven periode is verstreken." Artikel 2, tweede lid van het Besluit periodieke registratie Wet BIG stelt deze periode op vijf jaren.
 Een register registreert de datum waarop de ingeschrevene een diploma heeft behaald op grond waarvan de ingeschrevene een erkenning van beroepskwalificaties als bedoeld in de Algemene wet erkenning EU-beroepskwalificaties heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere diploma's zijn, kunnen er dus ook meerdere diplomadata zijn voor dezelfde inschrijving.
 <dl>
-<dt>Relatie 37: <span id="lst:SharedLangrelation--581170035">diplomadatum[InschrijfId*Datum]</span></dt>
+<dt>Relatie 43: <span id="lst:SharedLangrelation--581170035">diplomadatum[InschrijfId*Datum]</span></dt>
 <dd>Er is een erkend diploma bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
 </dd>
 </dl>
 Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
 <dl>
-<dt>Relatie 38: <span id="lst:SharedLangrelation-1159138999">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</span></dt>
+<dt>Relatie 44: <span id="lst:SharedLangrelation-1159138999">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 Voor elke denkbare datum d1 en d2 geldt d1 eerder d2 dan en slechts dan als d1 &lt; d2.
 <dl>
-<dt>Relatie 39: <span id="lst:SharedLangrelation-91707643">eerder[Datum*Datum]</span></dt>
+<dt>Relatie 45: <span id="lst:SharedLangrelation-91707643">eerder[Datum*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 Om het einde van een inschrijving te bepalen tellen we vijf jaar (zie Artikel 2.2 van het besluit) op bij de meest recente kwalificatiedatum. Als gevolg daarvan verandert de einddatum als de ingeschrevene tijdig verlenging krijgt.
 <dl>
-<dt>Relatie 40: <span id="lst:SharedLangrelation--1891032119">einddatum[InschrijfId*Datum]</span></dt>
+<dt>Relatie 46: <span id="lst:SharedLangrelation--1891032119">einddatum[InschrijfId*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 Een register registreert datum waarop de ingeschrevene een bij of krachtens hoofdstuk III of VI aangewezen getuigschrift heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere getuigschriften zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
 <dl>
-<dt>Relatie 41: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
+<dt>Relatie 47: <span id="lst:SharedLangrelation--1405365405">getuigschriftdatum[InschrijfId*Datum]</span></dt>
 <dd>Er is een getuigschrift bij een inschrijving geregistreerd dat relevant is voor het bepalen van de geldigheid van die inschrijving.
 </dd>
 </dl>
 Om de inschrijvingsduur te bepalen rekenen we met de meest recente van de geregistreerde diplomadata, verklaringdata en getuigschriftdata. Uiteindelijk is er dus precies één datum die gebruikt wordt om de inschrijfduur te bepalen.
 <dl>
-<dt>Relatie 42: <span id="lst:SharedLangrelation-621160912">kwalificatiedatum[InschrijfId*Datum]</span></dt>
+<dt>Relatie 48: <span id="lst:SharedLangrelation-621160912">kwalificatiedatum[InschrijfId*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 <dl>
-<dt>Relatie 43: <span id="lst:SharedLangrelation--883250738">vandaag[Datum*Datum]</span></dt>
+<dt>Relatie 49: <span id="lst:SharedLangrelation--883250738">vandaag[Datum*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 Een register registreert de datum waarop de ingeschrevene een in artikel 41, eerste lid, onder b, bedoelde verklaring heeft verkregen, zoals bedoeld in Art. 8 lid 2 sub a van de Wet BIG. Als er meerdere van dit soort verklaringen zijn, kunnen er dus ook meerdere data zijn bij dezelfde inschrijving.
 <dl>
-<dt>Relatie 44: <span id="lst:SharedLangrelation--358045080">verklaringdatum[InschrijfId*Datum]</span></dt>
+<dt>Relatie 50: <span id="lst:SharedLangrelation--358045080">verklaringdatum[InschrijfId*Datum]</span></dt>
 <dd>Er is een verklaring bij een inschrijving geregistreerd die relevant is voor het bepalen van de geldigheid van die inschrijving.
 </dd>
 </dl>
@@ -707,7 +762,7 @@ Een register registreert de datum waarop de ingeschrevene een in artikel 41, eer
 </dd>
 </dl>
 <dl>
-<dt>Relatie 45: <span id="lst:SharedLangrelation--1758980505">registratie[Registratie*InschrijfId]</span></dt>
+<dt>Relatie 51: <span id="lst:SharedLangrelation--1758980505">registratie[Registratie*InschrijfId]</span></dt>
 <dd>
 </dd>
 <dd>Deze relatie is univalent, injectief en totaal.
@@ -718,7 +773,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>R001<em> correspondeert met </em>I001<em> in de relatie </em>registratie.</li>
 </ul>
 <dl>
-<dt>Relatie 46: <span id="lst:SharedLangrelation-393734920">registratiedatum[Registratie*Datum]</span></dt>
+<dt>Relatie 52: <span id="lst:SharedLangrelation-997356340">registratie[Registratie*RegisterId]</span></dt>
+<dd>
+</dd>
+</dl>
+<dl>
+<dt>Relatie 53: <span id="lst:SharedLangrelation-393734920">registratiedatum[Registratie*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -751,7 +811,7 @@ Nieuw persoon krijgt een registratie.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 47: <span id="lst:SharedLangrelation-273471114">inschrijvingsWeigering[InschrijfId*Weigering]</span></dt>
+<dt>Relatie 54: <span id="lst:SharedLangrelation-273471114">inschrijvingsWeigering[InschrijfId*Weigering]</span></dt>
 <dd>In artikel 6 staan de redenen voor het weigeren van de inschrijving bepaald.
 </dd>
 </dl>
@@ -765,13 +825,13 @@ De aantekening wordt op het register geplaatst bij een beroepsbeoefenaar. De aan
 </dl>
 Een aantekening als bedoeld in artikel 9, tweede lid, onderdeel a van de Wet BIG is bedoeld om een maatregel ten aanzien van een ingeschrevene te registreren.
 <dl>
-<dt>Relatie 48: <span id="lst:SharedLangrelation-1467844663">aantekening[Registratie*Aantekening]</span></dt>
+<dt>Relatie 55: <span id="lst:SharedLangrelation-1467844663">aantekening[Registratie*Aantekening]</span></dt>
 <dd>
 </dd>
 </dl>
 Een register registreert een beschikking als bedoeld in artikel 10 van de Wet BIG om een aantekening in datzelfde register te onderbouwen.
 <dl>
-<dt>Relatie 49: <span id="lst:SharedLangrelation--1799783339">beschikking[Aantekening*Beschikking]</span></dt>
+<dt>Relatie 56: <span id="lst:SharedLangrelation--1799783339">beschikking[Aantekening*Beschikking]</span></dt>
 <dd>
 </dd>
 <dd>Deze relatie is univalent.
@@ -791,7 +851,7 @@ Nadere duiding van de afkorting die gebruik wordt voor geslacht.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 50: <span id="lst:SharedLangrelation-204512575">geslacht[Geslacht*Omschrijving]</span></dt>
+<dt>Relatie 57: <span id="lst:SharedLangrelation-204512575">geslacht[Geslacht*Omschrijving]</span></dt>
 <dd>
 </dd>
 <dd>Deze relatie is univalent en totaal.
@@ -818,14 +878,14 @@ Door een omschrijving toe te voegen wordt de nationaliteitcodering leesbaar.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 51: <span id="lst:SharedLangrelation-1676492216">einddatum[Nationaliteitid*Datum]</span></dt>
+<dt>Relatie 58: <span id="lst:SharedLangrelation-1676492216">einddatum[Nationaliteitid*Datum]</span></dt>
 <dd>Einddatum van gebruik van de Nationaliteit.
 </dd>
 <dd>Deze relatie is univalent.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 52: <span id="lst:SharedLangrelation-987556695">ingangsdatum[Nationaliteitid*Datum]</span></dt>
+<dt>Relatie 59: <span id="lst:SharedLangrelation-987556695">ingangsdatum[Nationaliteitid*Datum]</span></dt>
 <dd>Ingangsdatum van de Nationaliteit.
 </dd>
 <dd>Deze relatie is univalent.
@@ -838,7 +898,7 @@ Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
 <li><em>De Nationaliteit </em> 0077 <em> heeft als ingangsdatum </em> 1985-01-01 <em>.</em>.</li>
 </ul>
 <dl>
-<dt>Relatie 53: <span id="lst:SharedLangrelation--876518158">nationaliteit[Nationaliteitid*Nationaliteit]</span></dt>
+<dt>Relatie 60: <span id="lst:SharedLangrelation--876518158">nationaliteit[Nationaliteitid*Nationaliteit]</span></dt>
 <dd>Het aanbrengen van de koppeling tussen de nationaliteitcode en de bijbehorende omschrijving. Bij elke code hoort maar één omschrijving en de omschrijving behoort maar tot één code.
 </dd>
 <dd>Deze relatie is univalent, injectief en totaal.
@@ -875,14 +935,14 @@ Adres van de persoon conform BRP.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 54: <span id="lst:SharedLangrelation-1203540427">binnenlandsadres[Adres*Binnenlandsadres]</span></dt>
+<dt>Relatie 61: <span id="lst:SharedLangrelation-1203540427">binnenlandsadres[Adres*Binnenlandsadres]</span></dt>
 <dd>
 </dd>
 <dd>Deze relatie is univalent.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 55: <span id="lst:SharedLangrelation--524362813">buitenlandsadres[Adres*Buitenlandsadres]</span></dt>
+<dt>Relatie 62: <span id="lst:SharedLangrelation--524362813">buitenlandsadres[Adres*Buitenlandsadres]</span></dt>
 <dd>
 </dd>
 <dd>Deze relatie is univalent.
@@ -897,12 +957,12 @@ Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden d
 </dd>
 </dl>
 <dl>
-<dt>Relatie 56: <span id="lst:SharedLangrelation--1774455478">opgenomenInSpecialistenRegister[Persoon*Ja_of_Nee]</span></dt>
+<dt>Relatie 63: <span id="lst:SharedLangrelation--1774455478">opgenomenInSpecialistenRegister[Persoon*Ja_of_Nee]</span></dt>
 <dd>Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een specialistenregister.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 57: <span id="lst:SharedLangrelation-24842000">specialist[Persoon*SpecialistenRegister]</span></dt>
+<dt>Relatie 64: <span id="lst:SharedLangrelation-24842000">specialist[Persoon*SpecialistenRegister]</span></dt>
 <dd>Een Persoon is specialist wanneer deze in het specialistenRegister is opgenomen.
 </dd>
 <dd>Deze relatie is univalent.
@@ -935,14 +995,14 @@ Een regeling als bedoeld in artikel 14, tweede lid, onder d, kan mede inhouden d
 </dd>
 </dl>
 <dl>
-<dt>Relatie 58: <span id="lst:SharedLangrelation--921375706">doorgehaald[InschrijfId*Doorhaling]</span></dt>
+<dt>Relatie 65: <span id="lst:SharedLangrelation--921375706">doorgehaald[InschrijfId*Doorhaling]</span></dt>
 <dd>In artikel 7 gestelde sitatuaties waarin de inschrijving wordt doorgehaald. Deze heeft ook consequenties op de bijbehorende registraties.
 </dd>
 <dd>Deze relatie is univalent en injectief.
 </dd>
 </dl>
 <dl>
-<dt>Relatie 59: <span id="lst:SharedLangrelation--879543879">ja[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dt>Relatie 66: <span id="lst:SharedLangrelation--879543879">ja[Ja_of_Nee*Ja_of_Nee]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -951,7 +1011,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>Ja<em> correspondeert met </em>Ja<em> in de relatie </em>ja.</li>
 </ul>
 <dl>
-<dt>Relatie 60: <span id="lst:SharedLangrelation-1347772322">nee[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dt>Relatie 67: <span id="lst:SharedLangrelation-1347772322">nee[Ja_of_Nee*Ja_of_Nee]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -960,7 +1020,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>Nee<em> correspondeert met </em>Nee<em> in de relatie </em>nee.</li>
 </ul>
 <dl>
-<dt>Relatie 61: <span id="lst:SharedLangrelation-143006231">nietVerplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dt>Relatie 68: <span id="lst:SharedLangrelation-143006231">nietVerplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -969,12 +1029,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <li>Nee<em> correspondeert met </em>Nee<em> in de relatie </em>nietVerplicht.</li>
 </ul>
 <dl>
-<dt>Relatie 62: <span id="lst:SharedLangrelation-147316858">sessionToday[SESSION*Datum]</span></dt>
+<dt>Relatie 69: <span id="lst:SharedLangrelation-147316858">sessionToday[SESSION*Datum]</span></dt>
 <dd>
 </dd>
 </dl>
 <dl>
-<dt>Relatie 63: <span id="lst:SharedLangrelation--1355593863">verplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
+<dt>Relatie 70: <span id="lst:SharedLangrelation--1355593863">verplicht[Ja_of_Nee*Ja_of_Nee]</span></dt>
 <dd>
 </dd>
 </dl>
@@ -1558,12 +1618,12 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 </tr>
 </tbody>
 </table>
-<p>Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja_of_Nee, RegisterId, SESSION, Beschikking en SESSION is niet gedocumenteerd.</p>
-<p>Van 26 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">apotheker[RegisterId*RegisterId]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">arts[RegisterId*RegisterId]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">binnenlandsadres[Adres*Binnenlandsadres]</annotation></semantics></math></p>
-<p>Het oogmerk (purpose) van 18 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>*</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">adres[Persoon*Adres]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald[InschrijfId*Doorhaling]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>N</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">einddatum[Nationaliteitid*Datum]</annotation></semantics></math></p>
+<p>Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja_of_Nee, RegisterId, SESSION, SpecialismeApotheker, SpecialismeArts, SpecialismeTandarts, Beschikking, SESSION, SpecialismeApotheker, SpecialismeArts en SpecialismeTandarts is niet gedocumenteerd.</p>
+<p>Van 26 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">apotheker[RegisterId*RegisterId]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">binnenlandsadres[Adres*Binnenlandsadres]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo>*</mo><mi>B</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">buitenlandsadres[Adres*Buitenlandsadres]</annotation></semantics></math></p>
+<p>Het oogmerk (purpose) van 25 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>o</mi><mi>n</mi><mo>*</mo><mi>A</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">adres[Persoon*Adres]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">arts[RegisterId*RegisterId]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald[InschrijfId*Doorhaling]</annotation></semantics></math></p>
 <p>De betekenis van relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>*</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">aantekening[Registratie*Aantekening]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>*</mo><mi>B</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">beschikking[Aantekening*Beschikking]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>B</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">bignummer[InschrijfId*Bignummer]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>e</mi><mi>e</mi><mi>l</mi><mi>T</mi><mi>o</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">deelToegang[InschrijfId*Ja_of_Nee]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8[InschrijfId*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">eerder[Datum*Datum]</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">einddatum[InschrijfId*Datum]</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>*</mo><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">kwalificatiedatum[InschrijfId*Datum]</annotation></semantics></math> is niet gedocumenteerd.</p>
 <p>Alle concepten, die in dit document zijn voorzien van een definitie, worden gebruikt in relaties.</p>
-<p>Relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">aantekening</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">apotheker</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">arts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">beschikking</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">binnenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">buitenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">diplomadatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">doorgehaald</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">eerder</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>y</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">fysiotherapeut</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">geslacht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">getuigschriftdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>z</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>d</mi><mi>s</mi><mi>z</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>p</mi><mi>s</mi><mi>y</mi><mi>c</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">gezondheidszorgpsycholoog</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">ingangsdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">inschrijvingsWeigering</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">ja</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>i</mi><mi>s</mi><mi>c</mi><msub><mi>h</mi><mi>t</mi></msub><mi>e</mi><mi>c</mi><mi>h</mi><mi>n</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">klinisch_technoloog</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">kwalificatiedatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nationaliteit</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">nee</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>V</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nietVerplicht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">opgenomenInSpecialistenRegister</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>p</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>g</mi><mi>o</mi><mi>o</mi><msub><mi>g</mi><mi>g</mi></msub><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">orthopedagoog_generalist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>h</mi><mi>y</mi><mi>s</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>a</mi><msub><mi>n</mi><mi>a</mi></msub><mi>s</mi><mi>s</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">physician_assistant</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>s</mi><mi>y</mi><mi>c</mi><mi>h</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">psychotherapeut</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">register</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">tandarts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">vandaag</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">verklaringdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>o</mi><mi>s</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">verloskundige</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>e</mi><mi>g</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">verpleegkundige</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">verplicht</annotation></semantics></math> worden niet gebruikt in regels. </p>
+<p>Relaties <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">aantekening</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">apotheker</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">arts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>k</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">beschikking</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">binnenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>u</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>s</mi><mi>a</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">buitenlandsadres</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">diplomadatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">doorgehaald</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>h</mi><mi>a</mi><mi>a</mi><mi>l</mi><msub><mi>d</mi><mi>o</mi></msub><mi>g</mi><msub><mi>v</mi><mi>a</mi></msub><mi>r</mi><mi>t</mi><mi>i</mi><mi>k</mi><mi>e</mi><msub><mi>l</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">doorgehaald_ogv_artikel_8</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>e</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">eerder</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">einddatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>y</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">fysiotherapeut</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">geslacht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>i</mi><mi>g</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>t</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">getuigschriftdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>z</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>d</mi><mi>s</mi><mi>z</mi><mi>o</mi><mi>r</mi><mi>g</mi><mi>p</mi><mi>s</mi><mi>y</mi><mi>c</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">gezondheidszorgpsycholoog</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">herregistratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">ingangsdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>v</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">inschrijvingsWeigering</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">ja</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>i</mi><mi>s</mi><mi>c</mi><msub><mi>h</mi><mi>t</mi></msub><mi>e</mi><mi>c</mi><mi>h</mi><mi>n</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">klinisch_technoloog</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>w</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">kwalificatiedatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nationaliteit</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">nee</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>V</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">nietVerplicht</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>p</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>I</mi><mi>n</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">opgenomenInSpecialistenRegister</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>p</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>g</mi><mi>o</mi><mi>o</mi><msub><mi>g</mi><mi>g</mi></msub><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">orthopedagoog_generalist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>h</mi><mi>y</mi><mi>s</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>a</mi><msub><mi>n</mi><mi>a</mi></msub><mi>s</mi><mi>s</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">physician_assistant</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>s</mi><mi>y</mi><mi>c</mi><mi>h</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">psychotherapeut</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">register</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">registratie</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">specialisme</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">specialisme</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">specialisme</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">specialist</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">tandarts</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">vandaag</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">verklaringdatum</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>o</mi><mi>s</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">verloskundige</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>e</mi><mi>g</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">verpleegkundige</annotation></semantics></math> en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">verplicht</annotation></semantics></math> worden niet gebruikt in regels. </p>
 <p> 3.1  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Inschrijving’.</p>
 <figure>
 <img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternInschrijving.png" title="Conceptueel diagram van relaties in Inschrijving" id="fig:Conceptueel diagram van relaties in Inschrijving" alt="Figuur 3.1: Conceptueel diagram van relaties in Inschrijving" /><figcaption aria-hidden="true">Figuur 3.1: Conceptueel diagram van relaties in Inschrijving</figcaption>
@@ -1620,29 +1680,33 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <figure>
 <img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternInschrijfduur.png" title="Conceptueel diagram van relaties in Inschrijfduur" id="fig:Conceptueel diagram van relaties in Inschrijfduur" alt="Figuur 3.14: Conceptueel diagram van relaties in Inschrijfduur" /><figcaption aria-hidden="true">Figuur 3.14: Conceptueel diagram van relaties in Inschrijfduur</figcaption>
 </figure>
-<p> 3.15  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Weigering’.</p>
+<p> 3.15  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Registratie’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternWeigering.png" title="Conceptueel diagram van relaties in Weigering" id="fig:Conceptueel diagram van relaties in Weigering" alt="Figuur 3.15: Conceptueel diagram van relaties in Weigering" /><figcaption aria-hidden="true">Figuur 3.15: Conceptueel diagram van relaties in Weigering</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternRegistratie.png" title="Conceptueel diagram van relaties in Registratie" id="fig:Conceptueel diagram van relaties in Registratie" alt="Figuur 3.15: Conceptueel diagram van relaties in Registratie" /><figcaption aria-hidden="true">Figuur 3.15: Conceptueel diagram van relaties in Registratie</figcaption>
 </figure>
-<p> 3.16  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Aantekening’.</p>
+<p> 3.16  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Weigering’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAantekening.png" title="Conceptueel diagram van relaties in Aantekening" id="fig:Conceptueel diagram van relaties in Aantekening" alt="Figuur 3.16: Conceptueel diagram van relaties in Aantekening" /><figcaption aria-hidden="true">Figuur 3.16: Conceptueel diagram van relaties in Aantekening</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternWeigering.png" title="Conceptueel diagram van relaties in Weigering" id="fig:Conceptueel diagram van relaties in Weigering" alt="Figuur 3.16: Conceptueel diagram van relaties in Weigering" /><figcaption aria-hidden="true">Figuur 3.16: Conceptueel diagram van relaties in Weigering</figcaption>
 </figure>
-<p> 3.17  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Geslacht’.</p>
+<p> 3.17  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Aantekening’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternGeslacht.png" title="Conceptueel diagram van relaties in Geslacht" id="fig:Conceptueel diagram van relaties in Geslacht" alt="Figuur 3.17: Conceptueel diagram van relaties in Geslacht" /><figcaption aria-hidden="true">Figuur 3.17: Conceptueel diagram van relaties in Geslacht</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAantekening.png" title="Conceptueel diagram van relaties in Aantekening" id="fig:Conceptueel diagram van relaties in Aantekening" alt="Figuur 3.17: Conceptueel diagram van relaties in Aantekening" /><figcaption aria-hidden="true">Figuur 3.17: Conceptueel diagram van relaties in Aantekening</figcaption>
 </figure>
-<p> 3.18  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Nationaliteit’.</p>
+<p> 3.18  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Geslacht’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternNationaliteit.png" title="Conceptueel diagram van relaties in Nationaliteit" id="fig:Conceptueel diagram van relaties in Nationaliteit" alt="Figuur 3.18: Conceptueel diagram van relaties in Nationaliteit" /><figcaption aria-hidden="true">Figuur 3.18: Conceptueel diagram van relaties in Nationaliteit</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternGeslacht.png" title="Conceptueel diagram van relaties in Geslacht" id="fig:Conceptueel diagram van relaties in Geslacht" alt="Figuur 3.18: Conceptueel diagram van relaties in Geslacht" /><figcaption aria-hidden="true">Figuur 3.18: Conceptueel diagram van relaties in Geslacht</figcaption>
 </figure>
-<p> 3.19  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Adres’.</p>
+<p> 3.19  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Nationaliteit’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAdres.png" title="Conceptueel diagram van relaties in Adres" id="fig:Conceptueel diagram van relaties in Adres" alt="Figuur 3.19: Conceptueel diagram van relaties in Adres" /><figcaption aria-hidden="true">Figuur 3.19: Conceptueel diagram van relaties in Adres</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternNationaliteit.png" title="Conceptueel diagram van relaties in Nationaliteit" id="fig:Conceptueel diagram van relaties in Nationaliteit" alt="Figuur 3.19: Conceptueel diagram van relaties in Nationaliteit" /><figcaption aria-hidden="true">Figuur 3.19: Conceptueel diagram van relaties in Nationaliteit</figcaption>
 </figure>
-<p> 3.20  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Specialisme’.</p>
+<p> 3.20  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Adres’.</p>
 <figure>
-<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternSpecialisme.png" title="Conceptueel diagram van relaties in Specialisme" id="fig:Conceptueel diagram van relaties in Specialisme" alt="Figuur 3.20: Conceptueel diagram van relaties in Specialisme" /><figcaption aria-hidden="true">Figuur 3.20: Conceptueel diagram van relaties in Specialisme</figcaption>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternAdres.png" title="Conceptueel diagram van relaties in Adres" id="fig:Conceptueel diagram van relaties in Adres" alt="Figuur 3.20: Conceptueel diagram van relaties in Adres" /><figcaption aria-hidden="true">Figuur 3.20: Conceptueel diagram van relaties in Adres</figcaption>
+</figure>
+<p> 3.21  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Specialisme’.</p>
+<figure>
+<img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\RelationsInPatternSpecialisme.png" title="Conceptueel diagram van relaties in Specialisme" id="fig:Conceptueel diagram van relaties in Specialisme" alt="Figuur 3.21: Conceptueel diagram van relaties in Specialisme" /><figcaption aria-hidden="true">Figuur 3.21: Conceptueel diagram van relaties in Specialisme</figcaption>
 </figure>
 <p>De volgende regel heeft noch oogmerk (purpose), noch betekenis:</p>
 <ul>
@@ -1652,7 +1716,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 </ul>
 <p>Van de volgende regels is het oogmerk (purpose) niet uitgelegd:</p>
 <ul>
-<li><p><em>DefaultDeelToegang</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\1_artsRegister\Main.adl:18:9)</p>
+<li><p><em>DefaultDeelToegang</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\1_artsRegister\Main.adl:68:9)</p>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mo stretchy="false" form="prefix">[</mo><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo stretchy="false" form="postfix">]</mo></mrow></msub><mo>⊢</mo><mi>d</mi><mi>e</mi><mi>e</mi><mi>l</mi><mi>T</mi><mi>o</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>n</mi><mi>g</mi><mo>;</mo><mi>d</mi><mi>e</mi><mi>e</mi><mi>l</mi><mi>T</mi><mi>o</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>n</mi><msup><mi>g</mi><mo>⌣</mo></msup></mrow><annotation encoding="application/x-tex">I_{ \lbrack InschrijfId \rbrack }\vdash deelToegang;deelToegang^{\smallsmile}</annotation></semantics></math></p>
 <p>Voor alle i, i': Als i is equivalent met i' dan (Er is een j: i deelToegang j en i' deelToegang j)</p></li>
 <li><p><em>Elke nationaliteit heeft een ingangsdatum</em> (C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\0_generiek\Nationaliteit.adl:47:9)</p>
@@ -1816,7 +1880,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Arts</td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0%</td>
 <td style="text-align: center;">1</td>
@@ -1827,7 +1891,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Tandarts</td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0%</td>
 <td style="text-align: center;">0</td>
@@ -1838,7 +1902,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Apotheker</td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0%</td>
 <td style="text-align: center;">0</td>
@@ -1948,7 +2012,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Registratie</td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0%</td>
 <td style="text-align: center;">2</td>
@@ -2025,7 +2089,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Gehele context</td>
-<td style="text-align: center;">55</td>
+<td style="text-align: center;">62</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0%</td>
 <td style="text-align: center;">17</td>
@@ -2219,7 +2283,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">DefaultDeelToegang</td>
-<td style="text-align: right;">C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\1_artsRegister\Main.adl:18:9</td>
+<td style="text-align: right;">C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\big\1_artsRegister\Main.adl:68:9</td>
 <td style="text-align: right;">3</td>
 </tr>
 </tbody>
@@ -2630,11 +2694,19 @@ Het register voor arts bevat alle attributen van het register arts.
 <tbody>
 <tr class="odd">
 <td>arts [RegisterId*RegisterId]</td>
-<td></td>
+<td>Het identificerende nummer van de het artsenregister.</td>
 </tr>
 <tr class="even">
 <td>herregistratie [InschrijfId*Datum]</td>
 <td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+<tr class="odd">
+<td>specialisme [RegisterId*SpecialismeArts]</td>
+<td>Alle specialismes voor arts.</td>
+</tr>
+<tr class="even">
+<td>specialist [Registratie*SpecialismeArts]</td>
+<td>De specialist is een uitbreiding van arts met een specialisme.</td>
 </tr>
 </tbody>
 </table>
@@ -2655,6 +2727,14 @@ Het register voor tandarts bevat alle attributen van het register tandarts.
 <tr class="odd">
 <td>herregistratie [RegisterId*Datum]</td>
 <td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+<tr class="even">
+<td>specialisme [RegisterId*SpecialismeTandarts]</td>
+<td>Alle specialismes voor tandarts.</td>
+</tr>
+<tr class="odd">
+<td>specialist [Registratie*SpecialismeTandarts]</td>
+<td>De specialist is een uitbreiding van tandarts met een specialisme.</td>
 </tr>
 <tr class="even">
 <td>tandarts [RegisterId*RegisterId]</td>
@@ -2683,6 +2763,14 @@ Het register voor apotheker bevat alle attributen van het register apotheker.
 <tr class="even">
 <td>herregistratie [RegisterId*Datum]</td>
 <td>Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big stelt dat de datum van herregistratie op vijf jaar na datum van registratie.</td>
+</tr>
+<tr class="odd">
+<td>specialisme [RegisterId*SpecialismeApotheker]</td>
+<td>Alle specialismes voor Apotheker.</td>
+</tr>
+<tr class="even">
+<td>specialist [Registratie*SpecialismeApotheker]</td>
+<td>De specialist is een uitbreiding van tandarts met een specialisme.</td>
 </tr>
 </tbody>
 </table>
@@ -2954,6 +3042,10 @@ Een register registreert de datum waarop de ingeschrevene een in artikel 41, eer
 <td></td>
 </tr>
 <tr class="even">
+<td>registratie [Registratie*RegisterId]</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>registratiedatum [Registratie*Datum]</td>
 <td></td>
 </tr>
@@ -3644,6 +3736,27 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 </tbody>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">SpecialismeApotheker</td>
+<td style="text-align: left;">"Ziekenhuisapotheker"</td>
+<td style="text-align: left;">"Openbaar apotheker"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SpecialismeArts</td>
+<td style="text-align: left;">"Orthopedisch chirurg"</td>
+<td style="text-align: left;">"Psychiater"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SpecialismeTandarts</td>
+<td style="text-align: left;">"MKA-chirurg"</td>
+<td style="text-align: left;">"Orthodontist"</td>
+</tr>
+</tbody>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;">SpecialistenRegister</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;"></td>
@@ -4207,6 +4320,34 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 <td>1(9%)</td>
 </tr>
 <tr class="odd">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
+<td>registratie(0)</td>
+<td>RegisterId(11)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>specialisme(2)</td>
+<td>SpecialismeApotheker(2)</td>
+<td>2(100%)</td>
+</tr>
+<tr class="odd">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>specialisme(34)</td>
+<td>SpecialismeArts(34)</td>
+<td>34(100%)</td>
+</tr>
+<tr class="even">
+<td>RegisterId(11)</td>
+<td>1(9%)</td>
+<td>specialisme(2)</td>
+<td>SpecialismeTandarts(2)</td>
+<td>2(100%)</td>
+</tr>
+<tr class="odd">
 <td>RegisterId(11)</td>
 <td>1(9%)</td>
 <td>tandarts(1)</td>
@@ -4279,8 +4420,36 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 <tr class="odd">
 <td>Registratie(1)</td>
 <td>0(0%)</td>
+<td>registratie(0)</td>
+<td>RegisterId(11)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
 <td>registratiedatum(0)</td>
 <td>Datum(6)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
+<td>specialist(0)</td>
+<td>SpecialismeApotheker(2)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="even">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
+<td>specialist(0)</td>
+<td>SpecialismeArts(34)</td>
+<td>0(0%)</td>
+</tr>
+<tr class="odd">
+<td>Registratie(1)</td>
+<td>0(0%)</td>
+<td>specialist(0)</td>
+<td>SpecialismeTandarts(2)</td>
 <td>0(0%)</td>
 </tr>
 </tbody>
@@ -4290,7 +4459,7 @@ In artikel 3 lid 2 wordt aangegeven dat bij elke inschrijving in het register de
 <figure>
 <img src="C:\Users\gerar\OneDrive\OU\master\SE graduation\uitvoering\pattern\docs\images\TechnicalDataModel.png" title="Technisch gegevensmodel van Persoon" id="fig:Technisch gegevensmodel van Persoon" alt="Figuur 5.2: Technisch gegevensmodel van Persoon" /><figcaption aria-hidden="true">Figuur 5.2: Technisch gegevensmodel van Persoon</figcaption>
 </figure>
-<p>Het technisch datamodel bestaat uit de volgende 58 tabellen:</p>
+<p>Het technisch datamodel bestaat uit de volgende 68 tabellen:</p>
 <h3 data-number="5.3.1"><span class="header-section-number">5.3.1</span> Tabel: aantekening1</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>a</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><mi>A</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {aantekening} Aantekening</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
@@ -4744,7 +4913,17 @@ Dit attribuut verwijst naar een rij in de tabel Datum<br />
 Dit attribuut verwijst naar een rij in de tabel Register<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.46"><span class="header-section-number">5.3.46</span> Tabel: Registratie</h3>
+<h3 data-number="5.3.46"><span class="header-section-number">5.3.46</span> Tabel: registratie1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {registratie} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Registratie<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.47"><span class="header-section-number">5.3.47</span> Tabel: Registratie2</h3>
 <p>Deze tabel heeft de volgende 2 attributen:</p>
 <ul>
 <li><p><strong>Registratie</strong><br />
@@ -4754,7 +4933,7 @@ Dit attribuut is de primaire sleutel.<br />
 Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.47"><span class="header-section-number">5.3.47</span> Tabel: registratiedatum</h3>
+<h3 data-number="5.3.48"><span class="header-section-number">5.3.48</span> Tabel: registratiedatum</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>r</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {registratiedatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>Registratie</strong><br />
@@ -4764,14 +4943,14 @@ Dit attribuut verwijst naar een rij in de tabel Registratie<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.48"><span class="header-section-number">5.3.48</span> Tabel: SESSION</h3>
+<h3 data-number="5.3.49"><span class="header-section-number">5.3.49</span> Tabel: SESSION</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>SESSION</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.49"><span class="header-section-number">5.3.49</span> Tabel: sessionToday</h3>
+<h3 data-number="5.3.50"><span class="header-section-number">5.3.50</span> Tabel: sessionToday</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>E</mi><mi>S</mi><mi>S</mi><mi>I</mi><mi>O</mi><mi>N</mi><mo>→</mo><mrow><mi>s</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>T</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>y</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">SESSION \rightarrow {sessionToday} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SESSION</strong><br />
@@ -4781,14 +4960,95 @@ Dit attribuut verwijst naar een rij in de tabel SESSION<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.50"><span class="header-section-number">5.3.50</span> Tabel: SpecialistenRegister</h3>
+<h3 data-number="5.3.51"><span class="header-section-number">5.3.51</span> Tabel: specialisme1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>T</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {specialisme} SpecialismeTandarts</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeTandarts</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeTandarts<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.52"><span class="header-section-number">5.3.52</span> Tabel: specialisme2</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>A</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {specialisme} SpecialismeArts</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeArts</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeArts<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.53"><span class="header-section-number">5.3.53</span> Tabel: specialisme3</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>A</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {specialisme} SpecialismeApotheker</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>RegisterId</strong><br />
+Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeApotheker</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeApotheker<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.54"><span class="header-section-number">5.3.54</span> Tabel: SpecialismeApotheker</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>SpecialismeApotheker</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.55"><span class="header-section-number">5.3.55</span> Tabel: SpecialismeArts</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>SpecialismeArts</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.56"><span class="header-section-number">5.3.56</span> Tabel: SpecialismeTandarts</h3>
+<p>Deze tabel heeft de volgende 1 attributen:</p>
+<ul>
+<li><p><strong>SpecialismeTandarts</strong><br />
+Dit attribuut is de primaire sleutel.<br />
+<code>OBJECT</code>, Verplicht, Uniek.</p></li>
+</ul>
+<h3 data-number="5.3.57"><span class="header-section-number">5.3.57</span> Tabel: specialist1</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>T</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {specialist} SpecialismeTandarts</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Registratie<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeTandarts</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeTandarts<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.58"><span class="header-section-number">5.3.58</span> Tabel: specialist2</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>A</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {specialist} SpecialismeArts</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Registratie<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeArts</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeArts<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.59"><span class="header-section-number">5.3.59</span> Tabel: specialist3</h3>
+<p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo>→</mo><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>A</mi><mi>p</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Registratie \rightarrow {specialist} SpecialismeApotheker</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
+<ul>
+<li><p><strong>Registratie</strong><br />
+Dit attribuut verwijst naar een rij in de tabel Registratie<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+<li><p><strong>SpecialismeApotheker</strong><br />
+Dit attribuut verwijst naar een rij in de tabel SpecialismeApotheker<br />
+<code>OBJECT</code>, Verplicht.</p></li>
+</ul>
+<h3 data-number="5.3.60"><span class="header-section-number">5.3.60</span> Tabel: SpecialistenRegister</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>SpecialistenRegister</strong><br />
 Dit attribuut is de primaire sleutel.<br />
 <code>OBJECT</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.51"><span class="header-section-number">5.3.51</span> Tabel: tandarts</h3>
+<h3 data-number="5.3.61"><span class="header-section-number">5.3.61</span> Tabel: tandarts</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>s</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {tandarts} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcRegisterId</strong><br />
@@ -4798,7 +5058,7 @@ Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.52"><span class="header-section-number">5.3.52</span> Tabel: vandaag</h3>
+<h3 data-number="5.3.62"><span class="header-section-number">5.3.62</span> Tabel: vandaag</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi><mo>→</mo><mrow><mi>v</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>a</mi><mi>g</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Datum \rightarrow {vandaag} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcDatum</strong><br />
@@ -4808,7 +5068,7 @@ Dit attribuut verwijst naar een rij in de tabel Datum<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>DATE</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.53"><span class="header-section-number">5.3.53</span> Tabel: verklaringdatum</h3>
+<h3 data-number="5.3.63"><span class="header-section-number">5.3.63</span> Tabel: verklaringdatum</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>i</mi><mi>j</mi><mi>f</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>k</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><mi>D</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">InschrijfId \rightarrow {verklaringdatum} Datum</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>InschrijfId</strong><br />
@@ -4818,7 +5078,7 @@ Dit attribuut verwijst naar een rij in de tabel InschrijfId<br />
 Dit attribuut verwijst naar een rij in de tabel Datum<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.54"><span class="header-section-number">5.3.54</span> Tabel: verloskundige</h3>
+<h3 data-number="5.3.64"><span class="header-section-number">5.3.64</span> Tabel: verloskundige</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>o</mi><mi>s</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {verloskundige} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcRegisterId</strong><br />
@@ -4828,7 +5088,7 @@ Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.55"><span class="header-section-number">5.3.55</span> Tabel: verpleegkundige</h3>
+<h3 data-number="5.3.65"><span class="header-section-number">5.3.65</span> Tabel: verpleegkundige</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>e</mi><mi>g</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi></mrow><mi>R</mi><mi>e</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">RegisterId \rightarrow {verpleegkundige} RegisterId</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcRegisterId</strong><br />
@@ -4838,7 +5098,7 @@ Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 Dit attribuut verwijst naar een rij in de tabel RegisterId<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.56"><span class="header-section-number">5.3.56</span> Tabel: verplicht</h3>
+<h3 data-number="5.3.66"><span class="header-section-number">5.3.66</span> Tabel: verplicht</h3>
 <p>Dit is een koppeltabel, die de relatie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi><mo>→</mo><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi></mrow><mi>J</mi><msub><mi>a</mi><mi>o</mi></msub><msub><mi>f</mi><mi>N</mi></msub><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Ja_of_Nee \rightarrow {verplicht} Ja_of_Nee</annotation></semantics></math> implementeert. De tabel bestaat uit de volgende kolommen:</p>
 <ul>
 <li><p><strong>SrcJa_of_Nee</strong><br />
@@ -4848,14 +5108,14 @@ Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 Dit attribuut verwijst naar een rij in de tabel Ja_of_Nee<br />
 <code>OBJECT</code>, Verplicht.</p></li>
 </ul>
-<h3 data-number="5.3.57"><span class="header-section-number">5.3.57</span> Tabel: Voornaam</h3>
+<h3 data-number="5.3.67"><span class="header-section-number">5.3.67</span> Tabel: Voornaam</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Voornaam</strong><br />
 Dit attribuut implementeert de identiteitsrelatie van <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Voornaam</annotation></semantics></math>.<br />
 <code>ALPHANUMERIC</code>, Verplicht, Uniek.</p></li>
 </ul>
-<h3 data-number="5.3.58"><span class="header-section-number">5.3.58</span> Tabel: Weigering</h3>
+<h3 data-number="5.3.68"><span class="header-section-number">5.3.68</span> Tabel: Weigering</h3>
 <p>Deze tabel heeft de volgende 1 attributen:</p>
 <ul>
 <li><p><strong>Weigering</strong><br />
@@ -4877,7 +5137,21 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="odd">
 <td>Aantekening</td>
 <td></td>
-<td>RegistratieB</td>
+<td>ApothekerRegistratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Aantekening</td>
+<td></td>
+<td>RegistratieArts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Aantekening</td>
+<td></td>
+<td>Registratie_2</td>
 <td></td>
 <td></td>
 </tr>
@@ -4912,84 +5186,98 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="even">
 <td>Bignummer</td>
 <td></td>
-<td>Artsen</td>
+<td>ApothekerRegistratie</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Bignummer</td>
+<td></td>
+<td>Artsen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Bignummer</td>
 <td></td>
 <td>Fysiotherapeut</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bignummer</td>
 <td></td>
 <td>Gezondheidszorgpsycholoog</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bignummer</td>
 <td></td>
 <td>Inschrijving</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bignummer</td>
 <td></td>
 <td>Inschrijvingen</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bignummer</td>
 <td></td>
 <td>Klinisch_technoloog</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bignummer</td>
 <td></td>
 <td>Orthopedagoog_generalist</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bignummer</td>
 <td></td>
 <td>Physician_assistant</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bignummer</td>
 <td></td>
 <td>Psychotherapeut</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bignummer</td>
 <td></td>
 <td>Register</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bignummer</td>
 <td></td>
 <td>Registratie</td>
 <td></td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Bignummer</td>
+<td></td>
+<td>RegistratieArts</td>
+<td></td>
+<td></td>
+</tr>
 <tr class="odd">
 <td>Bignummer</td>
 <td></td>
-<td>RegistratieB</td>
+<td>Registratie_2</td>
 <td></td>
 <td></td>
 </tr>
@@ -5122,28 +5410,42 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="even">
 <td>Ja_of_Nee</td>
 <td></td>
-<td>Inschrijving</td>
+<td>ApothekerRegistratie</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Ja_of_Nee</td>
 <td></td>
-<td>Inschrijvingen</td>
+<td>Inschrijving</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Ja_of_Nee</td>
 <td></td>
-<td>Register</td>
+<td>Inschrijvingen</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Ja_of_Nee</td>
 <td></td>
-<td>RegistratieB</td>
+<td>Register</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Ja_of_Nee</td>
+<td></td>
+<td>RegistratieArts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ja_of_Nee</td>
+<td></td>
+<td>Registratie_2</td>
 <td></td>
 <td></td>
 </tr>
@@ -5311,91 +5613,105 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="odd">
 <td>RegisterId</td>
 <td></td>
-<td>Artsen</td>
+<td>ApothekerRegistratie</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>Artsen</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Beheer</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RegisterId</td>
 <td></td>
 <td>Fysiotherapeut</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Gezondheidszorgpsycholoog</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RegisterId</td>
 <td></td>
 <td>Inschrijving</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Inschrijvingen</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RegisterId</td>
 <td></td>
 <td>Klinisch_technoloog</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Orthopedagoog_generalist</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RegisterId</td>
 <td></td>
 <td>Physician_assistant</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Psychotherapeut</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RegisterId</td>
 <td></td>
 <td>Register</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>RegisterId</td>
 <td></td>
 <td>Registratie</td>
 <td></td>
 <td></td>
 </tr>
+<tr class="even">
+<td>RegisterId</td>
+<td></td>
+<td>RegistratieArts</td>
+<td></td>
+<td></td>
+</tr>
 <tr class="odd">
 <td>RegisterId</td>
 <td></td>
-<td>RegistratieB</td>
+<td>Registratie_2</td>
 <td></td>
 <td></td>
 </tr>
@@ -5423,6 +5739,20 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="odd">
 <td>Registratie</td>
 <td></td>
+<td>Apotheker</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Registratie</td>
+<td></td>
+<td>ApothekerRegistratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Registratie</td>
+<td></td>
 <td>Artsen</td>
 <td></td>
 <td></td>
@@ -5451,39 +5781,74 @@ Dit attribuut is de primaire sleutel.<br />
 <tr class="odd">
 <td>Registratie</td>
 <td></td>
-<td>RegistratieB</td>
+<td>RegistratieArts</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Registratie</td>
+<td></td>
+<td>Registratie_2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Registratie</td>
+<td></td>
+<td>Tandarts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SpecialismeApotheker</td>
+<td></td>
+<td>ApothekerRegistratie</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SpecialismeArts</td>
+<td></td>
+<td>RegistratieArts</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SpecialismeTandarts</td>
+<td></td>
+<td>Registratie_2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Voornaam</td>
 <td></td>
 <td>Personen</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Voornaam</td>
 <td></td>
 <td>Persoon</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Weigering</td>
 <td></td>
 <td>Inschrijving</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Weigering</td>
 <td></td>
 <td>Inschrijvingen</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Weigering</td>
 <td></td>
 <td>Registratie</td>
@@ -5495,7 +5860,7 @@ Dit attribuut is de primaire sleutel.<br />
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 29-12-2021 om 15:25:26, dmv. Ampersand-v4.6.2 [HEAD:51c3de2], build time: 02-Dec-21 21:28:12 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Dit document is gegenereerd op 5-1-2022 om 13:56:12, dmv. Ampersand-v4.6.2 [HEAD:51c3de2], build time: 02-Dec-21 21:28:12 Coordinated Universal Time.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Het ontwerpen met bedrijfsregels is een kenmerk van de Ampersand aanpak, die gebruikt is bij het samenstellen van dit document. <a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

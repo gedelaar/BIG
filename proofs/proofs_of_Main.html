@@ -1,10 +1,10 @@
-<p>Confluence analysis statistics from 298 expressions.<br />
+<p>Confluence analysis statistics from 306 expressions.<br />
 </p>
 <p>This script contains<br />
-28 non-confluent expressions<br />
+29 non-confluent expressions<br />
 </p>
 <p><br />
-Total number of derived expressions: 56<br />
+Total number of derived expressions: 58<br />
 </p>
 <p>Confluence analysis for Persoon</p>
 <p><br />
@@ -369,6 +369,19 @@ expression: voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam
 <li><p> -I[Persoon]\/ - -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]</p>
 <p>&lt;=&gt; {  weight: 856,   -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B])  with unifier: {A-&gt;I[Persoon], B-&gt;I[Persoon], r-&gt;I[Persoon], s-&gt;voornaam [Persoon*Voornaam];-I[Voornaam];voornaam [Persoon*Voornaam]~} }</p>
 <p> -I[Persoon]/\ -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]</p>
+<p> {  }</p></li>
+</ul>
+<p><br />
+expression: I[Registratie];(registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~)<br />
+</p>
+<ul>
+<li><p>registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~;I[Registratie]</p>
+<p>&lt;=&gt; {  weight: 76,   I[A];r[A*B] = r[A*B]  with unifier: {A-&gt;I[Registratie], B-&gt;I[Registratie], r-&gt;registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~} }</p>
+<p>registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]</p>
+<p> {  }</p></li>
+<li><p>registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~;I[Registratie]</p>
+<p>&lt;=&gt; {  weight: 76,   I[A];r[A*B] = r[A*B]  with unifier: {A-&gt;I[Registratie], B-&gt;I[InschrijfId], r-&gt;registratie [Registratie*InschrijfId]} }</p>
+<p>registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]</p>
 <p> {  }</p></li>
 </ul>
 <p><br />

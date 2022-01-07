@@ -124,7 +124,7 @@
 
 \title{Functioneel Ontwerp van Persoon}
 \author{Gerard Edelaar}
-\date{29 december 2021}
+\date{5 januari 2022}
 
 \begin{document}
 \maketitle
@@ -136,8 +136,8 @@
 \hypertarget{sec:Intro}{%
 \chapter{Inleiding}\label{sec:Intro}}
 
-Dit document\footnote{Dit document is gegenereerd op 29-12-2021 om
-  15:25:07, dmv. Ampersand-v4.6.2 {[}HEAD:51c3de2{]}, build time:
+Dit document\footnote{Dit document is gegenereerd op 5-1-2022 om
+  13:55:45, dmv. Ampersand-v4.6.2 {[}HEAD:51c3de2{]}, build time:
   02-Dec-21 21:28:12 Coordinated Universal Time.} definieert de
 functionaliteit van een informatiesysteem genaamd ‘Persoon’. Het
 definieert de database en de business-services van Persoon door middel
@@ -668,6 +668,7 @@ Het register voor arts bevat alle attributen van het register arts.
 \tightlist
 \item[Relatie 15:
 \protect\hypertarget{lst:SharedLangrelation--2010660188}{}{arts{[}RegisterId*RegisterId{]}}]
+Het identificerende nummer van de het artsenregister.
 \end{description}
 
 Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
@@ -689,6 +690,32 @@ registratie.
 
 \begin{description}
 \tightlist
+\item[Relatie 17:
+\protect\hypertarget{lst:SharedLangrelation--1194493976}{}{specialisme{[}RegisterId*SpecialismeArts{]}}]
+Alle specialismes voor arts.
+\end{description}
+
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+
+\begin{itemize}
+\tightlist
+\item
+  1\emph{ correspondeert met }Orthopedisch chirurg\emph{ in de relatie }specialisme.
+\item
+  1\emph{ correspondeert met }Psychiater\emph{ in de relatie }specialisme.
+\item
+  1\emph{ correspondeert met }Revalidatiearts\emph{ in de relatie }specialisme.
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Relatie 18:
+\protect\hypertarget{lst:SharedLangrelation--1974488137}{}{specialist{[}Registratie*SpecialismeArts{]}}]
+De specialist is een uitbreiding van arts met een specialisme.
+\end{description}
+
+\begin{description}
+\tightlist
 \item[Afspraak 12:
 \protect\hypertarget{agr:SharedLangrule-198099578}{}{"DefaultDeelToegang"}.]
 meaning
@@ -702,7 +729,7 @@ tandarts.
 
 \begin{description}
 \tightlist
-\item[Relatie 17:
+\item[Relatie 19:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -711,7 +738,31 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 18:
+\item[Relatie 20:
+\protect\hypertarget{lst:SharedLangrelation--1338030531}{}{specialisme{[}RegisterId*SpecialismeTandarts{]}}]
+Alle specialismes voor tandarts.
+\end{description}
+
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+
+\begin{itemize}
+\tightlist
+\item
+  2\emph{ correspondeert met }MKA-chirurg\emph{ in de relatie }specialisme.
+\item
+  2\emph{ correspondeert met }Orthodontist\emph{ in de relatie }specialisme.
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Relatie 21:
+\protect\hypertarget{lst:SharedLangrelation--1439821794}{}{specialist{[}Registratie*SpecialismeTandarts{]}}]
+De specialist is een uitbreiding van tandarts met een specialisme.
+\end{description}
+
+\begin{description}
+\tightlist
+\item[Relatie 22:
 \protect\hypertarget{lst:SharedLangrelation-829158097}{}{tandarts{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -731,7 +782,7 @@ apotheker.
 
 \begin{description}
 \tightlist
-\item[Relatie 19:
+\item[Relatie 23:
 \protect\hypertarget{lst:SharedLangrelation-2039411417}{}{apotheker{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -745,11 +796,35 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 20:
+\item[Relatie 24:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
 registratie.
+\end{description}
+
+\begin{description}
+\tightlist
+\item[Relatie 25:
+\protect\hypertarget{lst:SharedLangrelation--1504501699}{}{specialisme{[}RegisterId*SpecialismeApotheker{]}}]
+Alle specialismes voor Apotheker.
+\end{description}
+
+Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
+
+\begin{itemize}
+\tightlist
+\item
+  3\emph{ correspondeert met }Ziekenhuisapotheker\emph{ in de relatie }specialisme.
+\item
+  3\emph{ correspondeert met }Openbaar apotheker\emph{ in de relatie }specialisme.
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Relatie 26:
+\protect\hypertarget{lst:SharedLangrelation--1996515994}{}{specialist{[}Registratie*SpecialismeApotheker{]}}]
+De specialist is een uitbreiding van tandarts met een specialisme.
 \end{description}
 
 \hypertarget{sec:SharedLangtheme--1301178947}{%
@@ -760,7 +835,7 @@ het register gezondheidszorgpsycholoog.
 
 \begin{description}
 \tightlist
-\item[Relatie 21:
+\item[Relatie 27:
 \protect\hypertarget{lst:SharedLangrelation-1567154049}{}{gezondheidszorgpsycholoog{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -774,7 +849,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 22:
+\item[Relatie 28:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -789,7 +864,7 @@ psychotherapeut.
 
 \begin{description}
 \tightlist
-\item[Relatie 23:
+\item[Relatie 29:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -798,7 +873,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 24:
+\item[Relatie 30:
 \protect\hypertarget{lst:SharedLangrelation--204395792}{}{psychotherapeut{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -818,7 +893,7 @@ fysiotherapeut.
 
 \begin{description}
 \tightlist
-\item[Relatie 25:
+\item[Relatie 31:
 \protect\hypertarget{lst:SharedLangrelation--1019300156}{}{fysiotherapeut{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -832,7 +907,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 26:
+\item[Relatie 32:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -847,7 +922,7 @@ verloskundige.
 
 \begin{description}
 \tightlist
-\item[Relatie 27:
+\item[Relatie 33:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -856,7 +931,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 28:
+\item[Relatie 34:
 \protect\hypertarget{lst:SharedLangrelation--756873734}{}{verloskundige{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -876,7 +951,7 @@ verpleegkundige.
 
 \begin{description}
 \tightlist
-\item[Relatie 29:
+\item[Relatie 35:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -885,7 +960,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 30:
+\item[Relatie 36:
 \protect\hypertarget{lst:SharedLangrelation-860225615}{}{verpleegkundige{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -905,7 +980,7 @@ register physician\_assistant.
 
 \begin{description}
 \tightlist
-\item[Relatie 31:
+\item[Relatie 37:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -914,7 +989,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 32:
+\item[Relatie 38:
 \protect\hypertarget{lst:SharedLangrelation-1465323143}{}{physician\_assistant{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -934,7 +1009,7 @@ het register orthopedagoog\_generalist.
 
 \begin{description}
 \tightlist
-\item[Relatie 33:
+\item[Relatie 39:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -943,7 +1018,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 34:
+\item[Relatie 40:
 \protect\hypertarget{lst:SharedLangrelation-1291158979}{}{orthopedagoog\_generalist{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -963,7 +1038,7 @@ register klinisch\_technoloog.
 
 \begin{description}
 \tightlist
-\item[Relatie 35:
+\item[Relatie 41:
 \protect\hypertarget{lst:SharedLangrelation--573712027}{}{herregistratie{[}RegisterId*Datum{]}}]
 Artikel 2, tweede lid van het Besluit periodieke registratie Wet Big
 stelt dat de datum van herregistratie op vijf jaar na datum van
@@ -972,7 +1047,7 @@ registratie.
 
 \begin{description}
 \tightlist
-\item[Relatie 36:
+\item[Relatie 42:
 \protect\hypertarget{lst:SharedLangrelation--1464693950}{}{klinisch\_technoloog{[}RegisterId*RegisterId{]}}]
 \end{description}
 
@@ -1004,7 +1079,7 @@ meerdere diplomadata zijn voor dezelfde inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 37:
+\item[Relatie 43:
 \protect\hypertarget{lst:SharedLangrelation--581170035}{}{diplomadatum{[}InschrijfId*Datum{]}}]
 Er is een erkend diploma bij een inschrijving geregistreerd dat relevant
 is voor het bepalen van de geldigheid van die inschrijving.
@@ -1017,7 +1092,7 @@ verlenging krijgt.
 
 \begin{description}
 \tightlist
-\item[Relatie 38:
+\item[Relatie 44:
 \protect\hypertarget{lst:SharedLangrelation-1159138999}{}{doorgehaald\_ogv\_artikel\_8{[}InschrijfId*Datum{]}}]
 \end{description}
 
@@ -1026,7 +1101,7 @@ als d1 \textless{} d2.
 
 \begin{description}
 \tightlist
-\item[Relatie 39:
+\item[Relatie 45:
 \protect\hypertarget{lst:SharedLangrelation-91707643}{}{eerder{[}Datum*Datum{]}}]
 \end{description}
 
@@ -1037,7 +1112,7 @@ verlenging krijgt.
 
 \begin{description}
 \tightlist
-\item[Relatie 40:
+\item[Relatie 46:
 \protect\hypertarget{lst:SharedLangrelation--1891032119}{}{einddatum{[}InschrijfId*Datum{]}}]
 \end{description}
 
@@ -1049,7 +1124,7 @@ inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 41:
+\item[Relatie 47:
 \protect\hypertarget{lst:SharedLangrelation--1405365405}{}{getuigschriftdatum{[}InschrijfId*Datum{]}}]
 Er is een getuigschrift bij een inschrijving geregistreerd dat relevant
 is voor het bepalen van de geldigheid van die inschrijving.
@@ -1062,13 +1137,13 @@ inschrijfduur te bepalen.
 
 \begin{description}
 \tightlist
-\item[Relatie 42:
+\item[Relatie 48:
 \protect\hypertarget{lst:SharedLangrelation-621160912}{}{kwalificatiedatum{[}InschrijfId*Datum{]}}]
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 43:
+\item[Relatie 49:
 \protect\hypertarget{lst:SharedLangrelation--883250738}{}{vandaag{[}Datum*Datum{]}}]
 \end{description}
 
@@ -1080,7 +1155,7 @@ dezelfde inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 44:
+\item[Relatie 50:
 \protect\hypertarget{lst:SharedLangrelation--358045080}{}{verklaringdatum{[}InschrijfId*Datum{]}}]
 Er is een verklaring bij een inschrijving geregistreerd die relevant is
 voor het bepalen van de geldigheid van die inschrijving.
@@ -1104,7 +1179,7 @@ Betreft een complete afgeronde inschrijving
 
 \begin{description}
 \tightlist
-\item[Relatie 45:
+\item[Relatie 51:
 \protect\hypertarget{lst:SharedLangrelation--1758980505}{}{registratie{[}Registratie*InschrijfId{]}}]
 Deze relatie is univalent, injectief en totaal.
 \end{description}
@@ -1119,7 +1194,13 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 46:
+\item[Relatie 52:
+\protect\hypertarget{lst:SharedLangrelation-997356340}{}{registratie{[}Registratie*RegisterId{]}}]
+\end{description}
+
+\begin{description}
+\tightlist
+\item[Relatie 53:
 \protect\hypertarget{lst:SharedLangrelation-393734920}{}{registratiedatum{[}Registratie*Datum{]}}]
 \end{description}
 
@@ -1183,7 +1264,7 @@ art.6-redenen voor afwijzing inschrijving.
 
 \begin{description}
 \tightlist
-\item[Relatie 47:
+\item[Relatie 54:
 \protect\hypertarget{lst:SharedLangrelation-273471114}{}{inschrijvingsWeigering{[}InschrijfId*Weigering{]}}]
 In artikel 6 staan de redenen voor het weigeren van de inschrijving
 bepaald.
@@ -1295,7 +1376,7 @@ registreren.
 
 \begin{description}
 \tightlist
-\item[Relatie 48:
+\item[Relatie 55:
 \protect\hypertarget{lst:SharedLangrelation-1467844663}{}{aantekening{[}Registratie*Aantekening{]}}]
 \end{description}
 
@@ -1304,7 +1385,7 @@ de Wet BIG om een aantekening in datzelfde register te onderbouwen.
 
 \begin{description}
 \tightlist
-\item[Relatie 49:
+\item[Relatie 56:
 \protect\hypertarget{lst:SharedLangrelation--1799783339}{}{beschikking{[}Aantekening*Beschikking{]}}]
 Deze relatie is univalent.
 \end{description}
@@ -1331,7 +1412,7 @@ Omschrijving van het geslacht van een individue.
 
 \begin{description}
 \tightlist
-\item[Relatie 50:
+\item[Relatie 57:
 \protect\hypertarget{lst:SharedLangrelation-204512575}{}{geslacht{[}Geslacht*Omschrijving{]}}]
 Deze relatie is univalent en totaal.
 \end{description}
@@ -1378,7 +1459,7 @@ de nationaliteitscodering.
 
 \begin{description}
 \tightlist
-\item[Relatie 51:
+\item[Relatie 58:
 \protect\hypertarget{lst:SharedLangrelation-1676492216}{}{einddatum{[}Nationaliteitid*Datum{]}}]
 Einddatum van gebruik van de Nationaliteit.
 
@@ -1387,7 +1468,7 @@ Deze relatie is univalent.
 
 \begin{description}
 \tightlist
-\item[Relatie 52:
+\item[Relatie 59:
 \protect\hypertarget{lst:SharedLangrelation-987556695}{}{ingangsdatum{[}Nationaliteitid*Datum{]}}]
 Ingangsdatum van de Nationaliteit.
 
@@ -1411,7 +1492,7 @@ Frasen die hiermee gemaakt kunnen worden zijn bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 53:
+\item[Relatie 60:
 \protect\hypertarget{lst:SharedLangrelation--876518158}{}{nationaliteit{[}Nationaliteitid*Nationaliteit{]}}]
 Het aanbrengen van de koppeling tussen de nationaliteitcode en de
 bijbehorende omschrijving. Bij elke code hoort maar één omschrijving en
@@ -1471,14 +1552,14 @@ Adres van de persoon conform BRP.
 
 \begin{description}
 \tightlist
-\item[Relatie 54:
+\item[Relatie 61:
 \protect\hypertarget{lst:SharedLangrelation-1203540427}{}{binnenlandsadres{[}Adres*Binnenlandsadres{]}}]
 Deze relatie is univalent.
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 55:
+\item[Relatie 62:
 \protect\hypertarget{lst:SharedLangrelation--524362813}{}{buitenlandsadres{[}Adres*Buitenlandsadres{]}}]
 Deze relatie is univalent.
 \end{description}
@@ -1508,7 +1589,7 @@ kan zijn in een specialistenregister.
 
 \begin{description}
 \tightlist
-\item[Relatie 56:
+\item[Relatie 63:
 \protect\hypertarget{lst:SharedLangrelation--1774455478}{}{opgenomenInSpecialistenRegister{[}Persoon*Ja\_of\_Nee{]}}]
 Zoals artikel 14 aangeeft kan een persoon opgenomen zijn in een
 specialistenregister.
@@ -1516,7 +1597,7 @@ specialistenregister.
 
 \begin{description}
 \tightlist
-\item[Relatie 57:
+\item[Relatie 64:
 \protect\hypertarget{lst:SharedLangrelation-24842000}{}{specialist{[}Persoon*SpecialistenRegister{]}}]
 Een Persoon is specialist wanneer deze in het specialistenRegister is
 opgenomen.
@@ -1576,7 +1657,7 @@ doorgehaald:
 
 \begin{description}
 \tightlist
-\item[Relatie 58:
+\item[Relatie 65:
 \protect\hypertarget{lst:SharedLangrelation--921375706}{}{doorgehaald{[}InschrijfId*Doorhaling{]}}]
 In artikel 7 gestelde sitatuaties waarin de inschrijving wordt
 doorgehaald. Deze heeft ook consequenties op de bijbehorende
@@ -1587,7 +1668,7 @@ Deze relatie is univalent en injectief.
 
 \begin{description}
 \tightlist
-\item[Relatie 59:
+\item[Relatie 66:
 \protect\hypertarget{lst:SharedLangrelation--879543879}{}{ja{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1601,7 +1682,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 60:
+\item[Relatie 67:
 \protect\hypertarget{lst:SharedLangrelation-1347772322}{}{nee{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1615,7 +1696,7 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 61:
+\item[Relatie 68:
 \protect\hypertarget{lst:SharedLangrelation-143006231}{}{nietVerplicht{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1629,13 +1710,13 @@ Een frase die hiermee gemaakt kan worden is bijvoorbeeld:
 
 \begin{description}
 \tightlist
-\item[Relatie 62:
+\item[Relatie 69:
 \protect\hypertarget{lst:SharedLangrelation-147316858}{}{sessionToday{[}SESSION*Datum{]}}]
 \end{description}
 
 \begin{description}
 \tightlist
-\item[Relatie 63:
+\item[Relatie 70:
 \protect\hypertarget{lst:SharedLangrelation--1355593863}{}{verplicht{[}Ja\_of\_Nee*Ja\_of\_Nee{]}}]
 \end{description}
 
@@ -1944,15 +2025,17 @@ Voeg\_inschrijftijd\_toe\_(automatisch) & & & & & & & & & & & & & \\
 \end{longtable}
 
 Het oogmerk (purpose) van de concepten: Beschikking, Datum, Ja\_of\_Nee,
-RegisterId, SESSION, Beschikking en SESSION is niet gedocumenteerd.
+RegisterId, SESSION, SpecialismeApotheker, SpecialismeArts,
+SpecialismeTandarts, Beschikking, SESSION, SpecialismeApotheker,
+SpecialismeArts en SpecialismeTandarts is niet gedocumenteerd.
 
 Van 26 relaties is noch het oogmerk (purpose), noch de betekenis gespecificeerd. Drie voorbeelden daarvan zijn: \(apotheker[RegisterId*RegisterId]\),
-\(arts[RegisterId*RegisterId]\) en
-\(binnenlandsadres[Adres*Binnenlandsadres]\)
+\(binnenlandsadres[Adres*Binnenlandsadres]\) en
+\(buitenlandsadres[Adres*Buitenlandsadres]\)
 
-Het oogmerk (purpose) van 18 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: \(adres[Persoon*Adres]\),
-\(doorgehaald[InschrijfId*Doorhaling]\) en
-\(einddatum[Nationaliteitid*Datum]\)
+Het oogmerk (purpose) van 25 relaties is niet gespecificeerd. Drie voorbeelden van relaties zonder oogmerk zijn: \(adres[Persoon*Adres]\),
+\(arts[RegisterId*RegisterId]\) en
+\(doorgehaald[InschrijfId*Doorhaling]\)
 
 De betekenis van relaties \(aantekening[Registratie*Aantekening]\),
 \(beschikking[Aantekening*Beschikking]\),
@@ -1974,9 +2057,10 @@ Relaties \(aantekening\), \(apotheker\), \(arts\), \(beschikking\),
 \(kwalificatiedatum\), \(nationaliteit\), \(nee\), \(nietVerplicht\),
 \(opgenomenInSpecialistenRegister\), \(orthopedagoog_generalist\),
 \(physician_assistant\), \(psychotherapeut\), \(register\),
-\(specialist\), \(tandarts\), \(vandaag\), \(verklaringdatum\),
-\(verloskundige\), \(verpleegkundige\) en
-\(verplicht\) worden niet gebruikt in regels. 
+\(registratie\), \(specialisme\), \(specialisme\), \(specialisme\),
+\(specialist\), \(specialist\), \(specialist\), \(specialist\),
+\(tandarts\), \(vandaag\), \(verklaringdatum\), \(verloskundige\),
+\(verpleegkundige\) en \(verplicht\) worden niet gebruikt in regels. 
 
 3.1
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Inschrijving’.
@@ -2147,73 +2231,85 @@ Inschrijfduur}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Insc
 \end{figure}
 
 3.15
+ geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Registratie’.
+
+\begin{figure}
+\hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Registratie}{%
+\centering
+\includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternRegistratie.dot}
+\caption{Figuur 3.15: Conceptueel diagram van relaties in
+Registratie}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Registratie}
+}
+\end{figure}
+
+3.16
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Weigering’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Weigering}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternWeigering.dot}
-\caption{Figuur 3.15: Conceptueel diagram van relaties in
+\caption{Figuur 3.16: Conceptueel diagram van relaties in
 Weigering}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Weigering}
 }
 \end{figure}
 
-3.16
+3.17
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Aantekening’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Aantekening}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternAantekening.dot}
-\caption{Figuur 3.16: Conceptueel diagram van relaties in
+\caption{Figuur 3.17: Conceptueel diagram van relaties in
 Aantekening}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Aantekening}
 }
 \end{figure}
 
-3.17
+3.18
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Geslacht’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Geslacht}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternGeslacht.dot}
-\caption{Figuur 3.17: Conceptueel diagram van relaties in
+\caption{Figuur 3.18: Conceptueel diagram van relaties in
 Geslacht}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Geslacht}
 }
 \end{figure}
 
-3.18
+3.19
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Nationaliteit’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Nationaliteit}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternNationaliteit.dot}
-\caption{Figuur 3.18: Conceptueel diagram van relaties in
+\caption{Figuur 3.19: Conceptueel diagram van relaties in
 Nationaliteit}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Nationaliteit}
 }
 \end{figure}
 
-3.19
+3.20
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Adres’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Adres}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternAdres.dot}
-\caption{Figuur 3.19: Conceptueel diagram van relaties in
+\caption{Figuur 3.20: Conceptueel diagram van relaties in
 Adres}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Adres}
 }
 \end{figure}
 
-3.20
+3.21
  geeft een conceptueel diagram met alle relaties die gedeclareerd zijn in ‘Specialisme’.
 
 \begin{figure}
 \hypertarget{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Specialisme}{%
 \centering
 \includegraphics{C:/Users/gerar/OneDrive/OU/master/SE graduation/uitvoering/pattern/docs/images/RelationsInPatternSpecialisme.dot}
-\caption{Figuur 3.20: Conceptueel diagram van relaties in
+\caption{Figuur 3.21: Conceptueel diagram van relaties in
 Specialisme}\label{fig:Conceptueelux20diagramux20vanux20relatiesux20inux20Specialisme}
 }
 \end{figure}
@@ -2236,7 +2332,7 @@ Van de volgende regels is het oogmerk (purpose) niet uitgelegd:
 \begin{itemize}
 \item
   \emph{DefaultDeelToegang}
-  (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:18:9)
+  (C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:68:9)
 
   \(I_{ \lbrack InschrijfId \rbrack }\vdash deelToegang;deelToegang^{\smallsmile}\)
 
@@ -2452,9 +2548,9 @@ Gehele context
 Persoon & 6 & 0 & 0\% & 7 & 0 & 0\% \\
 Inschrijving & 5 & 0 & 0\% & 4 & 0 & 0\% \\
 Register & 4 & 0 & 0\% & 1 & 0 & 0\% \\
-Arts & 2 & 0 & 0\% & 1 & 0 & 0\% \\
-Tandarts & 2 & 0 & 0\% & 0 & 0 & - \\
-Apotheker & 2 & 0 & 0\% & 0 & 0 & - \\
+Arts & 4 & 0 & 0\% & 1 & 0 & 0\% \\
+Tandarts & 4 & 0 & 0\% & 0 & 0 & - \\
+Apotheker & 4 & 0 & 0\% & 0 & 0 & - \\
 Gezondheidszorgpsycholoog & 2 & 0 & 0\% & 0 & 0 & - \\
 Psychotherapeut & 2 & 0 & 0\% & 0 & 0 & - \\
 Fysiotherapeut & 2 & 0 & 0\% & 0 & 0 & - \\
@@ -2464,14 +2560,14 @@ Physician\_assistant & 2 & 0 & 0\% & 0 & 0 & - \\
 Orthopedagoog\_generalist & 2 & 0 & 0\% & 0 & 0 & - \\
 Klinisch\_technoloog & 2 & 0 & 0\% & 0 & 0 & - \\
 Inschrijfduur & 8 & 0 & 0\% & 0 & 0 & - \\
-Registratie & 2 & 0 & 0\% & 2 & 0 & 0\% \\
+Registratie & 3 & 0 & 0\% & 2 & 0 & 0\% \\
 Weigering & 1 & 0 & 0\% & 0 & 0 & - \\
 Aantekening & 2 & 0 & 0\% & 0 & 0 & - \\
 Geslacht & 1 & 0 & 0\% & 0 & 0 & - \\
 Nationaliteit & 3 & 0 & 0\% & 1 & 0 & 0\% \\
 Adres & 2 & 0 & 0\% & 0 & 0 & - \\
 Specialisme & 2 & 0 & 0\% & 0 & 0 & - \\
-Gehele context & 55 & 0 & 0\% & 17 & 0 & 0\% \\
+Gehele context & 62 & 0 & 0\% & 17 & 0 & 0\% \\
 \bottomrule
 \end{longtable}
 
@@ -2549,7 +2645,7 @@ locatie
 \midrule
 \endhead
 DefaultDeelToegang &
-C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:18:9
+C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash1\_artsRegister\textbackslash Main.adl:68:9
 & 3 \\
 Voeg datum registratie toe &
 C:\textbackslash Users\textbackslash gerar\textbackslash OneDrive\textbackslash OU\textbackslash master\textbackslash SE graduation\textbackslash uitvoering\textbackslash pattern\textbackslash big\textbackslash0\_generiek\textbackslash Registratie.adl:52:13
@@ -2988,10 +3084,15 @@ Arts}\label{fig:Conceptueelux20diagramux20vanux20Arts}
 Relatie & Betekenis \\
 \midrule
 \endhead
-arts {[}RegisterId*RegisterId{]} & \\
+arts {[}RegisterId*RegisterId{]} & Het identificerende nummer van de het
+artsenregister. \\
 herregistratie {[}InschrijfId*Datum{]} & Artikel 2, tweede lid van het
 Besluit periodieke registratie Wet Big stelt dat de datum van
 herregistratie op vijf jaar na datum van registratie. \\
+specialisme {[}RegisterId*SpecialismeArts{]} & Alle specialismes voor
+arts. \\
+specialist {[}Registratie*SpecialismeArts{]} & De specialist is een
+uitbreiding van arts met een specialisme. \\
 \bottomrule
 \end{longtable}
 
@@ -3020,6 +3121,10 @@ Relatie & Betekenis \\
 herregistratie {[}RegisterId*Datum{]} & Artikel 2, tweede lid van het
 Besluit periodieke registratie Wet Big stelt dat de datum van
 herregistratie op vijf jaar na datum van registratie. \\
+specialisme {[}RegisterId*SpecialismeTandarts{]} & Alle specialismes
+voor tandarts. \\
+specialist {[}Registratie*SpecialismeTandarts{]} & De specialist is een
+uitbreiding van tandarts met een specialisme. \\
 tandarts {[}RegisterId*RegisterId{]} & \\
 \bottomrule
 \end{longtable}
@@ -3050,6 +3155,10 @@ apotheker {[}RegisterId*RegisterId{]} & \\
 herregistratie {[}RegisterId*Datum{]} & Artikel 2, tweede lid van het
 Besluit periodieke registratie Wet Big stelt dat de datum van
 herregistratie op vijf jaar na datum van registratie. \\
+specialisme {[}RegisterId*SpecialismeApotheker{]} & Alle specialismes
+voor Apotheker. \\
+specialist {[}Registratie*SpecialismeApotheker{]} & De specialist is een
+uitbreiding van tandarts met een specialisme. \\
 \bottomrule
 \end{longtable}
 
@@ -3393,6 +3502,7 @@ Relatie & Betekenis \\
 \midrule
 \endhead
 registratie {[}Registratie*InschrijfId{]} & \\
+registratie {[}Registratie*RegisterId{]} & \\
 registratiedatum {[}Registratie*Datum{]} & \\
 \bottomrule
 \end{longtable}
@@ -4330,6 +4440,9 @@ ONE & 1 & 1 \\
 Omschrijving & "Man" & "Vrouw" \\
 Register & "klinisch technoloog" & "psychotherapeut" \\
 SESSION & 0 & \\
+SpecialismeApotheker & "Ziekenhuisapotheker" & "Openbaar apotheker" \\
+SpecialismeArts & "Orthopedisch chirurg" & "Psychiater" \\
+SpecialismeTandarts & "MKA-chirurg" & "Orthodontist" \\
 SpecialistenRegister & 0 & \\
 Voornaam & "Gerard" & "Piet" \\
 Weigering & "Opleidingseisen" & "Onder curatele gesteld" \\
@@ -4594,6 +4707,13 @@ RegisterId(11) & 1(9\%) & physician\_assistant(1) & RegisterId(11) &
 1(9\%) \\
 RegisterId(11) & 1(9\%) & psychotherapeut(1) & RegisterId(11) &
 1(9\%) \\
+Registratie(1) & 0(0\%) & registratie(0) & RegisterId(11) & 0(0\%) \\
+RegisterId(11) & 1(9\%) & specialisme(2) & SpecialismeApotheker(2) &
+2(100\%) \\
+RegisterId(11) & 1(9\%) & specialisme(34) & SpecialismeArts(34) &
+34(100\%) \\
+RegisterId(11) & 1(9\%) & specialisme(2) & SpecialismeTandarts(2) &
+2(100\%) \\
 RegisterId(11) & 1(9\%) & tandarts(1) & RegisterId(11) & 1(9\%) \\
 RegisterId(11) & 1(9\%) & verloskundige(1) & RegisterId(11) & 1(9\%) \\
 RegisterId(11) & 1(9\%) & verpleegkundige(1) & RegisterId(11) &
@@ -4629,7 +4749,14 @@ Source & uniek & Associatie & Target & uniek \\
 \endhead
 Registratie(1) & 0(0\%) & aantekening(0) & Aantekening(0) & 0 \\
 Registratie(1) & 1(100\%) & registratie(1) & InschrijfId(3) & 1(33\%) \\
+Registratie(1) & 0(0\%) & registratie(0) & RegisterId(11) & 0(0\%) \\
 Registratie(1) & 0(0\%) & registratiedatum(0) & Datum(6) & 0(0\%) \\
+Registratie(1) & 0(0\%) & specialist(0) & SpecialismeApotheker(2) &
+0(0\%) \\
+Registratie(1) & 0(0\%) & specialist(0) & SpecialismeArts(34) &
+0(0\%) \\
+Registratie(1) & 0(0\%) & specialist(0) & SpecialismeTandarts(2) &
+0(0\%) \\
 \bottomrule
 \end{longtable}
 
@@ -4647,7 +4774,7 @@ Persoon}\label{fig:Technischux20gegevensmodelux20vanux20Persoon}
 }
 \end{figure}
 
-Het technisch datamodel bestaat uit de volgende 58 tabellen:
+Het technisch datamodel bestaat uit de volgende 68 tabellen:
 
 \subsection{Tabel: aantekening1}
 
@@ -5376,7 +5503,24 @@ Deze tabel heeft de volgende 5 attributen:
   \texttt{OBJECT}, Verplicht, Uniek.
 \end{itemize}
 
-\subsection{Tabel: Registratie}
+\subsection{Tabel: registratie1}
+
+Dit is een koppeltabel, die de relatie
+\(Registratie \rightarrow {registratie} RegisterId\) implementeert. De
+tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: Registratie2}
 
 Deze tabel heeft de volgende 2 attributen:
 
@@ -5433,6 +5577,141 @@ bestaat uit de volgende kolommen:
 \item
   \textbf{Datum}\\
   Dit attribuut verwijst naar een rij in de tabel Datum\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: specialisme1}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {specialisme} SpecialismeTandarts\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeTandarts}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeTandarts\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: specialisme2}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {specialisme} SpecialismeArts\) implementeert.
+De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeArts}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeArts\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: specialisme3}
+
+Dit is een koppeltabel, die de relatie
+\(RegisterId \rightarrow {specialisme} SpecialismeApotheker\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{RegisterId}\\
+  Dit attribuut verwijst naar een rij in de tabel RegisterId\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeApotheker}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeApotheker\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: SpecialismeApotheker}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{SpecialismeApotheker}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: SpecialismeArts}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{SpecialismeArts}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: SpecialismeTandarts}
+
+Deze tabel heeft de volgende 1 attributen:
+
+\begin{itemize}
+\item
+  \textbf{SpecialismeTandarts}\\
+  Dit attribuut is de primaire sleutel.\\
+  \texttt{OBJECT}, Verplicht, Uniek.
+\end{itemize}
+
+\subsection{Tabel: specialist1}
+
+Dit is een koppeltabel, die de relatie
+\(Registratie \rightarrow {specialist} SpecialismeTandarts\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeTandarts}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeTandarts\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: specialist2}
+
+Dit is een koppeltabel, die de relatie
+\(Registratie \rightarrow {specialist} SpecialismeArts\) implementeert.
+De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeArts}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeArts\\
+  \texttt{OBJECT}, Verplicht.
+\end{itemize}
+
+\subsection{Tabel: specialist3}
+
+Dit is een koppeltabel, die de relatie
+\(Registratie \rightarrow {specialist} SpecialismeApotheker\)
+implementeert. De tabel bestaat uit de volgende kolommen:
+
+\begin{itemize}
+\item
+  \textbf{Registratie}\\
+  Dit attribuut verwijst naar een rij in de tabel Registratie\\
+  \texttt{OBJECT}, Verplicht.
+\item
+  \textbf{SpecialismeApotheker}\\
+  Dit attribuut verwijst naar een rij in de tabel SpecialismeApotheker\\
   \texttt{OBJECT}, Verplicht.
 \end{itemize}
 
@@ -5578,11 +5857,14 @@ Deze tabel heeft de volgende 1 attributen:
 Concept & C & R & U & D \\
 \midrule
 \endhead
-Aantekening & & RegistratieB & & \\
+Aantekening & & ApothekerRegistratie & & \\
+Aantekening & & RegistratieArts & & \\
+Aantekening & & Registratie\_2 & & \\
 Adres & & Adres & & \\
 Adres & & Personen & & \\
 Adres & & Persoon & & \\
 Bignummer & & Apotheker & & \\
+Bignummer & & ApothekerRegistratie & & \\
 Bignummer & & Artsen & & \\
 Bignummer & & Fysiotherapeut & & \\
 Bignummer & & Gezondheidszorgpsycholoog & & \\
@@ -5594,7 +5876,8 @@ Bignummer & & Physician\_assistant & & \\
 Bignummer & & Psychotherapeut & & \\
 Bignummer & & Register & & \\
 Bignummer & & Registratie & & \\
-Bignummer & & RegistratieB & & \\
+Bignummer & & RegistratieArts & & \\
+Bignummer & & Registratie\_2 & & \\
 Bignummer & & Tandarts & & \\
 Bignummer & & Verloskundige & & \\
 Bignummer & & Verpleegkundige & & \\
@@ -5613,10 +5896,12 @@ Geslacht & & Personen & & \\
 Geslacht & & Persoon & & \\
 InschrijfTijdstip & & Inschrijving & & \\
 InschrijfTijdstip & & Inschrijvingen & & \\
+Ja\_of\_Nee & & ApothekerRegistratie & & \\
 Ja\_of\_Nee & & Inschrijving & & \\
 Ja\_of\_Nee & & Inschrijvingen & & \\
 Ja\_of\_Nee & & Register & & \\
-Ja\_of\_Nee & & RegistratieB & & \\
+Ja\_of\_Nee & & RegistratieArts & & \\
+Ja\_of\_Nee & & Registratie\_2 & & \\
 Naam & & Apotheker & & \\
 Naam & & Artsen & & \\
 Naam & & Fysiotherapeut & & \\
@@ -5640,6 +5925,7 @@ Nationaliteitid & & Persoon & & \\
 Omschrijving & & Beheer & & \\
 Omschrijving & & Persoon & & \\
 RegisterId & & Apotheker & & \\
+RegisterId & & ApothekerRegistratie & & \\
 RegisterId & & Artsen & & \\
 RegisterId & & Beheer & & \\
 RegisterId & & Fysiotherapeut & & \\
@@ -5652,15 +5938,23 @@ RegisterId & & Physician\_assistant & & \\
 RegisterId & & Psychotherapeut & & \\
 RegisterId & & Register & & \\
 RegisterId & & Registratie & & \\
-RegisterId & & RegistratieB & & \\
+RegisterId & & RegistratieArts & & \\
+RegisterId & & Registratie\_2 & & \\
 RegisterId & & Tandarts & & \\
 RegisterId & & Verloskundige & & \\
 RegisterId & & Verpleegkundige & & \\
+Registratie & & Apotheker & & \\
+Registratie & & ApothekerRegistratie & & \\
 Registratie & & Artsen & & \\
 Registratie & & Inschrijving & & \\
 Registratie & & Inschrijvingen & & \\
 Registratie & & Registratie & & \\
-Registratie & & RegistratieB & & \\
+Registratie & & RegistratieArts & & \\
+Registratie & & Registratie\_2 & & \\
+Registratie & & Tandarts & & \\
+SpecialismeApotheker & & ApothekerRegistratie & & \\
+SpecialismeArts & & RegistratieArts & & \\
+SpecialismeTandarts & & Registratie\_2 & & \\
 Voornaam & & Personen & & \\
 Voornaam & & Persoon & & \\
 Weigering & & Inschrijving & & \\

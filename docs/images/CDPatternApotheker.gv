@@ -21,4 +21,19 @@ digraph {
 		label=herregistratie,
 		labelfloat=true,
 		taillabel="*"];
+	SpecialismeApotheker	[label=SpecialismeApotheker,
+		shape=box3d];
+	RegisterId:specialisme -> SpecialismeApotheker	[arrowhead=onone,
+		headlabel="*",
+		label=specialisme,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie	[color=purple,
+		label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="registratie">+ registratie : InschrijfId</TD></TR></TABLE>>,
+		shape=plaintext];
+	Registratie:specialist -> SpecialismeApotheker	[arrowhead=onone,
+		headlabel="*",
+		label=specialist,
+		labelfloat=true,
+		taillabel="*"];
 }

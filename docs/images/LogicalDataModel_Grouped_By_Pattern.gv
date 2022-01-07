@@ -6,6 +6,14 @@ digraph {
 	edge [fontsize=11,
 		minlen=4
 	];
+	subgraph cluster_Nationaliteit {
+		graph [bgcolor=ghostwhite,
+			label=Nationaliteit
+		];
+		Nationaliteitid	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Nationaliteitid</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="nationaliteit">+ nationaliteit : Nationaliteit</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">o ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
 	subgraph cluster_Inschrijving {
 		graph [bgcolor=ghostwhite,
 			label=Inschrijving
@@ -20,22 +28,6 @@ digraph {
 		];
 		Aantekening	[color=purple,
 			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Aantekening</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="beschikking">o beschikking : Beschikking</TD></TR></TABLE>>,
-			shape=plaintext];
-	}
-	subgraph cluster_Adres {
-		graph [bgcolor=ghostwhite,
-			label=Adres
-		];
-		Adres	[color=purple,
-			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Adres</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="buitenlandsadres">o buitenlandsadres : Buitenlandsadres</TD></TR><TR><TD ALIGN="LEFT" PORT="binnenlandsadres">o binnenlandsadres : Binnenlandsadres</TD></TR></TABLE>>,
-			shape=plaintext];
-	}
-	subgraph cluster_Persoon {
-		graph [bgcolor=ghostwhite,
-			label=Persoon
-		];
-		Persoon	[color=purple,
-			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR></TABLE>>,
 			shape=plaintext];
 	}
 	subgraph cluster_Geslacht {
@@ -109,20 +101,28 @@ digraph {
 			labelfloat=true,
 			taillabel="*"];
 	}
+	subgraph cluster_Persoon {
+		graph [bgcolor=ghostwhite,
+			label=Persoon
+		];
+		Persoon	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Persoon</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="voornaam">o voornaam : Voornaam</TD></TR><TR><TD ALIGN="LEFT" PORT="specialist">o specialist : SpecialistenRegister</TD></TR><TR><TD ALIGN="LEFT" PORT="naam">+ naam : Naam</TD></TR><TR><TD ALIGN="LEFT" PORT="geslacht">o geslacht : Geslacht</TD></TR><TR><TD ALIGN="LEFT" PORT="geboortedatum">o geboortedatum : Datum</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
+	subgraph cluster_Adres {
+		graph [bgcolor=ghostwhite,
+			label=Adres
+		];
+		Adres	[color=purple,
+			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Adres</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="buitenlandsadres">o buitenlandsadres : Buitenlandsadres</TD></TR><TR><TD ALIGN="LEFT" PORT="binnenlandsadres">o binnenlandsadres : Binnenlandsadres</TD></TR></TABLE>>,
+			shape=plaintext];
+	}
 	subgraph cluster_Registratie {
 		graph [bgcolor=ghostwhite,
 			label=Registratie
 		];
 		Registratie	[color=purple,
 			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Registratie</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="registratie">+ registratie : InschrijfId</TD></TR></TABLE>>,
-			shape=plaintext];
-	}
-	subgraph cluster_Nationaliteit {
-		graph [bgcolor=ghostwhite,
-			label=Nationaliteit
-		];
-		Nationaliteitid	[color=purple,
-			label=<<TABLE BGCOLOR="white" COLOR="black" BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="gray10" COLOR="black"><FONT COLOR="white">Nationaliteitid</FONT></TD></TR><TR><TD ALIGN="LEFT" PORT="nationaliteit">+ nationaliteit : Nationaliteit</TD></TR><TR><TD ALIGN="LEFT" PORT="ingangsdatum">o ingangsdatum : Datum</TD></TR><TR><TD ALIGN="LEFT" PORT="einddatum">o einddatum : Datum</TD></TR></TABLE>>,
 			shape=plaintext];
 	}
 	Datum	[label=Datum,
@@ -206,6 +206,27 @@ digraph {
 		label=herregistratie,
 		labelfloat=true,
 		taillabel="*"];
+	SpecialismeApotheker	[label=SpecialismeApotheker,
+		shape=box3d];
+	RegisterId:specialisme -> SpecialismeApotheker	[arrowhead=onone,
+		headlabel="*",
+		label=specialisme,
+		labelfloat=true,
+		taillabel="*"];
+	SpecialismeArts	[label=SpecialismeArts,
+		shape=box3d];
+	RegisterId:specialisme -> SpecialismeArts	[arrowhead=onone,
+		headlabel="*",
+		label=specialisme,
+		labelfloat=true,
+		taillabel="*"];
+	SpecialismeTandarts	[label=SpecialismeTandarts,
+		shape=box3d];
+	RegisterId:specialisme -> SpecialismeTandarts	[arrowhead=onone,
+		headlabel="*",
+		label=specialisme,
+		labelfloat=true,
+		taillabel="*"];
 	Registratie:aantekening -> Aantekening	[arrowhead=onone,
 		headlabel="*",
 		label=aantekening,
@@ -216,9 +237,29 @@ digraph {
 		label=registratie,
 		labelfloat=true,
 		taillabel="0-1"];
+	Registratie:registratie -> RegisterId	[arrowhead=onone,
+		headlabel="*",
+		label=registratie,
+		labelfloat=true,
+		taillabel="*"];
 	Registratie:registratiedatum -> Datum	[arrowhead=onone,
 		headlabel="*",
 		label=registratiedatum,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie:specialist -> SpecialismeApotheker	[arrowhead=onone,
+		headlabel="*",
+		label=specialist,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie:specialist -> SpecialismeArts	[arrowhead=onone,
+		headlabel="*",
+		label=specialist,
+		labelfloat=true,
+		taillabel="*"];
+	Registratie:specialist -> SpecialismeTandarts	[arrowhead=onone,
+		headlabel="*",
+		label=specialist,
 		labelfloat=true,
 		taillabel="*"];
 	Datum:eerder -> Datum	[arrowhead=onone,
