@@ -1,0 +1,179 @@
+\begin{comment}
+\textbf{How useful is Ampersand for designing registry systems by analysing public health legislation and regulations, in particular the \acrshort{big}.}
+
+When investigating the research question, the following sub-questions will contribute to the answer to the research question.
+\newline Related questions:
+\begin{enumerate}
+\item[RQ1]- What knowledge, in the role of software engineer, is needed to use Ampersand.
+\item[RQ2]- What are the Concepts, Relationships and Rules in the \acrshort{big}.
+\item[RQ3]- How are the laws and regulations set up so that they can be used in a useful way for the Ampersand method.
+\item[RQ4]- What are the strengths and weaknesses (SWOT) in using Ampersand for registry systems for a government organization.
+\end{enumerate}
+
+Hoe nuttig is Ampersand voor het ontwerpen van registratiesystemen door analyse van wet- en regelgeving op het gebied van volksgezondheid, in het bijzonder de Wet-BIG.
+
+Bij het onderzoeken van de onderzoeksvraag zullen de volgende deelvragen bijdragen aan het beantwoorden van de onderzoeksvraag. Gerelateerde vragen:
+RQ1 - Welke kennis, in de rol van software engineer, is nodig om Ampersand te gebruiken.
+RQ2 - Wat zijn de concepten, relaties en regels in de Wet-BIG.
+RQ3 - Hoe zijn de wet- en regelgeving opgezet zodat ze kunnen worden gebruikt in een bruikbare manier voor de Ampersand-methode.
+RQ4 - Wat zijn de sterke en zwakke punten (SWOT) bij het gebruik van Ampersand voor registratiesystemen voor een overheidsorganisatie.
+
+\end{comment}
+
+\subsection{Use of Ampersand}\label{use_of_ampersand}
+In the search for the question "\acrlong{rq1}" we found the following perspectives.
+When asking questions about the knowledge needed in the role of software engineers to be able to use Ampersand, the focus is not only on the Ampersand method itself.
+We should also ask ourselves whether, in addition to Ampersand, knowledge is also required of the underlying theory on which Ampersand is based.
+Is it necessary to know relation algebra.
+The environment in which a prototype runs also plays a role.
+This includes browser settings and the use of containers (Docker) in which Ampersand runs.
+During development we are dealing with an \acrfull{ide}.
+The use of such a \acrshort{ide} for determining the usability of Ampersand is relevant.
+Internet support is now indispensable when creating the scripts.
+Creating scripts for Ampersand also requires support for internet search capabilities.
+But can this be found for a relatively unknown method as Ampersand?
+Finally, we look at output produced by method.
+Is it the case that the way in which the method is used also determines what comes out?
+This applies to both the prototype and the generated documentation.
+Then the approach to this process, the use of the method, among other things, determines the result.
+These aspects will be discussed in the following paragraphs.
+
+\subsubsection{Knowledge of Ampersand}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-4 automatische rules zijn beschreven, maar om te implementeren is ook hier veel geduld en proberen nodig. 
+    \item rq1-7 elke relatie is onderdeel van een record structuur
+    \item rq1-8 er is geen swagger gemaakt voor de api; 
+    \item rq1-9 het toevoegen van stukjes php script moet mogelijk zijn, maar is niet duidelijk hoe
+    \item rq1-11 implementatie in docker met RAP werkt wel, maar niet met includes om dat er steeds een nieuwe directory wordt aangemaakt; pas waneer er echt lokaal wordt gedraaid dan werkt het ook met includes
+    \item rq1-12 in het begin niet duidelijk wanneer C of c in de INTERFACE toe te passen; mogelijk staat dit wel in de handleiding, maar moet je toch proefondervindelijk ontdekken.
+    \item rq1-14 kiss
+    \item rq1-16 notatie wijze van concepten en relaties en rules zijn deels vastgelegd. Enkel de eerste positie is hoofd of kleine letter; geen advies over overige schrijfwijze.
+    \item rq1-17 om een rule toe te passen is veel geduld en oefening nodig; vrij steile leercurve; 
+    \item rq1-19 output in latex 
+    \item rq1-20 represent definieert een type van een concept, maar datetime geeft problemen bij de interface
+    \item rq1-21 TOT wordt meestal ondervangen door een tot-rule -> blijkt dat een TOT tot gevolg heeft dat iets kan worden gesaved wanneer ingevuld, terwijl een tot-rule een save kan plaatsvinden terwijl de melding open blijft staan
+\end{enumerate}
+
+Working with Ampersand requires a steep learning curve.
+The resources from which to draw are limited because the method is not widely used.
+You can use the websites~\footnotemark{} on which Ampersand is offered.
+\footnotetext{
+	\url{https://ampersandtarski.gitbook.io/documentation/}
+	\newline  
+	\url{https://github.com/AmpersandTarski}
+    \newline
+    \url{https://stackoverflow.com}} 
+Furthermore, there is not much to be found on the internet about the Ampersand method.
+The examples should mainly be taken from the \url{https://github.com/AmpersandTarski/ampersand-models}.
+By studying these and searching for a corresponding situation.
+
+Before starting to create the scripts, it is recommended that you at least read the course documentation~\citepNonPub{wedemeijer_l_joosten_smm_michels_garkenbout_jlc_werkboek_ontwerpen_met_bedrijfsregelspdf_nodate} globally.
+
+
+
+\subsubsection{Knowledge of Relational Algebra}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+
+\begin{enumerate}
+    \item rq1-17 om een rule toe te passen is veel geduld en oefening nodig; vrij steile leercurve; 
+\end{enumerate}
+
+\subsection{Environment}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-5 de browser houdt data vast en er moet regelmatig een cache worden geleegd om het nieuwe werkend te krijgen
+    \item rq1-13 inrichting van A in lokale omgeving is specifiek en niet evident; hulp is hier nodig    
+    \item rq1-22 VS heeft ook geen generieke zoek optie over de adl's heen
+    \item rq1-32:14-9: Visual Studio Code(VSC) heeft een Ampersand extensie. Deze blijft een enkele keer hangen.
+    \item rq1-33:9-1: VSC ondersteunt slecht de latex omgeving. heel vaak blijft mijn pc hierop hangen.  
+
+\end{enumerate}
+
+\subsection{Ampersand on the internet}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-18 op internet geen voorbeeld te vinden, enkel in de repo van A zelf; en dat is moeizaam zoeken    
+\end{enumerate}
+
+\subsection{Docker}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-6 docker is ook nog een ding om te leren
+
+\end{enumerate}
+
+\subsection{Prototype}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-1 Indelen in Ampersand (patterns) heeft consequenties voor het prototype. VS ontbeert een refactoring optie bij verplaatsen
+\end{enumerate}
+
+\subsection{Documentation}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-10 html href en target blank werkt niet    
+    \item rq1-15 middels include statements wordt de volgorde van document bepaald, maar niet overal zijn includes nodig
+    \item rq1-19 output in latex 
+    \item rq1-30:12-9:hoe gaan we de meaning en def van concepten vastleggen. is dit conform een vast stramien. is het dan nog leesbaar of moet het vrijer worden gedocumenteerd.
+    
+\end{enumerate}
+
+\subsubsection{Conceptual analysis}
+
+\subsubsection{Other documentation}
+
+\subsection{Development environment}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item test
+\end{enumerate}
+
+\subsection{Reading law}
+\begin{comment}
+Hoort dit niet bij rq3?
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-23 wet lezen is een vak 
+    \item rq1-25:12-9: eerst overzicht maken van de alle wetten en regelingen
+    \item rq1-26:12-9: ook de wetten en de regelgevingen kunnen nog weer verwijzigen hebben naar andere wetten en regelgevingen. Omdat ze daarop gebaseerd kunnen zijn of deze uitbreiden.
+    \item rq1-27:12-9: er zijn ook wetten en regels die niet opgenomen zijn in deze specifieke wet, maar geldig zijn vanuit een hoger liggende wet. 
+    Denk hierbij aan de grondwet. 
+    In geval van big zou dit bv de archiefwet kunnen zijn of de termijnenwet en strafrecht.
+    \item rq1-28:12-9: regelgeving over een afgesloten en verleden, wordt niet meer meegenomen. 
+    Deze is niet meer geldig. 
+    Doel is niet om historie op te bouwen maar de huidige wet te ondersteunen.
+    \item rq1-29:12-9: Niet alle wet- en regelgeving mbv BIG vinden we terug onder de zoekterm big.
+\end{enumerate}
+
+\subsection{Approach}
+\begin{comment}
+plaats hier de afgehandelde items.
+\end{comment}
+\begin{enumerate}
+    \item rq1-2 Ampersand heeft geen annotatie mogelijkheid -> vergt een separate actie/document om bij te houden wat er geweest is
+    \item rq1-3 aparte excel gemaakt om de multiplicteiten van de relaties uit te schrijven en te ontdekken
+    \item rq1-24 12-9/14-9 XML download van wetBig lijkt een logische stap, echter is deze zo complex opgebouwd dat dit geen zin heeft (idem voor json) => beide structuren zijn niet prettig leesbaar. Gedachte die hier op komt is waarom SDU niet direct annotaties toevoegt op de concepten en relaties. Beide structuren zijn gedownload om hier de annotaties aan toe te voegen. zodat je later via een programma de annotatie (xml/json annotaties) eruit kan halen tesamen met de definities en meaning en hiermee een script of een deel van een script mee kan genereren.
+    \item rq1-31:14-9: naast xml en json is ook rtf en pdf een optie. In rtf (doc) kan er via "opmerkingen" items in de marges worden toegevoegd. BIj een pdf kunnen annotaties en kleurmarkering deze functie krijgen.
+    \item rq1-33:14-9: Patterns binnen Ampersand zijn belangrijk. Dit zijn in feite de subsystemen van het informatie systeem. Vraag is even of dit op voorhand ingedeeld zou moeten worden of dat het zich vanzelf opbouwt.
+    \item rq1-34:14-9: schrijfwijze van een pattern is met een hoofdletten. En de pattern wordt afgesloten met een endpattern. Er zijn meerdere patterns mogelijk binnen één script.
+    \item rq1-35:14-9: de wet is in het nederlands opgesteld en dat maakt dat de conceptuele analyse ook in het nederlands te doen.
+\end{enumerate}
+
