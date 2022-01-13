@@ -6,9 +6,20 @@
     \item rq2/rq3-3 in de wetbig wordt specialismes genoemd, maar geen lijst oid
     \item rq2-4:30-9: Welke afspraken moeten gemaakt worden aangaande de structuur van de beschrijvingen. 
     Moeten we hier afspraken over maken of ongestructureerd laten.
-    \item rq2-5:2-10: expliciet maken van de multipliciteit.
+    \item rq2-5:2-10: expliciet maken van de multipliciteit.\newline
+    UNI P->0-1 H  most\newline
+    TOT P->1-* H  least\newline
+    INJ H->1 P    één\newline
+    SUR H->1-* P  minimaal 1
     \item rq2-6:2-10: rules zijn niet simpel te realiseren. Er zijn wel trucjes om deze te realiseren.
     \item rq2-7:4-10: persoon is niet gelijk aan bignummer; maar bignummer is attribuut van de inschrijving; een persoon kan meerdere bignummers hebben
     \item rq2-8:7-10/10-10: geboortedatum moet opgemaakt worden als datum. Represent lijkt die rol te moeten vervullen
     \item rq2-9:7-10: inschrijftijd wordt automatisch toegevoegd. Dit middels rules.
+    \item rq2-10:19-10: de naamgeving van een relatie wordt meestal toegekend aan de TRG attribuut van de set. zoals [Persoon * Voornaam] met als relatienaam "voornaam"
+    \item rq2-11:19-10: een relatie die univalent is, is een functie. Een een functie daar mag maar één ding uitkomen. Beschrijving van UNI is dan ook P ->0-1 H at most (zie 2-5)
+    \item rq2-12:19-10: TOT heeft de eigenschap dat deze verplicht ingevuld moet worden in de Interface omdat de data anders niet wordt opgeslagen. Variant hierop is een rule met deze eigenschap, hierdoor worden de overige zaken wel opgeslagen in de database, maar blijft er een melding van onvolledigheid verschijnen.
+    \item rq2-13:19-10: wat voor TOT geldt, dat geldt ook voor SUR
+    \item rq2-14:19-10: ROLE geeft controle aan de gebruiker. wat heb ik hier nu mee bedoeld?
+    \item rq2-15:19-10: in de Interface kan ook een FOR worden gebruikt. Hiermee worden gebruikersrollen ingevuld.
+    \item rq2-16:19-10: bij het bepalen van een periode heeft Ampersand het moeilijk. Rekenen kan A niet out of the box. Hier zijn de PHP functies voor nodig, die ook weer niet makkelijk te alloceren zijn.
 \end{enumerate}
