@@ -1,5 +1,7 @@
 \newpage
 \section{Introduction} \label{Introduction}
+\begin{comment}
+
 
 This research is about the usefulness of Ampersand for designing register systems.
 
@@ -63,4 +65,123 @@ In section \ref{Research} we look at the main question and related issues.
 We also discuss the method, approach and validation of the action research.
 The last section \ref{planning} focuses on planning.
 
+commentaar van Stef Joosten (dd 14-1-22) hierop
 
+    Over de introductie: De huidige redeneerlijn in de introductie is:
+        eerste alinea: het onderzoek gaat over de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen. 
+        tweede alinea: toelichting registratiesystemen.
+        derde alinea: geeft een toelichting op de casus.
+        vierde alinea: noemt de belanghebbende, CIBG, en stelt dat we Ampersand gaan gebruiken.
+        vijfde alinea: benoemt de argumenten waarom Action Research als aanpak gekozen is
+        zesde alinea: stelt dat dit werk de bruikbaarheid van Ampersand voor het ontwerpen van registersystemen onderzoekt.
+        Alinea 7 wil een leeswijzer zijn.
+
+Deze redeneerlijn roept vragen op:
+
+        Waarom moet de bruikbaarheid van Ampersand worden onderzocht?
+            Wat is Ampersand?
+            Wat is “het gebruik” van Ampersand?
+            Waarom is de bruikbaarheid van Ampersand een probleem?
+        Waarom specifiek voor registratiesystemen? Wat is dat precies?
+        Hoe onderzoek je de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen?
+        Waarom juist action research?
+
+Deze vragen worden niet in de introductie beantwoord, wat bij mij als lezer een onbevredigend gevoel achterlaat. Maar hoe doe je dat? Welnu: Door deze vragen te beantwoorden in je betoog krijg je een veel betere redeneerlijn. Immers, alle vragen die je oproept heb je beantwoord. Ik heb de verkorte antwoorden achter de vragen gezet, bij wijze van voorbeeld. Overigens, ook die antwoorden roepen vragen op, maar die vragen zitten een niveautje dieper. Ik heb er een aantal bij opgeschreven. Die vragen kun je dus in de daaropvolgende hoofdstukken beantwoorden.
+
+   
+\end{comment}
+\begin{comment}
+    \item Wat is het onderzoek? Antw: we onderzoeken de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen.
+    \item Waarom moet de bruikbaarheid van Ampersand worden onderzocht? (antw: we zien dat het gebruik van Ampersand uitblijft)
+    \begin{enumerate}
+        \item Wat is Ampersand? (antw: Ampersand is een formele taal die registratiesystemen specificeert)
+        \item Wat is het gebruik van Ampersand? (antw: Software engineers kunnen Ampersand gebruiken om registratiesystemen te ontwerpen en er prototypes van te maken.)
+        \item Waarom is de bruikbaarheid van Ampersand een probleem? (antw: Ampersand wordt nauwelijks gebruikt, terwijl het wel werkt.)
+        \begin{enumerate}
+            \item Zijn er vergelijkbare systemen met vergelijkbare bruikbaarheidsproblemen?
+            \item Wat zouden mogelijk oorzaken kunnen zijn?
+        \end{enumerate}
+    \item Waarom specifiek voor registratiesystemen? Wat zijn dat eigenlijk? (beantwoorden vanuit de literatuur, en goed afbakenen, maar wel zodanig dat het BIG-register er binnen valt.)        
+    \end{enumerate} 
+\end{comment}
+Ampersand is the subject of research.
+We are investigating the usefulness of Ampersand for designing registration systems.
+The registration systems must have a legal basis.
+These registration systems are based on legislation and regulations.
+
+In practice we see that Ampersand is not used.
+In the past there have been a few projects in which Ampersand played a role.
+This has included the \acrlong{indigo} project.
+Within this project, Ampersand was used for the conceptual analysis.
+
+Ampersand is a formal language that, in this case, specifies registration systems.
+Because it is a formal language, based on relation algebra, it can be used for purposes where described forms of policy are available.
+
+Software engineers can use Ampersand to design and prototype registration systems.
+Ampersand uses scripting that produces a database structure and web interface after compilation.
+In the setup that the \acrlong{ou} offers, Ampersand is rolled out within a Docker environment.
+By deploying the database and the web interface within the Docker, a container is created that provides access to the generated prototype.
+
+The usability of Ampersand is apparently a problem, which is reflected in the low usage.
+The language and method of use work in practice.
+But the language is not used.
+The question is why this is not used.
+Possible causes of the current low use may be due to the reputation of Ampersand.
+This produces a circular argument.
+Namely, unknown means that it is rarely used.
+When it is rarely used, it remains unknown.
+The popular products in the OpenSource market usually include a large organization that can push the marketing and knowledge.
+In addition, such an organization can also build a community.
+The usability of a product like Ampersand is independent of its use.
+It is not always the case that a useful and good product is used.
+In the IT world, this is happening with a Linux desktop versus a Windows desktop.
+The usability of a Linux desktop is good.
+But many users still opt for a Windows desktop or a Mac.
+A Mac has the appearance of superiority and Windows has office.
+Despite the usability of Linux, it is only chosen by IT people or users who want a free operation system.
+
+A register is a list of data that is collected on the basis of a legal obligation.
+The list also has a scope.
+The scope is also determined, depending on the legislation on which it is based.
+Usually this scope is national or European.
+Due to its legislative basis, the register is also reliable.
+The register data is collected centrally and is intended to provide an overview of the registrations.
+Elements have been designated for this that must be present.
+In addition to reliability, a register is also accessible.
+So that it can be used for individual consultation and also as research data as used in ~\cite{schmidt_danish_2015} and \cite{bakken_norwegian_2019}.
+
+Due to the legal basis of the register, it is by definition well and at least extensively described.
+Ampersand is very useful for converting legislation and regulations into formal language.
+A register design is therefore very suitable to do with Ampersand.
+
+Het is niet bekend wat nu de oorzaak of oorzaken zijn van het weinig gebruiken van Ampersand bij het ontwerpen van registersystemen.
+Om hier achter te komen moet het exploratief worden aangepakt.
+De gekozen eploratieve aanpak is dan ook \acrfull{ar}~\citep{Easterbrook}.
+Exploratieve aanpak leent zich voor het initieel onderzoek met behulp van Ampersand voor het ontwerpen van registersystemen om, zoals \cite{Easterbrook} stelt, hypothese af te leiden en theorien op te stellen.
+De op te stellen theorie richt zich dan ook op de bruikbaarheid van Ampersand.
+
+De aanpak van \acrshort{ar} is gekozen omdat de onderzoeker belanghebbende is. 
+Het CIBG, de werkgever van de onderzoeker, heeft er belang bij. 
+Het ontwerpen van de opvolger van Zorro, het registratiesysteem voor de \acrshort{big}, is een enkele casus die goed toegankelijk is voor het onderzoek. 
+Er zijn te weinig referentiecasussen om kwantitatief onderzoek mee te doen. 
+Motiveren vanuit de karakteristieken van action research die je uit de literatuur haalt. 
+Objectieve analyse is hier dus niet mogelijk. 
+Het ligt dus voor de hand om de bruikbaarheid van Ampersand te bestuderen door actief deel te nemen aan het ontwerptraject en nieuwsgierig te bestuderen wat Ampersand doet in dat traject.
+
+
+
+\begin{enumerate}
+
+
+    \item Hoe onderzoek je de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen? (antw: omdat we niet precies weten wat de oorzaak is, moeten we het exploratief aanpakken)
+    \item Waarom juist action research? (antw: De onderzoeker is belanghebbend. Het CIBG, de werkgever van de onderzoeker, heeft er belang bij. Het ontwerpen van de opvolger van Zorro is een enkele casus die goed toegankelijk is voor het onderzoek. Er zijn te weinig referentiecasussen om kwantitatief onderzoek mee te doen. Motiveren vanuit de karakteristieken van action research die je uit de literatuur haalt. Objectieve analyse is hier dus niet mogelijk. Het ligt dus voor de hand om de bruikbaarheid van Ampersand te bestuderen door actief deel te nemen aan het ontwerptraject en nieuwsgierig te bestuderen wat Ampersand doet in dat traject.
+    \begin{enumerate}
+        \item Welke onderzoekstechnieken zijn hierbij nuttig?
+        \begin{enumerate}
+            \item gesprekken met belanghebbenden (waarom?)
+            \item content analyse op aantekeningen (waarom?)
+        \end{enumerate}
+    \end{enumerate}
+    \item Hoe onderzoek je de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen? (antw: omdat we niet precies weten wat de oorzaak is, moeten we het exploratief aanpakken)
+\end{enumerate}
+Door deze antwoorden uit te werken in een alinea per antwoord krijg je een logische introductie. En verderop dus ook een logische verhaal in het hele verslag.
