@@ -2,7 +2,6 @@
 
 %\usepackage[subpreambles=true]{standalone}
 %\usepackage{import}
-
 \usepackage{microtype}
 \usepackage{comment}
 % *** GRAPHICS RELATED PACKAGES *** %
@@ -14,14 +13,18 @@
 % load package for Checkmark symbol: %
 \usepackage{bbding}
 \usepackage{wrapfig}
-\usepackage{amssymb}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+
 %listings
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{nameref}
 \usepackage{float}
 \usepackage{svg}
-\usepackage{amsmath}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index of Log Entries, options= -s bigstyle.ist]
+
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -49,10 +52,15 @@
 \lstset{style=mystyle}
 %end-listings
 \usepackage[acronym]{glossaries}
-\makeglossaries
-\include{acronyms}
+\include{acronyms.tex}
+%\usepackage{glossaries}
+%\usepackage{acronym} 
+%\makeglossaries
+%\input{acronyms}
+\usepackage{xintexpr}
 
-\graphicspath{ {./04_images/} }
+
+\graphicspath{ {00_common/04_images/} }
 
 \citestyle{agu}
 
@@ -73,7 +81,17 @@
     }
 \usepackage{titling}
 
+% counters
+\newcommand\A[1]{\textbf{#1}\stepcounter{\rq-#1}\index{#1}}
+
+\newcommand\cntA[1]{\newcounter{\rq-#1}\setcounter{\rq-#1}{0}}
+\newcommand\tabcntA[1]{#1 & \arabic{\rq-#1} & y \\ \hline}
+
+\newcommand\tabifA[1]{\ifnum\value{\rq-#1}>0 \tabcntA{#1} \fi}
+
 \begin{document}
+
+
 \pagenumbering{roman} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
 \pagestyle{plain}
 \title{Using relational algebra in designing public healthcare registers} 
@@ -82,37 +100,38 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \end{comment}
 \author{Gerard Edelaar}
 
-\input{02_cover/title}
+\input{./00_common/02_cover/title}
 \newpage
 
-\input{03_TOC/TOC}
+\input{./00_common/03_TOC/TOC}
 \newpage
 
 \pagenumbering{arabic} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
 
 \let\cleardoublepage\clearpage
 
-\input{../10_intro/summary}
-\input{../10_intro/main}
+\input{./10_intro/summary}
+\input{./10_intro/main}
 
-\input{../21_method/main}
-\input{../22_results/main}
-\input{../23_discussion/main}
+\input{./21_method/main}
+\input{./22_results/main}
+\input{./23_discussion/main}
 
-\input{docs/AF-SE/25_conclusions and recommendation/main}
-\input{docs/AF-SE/26_Reflexion/main}
+\input{./25_conclusions and recommendation/main}
+\input{./26_Reflexion/main}
 
-\input{../60_test/main}
+%\input{./60_test/main}
 
 \newpage
 \newpage
-\printglossary[type=\acronymtype]
+\printglossary
+
 
 %\nocite{*}
 \bibliographystyle{plainnat}
 \bibliographystyleNonPub{plainnat}
-\bibliography{report}
-\bibliographyNonPub{reportNonPub}
+\bibliography{00_common/report}
+\bibliographyNonPub{00_common/reportNonPub}
 
 
 \end{document}

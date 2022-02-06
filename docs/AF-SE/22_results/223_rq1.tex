@@ -1,3 +1,7 @@
+\def\rq{rq1}
+\input{docs/AF-SE/22_results/counterdef}
+
+
 \begin{comment}
 \textbf{How useful is Ampersand for designing registry systems by analysing public health legislation and regulations, in particular the \acrshort{big}.}
 
@@ -38,113 +42,158 @@ This applies to both the prototype and the generated documentation.
 Then the approach to this process, the use of the method, among other things, determines the result.
 These aspects will be discussed in the following paragraphs.
 
+The sub-questions can be further subdivided into small parts.
+Starting from the question "\acrlong{rq1}", the question then follows which observations relate to this knowledge.
+Is it knowledge about only Ampersand or is knowledge also required of relation algebra.
+By working with Ampersand, we are also confronted with the environment in which we develop it.
+Ampersand stands alone as a language, but in use there are development tools like \acrlong{vsc} in this case.
+To run it, you need a Docker container.
+That is at least the implementation as the \acrlong{ou} provides.
+During the development phase, examples are searched on the internet.
+And these are generally easy to find, is that also the case at Ampersand?
+Ampersand also provides documentation and a prototype.
+Here too, knowledge of Ampersand is required.
+Finally, you also have to ask yourself whether the way Ampersand is used, the approach to the project, also requires knowledge of Ampersand.
+There are a number of angles that play around Ampersand's knowledge.
+
+\begin{comment}
+hier een samenvatting van de onderstaande obeservaties.
+\end{comment}
+\subsection{Observation summary}
+In de subsection \ref{use_of_ampersand} ......
+implementatie rules; database structuur ontstaan; 
+
 \subsubsection{Knowledge of Ampersand}
 \begin{comment}
 - wat zijn de exacte waarnemingen geweest!
 plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-4 automatische \textbf{rules} zijn beschreven, maar om te implementeren is ook hier veel geduld en proberen nodig. 
-    \newline\textbf{obs}: niet eenvoudig om te maken
-    
-    \item rq1-7:10-11: elke \textbf{relatie} is onderdeel van een record structuur
-    \newline\textbf{obs}: goed om te zien hoe de database structuur wordt vastgesteld. 
-    Dit staat vast wel ergens vermeld hoe dit gebeurt.
-    Maar via reversed enginering kan dit vastgesteld worden.
-    geeft vooral inzicht en maakt het tastbaarder.
-    
-    \item rq1-8:14-11: er is geen swagger gemaakt voor de \textbf{api}; 
-    \newline\textbf{obs}: bij gebruik willen maken van een externe invoer, dan zijn api beschrijvingen zeer relevant. 
-    Deze worden niet automatisch gegenereert. 
-    Dat zou wel wenselijk zijn
-    
-    \item rq1-9 het toevoegen van stukjes \textbf{php} script moet mogelijk zijn, maar is niet duidelijk hoe
-    \newline\textbf{obs}: onbreekt nog informatie hoe dit te doen
-    
-    \item rq1-11 implementatie in \textbf{docker} met RAP werkt wel, maar niet met includes om dat er steeds een nieuwe directory wordt aangemaakt; pas waneer er echt lokaal wordt gedraaid dan werkt het ook met includes
-    \newline\textbf{obs}: voor eenvoudige toepassing is RAP prima geschikt, echter om een systeem te ontwerpen is echt een development omgeving nodig.
-    
-    \item rq1-12 in het begin niet duidelijk wanneer C of c in de \textbf{INTERFACE} toe te passen; mogelijk staat dit wel in de handleiding, maar moet je toch proefondervindelijk ontdekken.
-    \newline\textbf{obs}: Stoeien met het toestaand van CRUD onderdelen. 
-    Dit moet in het begin van het traject proefondervindelijk worden gedaan.
-    
-    \item rq1-14:10-11: kiss
-    \newline\textbf{obs}:  houdt de oplossing zo simpel mogelijk. 
-    Geldt natuurlijk niet alleen voor Ampersand, maar ook voor andere talen en methodes.
-    
-    \item rq1-16 notatie wijze van \textbf{concepten} en \textbf{relaties} en rules zijn deels vastgelegd. Enkel de eerste positie is hoofd of kleine letter; geen advies over overige schrijfwijze.
-    \newline\textbf{obs}: Je wordt niet gedwongen in een bepaalde structuur te werken. 
-    Is dat een voordeel of  nadeeel?
 
-    \item rq1-40:10-10/27-11: \textbf{Interface} concepten moeten van het type object zijn (represent). 
-    waarom kunnen hier geen alpha of integer zijn.
-    \newline\textbf{obs}: Interface wilde niet op de juiste manier werken. 
-    DIt werd veroorzaakt doordat de interface concept niet van het type object was.
+
+\end{comment}
+
+
+
+\begin{enumerate}
+    \item rq1-4 Automatically executed \A{rule} are easy to describe, but implementation here also takes a lot of patience and trying.
+    \newline\textbf{obs}: Rules are not easy to create.
+    To implement rules, knowledge of Ampersand is required and many examples must be used.
+    It is usually not possible to immediately implement a rule.
+    Many attempts are needed to realize this.
+
+    \item rq1-7:10-11: Each \A{relation} is part of a record structure.
+    \newline\textbf{obs}: Good to discover how the database structure is established.
+    It is probably stated somewhere how this happens.
+    But this can be determined through reversed engineering.
+    Above all, it provides insight and makes it more tangible.
+
+    \item rq1-8:14-11: No swagger is created for the \A{api};
+    \newline\textbf{obs}: If you want to use an external input, API descriptions are very relevant.
+    These are not generated automatically.
     
-    \item rq1-50:30-10: het \textbf{represent} statement laat de interface anders reageren. Bij gebruik hiervan verdwijnt de "+"
-    \newline\textbf{obs}: vreemd gedrag, nog even nazoeken waardoor dit nu gebeurde
+    \item rq1-9 Adding pieces of \A{php} code in the script is possible, but it is not clear how
+    \newline\textbf{obs}: Information is missing  on how to do this.
+     
+    \item rq1-11 Implementation in \A{RAP} works, but not with includes.
+    \newline\textbf{obs}: By using RAP all the used scripts must be included in one total script.
+     
+    \item rq1-11 Implementation in \A{Docker} with RAP creates new directories all the time.
+    \newline\textbf{obs}: The Docker environment is polluted by adding new directories all the time.
+    This makes analysis difficult because it is not clear which directory is used.
     
-    \item rq1-52:2-11: als een onderdeel niet werkt, of niet werkt zoals je wenst, dan weglaten uit het ontwerp
-    \newline\textbf{obs}: is meer een afspraak dan een observatie
+    \item rq1-12 At the start it is not clear when a capital letter or small letter should be used with the crud in the \A{interface}.
+    \newline\textbf{obs}: It is in the manual\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/crud}}, 
+    but you have to find out by trial and error how it really works.
     
-    \item rq1-53:2-11: crud en CRUD in de \textbf{interface} werken niet altijd zoals het moet. Geen volledige validatie op het gebruik. Dus een aan / uit is niet overal zinvol. 
-    \newline rq1-37:3-10: CRUD/crud opties dient ook enige bestudering voordat deze juist toegepast kunnen worden.
-    \newline\textbf{obs}: geen (volledige) validatie op het gebruik en mogen gebruiken van crud. 
-    het is mogelijk om variaties toe te passen die geen impact hebben.
+%    \item rq1-14:10-11: Houdt de oplossing zo simpel mogeljk.
+%    \newline\textbf{obs}:  houdt de oplossing zo simpel mogelijk. 
+%    Geldt natuurlijk niet alleen voor Ampersand, maar ook voor andere talen en methodes.
     
-    \item rq1-55:2-11: bij de RULE  is het noodzakelijk om een ROLE met een MAINTAINS toe te voegen, anders werkt het niet
-    \newline\textbf{obs}: in het begin is dit niet van zelf sprekend. 
-    Pas bij het bestuderen van voorbeelden wordt dit duidelijk
+    \item rq1-16 Notation method of \A{concept} and \A{relation}s and \A{rule}s are defined for a very small part.
+    Only the first position is uppercase or lowercase.
+    There is no rule about other spelling.
+    So using CamelCase or underscore or hyphen.
+    \newline\textbf{obs}: You are not forced to work in any particular structure.
+    There is no need for coercion in this area, but advice is practical for novice users.
+     
+    \item rq1-40:10-10/27-11: The concepts used in the \A{interface} must be of type "object" (represent).
+    The concept may therefore not be alpha or integer.
+    \newline\textbf{obs}: Interface did not start correctly.
+    This was caused by the interface concept not being of type "object".
     
-    \item rq1-56:7-11: ampersand en state gaat niet zo goed samen, vb timestamp (wat bedoel ik hiermee?)
-    \newline\textbf{obs}: ????
+    \item rq1-50:30-10: The \A{represent} statement makes the interface react differently.
+    When using the represent statement, the append option ("+") disappears.
+    \newline\textbf{obs}: Unexpected behavior, it is not immediately clear why this is happening.
+     
+%    \item rq1-52:2-11: als een onderdeel niet werkt, of niet werkt zoals je wenst, dan weglaten uit het ontwerp
+%    \newline\textbf{obs}: is meer een afspraak dan een observatie
     
-    \item rq1-58:8-11: per \textbf{interface} max 1 \textbf{TOT} opnemen, anders krijg je data niet opgeslagen.
-    \newline\textbf{obs}: binnen een interface meerdere TOT - relaties opgenomen. 
-    Gevolg was dat er binnen het prototype geen data meer kon worden toegevoegd. 
-    Door de rules.
+    \item rq1-53:2-11: The \A{crud} (\acrlong{crud}) and \acrshort{crud} in the \A{interface} don't always work as it should be.
+    There is no full validation on usage.
+    So an on/off does not make sense everywhere.
+    \newline rq1-37:3-10: CRUD/crud options also need some study before they can be applied properly.
+    \newline\textbf{obs}: No (full) validation on the use of crud.
+    It is possible to apply variations that have no impact.
     
-    \item rq1-59:9-11: er blijven wel heel veel meldingen openstaan wanneer niet aan alles voorwaarden wordt voldaan.
-    \newline\textbf{obs}: wanneer er gemakzuchtig met de invoer wordt omgegaan, dan komen er steeds meer melding te staan.
-    De meldingen worden overigens wel per type samengevoegd.
-    Het werkbare scherm wordt steeds kleiner.
+    \item rq1-55:2-11: At the \A{rule} it is necessary to add a ROLE with a MAINTAINS, otherwise the rule will not work.
+    \newline\textbf{obs}: In the beginning this is not obvious.
+    This becomes clear when studying examples.
+     
+%    \item rq1-56:7-11: ampersand en state gaat niet zo goed samen, vb timestamp (wat bedoel ik hiermee?)
+%    \newline\textbf{obs}: ????
     
-    \item rq1-63:10-11: ampersand is \textbf{flexibel} bij uitbreiding concepten en relaties. bv een adres opdelen in kleine stukjes is snel mogelijk. Feitelijke adres opmaak staat niet in de wet, maar ergens wordt blijkbaar verwezen naar BRP implementatie.
-    \newline\textbf{obs}: Ampersand werkt heel flexibel. Defineer een Concept en relatie en het is gerealiseerd. 
-    tweede observatie is dat in het geval van het adres het niet direct duidelijk hoe dit eruit moet zien. 
-    Maar daar zijn andere wetten en bronnen voor.
-    Is wel even zoeken en aannames doen.
+    \item rq1-58:8-11: Per \A{interface} max 1 \A{multiplicity}, otherwise you won't get data stored.
+    \newline\textbf{obs}: Within an interface, multiple total constraints were included in the relationships.
+    The result was that no more data could be added within the prototype.
+
+    \item rq1-59:9-11: Many messages remain open if not all \A{rule}s are met.
+    \newline\textbf{obs}: When the input is handled easily, more and more messages appear.
+    The messages are grouped by type.
+    The workable screen is getting smaller and smaller.    
     
-    \item rq1-64:10-11: het overnemen van de \textbf{POPULATION} in import xls, lijkt gedrag van de interface te veranderen. 
-    \newline\textbf{obs}: nogmaals toetsen !!
+    \item rq1-63:10-11: Ampersand is \A{flexible} by extension concepts and relationships.
+    Such as dividing an address into street name, house number and addition is quickly realized.
+    Actual address formatting is not in the law.
+    The usual method within the government is to conform to BRP use of addresses.
+    \newline\textbf{obs}: Ampersand is very flexible.
+    Define a Concept and relationship and it is realized.
+    Second observation is that in the case of the address it is not immediately clear what this should look like.
+    But there are other sources for that.
+    It takes some searching and making assumptions.
+     
+%    \item rq1-64:10-11: Het overnemen van de \stepcounter{rq1-population}\textbf{POPULATION} in import vanuit excel, verandert het  gedrag van de interface.
+%    \newline\textbf{obs}: 
     
-    \item rq1-65:10-11: DATETIME (\textbf{represent}) veld kan niet worden geconverteerd naar \textbf{excel}. het compile proces loopt hierop vast.
-    \newline\textbf{obs}: zie item
+    \item rq1-65:10-11: DATETIME (\A{represent}) field could not be converted to Excel.
+    The compilation process hangs on this.
+    \newline\textbf{obs}: Crashing while building the application using DATETIME in the represent statement.
+     
+    \item rq1-66:10-11: XLSX files format is created partly on the basis of \A{multiplicity}.
+    1 on n relation produces its own tab.
+    \newline\textbf{obs}: The Excel file is a reflection of the database structure so that insight can be obtained in the database structure.
+     
+%    \item rq1-67:11-11: een toevoeging van datum/tijd lukte toch wel, maar leverde  een melding op. Proces liep wel door, mbv Stef opgelost. Dit kan ik niet meer %reproduceren.
+%    \newline\textbf{obs}: ??
     
-    \item rq1-66:10-11: XLSX files indeling mede op basis van \textbf{multipliciteit}; 1-n relatie levert een eigen tabblad/sheet op 
-    \newline\textbf{obs}: is eigenlijk weerspiegeling van de database structuur waar je op deze wijze inzicht in krijgt.
+    \item rq1-71:14-11/16-11: The \A{interface} also belongs to the design and not just to the prototype.
+    Changing the \acrlong{crud} changes the behavior of the API.
+    \newline\textbf{obs}: API behavior changes by changing \acrshort{crud}.
+     
+    \item rq1-79:20-11: Once the \A{concept} Define date and then it can be used anywhere in the context.
+    The question then is how to deal with shared Concepts and how to manage them.
+    \newline\textbf{obs}: Within the context, a concept is reused.
+    The operation of shared concept within other contexts is not self-evident.
+     
+    \item rq1-83:27-11: Experiment with HTML view within the \A{interface} fails.
+    Documentation of this is not conclusive.
+    The examples are not enough
+    \newline\textbf{obs}: This part was not made to work.    
     
-    \item rq1-67:11-11: een toevoeging van datum/tijd lukte toch wel, maar leverde  een melding op. Proces liep wel door, mbv Stef opgelost. Dit kan ik niet meer reproduceren.
-    \newline\textbf{obs}: ??
-    
-    \item rq1-71:14-11/16-11: de \textbf{interface} behoort ook tot het ontwerp en niet enkel tot het prototype. Door verandering in de CRUD wordt het gedrag van de API anders.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-79:20-11: eenmaal het \textbf{concept} Datum definieren en dan kan het overal binnen de context gebruikt worden, dus in het script.
-    Vraag is dan hoe om te gaan met gedeelde Concepten? en het beheer daarop.
-    \newline\textbf{obs}: binnen de context wordt een concept hergebruikt.
-    Maar wanneer we een concept willen delen met andere contexten. HOe zou dit moeten werken
-    
-    \item rq1-83:27-11: experiment met HTML-view binnen het \textbf{interface} lukt niet. 
-    Documentatie hiervan geeft geen uitsluitsel. 
-    ook de voorbeelden zijn niet voldoende 
-    \newline\textbf{obs}: krijg dit onderdeel niet aan de praat
-    
-    \item rq1-86:30-11: \textbf{classify} is een specialisatie van een concept. hier geen ervaring mee opgedaan.
-    \newline\textbf{obs}: ??
-    
-    \item rq1-98:30-12: bij gebruik van \textbf{LINKTO} in de \textbf{INTERFACE} als laatste element in de interface, en de signatuur komt vaker voor dan verschijnt een dropdown naar alle subinterfaces (van gelijke signatuur)
-    \newline\textbf{obs}: vreemd/onverwacht gedrag van de LINKTO
+    \item rq1-86:30-11: \A{classify} is a specialization of a concept.
+    No experience has been gained with this.
+    \newline\textbf{obs}: There was no place for this in the research.
+     
+    \item rq1-98:30-12: When using \A{linkto} in the \A{interface} as last element in the interface and the signature occurs more often than a dropdown to all subinterfaces (of the same signature) appears.
+    \newline\textbf{obs}: Unexpected behavior of the LINKTO.
     
 \end{enumerate}
 
@@ -169,20 +218,26 @@ Before starting to create the scripts, it is recommended that you at least read 
 \begin{comment}
 plaats hier de afgehandelde items.
 \end{comment}
-
 \begin{enumerate}
-    \item rq1-17 om een \textbf{rule} toe te passen is veel geduld en oefening nodig; vrij steile leercurve; 
-    \newline\textbf{obs}: heeft een rule wel direct te maken met relatie Algebra.
-
-    \item rq2-5:2-10: expliciet maken van de \textbf{multipliciteit}.\newline
-    UNI P->0-1 H  most\newline
-    TOT P->1-* H  least\newline
-    INJ H->1 P    één\newline
-    SUR H->1-* P  minimaal 1
-    \newline\textbf{obs}: het is fijn om dit uitgeschreven te hebben omdat je niet constant scherp hebt hoe dit werkt
+    \item rq1-17 Applying a \A{rule}\textbf{s} takes a lot of patience and practice.
+    This is quite a steep learning curve.
+    \newline\textbf{obs}: Implementing a rule requires knowledge of relation algebra and a lot of trying and looking at examples.
+     
+    \item rq2-5:2-10: Making the \A{multiplicity} explicit.\newline
+    \begin{tabular}{ || l | l | l ||}
+    \hline
+    UNI & P->0-1 H &  most\\  \hline    
+    TOT & P->1-* H  & least\\  \hline
+    INJ & H->1 P  &   one\\  \hline
+    SUR & H->1-* P &  at least 1\\ \hline
+    \end{tabular}
+    \newline\textbf{obs}: Since you don't always have a clear picture of how this works, it needs to be written out to make it workable.
     
-    \item rq2-11:19-10: een \textbf{relatie} die univalent is, is een functie. Een een functie daar mag maar één ding uitkomen. Beschrijving van UNI is dan ook P ->0-1 H at most (zie 2-5)
-    \newline\textbf{obs}: achtergrond info over de werking van relatie algebra
+    \item rq2-11:19-10: An \A{relation} that is univalent is a function.
+    A one function there can only come out one thing.
+    The description of UNI is therefore P ->0-1 H at most (see 2-5)
+    \newline\textbf{obs}: An relation that is univalent is a function.
+     
 \end{enumerate}
 
 \subsubsection{Environment}
@@ -190,37 +245,54 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-5:30-10: de browser houdt data van de \textbf{interface} vast en er moet regelmatig een cache worden geleegd om het nieuwe werkend te krijgen
-    \newline\textbf{obs}: het oogt alsof de wijzigingen die in het script gemaakt worden geen invloed hebben op werking. 
-    Blijkt dat dit veroorzaakt wordt doordat de cache van de browser niet geleegd wordt.
-    Gelukkig zijn dat browser extensies voor om dit alsnog uit te voeren.
+    \item rq1-5:30-10: The browser is holding data from the \A{interface} and periodically the cache needs to be cleared for customization to work.
+    \newline\textbf{obs}: It looks like the changes made to the script don't affect operation.
+    It is caused by the browser's cache not being emptied automatically.
+    There are browser extensions to still do this manually.
     
-    \item rq1-13:17-10: inrichting van Ampersand in \textbf{lokale omgeving} is specifiek en niet evident; hulp is hier nodig; pogingen gedaan om zaken in localhost werkend te krijgen. ondanks berichten op de ampersand site levert dit niets op.
-    \newline\textbf{obs}: de documentation geeft in een indicatie hoe ampersand locaal in te richten en te laten werken.
-    Met oa gebruik maken van xamp. 
-    Dit lijkt allemaal niet te werken. Niet duidelijk waarom.
-    Krijg het het uiteindelijk met hulp wel werkend in de Docker omgeving.
+    \item rq1-13:17-10: The setup of \A{Ampersand} in local environment is specific and not self-explanatory.
+    Help is needed here to get this working.
+    Attempts to get the process working in localhost were unsuccessful.
+    The manual on the Ampersand site showed how to do this.
+    But it still didn't work
+    \newline\textbf{obs}: the documentation gives an indication of how to configure ampersand and make it work locally.
+    Using XAMP.
+    All this is not going to work.
+    Not clear why.
+    It did work in a Docker environment.
+     
+    \item rq1-22 The tool \A{VSC} also doesn't have a generic search option across the adls.
+    \newline\textbf{obs}: Not being able to search globally is inconvenient when looking for usage of concepts and relationships or when refactoring them.
+    To promote reuse, findability is necessary.
+    Now tools outside of \acrshort{vsc} must be used, within the OS being used, to search within files.
     
-    \item rq1-22 \textbf{\acrshort{vsc}} heeft ook geen generieke zoek optie over de adl's heen
-    \newline\textbf{obs}: onhandig bij het zoeken naar gebruik van concepten en relaties of het refactoren.
-    Om hergebruik te bevoorderen is vindbaarheid noodzakelijk
-    Nu moeten er tools buiten \acrshort{vsc} gebruikt worden, binnen het gebruikte OS, om te zoeken binnen files
+    \item rq1-32:14-9: The tool \A{VSC} has an Ampersand extension.
+    It hangs once in a while.
+    \newline\textbf{obs}: Must be my system, but it's annoying.
+     
+    \item rq1-33:9-1: \A{VSC} does not support the \A{latex} environment well.
+    My PC often hangs on this.
+    \newline rq1-87:3-12: Latex can also be written in VSC.
+    Apparently it is a different version, because the import does not immediately succeed.
+    Does not work really well and the result is poor.
+    \newline\textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
+    But this add-on completely hangs my system.
+    I got a 100\% cpu load for a long time. 
     
-    \item rq1-32:14-9: \textbf{\acrfull{vsc}} heeft een Ampersand extensie. Deze blijft een enkele keer hangen.
-    \newline\textbf{obs}: zal vast wel aan mijn systeem liggen, maar vervelend is het wel
+    \item rq1-81:20-11: Compilation error due to a \A{include} that no longer existed.
+    Observation here is that an adl has been renamed or moved or deleted.
+    The tool \acrlong{vsc} does not support a refactoring stroke on said changes.
+    \newline\textbf{obs}: Refactoring is not supported with \acrlong{vsc}.
     
-    \item rq1-33:9-1: \acrshort{vsc} ondersteunt slecht de \textbf{latex} omgeving. heel vaak blijft mijn pc hierop hangen.  
-    \newline rq1-87:3-12: in VS kan ook latex geschreven worden. maar hierdoor hangt mijn pc. is blijkbaar toch een andere versie, want de import wil niet direct lukken. werkt niet echt fijn en resultaat is mager. 
-    \newline\textbf{obs}: \acrlong{vsc} ondersteunt middels add-ons ook de TEX omgeving. 
-    Maar deze add-on hangt mijn systeem compleet op .
-    Ik krijg een 100\% cpu load voor lange tijd. Onwerkbaar.
+    \item rq1-88:5-12: Tried the tool \A{Obsidian} as a new tool.
+    But here too I do not get an immediate overview and it is digital.
+    Apparently writing in a log is more convenient for me
+    \newline\textbf{obs}: Also tried a new tool while writing the logs.
+    Either this one does not work for me or I need to be more patient.
     
-    \item rq1-81:20-11: compilatie fout door een \textbf{include} die niet meer bestond. Observatie hier is dat er een adl van naam gewijzigd of verplaatst of verwijderd is. De tool \acrlong{vsc} ondersteunt niet een refactoring slag bij genoemde wijzigingen. 
-    \newline\textbf{obs}: zie item
-
-    \item rq1-88:5-12: \textbf{obsidian} als nieuwe tool geprobeerd. maar ook hier krijg ik niet direct overzicht en is digitaal. Blijkbaar is een logboek voor mij toch handiger
-    \newline\textbf{obs}: tijdens het schrijven van de logs ook een nieuwe tool uitgeprobeerd. 
-    Of deze werkt niet lekker voor me of ik moet meer geduld oefenen.
+    \item rq1-78:20-11: The \A{documentation} generated in HTML loaded in firefox and no PNG's are visible.
+    Chrome is doing well.
+    \newline\textbf{obs}: Firefox does not show the generated models.
 
 \end{enumerate}
 
@@ -229,8 +301,9 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-18 op internet geen voorbeeld te vinden, enkel in de \textbf{repo} van A zelf; en dat is moeizaam zoeken    
-    \newline\textbf{obs}: weinig  te vinden over Ampersand behalve in de eigen repo's
+    \item rq1-18 Can not find an example on the internet, only in the repo of \A{Ampersand} itself.
+    That is difficult to find.
+    \newline\textbf{obs}: Little to be found about Ampersand except in its own repos.
     
 \end{enumerate}
 
@@ -239,8 +312,10 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-6:21-10/30-10: \textbf{docker} is ook nog een ding om te leren. zou ook nog een introductie cursus moeten zijn om docker gebruik voor Ampersand snel te doorgronden. zonde van de tijd om dit zelf te moeten opzoeken.
-    \newline\textbf{obs}: Docker kennis (beperkt) is noodzakelijk
+    \item rq1-6:21-10/30-10: \A{Docker} is also another thing to learn.
+    There should also be an introductory course to quickly understand Docker usage for Ampersand.
+    A waste of time to have to look this up yourself or it is preconditions to be able to use Ampersand.
+    \newline\textbf{obs}: Docker knowledge (limited) is required
     
 \end{enumerate}
 
@@ -249,12 +324,13 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-1 Indelen in Ampersand (\textbf{patterns}) heeft consequenties voor het \textbf{prototype}. relatie met rq1-22
-    \newline\textbf{obs}: welke dan ?? nog even over nadenken
+    \item rq1-1 Formatting in Ampersand (\A{pattern}s) has consequences for the \A{Conceptual analysis}.
+    \newline\textbf{obs}: \textbf{\textit{**welke dan ?? nog even over nadenken**}}
     
-    \item rq1-36:3-10: hoe zit het met testscenario's van het prototype
-    \newline\textbf{obs}: ogenschijnlijk ontberen wat testtools. mogelijk moet er gebruik worden gemaakt van generieke tools zoals Selenium ed.
-
+    \item rq1-36:3-10: What about prototype test scenarios.
+    \newline\textbf{obs}: Apparently lacking testing tools.
+    Generic tools such as Selenium may need to be used.
+     
 \end{enumerate}
 
 \subsubsection{Documentation}
@@ -262,126 +338,95 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-10 html href en target blank werkt niet binnen de \textbf{interface}   
-    \newline rq1-77:20-11: in de html modus wordt de <a href="x" target=\_blank> niet ondersteunt. 
-    De target wordt in de complatie verwijderd.    
-    \newline\textbf{obs}: de verwachting was dat de target \_blank een nieuwe tab zou openen in de html tekst, maar dat gebeurt niet.
+    \item rq1-10 The function html href with target blank does not work within the \A{interface}
+    \newline rq1-77:20-11: In html mode the 
+    \begin{lstlisting}
+    <a href="x" target=\_blank>
+    \end{lstlisting}
+    is not supported.
+    The target is removed in the complation.
+    \newline\textbf{obs}: The expectation was that the target \_blank would open a new tab in the html text, but that does not happen.
     
-    \item rq1-15:4-10 middels \textbf{include} statements wordt de volgorde van document bepaald, maar niet overal zijn includes nodig
-    \newline\textbf{obs}: includes zijn niet enkel om de scripts volledig te laten draaien, maar ook om de documentatie te sturen.
+    \item rq1-15:4-10 With \A{include} statements the order of the contents of the document is determined.
+    The expectation was that includes are needed to link parts of code together but includes are not everywhere necessary to get the code working.
+    \newline\textbf{obs}: Includes are not only to run the scripts completely, but also to send the documentation.
+     
+    \item rq1-30:12-9: Defining the meaning and definition of the \A{concept} is free.
+    There is no fixed pattern for documentation.
+    \newline\textbf{obs}: Defining the meaning and definition is very free.
+     
+    \item rq1-41:19-10: The law bank website contains a persistent hyperlink, which can be used in the \A{documentation} as reference.
+    \newline\textbf{obs}: References to persistent links can be included.
+    But is the output still pleasant to read because of the continuous references.
+     
+    \item rq1-42:19-10: Immediately add the description when recording a \A{concept} and \A{relation}.
+    Later it is difficult to find out why the recording took place.
+    \newline\textbf{obs}: To avoid rework, the definition and meaning and purpose should be defined immediately when defining concepts and relationships.
     
-    \item rq1-30:12-9:hoe gaan we de meaning en def van \textbf{concepten} vastleggen. 
-    is dit conform een vast stramien. 
-    is het dan nog leesbaar of moet het vrijer worden gedocumenteerd.
-    \newline\textbf{obs}: het vastleggen van de meaning en definitie is erg vrij.
+    \item rq1-43:23-10: The order of the data in the \A{Conceptual analysis} is a bit strange.
+    First the definition is shown, then the name of the relation and below that the meaning again.
+    \newline\textbf{obs}: The layout of the Conceptual design doesn't seem quite logical and is therefore confusing.
     
-    \item rq1-41:19-10: de website van de wettenbank bevat een persistente hyperlink, deze kan gebruikt worden in de \textbf{documentatie} als referentie.
-    \newline\textbf{obs}: er kunnen referenties naar persistente links worden opgenomen. 
-    Maar is de uitvoer dan nog wel prettig leesbaar
+    \item rq1-44:23-10: In the \A{Conceptual analysis} enters must be taken into account in the texts.
+    These come back directly in the documents and then yield broken sentences.
+    \newline\textbf{obs}: Break enters in the \acrshort{ide} also produce extra newlines in the output.
+    This causes the formatting to go wrong.
     
-    \item rq1-42:19-10: aanwennen om direct bij de opname van een \textbf{concept} en \textbf{relatie} de beschrijving toe te voegen. Anders weet je het later echt niet meer. Dit gebeurt dus ook gewoon.
-    \newline\textbf{obs}: zie item
+    \item rq1-45:24-10: Overview within a \A{Ampersand}script is difficult to maintain and obtain.
+    \newline\textbf{obs}: The need for overview is there as the script grows.
     
-    \item rq1-43:23-10: de volgorde van de gegevens in het \textbf{Conceptueel ontwerp} is wat vreemd. Nog even checken, maar eerst wordt de definitie getoond en dan pas de naam van de relatie en daaronder weer de meaning
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-44:23-10: voor het \textbf{conceptuele ontwerp}, houdt rekening met enters in de teksten. Deze komen direct terug in de documenten en leveren dan vreemde opmaak op.
-    \newline\textbf{obs}: afbreek enters in de \acrshort{ide} leveren ook extra newlines op in de uitvoer. de opmaak gaat hierdoor fout.
-    
-    \item rq1-45:24-10: overzicht     binnen een \textbf{script} is lastig te behouden en te verkrijgen.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-54:2-11: \textbf{documentatie} kan op verschillende wijze worden geschreven. Dit kan mbv mark down, html en latex
-    \newline\textbf{obs}: deze had ik ook uit documentatie kunnen halen
+    \item rq1-54:2-11: The \A{documentation} can be written in different ways.
+    This can be done using mark down, html and latex.
+    \newline\textbf{obs}: You will encounter this in usage, even though the documentation states this as well.
 
-    \item rq1-75:20-11: nog wat geexperimenteerd met het \textbf{prototype}. 
-    bij het beschrijven van de purpose van de context is het even puzzelen hoe deze tekst goed meegegeven kan worden. 
-    een <h1> levert op in H4 een extra hoofstuk op en wordt H4 dan H5. En h5 is dan een niets zeggend stukje geworden. NIet handig dus.
-    een <h2> en <h3> werkt het wel goed.
-    \newline\textbf{obs}: ingrijpen in structuur kan onverwachte gevolgen hebben.
+    \item rq1-75:20-11: Some more experimentation with the \A{prototype}.
+    When describing the purpose of the context, it takes a while to figure out how this text can be properly conveyed.
+    An <h1> results in an extra chapter in H4 and H4 then becomes H5. And H5 has then become a meaningless piece.
+    With an <h2> and <h3> it works well.
+    \newline\textbf{obs}: Interfering with structure can have unexpected consequences.
     
-    \item rq1-76:20-11: de "disclaimer" komt niet terug in de \textbf{conceptuele analyse} dus een kopje extra in de inleiding levert een lege kop op in de analyse.
-    \newline\textbf{obs}: zie item
+    \item rq1-76:20-11: The "disclaimer" does not appear in the \A{Conceptual analysis}.
+    \newline\textbf{obs}: The "disclaimer" does not appear in the Conceptual analysis.
     
-    \item rq1-78:20-11: \textbf{documenttie} gegenereert in HTML in firefox geladen en er zijn geen png's zichtbaar. Chrome doet het wel goed.
-    \newline\textbf{obs}: zie item
+    \item rq1-99:6-1: when generating a \A{Conceptual analysis} the doc gets the name of the first concept.
+    \newline\textbf{obs}: The name of the generated document will be the name of the first draft contained in the document.
     
-    \item rq1-99:6-1: bij het genereren van een \textbf{conceptuele analyse} krijgt het doc de naam van het eerste concept
-    \newline\textbf{obs}: dit is vreemd gedrag.     
-    
-    \item rq1-2 Ampersand heeft geen annotatie mogelijkheid -> vergt een separate actie/document om bij te houden wat er geweest is
-    \newline\textbf{obs}: komt weer neer op het houden van \textbf{overzicht}, wat zou ik met de annotatie willen=
+    \item rq1-2 \A{Ampersand} has no annotation option, therefore requires a separate action or document to keep track of what has been passed.
+    \newline\textbf{obs}: it comes down to wanting to maintain an overview. 
+    That is what I want with the annotation.
     
 \end{enumerate}
 
-\textbf{Conceptual analysis}
-    
-
-\textbf{Other documentation}
 
 \subsubsection{Development environment}
 \begin{comment}
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-36:29-9: bezig geweest om onder w10 te laten draaien. het \textbf{prototype} onder \textbf{localhost} te draaien. niet gelukt; opstarten van de service was niet te doen. Wel docker draaiend gekregen. Zat nog wel een foutje in de installatie documentatie. Blijkt dat het niet de installatie directory RapInstall te zijn, maar RAP te zijn.
-    \newline\textbf{obs}: zie item
+    \item rq1-36:29-9: Failed to run \A{prototype} under localhost in Windows\-10.
+    The service would not start in localhost.
+    We did manage to get the service running within Docker.
+    There was an error in the installation documentation.
+    Turns out that is was not the installation directory RapInstall, but the directory RAP.
+    \newline\textbf{obs}: Unable to run the service in localhost, but within Docker.
     
-    \item rq1-47:27-10: Het constateren van de fout. Door deze te plaatsen in github-issues bij de \textbf{repo} komt er binnen een dag een reactie en wordt het opgelost. In dit geval was het een fout in Ampersand die snel opgelost werd met een een nieuwe versie.
-    \newline\textbf{obs}: zie item
+    \item rq1-47:27-10: Detecting a bug.
+    Placing these in github issues at the \A{Ampersand} repository will get a response within a day and resolve it.
+    In this case it was a bug in Ampersand that was quickly fixed with a new version.
+    \newline\textbf{obs}: Quick fix of a bug in Ampersand by the development team.
         
-    \item rq1-48:27-10: het \textbf{concept} current date is wel heel ingewikkeld opgelost. Maar werkt uiteindelijk wel. Current time lijkt nog niet ontwikkeld. Al lijken de voorbeeld scripts toch iets anders te zeggen.
-    \newline\textbf{obs}: zie item
+    \item rq1-48:27-10: The \A{concept} current date is solved very complicated.
+    But eventually it works.
+    Current time does not seem to have developed yet.
+    Although the example scripts seem to say something different.
+    \newline\textbf{obs}: A frequently used element like date and time is not easily solved in Ampersand.
     
-    \item rq1-49:30-10: het isoleren van een \textbf{subsysteem} tbv het testen wil niet werken. Dit heeft te maken met het inrichten van docker en mogelijk onkunde van mijn kant.
-    \newline\textbf{obs}: zie item    
+    \item rq1-49:30-10: Isolating a \A{pattern} or subsystem for testing does not work.
+    This has to do with setting up \A{Docker} and possible ignorance on my part.
+    \newline\textbf{obs}: The goal was to put a part of the system on its own so that only that part could be tested.
+    But due to the Docker setup, this doesn't seem possible.
+    Or I don't have enough knowledge of Docker to make this possible.
     
-\end{enumerate}
-
-\subsubsection{Reading law}
-\begin{comment}
-Hoort dit niet bij rq3?
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-23:24-10: \textbf{wet} lezen is een vak 
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-25:12-9: eerst \textbf{overzicht} maken van de alle wetten en regelingen
-    \newline\textbf{obs}: scoping belangrijk
-    
-    \item rq1-26:12-9: ook de wetten en de regelgevingen kunnen nog weer \textbf{verwijzigen} hebben naar andere wetten en regelgevingen. Omdat ze daarop gebaseerd kunnen zijn of deze uitbreiden.
-    \newline\textbf{obs}: dat is waar.
-    
-    \item rq1-27:12-9: er zijn ook wetten en regels die niet opgenomen zijn in deze specifieke wet, maar geldig zijn vanuit een hoger liggende wet (implicite \textbf{verwijzingen}). 
-    Denk hierbij aan de grondwet. 
-    In geval van big zou dit bv de archiefwet kunnen zijn of de termijnenwet en strafrecht.
-    \newline\textbf{obs}: hoe komt je tot een volledig overzicht van wetten en regelgeving
-    
-    \item rq1-28:12-9: regelgeving over een afgesloten en verleden, wordt niet meer meegenomen. 
-    Deze is niet meer geldig. 
-    Doel is niet om historie op te bouwen maar de huidige wet te ondersteunen.
-    \newline\textbf{obs}: geen observatie maar meer scoping
-    
-    \item rq1-29:12-9: Niet alle wet- en regelgeving mbv BIG vinden we terug onder de \textbf{zoekterm} big.
-    \newline\textbf{obs}: je moet er attend op zijn dat er meer is dan enkel BIG
-    
-    \item rq1-42:21-10: het is makkelijk om van de wetsteksten af te wijken. 
-    Juist omdat deze zo lastig te lezen zijn. 
-    En enigszins \textbf{kennis van de wet }cq het proces maakt dat eigen interpretatie snel gemaakt is. 
-    Action research maakt ook dat je snel in deze valkuil stapt.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-61:9-11: er zou een check op geb datum moeten komen(\textbf{rule}), dat iemand minimaal 18 moet zijn. 
-    Klinkt logisch, maar is een afgeleide regel. 
-    dus niet opnemen. 
-    Deze zit al impliciet in de opleidingseis. 
-    De duur van de opleiding maakt al dat iemand minimaal 18 jaar is voor dat de opleiding is afgerond.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-95:29-12: de opmaak van een \textbf{concept} bignummer  is niet de wet opgenomen
-    \newline\textbf{obs}: zouden er eisen zijn aan het bignummer nu is het volgens mij 8 cijfers, maar zou dit ook zo moeten zijn. 
-    Een guid is misschien vanuit gebruikersvriendleijkheid niet zo handig
 \end{enumerate}
 
 \subsubsection{Approach}
@@ -389,55 +434,70 @@ plaats hier de afgehandelde items.
 plaats hier de afgehandelde items.
 \end{comment}
 \begin{enumerate}
-    \item rq1-3 aparte excel gemaakt om de \textbf{multiplicteiten} van de relaties uit te schrijven en te ontdekken
-    \newline\textbf{obs}: om een werkwijze te ontdekken is dit een goede manier. 
-    Wel gemerkt dat het lastig is (vanuit beheersperspectief) om het excel in sync te houden met de scripts
+    \item rq1-3 Created a separate excel to write out and discover the \A{multiplicity} of the relations.
+    \newline\textbf{obs}: As a method this is a clear way.
+    Did notice that it is difficult (from a management perspective) to keep the Excel document in sync with the scripts.
 
-    \item rq1-24 12-9/14-9 \textbf{XML} download van wetBig lijkt een logische stap, echter is deze zo complex opgebouwd dat dit geen zin heeft (idem voor json) => beide structuren zijn niet prettig leesbaar. Gedachte die hier op komt is waarom SDU niet direct annotaties toevoegt op de concepten en relaties. Beide structuren zijn gedownload om hier de annotaties aan toe te voegen. zodat je later via een programma de annotatie (xml/json annotaties) eruit kan halen tesamen met de definities en meaning en hiermee een script of een deel van een script mee kan genereren.
-    \newline\textbf{obs}: zie item
+    \item rq1-24 12-9/14-9 \A{XML} download from wetBig seems like a logical step for the analysis and processing, but it is too complex.
+    This also applies to the JSON structure.
+    Both structures are not pleasant to read.
+    The thought that comes to mind here is why SDU doesn't directly annotate the concepts and relationships.
+    \newline\textbf{obs}: Both structures have been downloaded to add the annotations to them.
+    To later use a program to extract the annotation (xml/json annotations) together with the definitions and meaning and to generate a script or part of a script with this.
     
-    \item rq1-31:14-9: naast \textbf{xml} en \textbf{json} is ook \textbf{rtf en pdf} een optie. In rtf (doc) kan er via "opmerkingen" items in de marges worden toegevoegd. BIj een pdf kunnen annotaties en kleurmarkering deze functie krijgen.
-    \newline\textbf{obs}: tbv het overzicht en om bij te houden waar je geweest bent
+    \item rq1-31:14-9: Besides \A{XML} and \A{JSON}, \A{RTF} and \A{PDF} are also an option.
+    In rtf (doc) you can add items in the margins via "comments".
+    With a PDF, annotations and color highlighting can be given this feature.
+    \newline\textbf{obs}: To get the overview and to keep track of what has already been processed.
     
-    \item rq1-33:14-9: \textbf{Patterns} binnen Ampersand zijn belangrijk. Dit zijn in feite de \textbf{subsystemen} van het informatie systeem. Vraag is even of dit op voorhand ingedeeld zou moeten worden of dat het zich vanzelf opbouwt.
-    \newline\textbf{obs}: zie item
+    \item rq1-33:14-9: The use of \A{pattern}s within Ampersand is important.
+    These are the subsystems of the information system.
+    The question is whether this should be classified in advance or whether it builds up on its own.
+    \newline\textbf{obs}: Use of patterns is necessary for the subsystem layout.
     
-    \item rq1-34:14-9: schrijfwijze van een \textbf{pattern} is met een hoofdletten. En de pattern wordt afgesloten met een endpattern. Er zijn meerdere patterns mogelijk binnen één script.
-    \newline\textbf{obs}: staat vast in de documentatie, maar daar lees je overheen en moet je even overkomen
+    \item rq1-34:14-9: The spelling of a \A{pattern} is capitalized.
+    And the pattern ends with an end-pattern.
+    Multiple patterns are possible within one script.
+    \newline\textbf{obs}: It's in the documentation, but you read about it.
+    It must happen to you.
     
-    \item rq1-35:14-9: de wet is in het nederlands opgesteld en dat maakt dat de \textbf{conceptuele analyse} ook in het nederlands te doen.
-    \newline\textbf{obs}: zie item
+    \item rq1-35:14-9: The law has been drawn up in Dutch, which means that the \A{Conceptual analysis} can also be done in Dutch.
+    \newline\textbf{obs}: The starting point is to make the Conceptual analysis in Dutch.
     
-    \item rq1-38:3-10: moeten de \textbf{subsystemen} op voorhand worden ingedeeld. Dit wordt gestuurd middels \textbf{patterns}. 
-    \newline\textbf{obs}: niet per definitie, maar misschien moet je wel nadenken over de indeling. 
-    Maar op welk moment?
+    \item rq1-38:3-10: Should the subsystems be mapped in advance.
+    This is controlled via \A{pattern}\textbf{s}.
+    \newline\textbf{obs}: It is not necessary to divide the analysis in advance into patterns or subsystems.
+    It is possible, but then there must already be a good picture of the text.
     
-    \item rq1-39:3-10: er moet niet vergeten worden om naast de toevoeg en mutatie regels ook verwijder regels te maken. \textbf{Lifecycle} aanpak.
-    \newline\textbf{obs}: oja effect.
+    \item rq1-39:3-10: Do not forget to create delete rules in addition to append and edit rules in the \A{rule}\textbf{s} in the context of the \A{Lifecycle} approach.
+    \newline\textbf{obs}: Completeness of functions on the relations.
     
-    \item rq1-46:24-10: in de scripts is geen relatie tussen de \textbf{relaties} en \textbf{concepten}. Het \textbf{overzicht} is lastig te verkrijgen. Veel zoeken en de IDE helpt niet heel erg mee.
-    \newline\textbf{obs}: zie item
+    \item rq1-46:24-10: There is no find able relationship between the \A{relation} and the \A{concept} in the script.
+    \newline\textbf{obs}: The {overview} where a concept is used is difficult to obtain.
+    The IDE used also does not provide any tooling to obtain this overview.
+
+    \item rq1-51:2-11: Discussing the \A{Conceptual analysis} should be done theme by theme.
+    \newline\textbf{obs}: Where a theme equals pattern.
     
-    \item rq1-51:2-11: het bespreken van het \textbf{conceptuele analyse} moet thema voor thema worden gedaan.
-    \newline\textbf{obs}: thema is gelijk aan pattern
+    \item rq1-57-1:7-11: Using Ampersand for \A{validation}.
+    \newline\textbf{obs}: Building an Ampersand script delivers a core on all defined validations and can be used immediately.
     
-    \item rq1-57:7-11: ampersand gebruiken voor \textbf{validaties} en \textbf{relaties}. 
-    zaken als volgende big-nummer of now() en vandaag() is beter op te lossen in een dev-taal.
-    \newline\textbf{obs}: zie item
+    \item rq1-57-2:7-11: Parts like next big number or now() and today() are better solved in a dev language, like \A{php}.
+    \newline\textbf{obs}: A development language like php because it's in the Ampersand software stack.
+
+    \item rt1-60:9-11: The process of writing a \A{Ampersand} script is not without practice.
+    \newline\textbf{obs}: There should always be someone with experience in the background or in the collaboration.
     
-    \item rt1-60:9-11: het proces is niet ongeoefend \textbf{uit te voeren}, er moet altijd wel iemand met ervaring op de achtergrond of in de samenwerking zijn.
-    \newline\textbf{obs}: zie item
+    %\item rq1-62:9-11: JK stelt dat \textbf{regelanalyse} onderdeel zou moeten uitmaken van het eindresultaat. 
+    %navragen wat die regelanalyse eigenlijk is. ben ik blijkbaar even kwijt
+    %\newline\textbf{obs}: ??
     
-    \item rq1-62:9-11: JK stelt dat \textbf{regelanalyse} onderdeel zou moeten uitmaken van het eindresultaat. 
-    navragen wat die regelanalyse eigenlijk is. ben ik blijkbaar even kwijt
-    \newline\textbf{obs}: ??
+    \item rq1-62:10-11: There has be the \A{architecture} link between the {law core} and the {register core}
+    \newline\textbf{obs}: Ampersand analysis must fit the architecture of the organization and the way of working.
     
-    \item rq1-62:10-11: er zou een koppeling moeten zijn tussen de \textbf{wettenkern} en de \textbf{registerkern}
-    \newline\textbf{obs}: ampersand analyse moet passen in de architectuur en de manier van werken
-    
-    \item rq1-67:11-11: als er een automatische \textbf{rule} is, moet er dan toch een validatie rule op?
-    \newline\textbf{obs}: wel als er kans is dat de automatische rule (per ongeluk) wordt verwijderd of veranderd.
-    Meer intrinsieke controle middel
+    \item rq1-67:11-11: If there is an automatic \A{rule}, should there still be a validation rule on it?
+    \newline\textbf{obs}: Yes, if there is a chance that the automatic rule is (accidentally) removed or changed.
+    Use as an intrinsic control agent.
     
     \item rq1-68:14-11: door het neerzetten van het \textbf{prototype} en de kennis van de omgeving is het mogelijk om een schets te maken van de architectuur waar het in zou moeten passen.
     \newline\textbf{obs}: zie item
@@ -511,6 +571,11 @@ plaats hier de afgehandelde items.
     \newline\textbf{obs}: zeker een gevaar.
     
 \end{enumerate}
+    \input{docs/AF-SE/22_results/tabledef}
+    \newpage
+
+
+
 
 
 
