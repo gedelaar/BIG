@@ -1,7 +1,3 @@
-\def\rq{rq1}
-\input{docs/AF-SE/22_results/counterdef}
-
-
 \begin{comment}
 \textbf{How useful is Ampersand for designing registry systems by analysing public health legislation and regulations, in particular the \acrshort{big}.}
 
@@ -24,24 +20,28 @@ RQ4 - Wat zijn de sterke en zwakke punten (SWOT) bij het gebruik van Ampersand v
 
 \end{comment}
 
+
+
 \subsection{Use of Ampersand}\label{use_of_ampersand}
-In the search for the question "\acrlong{rq1}" we found the following perspectives.
-When asking questions about the knowledge needed in the role of software engineers to be able to use Ampersand, the focus is not only on the Ampersand method itself.
-We should also ask ourselves whether, in addition to Ampersand, knowledge is also required of the underlying theory on which Ampersand is based.
-Is it necessary to know relation algebra.
+When searching for the question "\acrlong{rq1}" it was decided to split this question even further and to label the items found.
+A layout has been made in advance.
+These items of this classification always provide a different perspective on the sub-question.
+\begin{comment}
+When asking questions about the knowledge required in the role of software engineers to be able to use Ampersand, the focus is not only on the Ampersand method itself.
+We must also ask ourselves whether, in addition to Ampersand, knowledge of the underlying theory on which Ampersand is based is also required.
+Is it necessary to know relationship algebra.
 The environment in which a prototype runs also plays a role.
 This includes browser settings and the use of containers (Docker) in which Ampersand runs.
 During development we are dealing with an \acrfull{ide}.
 The use of such a \acrshort{ide} for determining the usability of Ampersand is relevant.
 Internet support is now indispensable when creating the scripts.
-Creating scripts for Ampersand also requires support for internet search capabilities.
-But can this be found for a relatively unknown method as Ampersand?
+Scripting for Ampersand also requires support for web search capabilities.
+But can this be found for a relatively unknown method like Ampersand?
 Finally, we look at output produced by method.
-Is it the case that the way in which the method is used also determines what comes out?
+Is it true that how the method is used also determines what comes out?
 This applies to both the prototype and the generated documentation.
-Then the approach to this process, the use of the method, among other things, determines the result.
+Subsequently, the approach to this process, the use of the method, among other things, determines the result.
 These aspects will be discussed in the following paragraphs.
-
 The sub-questions can be further subdivided into small parts.
 Starting from the question "\acrlong{rq1}", the question then follows which observations relate to this knowledge.
 Is it knowledge about only Ampersand or is knowledge also required of relation algebra.
@@ -55,13 +55,107 @@ Ampersand also provides documentation and a prototype.
 Here too, knowledge of Ampersand is required.
 Finally, you also have to ask yourself whether the way Ampersand is used, the approach to the project, also requires knowledge of Ampersand.
 There are a number of angles that play around Ampersand's knowledge.
-
-\begin{comment}
-hier een samenvatting van de onderstaande obeservaties.
 \end{comment}
-\subsection{Observation summary}
-In de subsection \ref{use_of_ampersand} ......
-implementatie rules; database structuur ontstaan; 
+
+\subsubsection{Observation summary}
+A list of occurrences is included at the end of this section.
+
+The Ampersand item has a wide palette of comments.
+This is about the setup of the tool, looking for examples to be able to work with it.
+Considerable experience is required to work with it.
+A remark that comes up a lot with various items is about overview.
+Overview in terms of usage and how to track progress.
+
+\subsubsection{Observations }
+The observations in order of multiplicity of occurrence within this sub question.
+\newcounter{subsubsubsection}[subsubsection]
+%Concept:
+%- notatie 2
+%- shared concepts 2
+%- werkwijze bij het ontdekken van een concept
+%- bepaalde concepten als datum en tijd zijn complex in gebruik
+%- waar worden bepaalde concepten gebruikt (in script) en in relaties
+%- dezelfde concepten zijn vaker te definieren, onbewust zou dit redefines kunnen worden 2
+%- wanneer is iets een concept -> immutable
+%v
+\paragraph{Concept}
+The term Concept is an important concept within Ampersand.
+The Concept is described in detail on the website of Ampersand~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/syntactical-conventions/the-concept-statement}}.
+However, there are observations on the Concept that are described on this site.
+These are observations related to the notation of a Concept.
+The fact that a Concept is immutable is also described there.
+An example of the use of the concept of date is also described.
+
+%v
+The comments regarding items not mentioned on the website relate to the use of the Concepts.
+It concerns the use and reuse of concepts within the scripts.
+The definitions of concepts go beyond the patterns.
+It is possible to use the same Concepts in multiple places.
+Redefinition of a Concept is possible with impunity.
+This redefinition may lead to the same Concept with a different definition.
+
+\paragraph{Interface}
+% CRUD met hoofd en kleine letters
+% de concepts in de interface moeten van het type object zijn
+% op de crud U/l wordt niet gecontroleerd wijzigingen hebben niet altijd inpact
+% max 1 TOT in de interface, anders wordt de data niet opgeslagen
+% waarneming interface behoort tot design en niet enkel prototype
+% views in HTML niet werkend te krijgen
+% linkto in de interface; dropdown, signatuur
+% browser issue omdat de cache vasthoud
+% target blank wordt verwijderd.
+The interface has some implementation challenges.
+The website of the Ampersand refers to the operation of the Interface from several places.
+Within the Ampersand notation it falls into the Service category.
+The \acrlong{crud} usage leads to confusion.
+The use of upper and lower case letters is not validated.
+And in some situations it has no visible effect either.
+
+When setting up the Interface, the requirement is that the Input Concept is of type object.
+\begin{lstlisting}
+INTERFACE RegistratieArts FOR MEDEWERKER : I[Registratie] cRud
+\end{lstlisting}
+
+The use of the Interface within the browser has as a point of interest that the browser has a cache that stores outdated data.
+It is necessary to clear the cache after changes in the Interface.
+
+The multiplicity of total \footnote{For any a in A there must be at least one b in B in the population of r} must be only one in the Interface.
+With multiple occurrences in one Interface, the data can no longer be stored.
+
+A LINKTO signature occurring in multiple Interfaces causes unwanted behavior in the Interface.
+When clicking on the link, a choice is offered of all links with the relevant signature.
+
+The use of Views within the Interface is well described in the documentation, but not clear enough.
+It is not always working.
+The examples do not contribute to this either.
+
+The Interface is part of the design.
+It was expected that this would only be part of the prototype, but is of course part of the whole.
+
+\paragraph{Ampersand}
+% the documentation gives an indication of how to configure ampersand and make it work locally. Using XAMP.  All this is not going to work.     Not clear why.     It did work in a Docker environment.
+% Little to be found about Ampersand except in its own repos
+% The need for overview is there as the script grows.
+% it comes down to wanting to maintain an overview.     That is what I want with the annotation.
+% Quick fix of a bug in Ampersand by the development team.
+% There should always be someone with experience in the background or in the collaboration.
+% Practice a lot and keep using it.
+Implementing Ampersand locally does not work.
+Despite description about the possible use of XAMPP.
+It is possible, with some help, to make this work via Docker.
+
+Not much information is available on the internet about Ampersand outside of the Ampersand website itself.
+In addition, stackoverflow is a resource and information can be found on GitHub\footnote{\url{https://github.com/AmpersandTarski}}.
+
+When processing the \acrshort{big} in Ampersand it is difficult to keep an overview.
+Overview from different perspectives.
+Pick up where you left off in the text.
+And which parts are defined as concept and relationship.
+The latter to avoid duplicates.
+
+
+\paragraph{Rule}
+
 
 \subsubsection{Knowledge of Ampersand}
 \begin{comment}
@@ -73,506 +167,6 @@ plaats hier de afgehandelde items.
 
 
 
-\begin{enumerate}
-    \item rq1-4 Automatically executed \A{rule} are easy to describe, but implementation here also takes a lot of patience and trying.
-    \newline\textbf{obs}: Rules are not easy to create.
-    To implement rules, knowledge of Ampersand is required and many examples must be used.
-    It is usually not possible to immediately implement a rule.
-    Many attempts are needed to realize this.
-
-    \item rq1-7:10-11: Each \A{relation} is part of a record structure.
-    \newline\textbf{obs}: Good to discover how the database structure is established.
-    It is probably stated somewhere how this happens.
-    But this can be determined through reversed engineering.
-    Above all, it provides insight and makes it more tangible.
-
-    \item rq1-8:14-11: No swagger is created for the \A{api};
-    \newline\textbf{obs}: If you want to use an external input, API descriptions are very relevant.
-    These are not generated automatically.
-    
-    \item rq1-9 Adding pieces of \A{php} code in the script is possible, but it is not clear how
-    \newline\textbf{obs}: Information is missing  on how to do this.
-     
-    \item rq1-11 Implementation in \A{RAP} works, but not with includes.
-    \newline\textbf{obs}: By using RAP all the used scripts must be included in one total script.
-     
-    \item rq1-11 Implementation in \A{Docker} with RAP creates new directories all the time.
-    \newline\textbf{obs}: The Docker environment is polluted by adding new directories all the time.
-    This makes analysis difficult because it is not clear which directory is used.
-    
-    \item rq1-12 At the start it is not clear when a capital letter or small letter should be used with the crud in the \A{interface}.
-    \newline\textbf{obs}: It is in the manual\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/crud}}, 
-    but you have to find out by trial and error how it really works.
-    
-%    \item rq1-14:10-11: Houdt de oplossing zo simpel mogeljk.
-%    \newline\textbf{obs}:  houdt de oplossing zo simpel mogelijk. 
-%    Geldt natuurlijk niet alleen voor Ampersand, maar ook voor andere talen en methodes.
-    
-    \item rq1-16 Notation method of \A{concept} and \A{relation}s and \A{rule}s are defined for a very small part.
-    Only the first position is uppercase or lowercase.
-    There is no rule about other spelling.
-    So using CamelCase or underscore or hyphen.
-    \newline\textbf{obs}: You are not forced to work in any particular structure.
-    There is no need for coercion in this area, but advice is practical for novice users.
-     
-    \item rq1-40:10-10/27-11: The concepts used in the \A{interface} must be of type "object" (represent).
-    The concept may therefore not be alpha or integer.
-    \newline\textbf{obs}: Interface did not start correctly.
-    This was caused by the interface concept not being of type "object".
-    
-    \item rq1-50:30-10: The \A{represent} statement makes the interface react differently.
-    When using the represent statement, the append option ("+") disappears.
-    \newline\textbf{obs}: Unexpected behavior, it is not immediately clear why this is happening.
-     
-%    \item rq1-52:2-11: als een onderdeel niet werkt, of niet werkt zoals je wenst, dan weglaten uit het ontwerp
-%    \newline\textbf{obs}: is meer een afspraak dan een observatie
-    
-    \item rq1-53:2-11: The \A{crud} (\acrlong{crud}) and \acrshort{crud} in the \A{interface} don't always work as it should be.
-    There is no full validation on usage.
-    So an on/off does not make sense everywhere.
-    \newline rq1-37:3-10: CRUD/crud options also need some study before they can be applied properly.
-    \newline\textbf{obs}: No (full) validation on the use of crud.
-    It is possible to apply variations that have no impact.
-    
-    \item rq1-55:2-11: At the \A{rule} it is necessary to add a ROLE with a MAINTAINS, otherwise the rule will not work.
-    \newline\textbf{obs}: In the beginning this is not obvious.
-    This becomes clear when studying examples.
-     
-%    \item rq1-56:7-11: ampersand en state gaat niet zo goed samen, vb timestamp (wat bedoel ik hiermee?)
-%    \newline\textbf{obs}: ????
-    
-    \item rq1-58:8-11: Per \A{interface} max 1 \A{multiplicity}, otherwise you won't get data stored.
-    \newline\textbf{obs}: Within an interface, multiple total constraints were included in the relationships.
-    The result was that no more data could be added within the prototype.
-
-    \item rq1-59:9-11: Many messages remain open if not all \A{rule}s are met.
-    \newline\textbf{obs}: When the input is handled easily, more and more messages appear.
-    The messages are grouped by type.
-    The workable screen is getting smaller and smaller.    
-    
-    \item rq1-63:10-11: Ampersand is \A{flexible} by extension concepts and relationships.
-    Such as dividing an address into street name, house number and addition is quickly realized.
-    Actual address formatting is not in the law.
-    The usual method within the government is to conform to BRP use of addresses.
-    \newline\textbf{obs}: Ampersand is very flexible.
-    Define a Concept and relationship and it is realized.
-    Second observation is that in the case of the address it is not immediately clear what this should look like.
-    But there are other sources for that.
-    It takes some searching and making assumptions.
-     
-%    \item rq1-64:10-11: Het overnemen van de \stepcounter{rq1-population}\textbf{POPULATION} in import vanuit excel, verandert het  gedrag van de interface.
-%    \newline\textbf{obs}: 
-    
-    \item rq1-65:10-11: DATETIME (\A{represent}) field could not be converted to Excel.
-    The compilation process hangs on this.
-    \newline\textbf{obs}: Crashing while building the application using DATETIME in the represent statement.
-     
-    \item rq1-66:10-11: XLSX files format is created partly on the basis of \A{multiplicity}.
-    1 on n relation produces its own tab.
-    \newline\textbf{obs}: The Excel file is a reflection of the database structure so that insight can be obtained in the database structure.
-     
-%    \item rq1-67:11-11: een toevoeging van datum/tijd lukte toch wel, maar leverde  een melding op. Proces liep wel door, mbv Stef opgelost. Dit kan ik niet meer %reproduceren.
-%    \newline\textbf{obs}: ??
-    
-    \item rq1-71:14-11/16-11: The \A{interface} also belongs to the design and not just to the prototype.
-    Changing the \acrlong{crud} changes the behavior of the API.
-    \newline\textbf{obs}: API behavior changes by changing \acrshort{crud}.
-     
-    \item rq1-79:20-11: Once the \A{concept} Define date and then it can be used anywhere in the context.
-    The question then is how to deal with shared Concepts and how to manage them.
-    \newline\textbf{obs}: Within the context, a concept is reused.
-    The operation of shared concept within other contexts is not self-evident.
-     
-    \item rq1-83:27-11: Experiment with HTML view within the \A{interface} fails.
-    Documentation of this is not conclusive.
-    The examples are not enough
-    \newline\textbf{obs}: This part was not made to work.    
-    
-    \item rq1-86:30-11: \A{classify} is a specialization of a concept.
-    No experience has been gained with this.
-    \newline\textbf{obs}: There was no place for this in the research.
-     
-    \item rq1-98:30-12: When using \A{linkto} in the \A{interface} as last element in the interface and the signature occurs more often than a dropdown to all subinterfaces (of the same signature) appears.
-    \newline\textbf{obs}: Unexpected behavior of the LINKTO.
-    
-\end{enumerate}
-
-Working with Ampersand requires an arduous learning curve.
-The resources from which to draw are limited because the method is not widely used.
-You can use the websites~\footnotemark{} on which Ampersand is offered.
-\footnotetext{
-	\url{https://ampersandtarski.gitbook.io/documentation/}
-	\newline  
-	\url{https://github.com/AmpersandTarski}
-    \newline
-    \url{https://stackoverflow.com}} 
-Furthermore, there is not much to be found on the internet about the Ampersand method.
-The examples should mainly be taken from the \url{https://github.com/AmpersandTarski/ampersand-models}.
-By studying these and searching for a corresponding situation.
-
-Before starting to create the scripts, it is recommended that you at least read the course documentation~\citepNonPub{wedemeijer_l_joosten_smm_michels_garkenbout_jlc_werkboek_ontwerpen_met_bedrijfsregelspdf_nodate} globally.
-
-
-
-\subsubsection{Knowledge of Relation Algebra}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-17 Applying a \A{rule}\textbf{s} takes a lot of patience and practice.
-    This is quite a steep learning curve.
-    \newline\textbf{obs}: Implementing a rule requires knowledge of relation algebra and a lot of trying and looking at examples.
-     
-    \item rq2-5:2-10: Making the \A{multiplicity} explicit.\newline
-    \begin{tabular}{ || l | l | l ||}
-    \hline
-    UNI & P->0-1 H &  most\\  \hline    
-    TOT & P->1-* H  & least\\  \hline
-    INJ & H->1 P  &   one\\  \hline
-    SUR & H->1-* P &  at least 1\\ \hline
-    \end{tabular}
-    \newline\textbf{obs}: Since you don't always have a clear picture of how this works, it needs to be written out to make it workable.
-    
-    \item rq2-11:19-10: An \A{relation} that is univalent is a function.
-    A one function there can only come out one thing.
-    The description of UNI is therefore P ->0-1 H at most (see 2-5)
-    \newline\textbf{obs}: An relation that is univalent is a function.
-     
-\end{enumerate}
-
-\subsubsection{Environment}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-5:30-10: The browser is holding data from the \A{interface} and periodically the cache needs to be cleared for customization to work.
-    \newline\textbf{obs}: It looks like the changes made to the script don't affect operation.
-    It is caused by the browser's cache not being emptied automatically.
-    There are browser extensions to still do this manually.
-    
-    \item rq1-13:17-10: The setup of \A{Ampersand} in local environment is specific and not self-explanatory.
-    Help is needed here to get this working.
-    Attempts to get the process working in localhost were unsuccessful.
-    The manual on the Ampersand site showed how to do this.
-    But it still didn't work
-    \newline\textbf{obs}: the documentation gives an indication of how to configure ampersand and make it work locally.
-    Using XAMP.
-    All this is not going to work.
-    Not clear why.
-    It did work in a Docker environment.
-     
-    \item rq1-22 The tool \A{VSC} also doesn't have a generic search option across the adls.
-    \newline\textbf{obs}: Not being able to search globally is inconvenient when looking for usage of concepts and relationships or when refactoring them.
-    To promote reuse, findability is necessary.
-    Now tools outside of \acrshort{vsc} must be used, within the OS being used, to search within files.
-    
-    \item rq1-32:14-9: The tool \A{VSC} has an Ampersand extension.
-    It hangs once in a while.
-    \newline\textbf{obs}: Must be my system, but it's annoying.
-     
-    \item rq1-33:9-1: \A{VSC} does not support the \A{latex} environment well.
-    My PC often hangs on this.
-    \newline rq1-87:3-12: Latex can also be written in VSC.
-    Apparently it is a different version, because the import does not immediately succeed.
-    Does not work really well and the result is poor.
-    \newline\textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
-    But this add-on completely hangs my system.
-    I got a 100\% cpu load for a long time. 
-    
-    \item rq1-81:20-11: Compilation error due to a \A{include} that no longer existed.
-    Observation here is that an adl has been renamed or moved or deleted.
-    The tool \acrlong{vsc} does not support a refactoring stroke on said changes.
-    \newline\textbf{obs}: Refactoring is not supported with \acrlong{vsc}.
-    
-    \item rq1-88:5-12: Tried the tool \A{Obsidian} as a new tool.
-    But here too I do not get an immediate overview and it is digital.
-    Apparently writing in a log is more convenient for me
-    \newline\textbf{obs}: Also tried a new tool while writing the logs.
-    Either this one does not work for me or I need to be more patient.
-    
-    \item rq1-78:20-11: The \A{documentation} generated in HTML loaded in firefox and no PNG's are visible.
-    Chrome is doing well.
-    \newline\textbf{obs}: Firefox does not show the generated models.
-
-\end{enumerate}
-
-\subsubsection{Ampersand on the internet}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-18 Can not find an example on the internet, only in the repo of \A{Ampersand} itself.
-    That is difficult to find.
-    \newline\textbf{obs}: Little to be found about Ampersand except in its own repos.
-    
-\end{enumerate}
-
-\subsubsection{Docker}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-6:21-10/30-10: \A{Docker} is also another thing to learn.
-    There should also be an introductory course to quickly understand Docker usage for Ampersand.
-    A waste of time to have to look this up yourself or it is preconditions to be able to use Ampersand.
-    \newline\textbf{obs}: Docker knowledge (limited) is required
-    
-\end{enumerate}
-
-\subsubsection{Prototype}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-1 Formatting in Ampersand (\A{pattern}s) has consequences for the \A{Conceptual analysis}.
-    \newline\textbf{obs}: \textbf{\textit{**welke dan ?? nog even over nadenken**}}
-    
-    \item rq1-36:3-10: What about prototype test scenarios.
-    \newline\textbf{obs}: Apparently lacking testing tools.
-    Generic tools such as Selenium may need to be used.
-     
-\end{enumerate}
-
-\subsubsection{Documentation}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-10 The function html href with target blank does not work within the \A{interface}
-    \newline rq1-77:20-11: In html mode the 
-    \begin{lstlisting}
-    <a href="x" target=\_blank>
-    \end{lstlisting}
-    is not supported.
-    The target is removed in the complation.
-    \newline\textbf{obs}: The expectation was that the target \_blank would open a new tab in the html text, but that does not happen.
-    
-    \item rq1-15:4-10 With \A{include} statements the order of the contents of the document is determined.
-    The expectation was that includes are needed to link parts of code together but includes are not everywhere necessary to get the code working.
-    \newline\textbf{obs}: Includes are not only to run the scripts completely, but also to send the documentation.
-     
-    \item rq1-30:12-9: Defining the meaning and definition of the \A{concept} is free.
-    There is no fixed pattern for documentation.
-    \newline\textbf{obs}: Defining the meaning and definition is very free.
-     
-    \item rq1-41:19-10: The law bank website contains a persistent hyperlink, which can be used in the \A{documentation} as reference.
-    \newline\textbf{obs}: References to persistent links can be included.
-    But is the output still pleasant to read because of the continuous references.
-     
-    \item rq1-42:19-10: Immediately add the description when recording a \A{concept} and \A{relation}.
-    Later it is difficult to find out why the recording took place.
-    \newline\textbf{obs}: To avoid rework, the definition and meaning and purpose should be defined immediately when defining concepts and relationships.
-    
-    \item rq1-43:23-10: The order of the data in the \A{Conceptual analysis} is a bit strange.
-    First the definition is shown, then the name of the relation and below that the meaning again.
-    \newline\textbf{obs}: The layout of the Conceptual design doesn't seem quite logical and is therefore confusing.
-    
-    \item rq1-44:23-10: In the \A{Conceptual analysis} enters must be taken into account in the texts.
-    These come back directly in the documents and then yield broken sentences.
-    \newline\textbf{obs}: Break enters in the \acrshort{ide} also produce extra newlines in the output.
-    This causes the formatting to go wrong.
-    
-    \item rq1-45:24-10: Overview within a \A{Ampersand}script is difficult to maintain and obtain.
-    \newline\textbf{obs}: The need for overview is there as the script grows.
-    
-    \item rq1-54:2-11: The \A{documentation} can be written in different ways.
-    This can be done using mark down, html and latex.
-    \newline\textbf{obs}: You will encounter this in usage, even though the documentation states this as well.
-
-    \item rq1-75:20-11: Some more experimentation with the \A{prototype}.
-    When describing the purpose of the context, it takes a while to figure out how this text can be properly conveyed.
-    An <h1> results in an extra chapter in H4 and H4 then becomes H5. And H5 has then become a meaningless piece.
-    With an <h2> and <h3> it works well.
-    \newline\textbf{obs}: Interfering with structure can have unexpected consequences.
-    
-    \item rq1-76:20-11: The "disclaimer" does not appear in the \A{Conceptual analysis}.
-    \newline\textbf{obs}: The "disclaimer" does not appear in the Conceptual analysis.
-    
-    \item rq1-99:6-1: when generating a \A{Conceptual analysis} the doc gets the name of the first concept.
-    \newline\textbf{obs}: The name of the generated document will be the name of the first draft contained in the document.
-    
-    \item rq1-2 \A{Ampersand} has no annotation option, therefore requires a separate action or document to keep track of what has been passed.
-    \newline\textbf{obs}: it comes down to wanting to maintain an overview. 
-    That is what I want with the annotation.
-    
-\end{enumerate}
-
-
-\subsubsection{Development environment}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-36:29-9: Failed to run \A{prototype} under localhost in Windows\-10.
-    The service would not start in localhost.
-    We did manage to get the service running within Docker.
-    There was an error in the installation documentation.
-    Turns out that is was not the installation directory RapInstall, but the directory RAP.
-    \newline\textbf{obs}: Unable to run the service in localhost, but within Docker.
-    
-    \item rq1-47:27-10: Detecting a bug.
-    Placing these in github issues at the \A{Ampersand} repository will get a response within a day and resolve it.
-    In this case it was a bug in Ampersand that was quickly fixed with a new version.
-    \newline\textbf{obs}: Quick fix of a bug in Ampersand by the development team.
-        
-    \item rq1-48:27-10: The \A{concept} current date is solved very complicated.
-    But eventually it works.
-    Current time does not seem to have developed yet.
-    Although the example scripts seem to say something different.
-    \newline\textbf{obs}: A frequently used element like date and time is not easily solved in Ampersand.
-    
-    \item rq1-49:30-10: Isolating a \A{pattern} or subsystem for testing does not work.
-    This has to do with setting up \A{Docker} and possible ignorance on my part.
-    \newline\textbf{obs}: The goal was to put a part of the system on its own so that only that part could be tested.
-    But due to the Docker setup, this doesn't seem possible.
-    Or I don't have enough knowledge of Docker to make this possible.
-    
-\end{enumerate}
-
-\subsubsection{Approach}
-\begin{comment}
-plaats hier de afgehandelde items.
-\end{comment}
-\begin{enumerate}
-    \item rq1-3 Created a separate excel to write out and discover the \A{multiplicity} of the relations.
-    \newline\textbf{obs}: As a method this is a clear way.
-    Did notice that it is difficult (from a management perspective) to keep the Excel document in sync with the scripts.
-
-    \item rq1-24 12-9/14-9 \A{XML} download from wetBig seems like a logical step for the analysis and processing, but it is too complex.
-    This also applies to the JSON structure.
-    Both structures are not pleasant to read.
-    The thought that comes to mind here is why SDU doesn't directly annotate the concepts and relationships.
-    \newline\textbf{obs}: Both structures have been downloaded to add the annotations to them.
-    To later use a program to extract the annotation (xml/json annotations) together with the definitions and meaning and to generate a script or part of a script with this.
-    
-    \item rq1-31:14-9: Besides \A{XML} and \A{JSON}, \A{RTF} and \A{PDF} are also an option.
-    In rtf (doc) you can add items in the margins via "comments".
-    With a PDF, annotations and color highlighting can be given this feature.
-    \newline\textbf{obs}: To get the overview and to keep track of what has already been processed.
-    
-    \item rq1-33:14-9: The use of \A{pattern}s within Ampersand is important.
-    These are the subsystems of the information system.
-    The question is whether this should be classified in advance or whether it builds up on its own.
-    \newline\textbf{obs}: Use of patterns is necessary for the subsystem layout.
-    
-    \item rq1-34:14-9: The spelling of a \A{pattern} is capitalized.
-    And the pattern ends with an end-pattern.
-    Multiple patterns are possible within one script.
-    \newline\textbf{obs}: It's in the documentation, but you read about it.
-    It must happen to you.
-    
-    \item rq1-35:14-9: The law has been drawn up in Dutch, which means that the \A{Conceptual analysis} can also be done in Dutch.
-    \newline\textbf{obs}: The starting point is to make the Conceptual analysis in Dutch.
-    
-    \item rq1-38:3-10: Should the subsystems be mapped in advance.
-    This is controlled via \A{pattern}\textbf{s}.
-    \newline\textbf{obs}: It is not necessary to divide the analysis in advance into patterns or subsystems.
-    It is possible, but then there must already be a good picture of the text.
-    
-    \item rq1-39:3-10: Do not forget to create delete rules in addition to append and edit rules in the \A{rule}\textbf{s} in the context of the \A{Lifecycle} approach.
-    \newline\textbf{obs}: Completeness of functions on the relations.
-    
-    \item rq1-46:24-10: There is no find able relationship between the \A{relation} and the \A{concept} in the script.
-    \newline\textbf{obs}: The {overview} where a concept is used is difficult to obtain.
-    The IDE used also does not provide any tooling to obtain this overview.
-
-    \item rq1-51:2-11: Discussing the \A{Conceptual analysis} should be done theme by theme.
-    \newline\textbf{obs}: Where a theme equals pattern.
-    
-    \item rq1-57-1:7-11: Using Ampersand for \A{validation}.
-    \newline\textbf{obs}: Building an Ampersand script delivers a core on all defined validations and can be used immediately.
-    
-    \item rq1-57-2:7-11: Parts like next big number or now() and today() are better solved in a dev language, like \A{php}.
-    \newline\textbf{obs}: A development language like php because it's in the Ampersand software stack.
-
-    \item rt1-60:9-11: The process of writing a \A{Ampersand} script is not without practice.
-    \newline\textbf{obs}: There should always be someone with experience in the background or in the collaboration.
-    
-    %\item rq1-62:9-11: JK stelt dat \textbf{regelanalyse} onderdeel zou moeten uitmaken van het eindresultaat. 
-    %navragen wat die regelanalyse eigenlijk is. ben ik blijkbaar even kwijt
-    %\newline\textbf{obs}: ??
-    
-    \item rq1-62:10-11: There has be the \A{architecture} link between the {law core} and the {register core}
-    \newline\textbf{obs}: Ampersand analysis must fit the architecture of the organization and the way of working.
-    
-    \item rq1-67:11-11: If there is an automatic \A{rule}, should there still be a validation rule on it?
-    \newline\textbf{obs}: Yes, if there is a chance that the automatic rule is (accidentally) removed or changed.
-    Use as an intrinsic control agent.
-    
-    \item rq1-68:14-11: door het neerzetten van het \textbf{prototype} en de kennis van de omgeving is het mogelijk om een schets te maken van de architectuur waar het in zou moeten passen.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-69:14-11: postman geinstalleerd en werkt met het \textbf{prototype}.
-    \newline\textbf{obs}: nvt
-    
-    \item rq1-70:14-11: postman werkt mbv api/v1/resource, bv GET localhost/api/v1/resource/Persoon/P001/Persoon; 
-    hiermee wordt een bestaand persoon opgehaald. 
-    Dus kan er van buiten Ampersand gebruik gemaakt worden van de validatie structuur van ampersand middels \textbf{API}.
-    \newline\textbf{obs}: dus ampersand is meer open dan het op het eerste gezicht lijkt
-    
-    \item rq1-72:14-11: naast de GET(ophalen), werkt ook de POST(toevoegen) en PUT (muteren)
-    \newline\textbf{obs}: uitwerking van de \textbf{API} mogelijkheden
-    
-    \item rq1-73:14-11: ampersand is te gebruiken vanuit andere applicaties middels \textbf{API}'s, maar de return waardes zijn naast de gevraagde infomatie ook meldingen (en geen meldingcodes). Deze codes zouden in de meldingen opgenomen kunnen worden, maar blijven "ongestructureerde" data.
-    \newline\textbf{obs}: hier mis je structuur. 
-    Dus Ampersand is niet bedoelt om zo te gebruiken. 
-    Zie ook opmerking over swagger(rq1-8).
-    
-    \item rq1-74:16-11: koppeling tussen front-end en back-end (ampersand-\textbf{api}) kan wijziging in de back-end detecteren. Als Ampersand wijzigt dan moet de front end waarschijnlijk mee wijzigen. anders doet ie het niet meer.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-80:20-11: let op een consequente benoeming van \textbf{Concepten}. 
-    Een eenmaal gedefineerd concept zou zomaar (door gebrek aan het overizcht) opnieuw gedefinieerd kunnen worden. 
-    Met net een ander formaat of definitie. 
-    Elke analyse tool heeft dat natuurlijk, maar je zou dit opgelost willen zien.
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-82:20-11: \textbf{includes} lijken niet altijd nodig bij compilatie. niet helemaal duidelijk wanneer dit nu wel of niet nodig is. 
-    andere functie van includes is het opmaken van de analyse.
-    \newline\textbf{obs}: includes werking nog even testen
-    
-    \item rq1-84:30-11: \textbf{Concepten} zijn onveranderlijk. bv persoon is concept, arts niet. 
-    moet intrinsieke eigenschap zijn, die niet wijzigbaar is.
-    \newline\textbf{obs}: belangrijk concept van Ampersand. 
-    
-    \item rq1-85:30-11: nieuwe structuur waarbij de \textbf{registers} onafhankelijk van elkaar kunnen opereren, met enkel de generieke elementen als multiple use zaken.
-    \newline\textbf{obs}: dit werkt niet ivm multicontext issue
-    
-    \item rq1-89:7-12: zaken benoemd als common \textbf{concepts}, EA bevat waarschijnlijk wel tekeningen en beschrijvingen van de huidige situatie.
-    \newline\textbf{obs}: hoe om te gaan met common concepts
-    
-    \item rq1-90:14-12: verzameling model van regelgeving; dan \textbf{includes} -> klein houden en overzichtelijk; tbv herbruikbaarheid van de adl.
-    per feature een module;
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-91:14-12: \textbf{concepten} en \textbf{relaties} kunnen meerdere malen gedefinieerd worden binnen de eigen patterns; zodat de patterns op zichzelf kunnen staan.
-    \newline\textbf{obs}: gevaarlijk want hiermee kunnen dezelfde concepten verschillende definities bevatten
-    
-    \item rq1-92:14-12: in principe proberen om per \textbf{register} een eigen container te maken. Multicontext problematiek. 
-    hierdoor lukt het niet om deze containers te isoleren. 
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-93:19-12/21-12: implementatie keuze voor seperate \textbf{registers} heeft impact op het geheel.
-    hoe om te gaan met gedeelde modules
-    hoe om te gaan met gedeelde data (zoals persoon)
-    of moet de keuze gemaakt worden om enkel de concepten en relaties te delen en niet implemetatie
-    oplossing zou kunnen zijn om elk register van een eigen db te voorzien en van een gedeelde db voor bv personen
-    gebruik van ports is dan ook een issue. Kan iets voor geregeld worden in de .env.
-    uitwerking van de eigen containers lijkt niet te werken, steeds wordt de db structuur overschreven door het nieuwe register
-    \newline\textbf{obs}: zie item
-    
-    \item rq1-94:29-12: er valt niets te generaliseren; eigen containers werken niet
-    \newline\textbf{obs}:  zie rq1-93
-    
-    \item rq1-96:30-12: \textbf{vaardigheid} in de scripting ben je snel kwijt wanneer je dit niet frequent doet
-    \newline\textbf{obs}: eigen waarneming
-    
-    \item rq1-97:30-12: door gepuzzel met ampersand wordt snel vergeten om correct te \textbf{documenteren}. vaak ben je blij dat iets werkt.
-    \newline\textbf{obs}: zeker een gevaar.
-    
-\end{enumerate}
-    \input{docs/AF-SE/22_results/tabledef}
-    \newpage
 
 
 

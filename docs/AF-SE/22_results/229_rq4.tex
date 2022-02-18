@@ -1,5 +1,4 @@
-\def\rq{rq4}
-\input{docs/AF-SE/22_results/counterdef}
+
 
 \begin{comment}
 RQ4 - Wat zijn de sterke en zwakke punten (SWOT) bij het gebruik van Ampersand voor registratiesystemen voor een overheidsorganisatie.
@@ -8,43 +7,3 @@ RQ4 - Wat zijn de sterke en zwakke punten (SWOT) bij het gebruik van Ampersand v
 
 \subsection{Ampersand in government environment}
 [RQ4]- What are the strengths and weaknesses (SWOT) in using Ampersand for registry systems for a government organization.
-\begin{enumerate}
-    \item rq4-1 A kan niet rekenen; Maar aangezien \A{Ampersand} statisch is, kunnen proces gegevens op andere manier worden bewaakt.
-    \newline\textbf{obs}: kan niet rekenen!
-    
-    \item rq4-2 api koppeling werkt goed, echter komen hele meldingen terug; zouden eigenlijk codes moeten krijgen 
-    \newline\textbf{obs}: api returned een tekst/melding -> daar kunnen aanroepende applicaties meestal niet zo goed mee overweg. 
-    gebruikelijk is om een code en soms met tekst terug te geven. 
-    denk hierbij aan httpresponse codes
-    
-    \item rq4-3 inbedden in architectuur 
-    \newline rq4-6 ui model; 
-    wettenkern met gedeelde concepten en proces deel; 
-    wettenkern is specifiek wet; 
-    gedeelde concepten zijn ook onderdeel van de wet maar komen ook elders voor;
-    dit is onderdeel van inbedding in de architectuur
-    \newline\textbf{obs}: inbedden in de bestaande architectuur is van belang voor de bruikbaarheid, in de vorm van acceptatie
-    
-    \item rq4-4 interface levert veel meldingen en deze blijven ook staan
-    \newline\textbf{obs}: schermen van het prototype raken vol met meldingen wanneer deze niet opgelost worden
-    
-    \item rq4-5 postman gebruikt voor API koppeling met A. 
-    \newline\textbf{obs}: bij wijze van test is het mogelijk om Postman te gebruiken voor de koppeling. 
-    Dus het is niet persé nodig om een applicatie hiervoor te bouwen
-    
-    \item rq4-7 wat gebeurt er als A geimplementeerd is en er toch wijzigingen in de structuur plaatsvinden (normaal voor software)
-    \newline\textbf{obs}: wanneer er een nieuw model wordt gemaakt binnen Ampersand, dan wordt de datastructuur opnieuw geladen.
-    Er zijn geen voorzieningen om de data die al ingevoerd is te behouden.
-    -> zijn hier oplossingen voor
-    
-    \item rq4-8:22-11: team achter Ampersand is zeer toegewijdt. 
-    \newline\textbf{obs}: calls worden snel opgelost. 
-    voorbeeld was de foutmelding op een verkeerde multipliciteit. 
-    (melding \url{https://github.com/AmpersandTarski/RAP/issues/128})
-    het opnieuw laden van een nieuwe versie is niet evident
-    
-    
-\end{enumerate}
-
-\input{docs/AF-SE/22_results/tabledef}
-\newpage

@@ -80,12 +80,13 @@
     \newpage
     }
 \usepackage{titling}
+\usepackage{pdfpages}
 
 % counters
 \newcommand\A[1]{\textbf{#1}\stepcounter{\rq-#1}\index{#1}}
 
 \newcommand\cntA[1]{\newcounter{\rq-#1}\setcounter{\rq-#1}{0}}
-\newcommand\tabcntA[1]{#1 & \arabic{\rq-#1} & y \\ \hline}
+\newcommand\tabcntA[1]{#1 & \arabic{\rq-#1}  \\ \hline}
 
 \newcommand\tabifA[1]{\ifnum\value{\rq-#1}>0 \tabcntA{#1} \fi}
 
@@ -120,6 +121,7 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \input{./25_conclusions and recommendation/main}
 \input{./26_Reflexion/main}
 
+
 %\input{./60_test/main}
 
 \newpage
@@ -133,7 +135,9 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \bibliography{00_common/report}
 \bibliographyNonPub{00_common/reportNonPub}
 
-
+%appendix
+\input{docs/AF-SE/70_bijlage/main}
+\includepdf[pages=-]{myfile.pdf}
 \end{document}
 
 

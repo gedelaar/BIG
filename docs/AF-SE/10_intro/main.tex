@@ -1,8 +1,17 @@
 \newpage
 \section{Introduction} \label{Introduction}
 \begin{comment}
+- the \textbf{introduction}, which contains the following elements, amongst others,
+a rationale for selecting the research subject, 
+a clear description of the problem statement and objective, 
+an introduction of the terms used in the thesis, 
+a description of the relationship with other studies and 
+a reference to the background knowledge required in order to understand the work in question. 
 
-
+In a nutshell, the introduction describes the 'what' and 'why' of your research
+    
+\end{comment}
+\begin{comment}
 This research is about the usefulness of Ampersand for designing register systems.
 
 Registry systems are designed and built for a legal task and thus have a specific purpose.
@@ -115,25 +124,49 @@ Deze vragen worden niet in de introductie beantwoord, wat bij mij als lezer een 
 
     \end{enumerate} 
 \end{comment}
-Ampersand is the subject of research.
+%v
+Ampersand will be used to specify registration systems.
 The usefulness of Ampersand for designing registration systems is being investigated.
-The registration systems to be designed have a legal basis.
-They are based on laws and regulations.
+It is being investigated whether this is a useful method for government organizations that build and manage registration systems.
 
+%v
+Ampersand is a rules-based design tool.
+It is a way of designing information systems.
+It is both a method and a tooling.
+The method supports the way in which the design and conceptual analysis come about.
+The tooling is used to translate the design into a prototype.
+
+%V
+Ampersand is grounded on Relation Algebra.
+The most used parts of Ampersand are the concept, the relationship and the rules.
+A concept is an abstract representation of things.
+A relation defines a relationship between two or more other concepts.
+The rules are about validating relationships between concepts.
+
+%v
+Ampersand method is used to translate legislation and regulations.
+Because it is a rule-based design method, it is ideally suited for legislation and regulations.
+Laws and regulations strongly rule-oriented.
+
+%v
+Ampersand is deployed for a government organization, namely the CIBG.
+Government organizations work on the basis of laws and regulations.
+
+%v
+The CIBG is a government organization that designs, builds and manages registration systems.
+These registration systems called registers are based on legislation and regulations.
+
+%v
+The purpose of a register is to provide reliable and accessible information.
+So that it can be used for individual consultation and also as research data as used in ~\cite{schmidt_danish_2015} and \cite{bakken_norwegian_2019}.
+This reliability must be guaranteed by the management organization.
+
+%v
 In practice, we see that Ampersand is not used much.
 In the past there have been a few projects in which Ampersand has played a role.
-For example, this was the \acrlong{indigo} project.
-Within this project, Ampersand was used for the conceptual analysis.
+This was the \acrlong{indigo} project and later a project at the UWV.
 
-Ampersand is a formal language that is used in this case to specify registration systems.
-This language is based on relation algebra.
-We are going to convert legislation and regulations to Ampersand.
-
-Software engineers can use Ampersand to design and prototype registration systems.
-Ampersand uses scripting that produces a database structure and web interface after compilation.
-In the setup provided by the \acrlong{ou}, Ampersand is deployed within a Docker environment.
-By deploying the database structure and the web interface within Docker, a container is created that provides access to the generated prototype.
-
+%v
 Ampersand its usability is apparently an issue, which is reflected in its low usage.
 The language and method of use work in practice. This has become apparent from the efforts made in other projects.
 But the language is not used.
@@ -155,38 +188,60 @@ Windows apparently has features that are considered indispensable.
 Windows was also a forerunner in user-friendliness and has a large marketing department
 Despite the usability of Linux, it is mainly chosen by IT people or users who want a free operating system.
 
-A register is a list of data that is collected on a legal basis.
-The scope is determined by the legislation on which it is based.
-Usually this scope is national or European.
-Due to its legal basis, the register is also reliable.
-This reliability must be guaranteed by the management organisation.
-The registry data is collected centrally and is intended to provide insight into the registrations.
-For this, data elements have been designated that must be present.
-In addition to reliability, a register is also accessible.
-So that it can be used for individual consultation and also as research data as used in ~\cite{schmidt_danish_2015} and \cite{bakken_norwegian_2019}.
-
-Due to the legal basis of the register, it is by definition extensively described in the form of legislation and regulations.
-Ampersand is used to convert these laws and regulations into register design.
-A register design is therefore very suitable to do with Ampersand.
-
-It is not known what causes the low usage of Ampersand in register system design.
-To find out, it has to be approached exploratory.
+%v
+The cause of the low usage of Ampersand for designing register systems is unknown.
+There is not enough information to determine the reasons.
+In order to find out the reason for the low use, we will conduct exploratory research.
 The chosen exploratory approach is therefore \acrfull{ar}~\citep{Easterbrook}.
-The exploratory approach lends itself to the research where Ampersand is used to design register systems to, as \cite{Easterbrook} argues, derive hypotheses and construct theories.
-The research therefore focuses on a theory for the low use of Ampersand.
+The exploratory approach of \cite{Easterbrook} lends itself to the research where Ampersand is used to design register systems to derive hypotheses and construct theories.
+The research therefore focuses on a theory for the low utilization of Ampersand.
 
+%v
+The researcher is not independent of the case that will be investigated.
 The approach of \acrshort{ar} was chosen because the researcher is part of the research.
+Other arguments supporting the \acrshort{ar} relate to the CIBG.
 The CIBG, the investigator's employer, has an interest in the investigation and is particularly interested in the design of the register.
 Designing the successor to the registration system Zorro, the registration system for the \acrshort{big}, is a case that is easily accessible for research.
-There are too few reference cases available to conduct quantitative research.
+As mentioned earlier, here are too few reference cases available to conduct quantitative research.
 Objective analysis is therefore not possible here.
 It therefore makes sense to investigate the usefulness of Ampersand by actively participating in the design process and curiously investigating what Ampersand does in that process.
 
-The research techniques used are limited to discussions with stakeholders and a substantive analysis of the collected material during the research.
-In this case, the stakeholders are located in different parts of the organization.
-From the point of view of legislation and regulations, these are company lawyers and the company's own business units.
-The business unit is responsible for the implementation of the \acrshort{big}.
-This is the basis of the conversation with the product owners.
-Architects are involved to enable embedding in the architecture.
-From the architecture came the first request for a regulatory inquiry into application design.
+%v
+The research techniques used are limited to discussions with stakeholders and a substantial analysis of the collected material during the research.
+By showing the stakeholders what Ampersand means for the register, statements can be elicited here about the usefulness of the method.
+In order to show what Ampersand delivers, an environment must also be built using the Ampersand method.
+
+%
+Building the environment as a software engineer provides data about the usability of Ampersand.
+By classifying this data, we gain quantitative insight into the items that stand out the most.
+The numbers delivered do not necessarily say anything about usability.
+But it says something about the issues the researcher encountered.
+
+%v
+Software engineers can use Ampersand to design and prototype registration systems.
+They are used to designing and developing in a programming language.
+Prototyping is often part of their development job.
+Ampersand is both a design tool and a development language.
+In addition, Ampersand offers the possibility to have this assessed via a prototype.
+
+%v
+Stakeholders are capable of making a statement about the usefulness of Ampersand for the use of register building within a government organization.
+The chosen stakeholders have a relationship with the current registration system called Zorro.
+The stakeholders have the role of product owner for the \acrlong{big}.
+From that role they can make a statement about the concepts and relationships within the conceptual analysis generated by Ampersand.
+Architects and a designer are also involved.
+They look at the usefulness of Ampersand in the designing and developing systems.
+An architect will look at the integration into the architecture and the designer will look at the possibilities of using the conceptual analysis and the prototype.
+
+%v
+There have been studies in which Ampersand play an important role.
+This has not boosted the use of Ampersand so far.
+The work of \citeNonPub{baecke_elleke_argument_2018} looked at Argument assistance software in legal reasoning.
+Ampersand was used to build a prototype that should support professionals in legal reasoning and not for automating the argumentation.
+Here we zoom in on the use of Ampersand prototype by lawyers.
+
+In his thesis \citeNonPub{bos_pim_bedrijfsregels_2013} explores \citeauthor{bos_pim_bedrijfsregels_2013} the feasibility of implementing the business rules of the VOG case using semantic web technologies.
+In this work, Ampersand is compared with Semantic Web Rule Language at the level of relation algebra.
+
+
 

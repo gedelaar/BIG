@@ -1,0 +1,94 @@
+\def\rq{rq2}
+\input{docs/AF-SE/22_results/counterdef}
+\acrlong{\rq}
+
+\begin{enumerate}
+    \item rq2-1 Substantively includes \acrshort{big} also includes disciplinary law (tuchtrecht), which is another branch of sport.
+    \newline\textbf{obs}: Disciplinary law is not easy to capture in \A{concept} and \A{relation}s.
+    Disciplinary law consists more of processes and procedures.
+     
+    \item rq2-2 Only UNI, TOT, INJ and SUR are used.
+    \newline\textbf{obs}: Although there are more forms of \A{multiplicity}, in practice (also in the examples) UNI and TOT are mainly used.
+    To a lesser extent INJ and SUR.
+     
+    %\item rq2/rq3-3 In de wetbig wordt specialismes genoemd, maar geen lijst oid
+    %\newline\textbf{obs}: 
+     
+    \item rq2-4:30-9: Which agreements must be made regarding the structure of the descriptions for \A{Conceptual analysis}.
+    Do agreements have to be made about it or leave it unstructured?    
+    \newline\textbf{obs}: To prevent the description from becoming a mess, agreements (implicit or explicit) must be made about the way of escribing.
+    And name the references.
+    
+    \item rq2-6:2-10/13-11: A \A{rule} is not easy to realize.
+    There are tricks to realize this.
+    \newline rq1-17 Applying a rule requires a lot of patience and practice.
+    \newline\textbf{obs}: Rules require knowledge of Ampersand, but also many examples.
+    And they are not very available.
+    
+    \item rq2-7:4-10: A \A{concept} Person is not equal to BIG-number.
+    A big number is an attribute of the registration.
+    A person can have multiple BIG-numbers.
+    \newline\textbf{obs}: It seems in the text that a BIG-number is equated with a person.
+    
+    \item rq2-8:7-10/10-10: Date of birth must be formatted as date.
+    The \A{represent} seems to have to fulfill that role.
+    Represent defines a type of a concept, but DATETIME causes interface problems.
+    \newline\textbf{obs}: Type of elements can be sent, subject to conditions.
+    
+    \item rq2-9:7-10: Subscription time is added automatically.
+    This is done by means of a \A{rule}.
+    \newline\textbf{obs}: Despite not being able to add \A{php} functions, it appears to be possible to add a date-time automatically.
+    That failed in previous attempts.
+    This only worked with support.
+    
+    \item rq2-10:19-10: The naming of a \A{relation} is usually assigned to the TRG attribute of the set.
+    Such as \textit{[Person * First name]} with relation name "first name".
+    \newline\textbf{obs}: Making agreements about processing is important.
+    When there are agreements, things can also be found again.
+    
+    \item rq2-12:19-10: TOT has the property that this must be entered in the \A{interface} because otherwise the data will not be saved.
+    A variant of this is an \A{rule} with this property
+    As a result, the other items are stored in the database, but a notification of incompleteness continues to appear.
+    \newline rq1-21:7-11: TOT is usually overcome by a tot-rule, it turns out that a TOT causes something to be saved when entered, while a tot-rule allows a save to occur while the notification remains open to stand.
+    \newline\textbf{obs}: so there are several ways to deal with a TOT.
+    Therefore, the use of this resource must also be considered.
+    
+    \item rq2-13:19-10: What applies to \A{multiplicity} TOT, also applies to SUR. 
+    \newline\textbf{obs}: There are several ways to deal with a SUR.
+    Therefore, the use of this resource must also be considered.
+    
+    \item rq2-14:19-10: The role gives control to the user.
+    A user is \A{authorized} for use.
+    It indicates which user is allowed to use the function.
+    \newline\textbf{obs}: In the beginning I left this element out of consideration, assuming there was some kind of authorization.
+    But this is necessary to get the \A{rule} working.
+    
+    \item rq2-15:19-10: In the \A{interface} a FOR can also be used.
+    This populates user roles.
+    \newline\textbf{obs}: So be \A{authorized} can be arranged here.
+    The question is how this works in, for example, a combination of api with FOR.
+    
+    \item rq2-16:19-10/11-11: Ampersand has a hard time determining a period.
+    Ampersand cannot calculate out of the box.
+    This requires the \A{php} functions, which are also not easy to allocate.
+    \newline\textbf{obs}: Ampersand cannot calculate out-of-the-box.
+    Is this actually a problem or do you have to solve these types of elements at Ampersand.
+    
+    \item rq2-17:11-11/14-11: Is there a difference between the \A{concept} entry and the draft entry.
+    These seem to coexist.
+    \newline\textbf{obs}: The law talks about registration and later also about registrations.
+    The lawyer indicates that this is the same.
+    Wonder if this is really the case.
+    There seems to be a timing difference in this usage.
+    
+    \item rq2-18:16-11: Good to realize that the \A{meaning} you write down also ends up in the \A{Conceptual analysis}.
+    So looking at the way of writing it down can form a story in the analysis.
+    \newline\textbf{obs}: The meaning must be worded in such a way that all these meanings form a story.
+    
+    \item rq2-19:16-11: \A{Ampersand} returns constraints and no executable
+    \newline\textbf{obs}: It is not an executable file, but a collection of database constraints that is the core of Ampersand.
+    
+\end{enumerate}
+
+\input{docs/AF-SE/22_results/tabledef}
+\newpage
