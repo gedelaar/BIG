@@ -1,49 +1,46 @@
-\newcommand\tottab[1]{{#1} & \the\value{rq1-#1} & \the\value{rq2-#1} & \the\value{rq3-#1} & \the\value{rq4-#1} & \xintexpr \the\value{rq1-#1} + \the\value{rq2-#1} +\the\value{rq3-#1} +\the\value{rq4-#1} \relax \\ \hline}
+\newcommand\tottab[1]{{#1} & \the\value{RQ1-#1} & \the\value{RQ2-#1} & \the\value{RQ3-#1} & \the\value{RQ4-#1} & \xintexpr \the\value{RQ1-#1} + \the\value{RQ2-#1} +\the\value{RQ3-#1} +\the\value{RQ4-#1} \relax \\ \hline}
 
-
-\begin{tabular}{ || l | c | c | c |c|c||}
-    \hline
-    object count in & rq1 & rq2 & rq3 & rq4 & total\\
-    \hline\hline
-
-    \tottab{Ampersand} 
-    \tottab{api}
-    \tottab{architecture}
-    \tottab{authorized}
-    \tottab{classify}      
-    \tottab{concept}
-    \tottab{Conceptual analysis}
-    \tottab{crud}           
-    \tottab{Docker}   
-    \tottab{documentation}
-    \tottab{flexible}    
-    \tottab{include}
-    \tottab{interface} 
-    \tottab{interpretation}
-    \tottab{JSON}
-    \tottab{latex}   
-    \tottab{law}
-    \tottab{Lifecycle}
-    \tottab{linkto}        
-    \tottab{meaning}
-    \tottab{multiplicity}  
-    \tottab{Obsidian}
-    \tottab{overview}
-    \tottab{pattern}
-    \tottab{PDF}
-    \tottab{php}
-    \tottab{population}    
-    \tottab{prototype}
-    \tottab{RAP}     
-    \tottab{register}
-    \tottab{relation}
-    \tottab{represent}      
-    \tottab{RTF}
-    \tottab{rule}
-    \tottab{specialism}
-    \tottab{validation}
-    \tottab{VSC}
-    \tottab{XML}
-
-\end{tabular}
-
+\begin{table}[H]
+    \begin{tabular}{ || l | c | c | c |c|c||}
+        \hline
+        Term count in & RQ1 & RQ2 & RQ3 & RQ4 & total\\
+        \hline\hline
+    
+        \tottab{Ampersand} 
+        \tottab{api}
+        \tottab{architecture}
+        \tottab{authorized}
+        \tottab{classify}      
+        \tottab{concept}
+        \tottab{Conceptual analysis}
+        \tottab{crud}           
+        \tottab{Docker}   
+        \tottab{documentation}
+        \tottab{flexible}    
+        \tottab{include}
+        \tottab{interface} 
+        \tottab{interpretation}
+        \tottab{latex}   
+        \tottab{law}
+        \tottab{Lifecycle}
+        \tottab{linkto}        
+        \tottab{meaning}
+        \tottab{multiplicity}  
+        \tottab{Obsidian}
+        \tottab{overview}
+        \tottab{pattern}
+        \tottab{php}
+        \tottab{prototype}
+        \tottab{RAP}     
+        \tottab{register}
+        \tottab{relation}
+        \tottab{represent}      
+        \tottab{rule}
+        \tottab{specialism}
+        \tottab{validation}
+        \tottab{VSC}
+        \tottab{XML}
+    
+    \end{tabular}
+    \caption{\label{tab:table-totalCounts}Terms count}
+\end{table}

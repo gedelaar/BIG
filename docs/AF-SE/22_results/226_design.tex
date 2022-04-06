@@ -1,0 +1,55 @@
+\subsection{Design} \label{Design}
+\def\cat{3}
+The requirements for the design are limited beforehand.
+The basis of the information was the law and it must fit within the architecture.
+
+\begin{table}[H]
+    \begin{tabularx}{\linewidth}{|X|X|}
+        \hline
+        Category        & CAT1-\cat \\\hline
+        Category Title  & \acrshort{cat\cat} \\\hline
+        Definition      & \acrlong{cat\cat} \\\hline
+        Anchor examples &  
+        \begin{itemize}
+        \setlength{\itemindent}{-2em}
+            \item rq1-36:3-10: What about {prototype} test scenarios.
+            \item rq2-18:16-11: Good to realize that the {meaning} you write down also ends up in the {Conceptual analysis}.
+        \end{itemize}\\\hline
+        Coding rules    & requirements, solution, interface, documentation        \\\hline
+    \end{tabularx}
+    \caption{Category \acrshort{cat\cat}}
+    \label{tab:Design}
+\end{table}
+
+Ampersand's design must fit into the architecture of the organization where it is used.
+We see that the design using Ampersand overlaps with the existing \acrlong{rk}.
+In particular, the generic part of the design shows coherence with \acrlong{rk}.
+
+The design is mainly expressed in the \acrlong{ca} and the prototype.
+While building the script, there are options to influence the layout and readability of the analysis.
+Adding HTML headers can disrupt the layout of the analysis considerably.
+Using includes and patterns structures the \acrlong{ca}.
+
+During the analysis of the law, it appears that the law focuses on the origin of the registration.
+The law does not clearly consider the life cycle of and registers.
+You will not find the steps to dismantle a register in the description of the law.
+
+The law speaks very clearly about multiple registers.
+The current implementation of \acrshort{zorro} is set up as one register with differentiation per profession.
+When the law is explicitly followed, this has consequences for the design.
+This will then be set up with multiple registers.
+
+The use of Ampersand for the design means that there is the possibility to develop test scenarios early in the process.
+Doing analysis and making the prototype gives the opportunity to create test scenarios.
+
+In the context of the design you want to have things made explicit.
+Matters such as address management, country management and address formatting are not included in the law.
+But these items are part of the design.
+The manner of management must be sought elsewhere than in the law.
+For example, address formatting is something that the BRP prescribes.
+This is not an Ampersand item, but one that is encountered when analyzing legislation and regulations.
+
+There is a lot to be said about the use of Ampersand in the design in many detail points.
+But bottom-line, the design of the system grows by performing the analysis.
+The analysis is performed using the scripts (see appendix \ref{appendixAdl}.
+A consequence of this analysis is the design, the \acrshort{ca}~(see appendix \ref{ConceptualAnalysis} and the prototype (see appendix \ref{appendixPrototype}.

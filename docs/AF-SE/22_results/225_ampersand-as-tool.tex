@@ -1,0 +1,48 @@
+\subsection{Ampersand as tool} \label{Ampersand as tool}
+\def\cat{6}
+To view Ampersand as a tool, we look more closely at the technical functioning of Ampersand.
+
+\begin{table}[H]
+    \begin{tabularx}{\linewidth}{|X|X|}
+        \hline
+        Category        & CAT1-\cat \\\hline
+        Category Title  & \acrshort{cat\cat} \\\hline
+        Definition      & \acrlong{cat\cat} \\\hline
+        Anchor examples &          
+        \begin{itemize}
+        \setlength{\itemindent}{-2em}
+            \item rq1-49:30-10: Isolating a {pattern} or subsystem for testing does not work.
+            \item rq1-53:2-11: The crud (\acrlong{crud}) and \acrshort{crud} in the interface don't always work as it should be.
+        \end{itemize}
+        \\\hline
+
+        Coding rules    & Technical operation of Ampersand \\\hline
+    \end{tabularx}
+    \caption{Category \acrshort{cat\cat}}
+    \label{tab:Ampersand as tool}
+\end{table}
+
+When the script is ready for compilation, removing includes appears to cause a compilation error.
+On the other hand, it also doesn't seem necessary to include everything via includes.
+And appear to be includes especially for structuring the Conceptual analysis.
+This is a side effect of the lack of proper refactoring options.
+
+Despite the fact that Ampersand is very flexible and easily expandable, it lacks an option to break up a model and share parts.
+In the situation where there is a common model and several individual models, it is not possible to separate these individual models.
+When attempting to do that, we get no further than the common part in combination with one of the individual models.
+The case is that we wanted to realize an implementation per registry.
+The common part is recording the person and the registration.
+This part is used for all registers, but there may be differences in the requirements for each register.
+The moment a second register is set up, the common part is also overwritten and all data, including database structure, from the first register is gone.
+
+An important part of the prototype is the use of the Interface~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/layout-of-user-interfaces}}.
+The \acrshort{crud} interface defines whether \acrshort{crud} items are active at the place in the interface.
+Uppercase is active and lowercase is not active.
+In not all cases this is also done by the Ampersand Interface.
+The Respresent~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/atoms}} definition of a Concept also has an effect on the Interface.
+
+Ampersand does not support all functions, but does offer the option to build it.
+The documentation does not tell you exactly how to do this.
+But in the examples and during the research it appears that it is possible.
+This is then done in PHP and can then be called within a Rule.
+Powerful, but somewhat clumsy.

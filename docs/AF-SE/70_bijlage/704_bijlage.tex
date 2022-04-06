@@ -1,34 +1,12 @@
-\def\rq{rq4}
+\def\rq{RQ4}
 \input{docs/AF-SE/22_results/counterdef}
 \acrlong{\rq}
-
+\paragraph{Ampersand}
 \begin{enumerate}
     \item rq4-1 Ampersand cannot calculate.
     But since \A{Ampersand} is static, process data can be monitored in other ways.
     \newline\textbf{obs}: Ampersand cannot calculate.
-    
-    \item rq4-2 The \A{api} link works fine, but entire messages return.
-    These should actually get codes.
-    \newline\textbf{obs}: An api returned a text.
-    Calling applications usually don't handle that very well.
-    It is usual to return a code and sometimes with text.
-    Think of http response codes.
-    
-    \item rq4-3 Embedding in \A{architecture}
-     %\newline rq4-6 ui model;
-     Law core with shared concepts and process part.
-     The core of law is specific law.
-     Shared concepts are also part of the law but also occur elsewhere.
-     This is part of embedding in architecture.
-     \newline\textbf{obs}: Embedding into the existing architecture is important for usability, in the form of acceptance.
-    
-    \item rq4-4 The \A{interface} produces many messages and these remain.
-    \newline\textbf{obs}: Prototype screens fill up with messages when they are not resolved.
-    
-    \item rq4-5 Postman used for \A{api} link with Ampersand.
-    \newline\textbf{obs}: As a test it is possible to use Postman for the link.
-    So it is not necessary to build an application for this.
-    
+
     \item rq4-7 What happens if \A{Ampersand} is implemented and there are changes in the structure (normal for software)
     \newline\textbf{obs}: When a new model is created within Ampersand, the data structure is reloaded.
     There are no provisions for preserving the data that has already been entered.
@@ -38,8 +16,41 @@
     Example was the error message on wrong multiplicity.
     (notification \url{https://github.com/AmpersandTarski/RAP/issues/128})
     Reloading a new version is not easy.
-    
-    
+
+\end{enumerate}
+
+\paragraph{Api}
+\begin{enumerate}
+    \item rq4-2 The \A{api} link works fine, but entire messages return.
+    These should actually get codes.
+    \newline\textbf{obs}: An api returned a text.
+    Calling applications usually don't handle that very well.
+    It is usual to return a code and sometimes with text.
+    Think of http response codes.
+
+    \item rq4-5 Postman used for \A{api} link with Ampersand.
+    \newline\textbf{obs}: As a test it is possible to use Postman for the link.
+    So it is not necessary to build an application for this.
+
+\end{enumerate}
+
+\paragraph{Architecture}
+\begin{enumerate}
+    \item rq4-3 Embedding in \A{architecture}
+     %\newline rq4-6 ui model;
+     Law core with shared concepts and process part.
+     The core of law is specific law.
+     Shared concepts are also part of the law but also occur elsewhere.
+     This is part of embedding in architecture.
+     \newline\textbf{obs}: Embedding into the existing architecture is important for usability, in the form of acceptance.
+
+\end{enumerate}
+
+\paragraph{Interface}
+\begin{enumerate}
+    \item rq4-4 The \A{interface} produces many messages and these remain.
+    \newline\textbf{obs}: Prototype screens fill up with messages when they are not resolved.
+
 \end{enumerate}
 
 \input{docs/AF-SE/22_results/tabledef}

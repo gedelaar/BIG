@@ -24,8 +24,8 @@ That is why register systems that are built on the basis of legislation and regu
 The case addressed in this research concerns the \acrfull{big}.
 The \acrshort{big} is a compilation of legislation and regulations concerning the determination of the qualification of care providers.
 It is a register that falls under the responsibility of the Ministry of Health, Welfare and Sport.
-Within this ministry, the implementing organization CIBG is responsible for managing the register.
-The CIBG monitors all aspects that a register system must comply with.
+Within this ministry, the implementing organization \acrshort{cibg} is responsible for managing the register.
+The \acrshort{cibg} monitors all aspects that a register system must comply with.
 To be able to do this, she has built a register system to manage the data.
 The registry system, an information system called Zorro (\acrlong{zorro})~\footnote{\url{https://www.bigregister.nl/}} was built in 2008 and an \acrfull{alm} has established that it needs to be replaced~\citepNonPub{de_kok_analyse_2019}.
 \begin{wrapfigure}{r}{0.4\textwidth} 
@@ -36,7 +36,7 @@ The registry system, an information system called Zorro (\acrlong{zorro})~\footn
 \end{wrapfigure}
 
 
-The CIBG has asked whether it is possible to translate directly from the legislation and regulations into a design and possible implementation.
+The \acrshort{cibg} has asked whether it is possible to translate directly from the legislation and regulations into a design and possible implementation.
 We are going to use Ampersand for the design.
 We put the implementation part out of scope.
 Ampersand is a design method that designs and models from the source, i.e. the law and regulations.
@@ -46,11 +46,11 @@ Ampersand is therefore based on the relation algebra and enforces validation bas
 To make the design process visible, Ampersand has tooling to generate a functional design from a conceptual model.
 In addition, Ampersand offers the possibility to make a prototype.
 This prototype, together with the design, is used to validate the model.
-The involvement of the CIBG organization is essential for this validation process.
+The involvement of the \acrshort{cibg} organization is essential for this validation process.
 
 The research concerns an authentic situation, namely the redesign of the registry system of \acrshort{big} is necessary.
 The case to be investigated is a real-life situation, also the \acrshort{big}.
-The demand and the support comes from the CIBG organization.
+The demand and the support comes from the \acrshort{cibg} organization.
 The researcher himself knows the register system and, in general, the legislation and regulations from which the system originates, which makes it a participatory form.
 As a result, Action Research~\citep{Easterbrook} has been chosen as the approach.
 
@@ -80,7 +80,7 @@ commentaar van Stef Joosten (dd 14-1-22) hierop
         eerste alinea: het onderzoek gaat over de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen. 
         tweede alinea: toelichting registratiesystemen.
         derde alinea: geeft een toelichting op de casus.
-        vierde alinea: noemt de belanghebbende, CIBG, en stelt dat we Ampersand gaan gebruiken.
+        vierde alinea: noemt de belanghebbende, \acrshort{cibg}, en stelt dat we Ampersand gaan gebruiken.
         vijfde alinea: benoemt de argumenten waarom Action Research als aanpak gekozen is
         zesde alinea: stelt dat dit werk de bruikbaarheid van Ampersand voor het ontwerpen van registersystemen onderzoekt.
         Alinea 7 wil een leeswijzer zijn.
@@ -113,7 +113,7 @@ Deze vragen worden niet in de introductie beantwoord, wat bij mij als lezer een 
     \item Waarom specifiek voor registratiesystemen? Wat zijn dat eigenlijk? (beantwoorden vanuit de literatuur, en goed afbakenen, maar wel zodanig dat het BIG-register er binnen valt.)    
     
     \item Hoe onderzoek je de bruikbaarheid van Ampersand voor het ontwerpen van registratiesystemen? (antw: omdat we niet precies weten wat de oorzaak is, moeten we het exploratief aanpakken)
-    \item Waarom juist action research? (antw: De onderzoeker is belanghebbend. Het CIBG, de werkgever van de onderzoeker, heeft er belang bij. Het ontwerpen van de opvolger van Zorro is een enkele casus die goed toegankelijk is voor het onderzoek. Er zijn te weinig referentiecasussen om kwantitatief onderzoek mee te doen. Motiveren vanuit de karakteristieken van action research die je uit de literatuur haalt. Objectieve analyse is hier dus niet mogelijk. Het ligt dus voor de hand om de bruikbaarheid van Ampersand te bestuderen door actief deel te nemen aan het ontwerptraject en nieuwsgierig te bestuderen wat Ampersand doet in dat traject.
+    \item Waarom juist action research? (antw: De onderzoeker is belanghebbend. Het \acrshort{cibg}, de werkgever van de onderzoeker, heeft er belang bij. Het ontwerpen van de opvolger van Zorro is een enkele casus die goed toegankelijk is voor het onderzoek. Er zijn te weinig referentiecasussen om kwantitatief onderzoek mee te doen. Motiveren vanuit de karakteristieken van action research die je uit de literatuur haalt. Objectieve analyse is hier dus niet mogelijk. Het ligt dus voor de hand om de bruikbaarheid van Ampersand te bestuderen door actief deel te nemen aan het ontwerptraject en nieuwsgierig te bestuderen wat Ampersand doet in dat traject.
         \begin{enumerate}
         \item Welke onderzoekstechnieken zijn hierbij nuttig?
         \begin{enumerate}
@@ -125,19 +125,28 @@ Deze vragen worden niet in de introductie beantwoord, wat bij mij als lezer een 
     \end{enumerate} 
 \end{comment}
 %v
-Ampersand will be used to specify registration systems.
+Ampersand~\citep{joosten_software_2017} will be used to specify registration systems.
 The usefulness of Ampersand for designing registration systems is being investigated.
 It is being investigated whether this is a useful method for government organizations that build and manage registration systems.
 
+%usefulness
+Ampersand its usability is apparently an issue, which is reflected in its low usage.
+The language and method of use work in practice. 
+This has become apparent from the efforts made in other projects.
+But the method is not used much.
+The question is why this is not used much.
+
+%Ampersand
 %v
 Ampersand is a rules-based design tool.
-It is a way of designing information systems.
-It is both a method and a tooling.
-The method supports the way in which the design and conceptual analysis come about.
-The tooling is used to translate the design into a prototype.
+It is a way of designing information systems that complies with all business rules.
+That makes that business rules are sufficient as an instrument to design compliant registration systems.
+A method and tool to make error-free specifications of the registration system to support business processes.
+So Ampersand supports the way in which the design and conceptual analysis come about.
+The tooling is used to translate the design into a prototype which complies with all business rules.
 
 %V
-Ampersand is grounded on Relation Algebra.
+Ampersand is grounded on Relation Algebra~\citep{maddux_bibliography_2006}.
 The most used parts of Ampersand are the concept, the relationship and the rules.
 A concept is an abstract representation of things.
 A relation defines a relationship between two or more other concepts.
@@ -148,29 +157,49 @@ Ampersand method is used to translate legislation and regulations.
 Because it is a rule-based design method, it is ideally suited for legislation and regulations.
 Laws and regulations strongly rule-oriented.
 
-%v
-Ampersand is deployed for a government organization, namely the CIBG.
+%designing
+The design process within Ampersand focuses on making a prototype and a Conceptual design.
+This prototype and design are shaped by the analysis of the source texts.
+The source text in this case is the \acrlong{big}.
+The analysis of the legislation and regulations results in a script that generates a prototype and a Conceptual design using Ampersand.
+Ampersand is both the method followed and a tool.
+
+%registration
+Ampersand is deployed for a government organization, namely the \acrshort{cibg}.
 Government organizations work on the basis of laws and regulations.
-
-%v
-The CIBG is a government organization that designs, builds and manages registration systems.
+The \acrshort{cibg} is a government organization that designs, builds and manages registration systems.
 These registration systems called registers are based on legislation and regulations.
-
-%v
 The purpose of a register is to provide reliable and accessible information.
 So that it can be used for individual consultation and also as research data as used in ~\cite{schmidt_danish_2015} and \cite{bakken_norwegian_2019}.
 This reliability must be guaranteed by the management organization.
 
+%investigated
 %v
-In practice, we see that Ampersand is not used much.
-In the past there have been a few projects in which Ampersand has played a role.
-This was the \acrlong{indigo} project and later a project at the UWV.
+The cause of the low usage of Ampersand for designing register systems is unknown.
+There is not enough information to determine the reasons.
+In order to find out the reason for the low use, we will conduct exploratory research.
+The chosen exploratory approach is therefore \acrfull{ar}~\citep{Easterbrook}.
+The exploratory approach of \cite{Easterbrook} lends itself to the research where Ampersand is used to design register systems to derive hypotheses and construct theories.
+The research therefore focuses on a theory for the low utilization of Ampersand.
 
 %v
-Ampersand its usability is apparently an issue, which is reflected in its low usage.
-The language and method of use work in practice. This has become apparent from the efforts made in other projects.
-But the language is not used.
-The question is why this is not used.
+The researcher is not independent of the case that will be investigated.
+The approach of \acrshort{ar} was chosen because the researcher is part of the research.
+Other arguments supporting the \acrshort{ar} relate to the \acrshort{cibg}.
+The \acrshort{cibg}, the investigator's employer, has an interest in the investigation and is particularly interested in the design of the register.
+Designing the successor to the registration system Zorro, the registration system for the \acrshort{big}, is a case that is easily accessible for research.
+As mentioned earlier, here are too few reference cases available to conduct quantitative research.
+Objective analysis is therefore not possible here.
+It therefore makes sense to investigate the usefulness of Ampersand by actively participating in the design process and curiously investigating what Ampersand does in that process.
+
+
+%v
+In practice we see that Ampersand is not used that much.
+In recent years experiments have been carried out at TNO, KPN, Bank MeesPierson, ING-Bank, Rabobank and Delta Lloyd.
+They experimentally confirmed the method and provided insight into its limitations and practicalities.
+
+%v
+Despite the fact that Ampersand works in practice, it has a low usage.
 Possible cause of the current low usage may be due to the unfamiliarity of Ampersand.
 This produces circular reasoning.
 Unknown means that it is rarely used.
@@ -188,23 +217,6 @@ Windows apparently has features that are considered indispensable.
 Windows was also a forerunner in user-friendliness and has a large marketing department
 Despite the usability of Linux, it is mainly chosen by IT people or users who want a free operating system.
 
-%v
-The cause of the low usage of Ampersand for designing register systems is unknown.
-There is not enough information to determine the reasons.
-In order to find out the reason for the low use, we will conduct exploratory research.
-The chosen exploratory approach is therefore \acrfull{ar}~\citep{Easterbrook}.
-The exploratory approach of \cite{Easterbrook} lends itself to the research where Ampersand is used to design register systems to derive hypotheses and construct theories.
-The research therefore focuses on a theory for the low utilization of Ampersand.
-
-%v
-The researcher is not independent of the case that will be investigated.
-The approach of \acrshort{ar} was chosen because the researcher is part of the research.
-Other arguments supporting the \acrshort{ar} relate to the CIBG.
-The CIBG, the investigator's employer, has an interest in the investigation and is particularly interested in the design of the register.
-Designing the successor to the registration system Zorro, the registration system for the \acrshort{big}, is a case that is easily accessible for research.
-As mentioned earlier, here are too few reference cases available to conduct quantitative research.
-Objective analysis is therefore not possible here.
-It therefore makes sense to investigate the usefulness of Ampersand by actively participating in the design process and curiously investigating what Ampersand does in that process.
 
 %v
 The research techniques used are limited to discussions with stakeholders and a substantial analysis of the collected material during the research.

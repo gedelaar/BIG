@@ -1,0 +1,96 @@
+
+
+\begin{comment}
+Herkenbaarheid van geschiktheid (Appropriateness recognisability)
+    De mate waarin gebruikers kunnen herkennen of een product of systeem geschikt is voor hun behoeften.
+Leerbaarheid (Learnability)
+    De mate waarin een product of systeem gebruikt kan worden door gespecificeerde gebruikers om gespecificeerde leerdoelen te bereiken met betrekking tot het gebruik van het product of systeem met effectiviteit, efficiëntie, vrijheid van risico en voldoening, in een gespecificeerde gebruikscontext.
+Bedienbaarheid (Operability)
+    De mate waarin een product of systeem attributen heeft die het makkelijk maken om het te bedienen en beheersen.
+Voorkomen gebruikersfouten (User error protection)
+    De mate waarin het systeem gebruikers beschermt tegen het maken van fouten.
+Volmaaktheid gebruikersinteractie (User interface aesthetics)
+    De mate waarin een gebruikersinterface het de gebruiker mogelijk maakt om een plezierige en voldoening gevende interactie te hebben.
+Toegankelijkheid (Accessibility)
+    De mate waarin een product of systeem gebruikt kan worden door mensen met de meest uiteenlopende eigenschappen en mogelijkheden om een gespecificeerd doel te bereiken in een gespecificeerde gebruikscontext.
+\end{comment}
+
+
+\subsection{Usefulness} \label{useful}
+\def\cat{1}
+
+When asked whether Ampersand can be used, different axes can be considered.
+This can be measured along the line of \cite{HORNBAEK200679}, which looks at effectiveness, efficiency and satisfaction.
+The other line is the line prescribed by ISO~\footnote{\url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010?limit=1&start=4}} and then it is about Appropriateness recognisability, learnability, operability, user error protection, accessibility and user interface aesthetics.
+\begin{table}[H]
+    \begin{tabularx}{\linewidth}{|X|X|}
+        \hline
+        Category        & CAT1-\cat \\\hline
+        Category Title  & \acrshort{cat\cat} \\\hline
+        Definition      & \acrlong{cat\cat} \\\hline
+        Anchor examples &                                                                 \\\hline
+        Coding rules    & is it suitable, is it adaptable, has it relevance, has it value \\\hline
+    \end{tabularx}
+    \caption{Category \acrshort{cat\cat}}
+    \label{tab:useful}
+\end{table}
+
+In order to use Ampersand, a number of conditions must be met.
+In practice, the Ampersand setup is not always smooth and error-free.
+Ampersand can be used as a development tool in various ways.
+These ways are installing on localhost, using the RAP environment and installing within a Docker environment.
+Docker installation, with help from the Ampersand team, has proven to be the most successful.
+Note that to Ampersand knowledge, basic knowledge about Docker is also required.
+This help was also necessary because the information on the internet proved to be insufficient.
+The appropriateness recognisability for the installation leaves much to be desired.
+
+To make a useful Ampersand script, it is necessary to gain knowledge of how to create scripts.
+Concepts, Relations and Rules are used within the scripts.
+It should be noted that making Rules in particular is a difficult task.
+It requires quite some knowledge of Ampersand and relation algebra.
+This knowledge of Rules and also other knowledge of Ampersand must be kept up to date, otherwise it will disappear very quickly.
+
+To maintain an overview at work, resources are needed to maintain this overview.
+An overview is needed to keep track of where people have left off in the text of the law.
+An overview of the created scripts is also necessary to avoid duplication of Concepts and Relations.
+Due to the lack of an overview and the refactoring of scripts, possible duplication's arise.
+These are reflected in the conceptual design by multiple display.
+
+In addition to the necessary overview at work, it also requires self-discipline.
+Ampersand requires that the description, meaning and purpose are also recorded during the development of Concepts, Relations and Rules.
+Due to inexperience with Ampersand, it happens that the meaning and purpose are not recorded.
+When these are forgotten and not noticed that it is missing, information is lost in the process.
+This is almost impossible to recover afterwards and is expressed in the incomplete Conceptual analysis.
+
+Adding the information to the Ampersand concepts is not very self-evident.
+It is a matter of searching the legal text for the correct phrase.
+Taking into account the final layout in the Conceptual analysis.
+The Conceptual analysis must be clearly legible.
+
+Noting the meaning and purpose requires knowledge of being able to read legal texts.
+Knowledge of the information domain seems to be an advantage, but can cause prejudice.
+This means that the text is less carefully looked at.
+
+The design of the architecture partly determines the usefulness of Ampersand.
+In particular, the overlap of what Ampersand contributes with the existing structure seems to be a bottleneck.
+And the willingness of the organization to change and to use Ampersand as a method and as a tool.
+
+The availability of APIs ensures that Ampersand can be used from outside.
+In an organization, frameworks and tools are usually available that work with APIs.
+A framework at \acrshort{cibg} is the application framework that talks to a back-end through rest calls.
+Tooling such as Postman also works with APIs and makes an Ampersand model externally testable.
+One point is that the API model is not documented, for example in Swagger.
+Another point is that no response code is returned after calling an API, but a text that is defined in the script.
+
+After a change in the law, there is a change in the Ampersand model.
+There is no possibility to implement a modified model and simply transfer the data to the new model.
+Ampersand's new model stands alone and has no physical relationship with the originaly implemented model.
+It is very easy to extend and modify an existing model.
+Ampersand is very flexible in that regard.
+A project team will have to take care of the conversion from IST to SOLL.
+The advantage of this approach is that there is no technical debt due to maintenance.
+
+A project always has to be designed.
+One of the interviewees commented that it doesn't matter much in which tool that happens.
+Many tools work from a model, model driven development~\citep{kulkarni_abstraction_2008}, after which code is generated.
+Ampersand is declarative and generates workable and reliable software from the declaration and generates documentation with associated models.

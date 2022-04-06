@@ -7,91 +7,112 @@
 Onderzoeksvraag:
 Hoe bruikbaar is Ampersand voor het ontwerpen van register-systemen door middel van het analyseren van wet- en regelgeving in de volksgezondheid en in het bijzonder de Wet-BIG
 \end{comment}
-Within the CIBG we manage the \acrshort{zorro} that needs to be replaced.
-The \acrshort{zorro} is an implementation of \acrshort{big}.
-However, because \acrshort{zorro} is end-of-live, it needs to be redesigned and rebuilt.
-This is a unique opportunity to test the usefulness of Ampersand for the design in practice.
-With the help of Ampersand, for a real-life situation, we make a design that can be put into practice.
-This law will be analysed and converted into the relational algebra as used within Ampersand.
+Action research is used to test the usability of Ampersand.
+It has already been stated in the introduction that the use of Ampersand is lagging behind in practice.
+That is why we will also test Ampersand in practice on the usability of the method and of the tool.
 
-The above leads to the following research question:
+The Ampersand's usability is measured along several axes.
+The definition of usability according to \cite{shackel_usability_2009} is "the capability to be used by humans easily and effectively" and "the effectiveness,
+efficiency, and satisfaction with which specified users can achieve goals in particular environments" is the definition given by the NEN~\footnote{\url{https://www.nen.nl/nen-iso-iec-25010-2011-en- 157265}}.
+The usability attributes according to \cite{HORNBAEK200679} are measured via Effectiveness, efficiency and satisfaction.
+Usability with which the NEN measures are the Appropriateness recognisability, Learnability, Operability, User error protection, Accessibility and User interface aesthetics.
+\begin{comment}
+Herkenbaarheid van geschiktheid (Appropriateness recognisability)
+    De mate waarin gebruikers kunnen herkennen of een product of systeem geschikt is voor hun behoeften.
+Leerbaarheid (Learnability)
+    De mate waarin een product of systeem gebruikt kan worden door gespecificeerde gebruikers om gespecificeerde leerdoelen te bereiken met betrekking tot het gebruik van het product of systeem met effectiviteit, efficiëntie, vrijheid van risico en voldoening, in een gespecificeerde gebruikscontext.
+Bedienbaarheid (Operability)
+    De mate waarin een product of systeem attributen heeft die het makkelijk maken om het te bedienen en beheersen.
+Voorkomen gebruikersfouten (User error protection)
+    De mate waarin het systeem gebruikers beschermt tegen het maken van fouten.
+Volmaaktheid gebruikersinteractie (User interface aesthetics)
+    De mate waarin een gebruikersinterface het de gebruiker mogelijk maakt om een plezierige en voldoening gevende interactie te hebben.
+Toegankelijkheid (Accessibility)
+    De mate waarin een product of systeem gebruikt kan worden door mensen met de meest uiteenlopende eigenschappen en mogelijkheden om een gespecificeerd doel te bereiken in een gespecificeerde gebruikscontext.
+\end{comment}
+
+Exploratory research is being conducted to measure the usefulness of Ampersand.
+Exploratory research is according to \cite{Easterbrook} used as initial investigations of some phenomena to derive new hypotheses and build theories.
+The new hypotheses to be developed relate to the usability of Ampersand.
+
+The development of the hypothesis takes place by measuring the usability attributes.
+To measure usability attributes we use \acrshort{ar}\citep{Easterbrook}.
+The core of this research method is the action-oriented approach.
+The researcher is part of the organization in which the research takes place.
+The data is collected within this organization.
+It is set up \acrshort{ar} as a joint learning process of researcher and organization.
+the problem owner is willing to collaborate to both identify a problem, and engage in an effort to solve it.
+The original problem is authentic.
+
+The action consists of making a prototype, because that offers a lot of opportunities for exploring the usability of Ampersand.
+Making a prototype requires a case on which the prototype can be based.
+The Ampersand method is studied to perform the action.
+
+The case being executed relates to the replacement of the current registry system of the \acrshort{big}.
+The \acrfull{big} is supported within the \acrshort{cibg} by the registry system \acrfull{zorro}.
+The \acrshort{zorro} is deprecated.
+Based on an \acrfull{alm} recommendation (2019)\citep{de_kok_analyse_2019}, it has been determined that the system is no longer adequate from the perspectives of security, maintenance, finances, functionality and process support.
+Within the \acrshort{cibg} initiatives have been started to replace the current system.
+
+We are looking into the usability of the Ampersand.
+The action we perform is to design a prototype of the \acrshort{zorro}.
+The \acrshort{zorro} is managed by the \acrshort{cibg}.
+The \acrshort{cibg} is a government organization of the \acrlong{vws}.
+This registration system is based on the \acrshort{big}.
+Thus above leads to the following research question:
 \newline
 \textbf{How useful is Ampersand for designing registry systems by analysing public health legislation and regulations, in particular the \acrshort{big}.}
 
-When investigating the research question, the following sub-questions will contribute to the answer to the research question.
-\newline Related questions:
+In order to investigate the usability of Ampersand by making the prototype, it is necessary to acquire knowledge to be able to implement this.
+\\To do this part of the research, we formulate the following sub-question:
 \begin{enumerate}
-\item[RQ1]- What knowledge, in the role of software engineer, is needed to use Ampersand.
-\item[RQ2]- What are the Concepts, Relationships and Rules in the \acrshort{big}.
-\item[RQ3]- How are the laws and regulations set up so that they can be used in a useful way for the Ampersand method.
-\item[RQ4]- What are the strengths and weaknesses (SWOT) in using Ampersand for registry systems for a government organization.
+    \item[RQ1]- \textit{What knowledge, in the role of software engineer, is needed to use Ampersand.}
 \end{enumerate}
 
-When investigating RQ1, we will determine what knowledge is needed to start as a software engineer with Ampersand and to be able to perform the conceptual analysis.
-Is it then sufficient to have a brief knowledge of relational algebra and of Ampersand, or is it necessary to have in-depth knowledge of this domain.
-The result of RQ2 should follow from the conceptual analysis of the \acrshort{big}.
-This is input for making the prototype and the functional design.
-Another aspect of the usefulness of the Ampersand method concerns the source of the data.
-This data source, the laws and regulations of the \acrshort{big}, should be structured in such a way that concepts, relationships and rules can be derived from it.
-In order to determine the usability of the Ampersand method, it is also necessary to be accepted by an organization in addition to the implementation of the method.
-The sub-question RQ4 is therefore about the strengths and weaknesses of the Ampersand method.
+While making the prototype, we will work with Ampersand.
+In addition to registering observations, we are also interested in the results of the campaign.
+Are the Concepts, Relations and Rules found recognizable for the organization?
+Especially because the \acrshort{cibg} now also has a \acrshort{zorro} running.
+\\We formulate the following sub-question:
+\begin{enumerate}
+    \item[RQ2]- \textit{What are the Concepts, Relationships and Rules in the \acrshort{big}.}
+\end{enumerate}
+
+The prototype is based on the \acrshort{big}.
+The Ampersand method prescribes that, in this case, we should take the law as our starting point.
+Now this is also the case with a traditional design.
+But then there is an interpretation battle over the user representation.
+At Ampersand, the law is taken literally as a guideline.
+The prototype is made on the basis of the law.
+\\That leads us to the following sub-question:
+\begin{enumerate}
+    \item[RQ3]- \textit{How are the laws and regulations set up so that they can be used in a useful way for the Ampersand method.}
+\end{enumerate}
+
+In order to estimate the usability for the receiving organization, it is necessary to look at what the usability attributes mean for the organization.
+The usefulness of the Ampersand method is not only technical, but organizational.
+There are also less rational aspects in this area.
+To get to the bottom of this, we will determine the strengths of using Ampersand as a registration system for the \acrshort{cibg}.
+And also what the weaknesses of using Ampersand are.
+\\We formulate the following sub-question:
+\begin{enumerate}
+    \item[RQ4]- \textit{What are the strengths and weaknesses (SWOT) in using Ampersand for registry systems for a government organization.}
+\end{enumerate}
+
+While making the prototype, we collect data.
+Then we collect two types of data.
+On the one hand, during the process of making the prototype, collecting observations.
+Writing down everything we encounter along the way.
+Each observation is given a number and a date stamp (see appendix \ref{appendixLoglines}).
+A direct allocation is made to the sub-questions.
+This is based on the assumption that the observations can lead to answering the sub-questions.
+The other source of information is obtained from a number of interviews.
+Summaries are made of these interviews (see appendix \ref{appendixInterviews}).
+We will carry out both processes time-boxed.
 
 
-
-\begin{comment}
-\item[RQ1]- What knowledge is necessary for using Ampersand.
-\item[RQ2]- What are the concepts and relationships in the new law big.
-\item[RQ3]- Are the results useful for the CIBG organization.
-\item[RQ4]- Is the description of the legislation and regulations, set up in such a way that this legislation can be used for the Ampersand method.
-
-doel van H3 -> verantwoording van de aanpak; 
-aantekeningen op papier, overnemen van de data, leesbaar maken van de observaties, generaliseren (clusteren)
-\end{comment}
-
-
-The research question focuses on the usefulness of Ampersand for designing registration systems.
-The design of a real life situation of a register system.
-The CIBG has asked to take the \acrshort{big} as a case.
-The system that supports the \acrshort{big} needs to be replaced.
-We focus on a case.
-Due to years of involvement in this system, it is not possible to look at the system completely objectively.
-So this case is authentic.
-This is why we opt for action research as a research approach.
-
-By solving a real world problem in the form of an empirical research method.
-A prerequisite for action research is having a problem owner who is willing to cooperate and tackle the problem.
-It is an authentic problem and there are authentic knowledge results for those involved.
-An additional challenge of this method is the relative unfamiliarity with the method.
-Within the field of software engineering, this is a more commonly used method, but not always recognized as such.
-We opt for the method of an action research.
-The action research\citep{Easterbrook} method was chosen precisely to contribute to Ampersand.
-
-The chosen research method is based on the research results of \cite{Easterbrook}.
-\cite{Easterbrook} distinguish between different types of empirical research. 
-The empirical research is always presented from someone his own perspective. 
-The different philosophical points of view determine the view on the research approach. 
-As mentioned, the approach is in the form of a case, in which a confirming case is the starting point. 
-This form is used to test existing theories. 
-The chosen case is a single case. 
-The theory must be shown to hold. 
-The unit of analysis concerns the professions in individual health care. 
-A weakness of this research method is the creation of bias and more open interpretation.
-To avoid these weaknesses, \cite{Easterbrook} recommends using an explicit framework for case selection and collection.
-Using only one case prevents this from leading to bias.
-Our philosophical position is based on constructivism.
-The main concern of this point is to understand how the \acrfull{big} transformation can and will be used in a real government organization.
-
-The mentioned unit of analysis, namely the \acrfull{big} is the basis of the data collection technique.
-Because we are talking about an existing law here and there is a lot of knowledge about it within the CIBG organization.
-The tool to be used is triangulation~\citep{carter_use_2014, farquhar_triangulation_2020, runeson_guidelines_2008}.
-Triangulation offers the possibility to view the source from multiple perspectives.
-The perspective of the law itself.
-In addition, the engineers have the necessary knowledge and information about the application of the law and from the business perspective.
-This is a way of assuring the validity of research through the use of a variety of methods to collect data on the same topic, which involves different types of samples as well as methods of data collection\footnote{\url{https://en.wikipedia.org/wiki/Triangulation_(social_science)}}.
-
-
-%**
 The chosen approach of elaboration relates to the content analysis~\citep{kohlbacher_use_2006}.
+\begin{comment}
 Content analysis is a widely used research process.
 It is a research method that converts qualitative data into quantitative figures.
 This is done by reading and coding the qualitative data.
@@ -99,33 +120,54 @@ Qualitative data were obtained during the study in the form of notes and intervi
 Texts are assigned labels to show if there are important patterns in them.
 Content analysis helps to see the amount of patterns in the data and to understand the connections between patterns.
 The content analysis based on qualitative data as described by~\cite{kohlbacher_use_2006} is more often used in a case study.
-The steps described by \cite{kohlbacher_use_2006} are also the steps followed within this \acrshort{ar}.
-These concern according to \cite{kohlbacher_use_2006}:
-\begin{enumerate}
-    \item Collection evidence;
-    \newline This was carried out by studying the legal texts and converting them in part to Ampersand.
-    During this conversion, it was always recorded which observations had been made.
-    \item Analyzing case study evidence;
-    \newline This includes examining, categorizing and combining data.
-    Here are several approaches~\citep{hsieh_three_2005}.
-    Where the outcomes include relying on theoretical propositions, thinking about rival explanations of developing a case description.
-    \item Reporting;
-    \newline In the last step, the reporting of the findings takes place
-\end{enumerate}
-According to \cite{hsieh_three_2005} format, the "DIRECTED CONTENT ANALYSIS" is most applicable to this case.
-The aim of direct content analysis is to validate a theory~\citep{hsieh_three_2005}.
-The main goal of a focused approach is to help the researcher create developments.
-Research would provide predictions about key variables and the relationships between them.
-This will help find the encoding scheme.
+\end{comment}
+The steps described are also the steps followed within this \acrshort{ar}.
+During these steps we collect evidence according to the approach of \cite{kohlbacher_use_2006} .
+By studying the legal texts and converting them in part to Ampersand.
+During this conversion, it was always recorded which observations had been made.
+Next step is to analyse case study evidence.
+This includes examining, categorizing and combining data.
+Here are several approaches like~\cite{hsieh_three_2005} and \cite{mayring_qualitative_2019}.
+Where the outcomes include relying on theoretical propositions, thinking about rival explanations of developing a case description.
+Last step is reporting phase, fulfilled in section \ref{Conclusions}.
+
+Given the nature of the notes, the choice is for deductive categories\citep{mayring_qualitative_2019}.
+Based on question "\acrlong{research question}", we cluster according to the terms of this main question.
+The clustering is to:
+\begin{mylist}
+    \begin{itemize}
+        \item 1: \acrshort{cat1}
+        \item 2: \acrshort{cat2}
+        \item 3: \acrshort{cat3}
+        \item 6: \acrshort{cat6}
+        \item 4: \acrshort{cat4}
+        \item 5: \acrshort{cat5}
+        \item 7: \acrshort{cat7}
+    \end{itemize}
+    \caption{Deductive categories}
+    \label{list:deductive-categrories}
+\end{mylist}
+The aim of direct content analysis is to validate the claim that we can determine the cause of the low usage of Ampersand.
+Research would provide predictions about mentioned variables in list \ref{list:deductive-categrories}.
 Using a directed approach is more organized than using a conventional approach.
-It starts with identifying key variables, after which operational definitions are determined per category.
-Based on the research question, the data and the objectives of the researcher, the following strategy can be followed in labeling/coding.
-The strategy starts with labeling using the predetermined codes.
-In the process, information that could not be encoded is recognized and later analyzed to decide whether they represent a new category in the encoding scheme.
+A definition has been drawn up for each category, which the category must meet, see list \ref{tab:Category definitions}, \nameref{tab:Category definitions}.
+\begin{comment}
+    It starts with identifying category, after which operational definitions are determined per category.
+    Based on the research question, the data and the objectives of the researcher, the following strategy can be followed in labeling/coding.
+    The strategy starts with labeling using the predetermined codes.
+    In the process, information that could not be encoded is recognized and later analyzed to decide whether they represent a new category in the encoding scheme.
+\end{comment}
 The existing theory is that Ampersand is very suitable for use in legislation and regulations.
 And also for use within a government organization.
 The impression is that the unfamiliarity in particular hinders the use and usefulness of Ampersand.
 The collected data will show whether there is more here than the obscurity.
 That is also the way in which the data will be classified and treated.
-In addition, there have been discussions with stakeholders who fall within the analysis method of \cite{hsieh_three_2005} in the same way.
+The content analysis performed leads to a number of claims about the usability of Ampersand.
+These claims are the result of the investigation.
+
+The tool to be used to validate is triangulation~\citep{carter_use_2014, farquhar_triangulation_2020, runeson_guidelines_2008}.
+Triangulation offers the possibility to view the source from multiple perspectives.
+The perspective of the law itself.
+In addition, the engineers have the necessary knowledge and information about the application of the law and from the business perspective.
+This is a way of assuring the validity of research through the use of a variety of methods to collect data on the same topic, which involves different types of samples as well as methods of data collection\footnote{\url{https://en.wikipedia.org/wiki/Triangulation_(social_science)}}.
 

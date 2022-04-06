@@ -1,0 +1,132 @@
+\def\rq{RQ3}
+
+\begin{comment}
+RQ3 - Hoe zijn de wet- en regelgeving opgezet zodat ze kunnen worden gebruikt in een bruikbare manier voor de Ampersand-methode.
+\end{comment}
+\subsection{The wet BIG and Ampersand}
+[RQ3]- How are the laws and regulations set up so that they can be used in a useful way for the Ampersand method.
+
+\parlabel{Law}
+% richten op de huidige implementatie van dd ...
+% er is meer dan alleen wet big
+% lezen van tekst, je interpreteert snel
+% niet alle regelgeving is onder big term
+% naast meer, zijn er ook expliciete en impliciete verwijziginge
+% wet lastig leesbaar
+% landen tabel
+% meer dan enkel nl, ook eu
+% BRP standaarden ihkv adresregels
+% autorisatie besluiten
+When studying the law, it is noticeable that on the website of \url{wetten.overheid.nl} there is the possibility to go back in time.
+This is of little use for the translation to Ampersand and is therefore not done.
+The law is assumed as of 01-07-2021 until now.
+
+When a search is made for the \acrshort{big}, the search place at dewetten.overheid is de~\url{https://wetten.overheid.nl/BWBR0006251/2021-07-01}.
+The law is found by using the search function within the website.
+However, there are more decrees and regulations that relate to the implementation of the law.
+A number of references are included in the Act itself.
+For example, in Article 4, paragraph 4, reference is made to \url{https://wetten.overheid.nl/jci1.3:c:BWBR0023066&article=12&g=2022-03-01&z=2022-03-01}.
+Other references have to be sought yourself because they are not in the law.
+This applies, for example, to \url{https://wetten.overheid.nl/BWBR0005537/2022-01-28}, which is the \mbox{"General Administrative Law Act"}.
+To find out all these references, you need the support of a lawyer.
+
+The \acrshort{big} is intended for the Netherlands.
+For example, in Article 4, paragraph 4, reference is made to \url{https://wetten.overheid.nl/jci1.3:c:BWBR0023066&article=12&g=2022-03-01&z=2022-03-01}.
+This law was drawn up by the European Union.
+So in addition to Dutch legislation, legislation that encompasses a broader scope must also be taken into account.
+
+The legislation is difficult to read for a non-lawyer.
+\begin{tcolorbox} [title=\acrlong{big} artikel 13c lid1]
+    Indien bij besluit van Onze Minister inschrijving in een register is geweigerd, de afgifte van een verklaring van vakbekwaamheid wordt geweigerd of een beroepsbeoefenaar de bevoegdheid zijn beroep uit te oefenen heeft verloren omdat hij de aanvraag tot inschrijving of tot afgifte van een verklaring gebaseerd heeft op valse kwalificaties, kan Onze Minister besluiten, onverminderd de hoofdstuk V van de Algemene verordening gegevensbescherming, de bevoegde autoriteiten van andere staten dan de staten bedoeld in artikel 31a, eerste lid, van de Algemene wet erkenning EU-beroepskwalificaties, daarvan in kennis stellen.
+\end{tcolorbox}
+A sentence like in \acrlong{big} article 13c paragraph 1 is so long and with so many parentheses that the core can easily be lost sight of for a non-lawyer.
+In this case it says that the registration will be refused on certain grounds and that authorities must be informed.
+But they are not simple texts to understand and in this case there may also be the \mbox{"Algemene verordening gegevensbescherming"} and the \mbox{"Algemene wet erkenningEU-beroepskwalificaties"}.
+The law consists of many references and difficult long sentences or legal language.
+
+The law contains elements that do not refer to rules or other laws at all, but to good practice.
+An example is the comment about the inclusion of an address, the Concept~\boxed{Adres}.
+\begin{tcolorbox} [title=artikel 3 lid 2, label=art3lid2 ]
+    Bij elke inschrijving worden in het register vermeld de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld.
+\end{tcolorbox}
+This legal text states that an address must be recorded for the person who registers.
+Nowhere in the law states how the address must be recorded.
+It is good practice to look at how the BRP~\footnote{\url{https://www.rijksoverheid.nl/onderwerpen/privacy-en-persoonsgegevens/basisregistratie-personen-brp}} has done this.
+
+In article 3 paragraph 2 the Concept \boxed{Nationaliteit} is also mentioned.
+There is no legal reference to a definition or location of \boxed{Nationaliteit}.
+A government organization usually knows where this information can be found, namely on the site of \url{https://www.rvig.nl}.
+But you can't tell this from the \acrshort{big}.
+
+The aspect of the authorization decision is also not included in the law.
+In order to retrieve data from the person who makes use of the registration in the law, a link with the BRP is required.
+The process for being allowed to do this is via a DigiD link and an authorization decision of the personal information.
+Knowledge about this is usually present in the organization, but it cannot be obtained directly from the law.
+
+\parlabel{Concept}
+% The main lines of the law seem clear to a non-lawyer.
+% The format of a \A{concept} big number is not included in the law
+% concept adres - brp
+% persoon is niet perse een bignummer
+% tucht lastig te vangen in conce[tem]
+It is difficult to read and fully understand the legal texts without the help of a lawyer.
+Getting the overview and understanding the essence is what happens for the \acrshort{big}.
+
+The description of the Concepts is based on the law.
+The Concept \boxed{Bignummer} is mentioned in the law, but it is not described how this should look like.
+Ampersand creates a GUID of it, but it doesn't seem usable as \boxed{Bignummer} because it can't be remembered.
+There are no format requirements.
+
+A \boxed{Persoon} is not identified with a \boxed{Bignummer}.
+A \boxed{Bignummer} is an element linked to a \boxed{Registration}.
+The law seems to suggest that a \boxed{Persoon} is equal to a \boxed{Bignummer}.
+A person can register for several registers and thus have several Big Numbers.
+
+In the \parref{Law} reference has already been made to the BRP for the format of \boxed{Adres}.
+Another aspect of the \boxed{Adres} is that it can also be a foreign address.
+The law does refer to the registration of foreigners.
+But it is not specified how to deal with foreign addresses.
+
+The chapters relating to disciplinary law are difficult to capture in business rules.
+The reason for this is that the legal texts often relate to the actions of the disciplinary committee.
+This college has more freedom of action.
+The law provides the frameworks within which they must remain.
+
+\parlabel{Register}
+% meerdere registers 
+Article 3 paragraph 1 refers very clearly to "registers".
+\begin{tcolorbox} [title=\acrlong{big} artikel 3 lid 1]
+    Er worden registers ingesteld, waarin degenen die aan de daarvoor bij en krachtens deze wet gestelde voorwaarden voldoen, op hun aanvrage worden ingeschreven, onderscheidenlijk als:
+    arts,
+    tandarts,
+    apotheker,
+    .....
+\end{tcolorbox}
+It is stated in the article that there are multiple registers.
+But the BIG register is also discussed in the context of the CIBG.
+As if it were just one registry that manages the \acrshort{big}.
+In the CIBG system it is also treated as one register and within the software the distinction is made according to professions and professional groups.
+
+By recognizing several registers that are anchored in one law, but which can differ slightly from each other, this can lead to the desire for implementations per register.
+However, \nameref{RQ1:Docker} and \nameref{RQ1:Register} indicate that this does not work.
+
+\parlabel{Other}
+% interpretatie van wetsteksten
+% overzicht van alle relevante teksten
+% leeftijds check 18 jaar
+% lijst van specialismes
+The \acrshort{big} regularly refers to the specialisms.
+The whole of chapter 2 is about specialisms.
+What is not stated in the law is how to obtain the overview of specialisms.
+Reference is only made to specialist registers at the specialist associations.
+Not where to find these registers.
+
+At the start of the work it is necessary to make an overview of the laws and regulations to be included.
+This is to clarify the scope.
+
+Difficulty reading and interpreting legal texts means that there is a rapid departure from the actual text and intention.
+When drafting Concepts, Relations and Rules, there is a great risk that the legal text will be deviated from.
+This has to do with the structure of the text.
+In \parref{Law} it is described that the structure of the sentences within the \acrshort{big} is not always easy.
+There is a risk of interpretation of the text and the risk that parts will be overlooked.
+

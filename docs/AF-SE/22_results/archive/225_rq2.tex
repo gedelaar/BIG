@@ -1,0 +1,128 @@
+\def\rq{RQ2}
+\subsection{Ampersand Conceptual Analysis}
+[RQ2]- What are the Concepts, Relationships and Rules in the \acrshort{big}.
+
+\parlabel{Rule}
+% lastig te realiseren
+% toevoegen auto datum en tij d
+% TOT in relatie tot de interface
+% ROLE 
+The rules are difficult to construct.
+It takes a lot of precision and persistence to get the desired result.
+This means that rules may have been omitted because they could not be realized.
+\begin{lstlisting}[caption=Persoon.adl rule over CONCEPT \boxed{Adres}, numbers=none, label={lst:listingAddressRule}]
+RULE TotAdres : I[Persoon]  |-  adres[Persoon*Adres];adres[Persoon*Adres]~
+    MEANING "In artikel 3, lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving worden vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld."
+    MESSAGE "Het adres moet ingevuld worden."
+    VIOLATION ( TXT "Voor persoon ", SRC I, TXT " met naam ", SRC naam[Persoon*Naam], TXT " is geen adres ingevuld.")
+\end{lstlisting}
+Listing~\ref{lst:listingAddressRule} is an example of a simple rule.
+This relates to the legislator's obligation to fill in the address.
+This with a reference to the article and paragraph.
+The essence of this rule is that the core Concept \boxed{Persoon} must be a subset of the relation \boxed{adres} with the signature \boxed{Persoon}*\boxed{Naam} united with the same relation but with a flipped signature.
+If the Concept \boxed{Persoon} does not appear, the message appears.
+
+In listing \ref{lst:listingAddressRule} wordt ook de constraint TOT ingevuld, maar net even minder hard dan de relatie waarin de multiplicity genoemd zou zijn.
+
+To realize an automatic addition of the date and time, a rule has to be built that takes care of this.
+With the \boxed{Inschrijving} a date and time must be recorded when adding.
+\begin{lstlisting}[caption=Inschrijving.adl Concept en Rule, numbers=none, label={lst:listingInschrijfDatumTijdRule}]
+--tijdstip van inschrijving
+CONCEPT InschrijfTijdstip "Het inschrijftijdstip bevat de datum en tijdstip van inschrijving in Y-m-d h:i:s-formaat."
+    PURPOSE CONCEPT InschrijfTijdstip
+        {+
+        In artikel 3 lid 2 is aangegeven dat de datum en het tijdstip van inschrijving een onderdeel is van de identificatie van de zorgverlener.
+        +}
+    RELATION inschrijftijdstip [InschrijfId*InschrijfTijdstip][UNI]
+    MEANING "Elke inschrijving vindt plaats op een tijdstip."
+    PURPOSE RULE "Voeg_inschrijftijd_toe_(automatisch)"
+        {+
+        Het tijdstip waarop de inschrijving wordt vastgelegd.
+        +}
+    ROLE "ExecEngine" MAINTAINS "Voeg_inschrijftijd_toe_(automatisch)"
+    RULE "Voeg_inschrijftijd_toe_(automatisch)" :  I[InschrijfId]  |-  inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~
+    VIOLATION   (   TXT "{EX} InsAtom;InschrijfTijdstip"
+                ,   TXT "{EX} InsPair;inschrijftijdstip;InschrijfId;", SRC I, TXT ";InschrijfTijdstip;{php}date(DATE_ISO8601)" -- Set the DateTime
+                )
+\end{lstlisting}
+Listing \ref{lst:listingInschrijfDatumTijdRule} describes what adding a \boxed{InschrijfTijdstip} looks like.
+First, a definition of \boxed{InschrijfTijdstip} is created.
+This is by the way not necessary.
+If not defined, it is defined internally by Ampersand by default.
+Below that the relation to \boxed{inschrijfTijdstip} where UNI indicates that the \boxed{InschrijfId} has zero or at most one \boxed{InschrijfTijdstip}.
+The mandatory character of a \boxed{InschrijfTijdstip} is solved by an appended rule.
+This rule compares the set of \boxed{InschrijfId} with \boxed{InschrijfTijdstip} in combination with the flipped set with the Concept \boxed{InschrijfId}.
+If this does not occur, the \boxed{InschrijfTijdstip} is created via the Violation and then added in the relationship \boxed{InschrijfTijdstip}.
+The way to add a \boxed{InschrijfTijdstip} via the InsAtom and then in the relation via a php script is special.
+The constraint TOT is replaced by the Rule "Voeg\_inschrijftijd\_toe\_(automatisch)".
+
+Om de Rule te kunnen uitvoeren wordt een Role toegevoegd in Listing \ref{lst:listingInschrijfDatumTijdRule} wordt de "ExecEngine" aangewezen om de Rule te onderhouden.
+
+\parlabel{Authorized}
+% FOR in de interface
+% ROLE in de rule
+The authorization to perform a function can be deposited in two places.
+The Role on the Rule gives authorization to execute the Rule.
+If it is an automatic Rule, then the user "ExecEngine" is used.
+And otherwise this is a defined user.
+And the Relationship used in the Interface contains an authorization at Interface level.
+This is included in the FOR statement of the Interface.
+\begin{lstlisting}[caption=Persoon.adl FOR statement, numbers=none, label={lst:forStatement}]
+    INTERFACE "Persoon" FOR USER: I[Persoon] CRud
+\end{lstlisting}
+\begin{lstlisting}[caption=Persoon.adl FOR statement, numbers=none, label={lst:roleStatement}]
+        ROLE USER MAINTAINS TotAdres
+        RULE TotAdres : I[Persoon]  |-  adres[Persoon*Adres];adres[Persoon*Adres]~
+            MEANING "In artikel 3, lid 2 wordt aangegeven dat bij elke inschrijving in het register de naam, voornamen, geslacht, geboortedatum, nationaliteit en adres van de betrokkene en het nummer en het tijdstip van inschrijving worden vermeld. Bij ministeriële regeling kunnen gegevens worden aangewezen die ten behoeve van het identificeren van beroepsbeoefenaren bij de inschrijving worden vermeld."
+            MESSAGE "Het adres moet ingevuld worden."
+            VIOLATION ( TXT "Voor persoon ", SRC I, TXT " met naam ", SRC naam[Persoon*Naam], TXT " is geen adres ingevuld.")
+\end{lstlisting}
+Listing \ref{lst:forStatement} and Listing \ref{lst:roleStatement} use the same user.
+
+\parlabel{Conceptual analysis}
+% naamgeving en afspraken
+% structuur van de meaning
+The question that arises is whether agreements should be made about the structure of the definitions, meanings and purpose to be recorded.
+Or is Ampersand self-structured by these components.
+What must be kept in mind is that the data that is recorded in the Concepts, Relations and Rules, then return one to one in the Conceptual analysis.
+So the way of noting should be such that it reads like a story.
+
+\parlabel{Interface}
+% gebruik van tot
+% FOR
+As mentioned in \parref{Rule}, the use of TOT within the Interface is important in connection with being able to add data.
+In \parref{Authorized} the use of the FOR is explained.
+
+\parlabel{Multiplicity}
+In the elaboration so far, only the Multiplicities UNI, TOT, INJ and SUR have been used.
+Apparently these are the most commonly used Multiplicities.
+
+The consideration of including TOT in a Rule also applies to SUR.
+This is necessary to avoid blocking data storage in the interface.
+
+\parlabel{Php}
+In \parref{Rule}, see Listing \ref{lst:listingInschrijfDatumTijdRule}, it talks about adding time automatically.
+This is housed in a php function.
+It is unclear how to extend these php functions.
+
+Ampersand is state-oriented and not process-oriented.
+The \acrshort{big} lists time limits for the re-registration.
+Ampersand cannot deal with installments out of the box.
+
+\parlabel{Relation}
+% tuchtrecht anders vormgegeven
+% naamrgeving van de relatie
+The law consists of two main parts.
+Namely professional protection and disciplinary law.
+This disciplinary law lends itself less to business rules and are guidelines for the disciplinary committee.
+
+When naming the relation, it is indicated that it must have the name of the TRG.
+And then executed with a lowercase letter.
+
+\parlabel{Other}
+% Ampersand is geen exec, maar een verzameling constraints
+Ampersand is not an executable program, but a collection of constraints included in a database structure and generated PHP functions.
+
+
+\subsubsection{Concepts, Relation and Rules}
+The Concepts, Relations and Rules that were found are included in the appendix~\nameref{ConceptualAnalysis}
