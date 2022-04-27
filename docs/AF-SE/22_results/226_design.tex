@@ -4,6 +4,7 @@ The requirements for the design are limited beforehand.
 The basis of the information was the law and it must fit within the architecture.
 
 \begin{table}[H]
+    \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
         \hline
         Category        & CAT1-\cat \\\hline
@@ -12,44 +13,121 @@ The basis of the information was the law and it must fit within the architecture
         Anchor examples &  
         \begin{itemize}
         \setlength{\itemindent}{-2em}
-            \item rq1-36:3-10: What about {prototype} test scenarios.
-            \item rq2-18:16-11: Good to realize that the {meaning} you write down also ends up in the {Conceptual analysis}.
+            \item \nameref{obs:rq1-36:3-10}
+            \item \nameref{obs:rq2-18:16-11}
         \end{itemize}\\\hline
         Coding rules    & requirements, solution, interface, documentation        \\\hline
     \end{tabularx}
-    \caption{Category \acrshort{cat\cat}}
     \label{tab:Design}
 \end{table}
+\sbbs{1}{Architectual fit}
+\POstart{%1
+    \PIS{int:I-1.12}     %\iref{int:I-1.12}    x
+    \PIS{int:I-1.3}     %\iref{int:I-1.3}    x
+    \PIS{int:I-2.1}     %\iref{int:I-2.1}    x
+    \PIS{int:I-2.6}     %\iref{int:I-2.6}    x
+    \PIS{int:I-2.7}     %\iref{int:I-2.7}    x
+    \PIS{int:I-2.8}     %\iref{int:I-2.8}    x
+    \POS{obs:rq4-1}     %\oref{obs:rq4-1}    x
+    \POS{obs:rq4-3}     %\oref{obs:rq4-3}    x
+    \POS{obs:rq1-63:10-11}     %\oref{obs:rq1-63:10-11}    x
+    \POS{obs:rq1-89:7-12}     %\oref{obs:rq1-89:7-12}    x
+}
 
-Ampersand's design must fit into the architecture of the organization where it is used.
-We see that the design using Ampersand overlaps with the existing \acrlong{rk}.
-In particular, the generic part of the design shows coherence with \acrlong{rk}.
+Ampersand's design must fit into the architecture of the organization where it is used (\oref{obs:rq1-63:10-11}).
+We see that the design using Ampersand overlaps with the existing \acrlong{rk} (\iref{int:I-1.3}).
+Mapping is necessary to get Ampersand aligned with \acrlong{rk} (\iref{int:I-2.7}, \oref{obs:rq1-89:7-12}, \iref{int:I-1.12}, \iref{int:I-2.6}).
+The angles that \acrlong{rk} and Ampersand use are different.
+Ampersand is reactive and \acrlong{rk} is strongly workflow oriented (\iref{int:I-2.8}, \oref{obs:rq4-3}, \oref{obs:rq4-1}).
+In particular, the generic part of the design shows coherence with \acrlong{rk} (\iref{int:I-2.1}).
+Ampersand cannot calculate out of the box.
+\sbbs{2}{Conceptual analysis}
+\POstart{%2
+    \POS{obs:rq1-1}     %\oref{obs:rq1-1}    x
+    \POS{obs:rq1-75:20-11}     %\oref{obs:rq1-75:20-11}    x
+    \POS{obs:rq1-78:20-11}     %\oref{obs:rq1-78:20-11}    x
+    \POS{obs:rq1-99:6-1}     %\oref{obs:rq1-99:6-1}    x
+    \POS{obs:rq2-18:16-11}     %\oref{obs:rq2-18:16-11}    x
+}
 
 The design is mainly expressed in the \acrlong{ca} and the prototype.
-While building the script, there are options to influence the layout and readability of the analysis.
-Adding HTML headers can disrupt the layout of the analysis considerably.
-Using includes and patterns structures the \acrlong{ca}.
+While building the script, there are options to influence the layout and readability of the analysis (\oref{obs:rq2-18:16-11}).
+Adding HTML headers can disrupt the layout of the analysis considerably (\oref{obs:rq1-75:20-11}, \oref{obs:rq1-78:20-11}, \oref{obs:rq1-99:6-1}).
+Using includes and patterns structures the \acrlong{ca} (\oref{obs:rq1-1}).
+\sbbs{3}{Lifecycle law}
+\POstart{%3
+    \POS{obs:rq1-39:3-10}       %\oref{obs:rq1-39:3-10}    x
+    \POS{obs:rq1-95:29-12}      %\oref{obs:rq1-95:29-12}    x
+}
 
-During the analysis of the law, it appears that the law focuses on the origin of the registration.
+During the analysis of the law, it appears that the law focuses on the origin of the registration (\oref{obs:rq1-95:29-12}).
 The law does not clearly consider the life cycle of and registers.
-You will not find the steps to dismantle a register in the description of the law.
+You will not find the steps to dismantle a register in the description of the law (\oref{obs:rq1-39:3-10}).
+\sbbs{4}{Register unbundling}
+\POstart{%4
+    \POS{obs:rq1-92:14-12}     %\oref{obs:rq1-92:14-12}    x
+    \POS{obs:rq1-93:19-12}     %\oref{obs:rq1-93:19-12}    x
+    \POS{obs:rq3-8:19-9}     %\oref{obs:rq3-8:19-9}    x
+}
 
-The law speaks very clearly about multiple registers.
+The law speaks very clearly about multiple registers (\oref{obs:rq1-92:14-12}, \oref{obs:rq3-8:19-9}).
 The current implementation of \acrshort{zorro} is set up as one register with differentiation per profession.
-When the law is explicitly followed, this has consequences for the design.
+When the law is explicitly followed, this has consequences for the design (\oref{obs:rq1-93:19-12}).
 This will then be set up with multiple registers.
+\sbbs{5}{Test scenario}
+\POstart{%5
+    \PIS{int:I-4.2}     %\iref{int:I-4.2}    x
+    \POS{obs:rq1-36:3-10}     %\oref{obs:rq1-36:3-10}    x
+    \POS{obs:rq1-69:14-11}     %\oref{obs:rq1-69:14-11}    x
+}
 
-The use of Ampersand for the design means that there is the possibility to develop test scenarios early in the process.
-Doing analysis and making the prototype gives the opportunity to create test scenarios.
+The use of Ampersand for the design means that there is the possibility to develop test scenarios early in the process (\oref{obs:rq1-69:14-11}).
+Doing analysis and making the prototype gives the opportunity to create test scenarios (\oref{obs:rq1-36:3-10}, \iref{int:I-4.2}).
+\sbbs{6}{Brp}
+\POstart{%6
+    \PIS{int:I-4.7}             %\iref{int:I-4.7}    x
+    \POS{obs:rq2-17:10-11}     %\oref{obs:rq2-17:10-11}    x
+    \POS{obs:rq3-10:12-10}     %\oref{obs:rq3-10:12-10}    x
+    \POS{obs:rq3-11:12-10}     %\oref{obs:rq3-11:12-10}    x
+}
 
-In the context of the design you want to have things made explicit.
-Matters such as address management, country management and address formatting are not included in the law.
+In the context of the design you want to have things made explicit (\iref{int:I-4.7}, \oref{obs:rq2-17:10-11}).
+Matters such as address management, country management and address formatting are not included in the law (\oref{obs:rq3-10:12-10}).
 But these items are part of the design.
 The manner of management must be sought elsewhere than in the law.
 For example, address formatting is something that the BRP prescribes.
-This is not an Ampersand item, but one that is encountered when analyzing legislation and regulations.
+This is not an Ampersand item, but one that is encountered when analyzing legislation and regulations (\oref{obs:rq3-11:12-10}).
+\sbbs{7}{Total design}
+\POstart{%7
+    \POS{obs:rq1-71:14-11}     %\oref{obs:rq1-71:14-11}    x
+}
 
 There is a lot to be said about the use of Ampersand in the design in many detail points.
 But bottom-line, the design of the system grows by performing the analysis.
-The analysis is performed using the scripts (see appendix \ref{appendixAdl}.
+The analysis is performed using the scripts (\oref{obs:rq1-71:14-11}) (see appendix \ref{appendixAdl}).
 A consequence of this analysis is the design, the \acrshort{ca}~(see appendix \ref{ConceptualAnalysis} and the prototype (see appendix \ref{appendixPrototype}.
+\sbbs{8}{User experience}
+\POstart{%8
+    \PIS{int:I-1.10}     %\iref{int:I-1.10}    x
+    \PIS{int:I-3.4}     %\iref{int:I-3.4}    x
+    \PIS{int:I-3.5}     %\iref{int:I-3.5}    x
+    \PIS{int:I-4.8}     %\iref{int:I-4.8}    x
+}
+
+The user usually works from lists and overviews.
+Ampersand also provides lists and overviews via the interface (\iref{int:I-1.10}).
+The purpose of an application is to unburden users and to support these users in processing the registry data.
+Ampersand is well suited for this because the conceptual analysis, from which the implementation is derived, specifies exactly what is needed for the registry (\iref{int:I-3.4}, \iref{int:I-3.5}).
+Ampersand's design is such that a new design is always delivered (\iref{int:I-4.8}).
+\sbbs{9}{Excluded}
+\POstart{%9
+\PIS{int:I-4.4}     %\iref{int:I-4.4}    o
+\POS{obs:rq4-2}     %\oref{obs:rq4-2}    o
+\POS{obs:rq4-4}     %\oref{obs:rq4-4}    o
+\POS{obs:rq4-7}     %\oref{obs:rq4-7}    o
+\POS{obs:rq2-14:19-10}     %\oref{obs:rq2-14:19-10}    o
+\POS{obs:rq2-15:19-10}     %\oref{obs:rq2-15:19-10}    o
+\POS{obs:rq2-9:7-10}     %\oref{obs:rq2-9:7-10}    
+}
+
+The following observations have not been explicitly included.

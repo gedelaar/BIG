@@ -3,6 +3,7 @@
 To view Ampersand as a tool, we look more closely at the technical functioning of Ampersand.
 
 \begin{table}[H]
+    \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
         \hline
         Category        & CAT1-\cat \\\hline
@@ -11,38 +12,94 @@ To view Ampersand as a tool, we look more closely at the technical functioning o
         Anchor examples &          
         \begin{itemize}
         \setlength{\itemindent}{-2em}
-            \item rq1-49:30-10: Isolating a {pattern} or subsystem for testing does not work.
-            \item rq1-53:2-11: The crud (\acrlong{crud}) and \acrshort{crud} in the interface don't always work as it should be.
+            \item \nameref{obs:rq1-49:30-10}
+            \item \nameref{obs:rq1-53:2-11}
         \end{itemize}
         \\\hline
 
         Coding rules    & Technical operation of Ampersand \\\hline
     \end{tabularx}
-    \caption{Category \acrshort{cat\cat}}
     \label{tab:Ampersand as tool}
 \end{table}
+\sbbs{1}{Includes}
+\POstart{%1
+    \POS{obs:rq1-15:4-10}     %\oref{obs:rq1-15:4-10}    x
+    \POS{obs:rq1-81:20-11}     %\oref{obs:rq1-81:20-11}    x
+    \POS{obs:rq1-82:20-11}     %\oref{obs:rq1-82:20-11}    x
+    \POS{obs:rq1-90:14-12}     %\oref{obs:rq1-90:14-12}    x
+}
 
-When the script is ready for compilation, removing includes appears to cause a compilation error.
-On the other hand, it also doesn't seem necessary to include everything via includes.
-And appear to be includes especially for structuring the Conceptual analysis.
-This is a side effect of the lack of proper refactoring options.
+When the script is ready for compilation, removing Includes appears to cause a compilation error (\oref{obs:rq1-81:20-11}).
+On the other hand, it also doesn't seem necessary to include everything via includes (\oref{obs:rq1-82:20-11}) and appears to be includes especially for structuring the Conceptual analysis (\oref{obs:rq1-15:4-10}).
+Keep the includes small (\oref{obs:rq1-90:14-12}).
+\sbbs{2}{Common objects}
+\POstart{%2
+    \POS{obs:rq1-49:30-10}     %\oref{obs:rq1-49:30-10}    x
+    \POS{obs:rq1-63:10-11}     %\oref{obs:rq1-63:10-11}    x
+    \POS{obs:rq1-85:30-11}     %\oref{obs:rq1-85:30-11}    x
+    \POS{obs:rq1-89:7-12}     %\oref{obs:rq1-89:7-12}    x
+    \POS{obs:rq1-92:14-12}     %\oref{obs:rq1-92:14-12}    x
+}
 
-Despite the fact that Ampersand is very flexible and easily expandable, it lacks an option to break up a model and share parts.
-In the situation where there is a common model and several individual models, it is not possible to separate these individual models.
-When attempting to do that, we get no further than the common part in combination with one of the individual models.
-The case is that we wanted to realize an implementation per registry.
-The common part is recording the person and the registration.
-This part is used for all registers, but there may be differences in the requirements for each register.
-The moment a second register is set up, the common part is also overwritten and all data, including database structure, from the first register is gone.
+Ampersand is flexible and easily expandable (\oref{obs:rq1-63:10-11}), but it is not possible to split a model (\oref{obs:rq1-49:30-10}).
+In the situation where there is a common model and several individual models, it is not possible to separate these individual models from each other by the common part.
+The case is that we wanted to realize an implementation for each registry.
+The common part is the recording of the person and the registration (\oref{obs:rq1-85:30-11}, \oref{obs:rq1-89:7-12}).
+This component is used for all registries, but there may be differences in the requirements for each registry.
+The moment a second registry is set up, the common part is also overwritten and all data, including database structure, is gone from the first defined registry (\oref{obs:rq1-92:14-12}).
+\sbbs{3}{Crud}
+\POstart{%3
+    \POS{obs:rq1-12}            %\oref{obs:rq1-12}    x
+    \POS{obs:rq1-50:30-10}      %\oref{obs:rq1-50:30-10}    x
+    \POS{obs:rq4-4}             %\oref{obs:rq4-4}    x
+    \POS{obs:rq1-40:10-10}      %\oref{obs:rq1-40:10-10}    x
+    \POS{obs:rq1-53:2-11}       %\oref{obs:rq1-53:2-11}    x
+    \POS{obs:rq1-83:27-11}      %\oref{obs:rq1-83:27-11}    x
+}
 
 An important part of the prototype is the use of the Interface~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/layout-of-user-interfaces}}.
-The \acrshort{crud} interface defines whether \acrshort{crud} items are active at the place in the interface.
-Uppercase is active and lowercase is not active.
-In not all cases this is also done by the Ampersand Interface.
-The Respresent~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/atoms}} definition of a Concept also has an effect on the Interface.
+The \acrshort{crud} interface defines whether \acrshort{crud} items are active at the place in the interface (\oref{obs:rq1-12}).
+Uppercase is active and lowercase is not active (\oref{obs:rq1-12}).
+In not all cases the \acrshort{crud} works correctly.
+Validation on used is missing in some cases (\oref{obs:rq1-53:2-11}).
+After performing the validations on the data and in case of input errors, the interface delivers many messages and these remain active across the screens (\oref{obs:rq4-4}).
+The Respresent~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/atoms}} definition (\oref{obs:rq1-50:30-10}) of a Concept also has an effect on the Interface (\oref{obs:rq1-40:10-10}).
+Experiment with HTML in the interface was not successful, due to the lack of examples (\oref{obs:rq1-83:27-11}).
+\sbbs{4}{PhP}
+\POstart{%4
+    \POS{obs:rq1-9}     %\oref{obs:rq1-9}    x
+    \POS{obs:rq1-48:27-10}     %\oref{obs:rq1-48:27-10}    x
+    \POS{obs:rq2-16:19-10}     %\oref{obs:rq2-16:19-10}    x
+}
 
-Ampersand does not support all functions, but does offer the option to build it.
-The documentation does not tell you exactly how to do this.
-But in the examples and during the research it appears that it is possible.
-This is then done in PHP and can then be called within a Rule.
-Powerful, but somewhat clumsy.
+Ampersand supports creating new functions via php.
+The documentation doesn't tell you exactly how to do this (\oref{obs:rq1-9}).
+But in the examples and during the research it appears that it is possible (\oref{obs:rq1-48:27-10}, \oref{obs:rq2-16:19-10}).
+This is done in PHP and can then be called within a line using "ExecEngine" (see~\ref{lst:persoon}).
+\sbbs{5}{Model maintance}
+\POstart{%5
+    \PIS{int:I-1.5}     %\iref{int:I-1.5}    x
+    \PIS{int:I-1.7}     %\iref{int:I-1.7}    x
+    \PIS{int:I-2.4}     %\iref{int:I-2.4}    x
+    \PIS{int:I-2.5}     %\iref{int:I-2.5}    x
+    \POS{obs:rq4-7}     %\oref{obs:rq4-7}    x
+}
+
+Ampersand makes it possible to set up an information system without using a programming language.
+In case of \acrshort{cibg} it is therefore not necessary to use C\#, the language used there (\iref{int:I-1.5}).
+When performing the analysis, we always create a new model (\iref{int:I-1.7}).
+There is no question of maintaining a model, because a new model is always being developed (\iref{int:I-2.5}).
+When we go from model version one to model version two, we now have no tools available to facilitate the data conversion (\oref{obs:rq4-7}).
+The data from Ampersand prototype is stored in a MariaDB database (\iref{int:I-2.4}).
+\sbbs{6}{Excluded}
+\POstart{%6
+    \PIS{int:I-4.4}     %\iref{int:I-4.4}    o
+    \POS{obs:rq1-10}     %\oref{obs:rq1-10}    o
+    \POS{obs:rq1-65:10-11}     %\oref{obs:rq1-65:10-11}    o
+    \POS{obs:rq1-66:10-11}     %\oref{obs:rq1-66:10-11}    o
+    \POS{obs:rq1-91:14-12}     %\oref{obs:rq1-91:14-12}    o
+    \POS{obs:rq1-98:30-12}     %\oref{obs:rq1-98:30-12}    o
+    \POS{obs:rq2-9:7-10}     %\oref{obs:rq2-9:7-10}    o
+}
+
+The following observations have not been explicitly included.

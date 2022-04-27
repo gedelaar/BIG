@@ -15,16 +15,50 @@
 \usepackage{wrapfig}
 %\usepackage{amssymb}
 %\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheorem{theorem}
+\declaretheoremstyle{}
+\newtheorem{obs}{observation}
+\newtheorem{inva}{int}
+\newcommand\INVA[2]{\begin{inva}[#1,#2]\label{int:#1}\end{inva}}
+
+%test
+\usepackage{selinput}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem,varwidth}
+%\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{lmodern}
+
+%\parindent0em
+%test
 
 %listings
 \usepackage{listings}
-\usepackage{xcolor}
+%\usepackage{xcolor}
 \usepackage{nameref}
 \usepackage{float}
 \usepackage{svg}
-\usepackage{imakeidx}
-\makeindex[columns=3, title=Alphabetical Index of Log Entries, options= -s bigstyle.ist]
-\makeindex[name=fr,title=Index of functional requirements,columns=2]
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage[nonewpage]{imakeidx}
+\makeindex[name=log, columns=3, title=Alphabetical Index of Log Entries, options= -s bigstyle.ist]
+\makeindex[name=fr,title=,columns=1]
+
+\newcommand\POstart[1]{
+    \noindent\footnotesize\fbox{\begin{minipage}{49em}
+        \textbf{Used observations}(see appendix~\ref{appendixContentAnalysis} and~\ref{appendixInterviews} for full text)
+            \begin{itemize}
+                #1
+            \end{itemize}
+    \end{minipage}}\normalsize}
+\newcommand\POS[1]{\item obs.\ref{#1}: {\nameref{#1}}}
+\newcommand\PIS[1]{\item int.\ref{#1}: {\nameref{#1}}}
+\newcommand\oref[1]{obs.\ref{#1}}
+\newcommand\iref[1]{int.\ref{#1}}  
 
 \usepackage{bera}% optional: just to have a nice mono-spaced font
 \usepackage{listings}
@@ -127,7 +161,8 @@
 \usepackage{pdfpages}
 
 % counters
-\newcommand\A[1]{\textbf{#1}\stepcounter{\rq-#1}\index{#1}}
+\newcommand\A[1]{\textbf{#1}\stepcounter{\rq-#1}\index[log]{#1}}
+\newcommand\F[2]{\textit{#1}\footnote{Appx.~\ref{appendix-functiontal-requirements} func.req.:#2}\index[fr]{#1,#2}}
 
 \newcommand\cntA[1]{\newcounter{\rq-#1}\setcounter{\rq-#1}{0}}
 \newcommand\tabcntA[1]{#1 & \arabic{\rq-#1}  \\ \hline}
@@ -142,9 +177,9 @@
 
 \pagenumbering{roman} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
 \pagestyle{plain}
-\title{Using relational algebra in designing public healthcare registers} 
+\title{Usability of Ampersand for designing register systems.} 
 \begin{comment}
-Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
+Bruikbaarheid van Ampersand voor het ontwerpen van registersystemen.
 \end{comment}
 \author{Gerard Edelaar}
 
@@ -166,8 +201,8 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \input{./23_discussion/main}
 
 \input{./25_conclusions and recommendation/main}
-\input{./26_Reflexion/main}
-
+\input{./26_Reflection/main}
+\input{./27_acknowledgements/main}
 
 %\input{./60_test/main}
 
@@ -183,7 +218,7 @@ Gebruik van relatie algebra bij het ontwerpen van volkgezondheidsregisters
 \bibliographyNonPub{00_common/reportNonPub}
 
 %appendix
-\input{docs/AF-SE/70_bijlage/main}
+\input{./70_bijlage/main}
 
 \end{document}
 

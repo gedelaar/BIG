@@ -1,8 +1,12 @@
 \subsection{Registers} \label{registers}
+We are investigating the usefulness of Ampersand for registry systems.
+Register systems are also known as registers.
+The current \acrshort{big} is housed in a registry system.
+
 The current system developed to support the \acrshort{big} still has the project name Zorro.
 This stands for \acrlong{zorro}.
 This system was developed in 2008 as a successor to the Ribiz system.
-Zorro is a Microsoft .net application running on a windows platform with an underlying MS-SQL server.
+Zorro is a Microsoft.net (C\#) application running on a windows platform with an underlying MS-SQL server.
 The architecture of the system is based on an internal workflow, but continuous design changes over the years
 has caused a maintenance issue that requires new construction for this system.
 
@@ -25,7 +29,7 @@ The current~\acrfull{sig} rebuild calculation has estimated it at 27 man-years.
 \label{fig:overview_zorro}
 \end{wrapfigure}
 Zorro is divided in several building blocks.
-Building blocks related to the persons called~\acrfull{hcp}, concerning the workflow called Case and creating files called File.
+Building blocks related to the persons called~\acrfull{hcp}, concerning the workflow called Case and creating files called Dossier.
 The case building block has its focus on the process of registration. 
 Looking at the main data model blocks, one can see that it involves metadata, product, state and of course the case and its requests and activities.
 On the other hand, the dossier is only about physical documents that are scanned and archived.
@@ -38,6 +42,7 @@ The most important building block is about the people who want to be registered.
     \caption{HealthCarePerson}
     \label{fig:hcp}
 \end{figure}
+
 During the design, they clearly looked at what the \acrshort{big} has in it.
 This is also reflected in the current data model.
 One sees in this data model the interdependence with the "tucht" process.

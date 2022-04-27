@@ -1,53 +1,94 @@
 \subsection{Analysing law} \label{Analysing law}
 \def\cat{5}
 Reading and understanding the legal texts requires special skills.
-For example, article 13 paragraph 1, here it reads:
-"Indien bij besluit van Onze Minister inschrijving in een register is geweigerd, de afgifte van een verklaring van vakbekwaamheid wordt geweigerd of een beroepsbeoefenaar de bevoegdheid zijn beroep uit te oefenen heeft verloren omdat hij de aanvraag tot inschrijving of tot afgifte van een verklaring gebaseerd heeft op valse kwalificaties, kan Onze Minister besluiten, onverminderd de hoofdstuk V van de Algemene verordening gegevensbescherming, de bevoegde autoriteiten van andere staten dan de staten bedoeld in artikel 31a, eerste lid, van de Algemene wet erkenning EU-beroepskwalificaties, daarvan in kennis stellen."
-Due to the length of the sentences and the many parentheses, the analysis of a piece of legal text can only be read properly by a person with experience in reading legal documents.
 
 \begin{table}[H]
+    \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
         \hline
         Category        & CAT1-\cat \\\hline
         Category Title  & \acrshort{cat\cat} \\\hline
         Definition      & \acrlong{cat\cat} \\\hline
         Anchor examples & 
-                \begin{itemize}
-        \setlength{\itemindent}{-2em}
-            \item rq1-23:24-10: {law} Reading is a skill.
-            \item rq1-26:12-9: Also the {law}s and the regulations can still have {references} to other laws and regulations.
-        \end{itemize}\\\hline
-        Coding rules    & data oriented, recordingdata, definitions of subjects, usage \\\hline
+        \begin{itemize}
+            \setlength{\itemindent}{-2em}
+                \item \nameref{obs:rq1-23:24-10}
+                \item \nameref{obs:rq1-26:12-9}
+            \end{itemize}\\\hline
+        Coding rules    & data (law) oriented, recording data, definitions of subjects, usage of data\\\hline
     \end{tabularx}
-    \caption{Category \acrshort{cat\cat}}
     \label{tab:Analysing law}
 \end{table}
+\sbbs{1}{Environment}
+\POstart{%1
+    \POS{obs:rq3-4:12-9}     %\oref{obs:rq3-4:12-9}    x
+    \POS{obs:rq1-26:12-9}     %\oref{obs:rq1-26:12-9}    x
+    \POS{obs:rq1-27:12-9}     %\oref{obs:rq1-27:12-9}    x
+    \POS{obs:rq1-29:12-9}     %\oref{obs:rq1-29:12-9}    x
+    \POS{obs:rq3-15:24-10}     %\oref{obs:rq3-15:24-10}    x
+}
 
 When analyzing the law, other laws must be taken into account.
-The \acrshort{big} contains references to other laws and regulations.
+The \acrshort{big} contains references to other laws and regulations (\oref{obs:rq3-4:12-9}).
 Such as article 14~\footnote{\url{https://wetten.overheid.nl/jci1.3:c:BWBR0006251&hoofdstuk=II&paragraaf=2&article=14&z=2022-04-01&g=2022-04-01}} paragraph 11 refers to the kaderwet~\footnote{\url{https://wetten.overheid.nl/jci1.3:c:BWBR0020495&g=2022-04-04&z=2022-04-04}}.
-It must always be examined whether it is relevant for the analysis.
-In other situations no reference is given and knowledge must be available that general laws, such as the "wet algemeen bestuursrecht~\footnote{\url{https://wetten.overheid.nl/BWBR0005537/2022-03-02} }" must be included.
+It must always be examined whether the law is in the scope for the analysis (\oref{obs:rq1-27:12-9}, \oref{obs:rq1-29:12-9}).
+In other situations no reference is given and knowledge must be available that general laws, such as the "wet algemeen bestuursrecht~\footnote{\url{https://wetten.overheid.nl/BWBR0005537/2022-03-02} }" must be included (\oref{obs:rq1-26:12-9}, \oref{obs:rq3-15:24-10}).
+\sbbs{2}{law}
+\POstart{%2
+    \POS{obs:rq1-23:24-10}     %\oref{obs:rq1-23:24-10}    x
+    \POS{obs:rq1-35:14-9}     %\oref{obs:rq1-35:14-9}    x
+    \POS{obs:rq1-41:19-10}     %\oref{obs:rq1-41:19-10}    x
+    \POS{obs:rq1-42:21-10}     %\oref{obs:rq1-42:21-10}    x
+}
 
-A risk that is run by the difficult texts is that people do not read carefully enough and that their own interpretation takes place.
+A risk that is run by the difficult texts (\oref{obs:rq1-23:24-10}) is that people do not read carefully enough and that their own interpretation takes place (\oref{obs:rq1-42:21-10}).
 That risk increases the more familiar the domain is to the researcher.
+The text has been analyzed in Dutch because it is a Dutch law (\oref{obs:rq1-35:14-9}).
+Persistent hyperlinks are also included in the law, these could also have been included in the meanings and purpose (\oref{obs:rq1-41:19-10}).
+\sbbs{3}{Parts}
+\POstart{%3
+    \POS{obs:rq2-1}     %\oref{obs:rq2-1}    x
+    \POS{obs:rq3-2}     %\oref{obs:rq3-2}    x
+}
 
-Two major parts can be distinguished in the \acrshort{big}.
-On the one hand, a description of professional protection and on the other hand, disciplinary law.
-Both illuminate the registers from a different side.
+In the \acrshort{big} (\oref{obs:rq3-2}) two large parts can be distinguished.
+On the one hand, a description of professional protection and on the other, disciplinary law.
+Both look at the registers from a different side.
 Professional protection then concerns the exercise of the profession.
-Disciplinary law usually concerns the incorrect actions or treatments that have been carried out and the possible measures to be taken.
-The current implementation at \acrshort{cibg} also shows this, because there is one department that deals with the monitoring of the professions.
-And another department that focuses on the disciplinary part.
-On the advice of the lawyer, we have not analyzed the disciplinary part.
-The disciplinary part usually contains guidelines for the disciplinary committee.
+Disciplinary law usually concerns the wrong actions or treatments that have been performed and the possible measures to be taken.
+The current implementation at \acrshort{cibg} also reflects this, because there is one department that deals with the surveillance of the professions and another department that focuses on the disciplinary part.
+On the advice of the lawyer, we have not analyzed the disciplinary part (\oref{obs:rq2-1}).
+The disciplinary section usually contains guidelines for the disciplinary committee.
+\sbbs{4}{Tools}
+\POstart{%4
+    \POS{obs:rq1-24:12-9}     %\oref{obs:rq1-24:12-9}    x
+    \POS{obs:rq1-25:12-9}     %\oref{obs:rq1-25:12-9}    x
+    \POS{obs:rq1-31:14-9}     %\oref{obs:rq1-31:14-9}    x
+}
 
-The overall approach to the analysis of the law is to first get an overview of the law.
+The overall approach to the analysis of the law is to first get an overview of the law (\oref{obs:rq1-25:12-9}).
 Going through the law and clarifying the highlights of the articles.
+Keeping an overview via XML, PDF, RTF or JSON is very laborious and also too complex to execute (\oref{obs:rq1-24:12-9}, \oref{obs:rq1-31:14-9}).
+\sbbs{5}{Suitability of the law}
+\POstart{%5
+    \PIS{int:I-1.11}     %\iref{int:I-1.11}    x
+    \PIS{int:I-1.8}     %\iref{int:I-1.8}    x
+    \PIS{int:I-3.3}     %\iref{int:I-3.3}    x
+    \PIS{int:I-3.6}     %\iref{int:I-3.6}    x
+    \PIS{int:I-4.1}     %\iref{int:I-4.1}    x
+}
 
-From various interviews the statement was made whether \acrshort{big} is the most suitable law to analyze it with Ampersand.
-The reason is that the law of origin is very old see section~\ref{section:big} and it is quite comprehensive.
-The law has been updated several times, but the structure is not easy to convert to an ICT system.
+From various interviews the statement was made whether \acrshort{big} is the most suitable law to analyze it with Ampersand (\iref{int:I-1.8}).
+The reason is that the law of origin is very old (\iref{int:I-1.11}) see section~\ref{section:big} and it is quite comprehensive.
+The law has been updated several times, but the structure is not easy to convert to an ICT system (\iref{int:I-4.1}).
 In addition, the law contains many implicit and explicit references to other laws and regulations.
-And the law itself is not explicit enough.
-There are quite a lot of interpretation possibilities.
+And the law itself is not explicit enough (\iref{int:I-3.6}).
+There are quite a lot of interpretation possibilities (\iref{int:I-3.3}).
+\sbbs{6}{Excluded}
+\POstart{%6
+    \POS{obs:rq1-93:19-12}     %\oref{obs:rq1-93:19-12}    o
+    \POS{obs:rq1-95:29-12}     %\oref{obs:rq1-95:29-12}    o
+    \POS{obs:rq3-13:17-10}     %\oref{obs:rq3-13:17-10}    o
+}
+
+The following observations have not been explicitly included.

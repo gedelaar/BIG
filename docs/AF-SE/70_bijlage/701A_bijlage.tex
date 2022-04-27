@@ -1,344 +1,498 @@
 \def\rq{RQ1}
 \input{docs/AF-SE/22_results/counterdef}
-\acrlong{\rq}
+%\acrlong{\rq}
 
 \paragraph{Ampersand}
-\begin{enumerate}
-    \item rq1-13:17-10: The setup of \A{Ampersand} in local environment is specific and not self-explanatory.
+\begin{obs}[{rq1-13:17-10}:
+    The setup of Ampersand in local environment is specific and not self-explanatory.
     Help is needed here to get this working.
     Attempts to get the process working in localhost were unsuccessful.
     The manual on the Ampersand site showed how to do this.
-    But it still didn't work
-    \newline\textbf{obs}: the documentation gives an indication of how to configure ampersand and make it work locally.
-    Using XAMP.
-    All this is not going to work.
-    Not clear why.
-    It did work in a Docker environment.
+    But it still didn't work]\label{obs:rq1-13:17-10}
+    \textbf{obs}: the documentation gives an indication of how to configure ampersand and make it work locally.
+    Using \acrshort{x}, but this is not going to work.
+    Not clear why and it finally did work in a Docker environment.
+\end{obs}
 
-    \item rq1-18 Can not find an example on the internet, only in the repo of \A{Ampersand} itself.
-    That is difficult to find.
-    \newline\textbf{obs}: Little to be found about Ampersand except in its own repos.
+\begin{obs}[{rq1-18} Can not find an example on the internet, only in the repo of Ampersand itself.
+    That is difficult to find.]\label{obs:rq1-18}
+    \textbf{obs}: Little to be found about Ampersand except in its own repos.
+\end{obs}
 
-    \item rq1-45:24-10: Overview within a \A{Ampersand}script is difficult to maintain and obtain.
-    \newline\textbf{obs}: The need for overview is there as the script grows.
+\begin{obs}[{rq1-45:24-10:} Overview within an Ampersand script is difficult to obtain.]\label{obs:rq1-45:24-10}
+    \textbf{obs}: The need for overview is there as the script grows.
+\end{obs}
 
-    \item rq1-2 \A{Ampersand} has no annotation option, therefore requires a separate action or document to keep track of what has been passed.
-    \newline\textbf{obs}: it comes down to wanting to maintain an overview. 
-    That is what I want with the annotation.
+\begin{obs}[{rq1-2} Ampersand has no annotation option, therefore requires a separate action or document to keep track of what has been passed.]\label{obs:rq1-2}
+    \textbf{obs}: There is a need to maintain an overview.
+Hence the annotation option.
+\end{obs}
 
-    \item rq1-47:27-10: Detecting a bug.
-    Placing these in github issues at the \A{Ampersand} repository will get a response within a day and resolve it.
-    In this case it was a bug in Ampersand that was quickly fixed with a new version.
-    \newline\textbf{obs}: Quick fix of a bug in Ampersand by the development team.
+\begin{obs}[{rq1-47:27-10:} Detecting a bug.
+    Placing these in github issues at the {Ampersand} repository will get a response within a day and resolve it.
+    In this case it was a bug in Ampersand that was quickly fixed with a new version.]\label{obs:rq1-47:27-10}
+    \textbf{obs}: Quick fix of a bug in Ampersand by the development team.
+\end{obs}
 
-    \item rt1-60:9-11: The process of writing a \A{Ampersand} script is not without practice.
-    \newline\textbf{obs}: There should always be someone with experience in the background or in the collaboration.
+\begin{obs}[{rq1-60:9-11:} Training and education is required to write an Ampersand script.]\label{obs:rq1-60:9-11}
+    \textbf{obs}: There should always be someone with experience in the background or in the collaboration.
+\end{obs}
 
-    \item rq1-96:30-12: Skill in scripting within \A{Ampersand} is quickly lost if you don't do this frequently.
-    \newline\textbf{obs}: Practice a lot and keep using it.
+\begin{obs}[{rq1-96:30-12:} Skill in scripting within Ampersand is quickly lost if you don't do this frequently.]\label{obs:rq1-96:30-12}
+    \textbf{obs}: Practice a lot and keep using it.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-19:16-11: {Ampersand} returns constraints and no executable]\label{obs:rq2-19:16-11}
+    \textbf{obs}: It is not an executable file, but a collection of database constraints that is the core of Ampersand.
+\end{obs}
+
+\begin{obs}[rq4-1 Ampersand cannot calculate.
+    But since {Ampersand} is static, process data can be monitored in other ways.]\label{obs:rq4-1}
+    \textbf{obs}: Ampersand cannot calculate.
+\end{obs}
+\begin{obs}[rq4-7 What happens if {Ampersand} is implemented and there are changes in the structure (normal for software)]\label{obs:rq4-7}
+    \textbf{obs}: When a new model is created within Ampersand, the data structure is reloaded.
+    There are no provisions for preserving the data that has already been entered.
+\end{obs}
+\begin{obs}[rq4-8:22-11: The team behind {Ampersand} is very dedicated.]\label{obs:rq4-8:22-11}
+    \textbf{obs}: Calls are resolved quickly.
+    Example was the error message on wrong multiplicity.
+    (notification \url{https://github.com/AmpersandTarski/RAP/issues/128})
+    Reloading a new version is not easy.
+\end{obs}
 
 \paragraph{Api}
-\begin{enumerate}
-    \item rq1-8:14-11: No swagger is created for the \A{api};
-    \newline\textbf{obs}: If you want to use an external input, API descriptions are very relevant.
+\begin{obs}[{rq1-8:14-11:} No swagger is created for the api;]\label{obs:rq1-8:14-11}
+    \textbf{obs}: If you want to use an external input, API descriptions are very relevant.
     These are not generated automatically.
+\end{obs}
     
-    \item rq1-70:14-11: Postman works with api/v1/resource, e.g. GET \url{localhost/api/v1/resource/Person/P001/Person}, retrieves that of an existing person.
-    So the validation structure of ampersand can be used from outside Ampersand by means of \A{api}.
-    \newline\textbf{obs}: Ampersand is more open than it first appears.
+\begin{obs}[{rq1-70:14-11:} Postman works with api/v1/resource, e.g. GET \url{localhost/api/v1/resource/Person/P001/Person}, retrieves that of an existing person.
+    So the validation structure of ampersand can be used from outside Ampersand by means of api.]\label{obs:rq1-70:14-11}
+    \textbf{obs}: Ampersand is more open than it first appears.
+\end{obs}
 
-    \item rq1-72:14-11: Besides the GET(get), the POST(append) and PUT (mutate) also work
-    \newline\textbf{obs}: Using Postman, the \A{api} features were tested.
+\begin{obs}[{rq1-72:14-11:} Besides the GET(get), the POST(append) and PUT (mutate) also work]\label{obs:rq1-72:14-11}
+    \textbf{obs}: Using Postman, the api features were tested.
+\end{obs}
     
-    \item rq1-73:14-11: Ampersand can be used from other applications through \A{api}'s, but the return values are next to the requested information also messages and not message codes.
-    These codes could be included in the reports, but now remain "unstructured" data.
-    \newline\textbf{obs}: Here you are missing the structure of the responses.
+\begin{obs}[{rq1-73:14-11:} Ampersand can be used from other applications through APIs, but the return values are next to the requested information also messages and not message codes.
+    These codes could be included in the reports, but now remain "unstructured" data.]\label{obs:rq1-73:14-11}
+    \textbf{obs}: Here you are missing the structure of the responses.
     So Ampersand is apparently not intended to be used in this way.
     See also note on swagger(rq1-8).
+\end{obs}
     
-    \item rq1-74:16-11: Link between an external front-end and an Ampersand back-end (Ampersand\-\A{api}).
-    A change in the back-end, so an Ampersand change, then the front end almost certainly has to change with it.
-    \newline\textbf{obs}: Forced maintenance of the external front-end due to changes within Ampersand APIs.
+\begin{obs}[{rq1-74:16-11:} Link between an external front-end and an Ampersand back-end (Ampersand\-api).
+    A change in the back-end, so an Ampersand change, then the front end almost certainly has to change with it.]\label{obs:rq1-74:16-11}
+    \textbf{obs}: Forced maintenance of the external front-end due to changes within Ampersand APIs.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq4-2 The {api} link works fine, but entire messages return.
+    These should actually get codes.]\label{obs:rq4-2}
+    \textbf{obs}: An api returned a text.
+    Calling applications usually don't handle that very well.
+    It is usual to return a code and sometimes with text.
+    Think of http response codes.
+\end{obs}
+
+\begin{obs}[rq4-5 Postman used for {api} link with Ampersand.]\label{obs:rq4-5}
+    \textbf{obs}: As a test it is possible to use Postman for the link.
+    So it is not necessary to build an application for this.
+\end{obs}
 
 \paragraph{Architecture}
-\begin{enumerate}
-    \item rq1-62:10-11: There has be the \A{architecture} link between the {law core} and the {register core}
-    \newline\textbf{obs}: Ampersand analysis must fit the architecture of the organization and the way of working.
+\begin{obs}[{rq1-62:10-11:} There has be the architecture link between the {law core} and the {register core}]\label{obs:rq1-62:10-11}
+    \textbf{obs}: Ampersand analysis must fit the architecture of the organization and the way of working.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq4-3 Embedding in {architecture}, the core of the law with shared concepts and processes.
+     The core of law is specific law.
+     Shared concepts are also part of the law but also occur elsewhere.
+     This is part of embedding in architecture.]\label{obs:rq4-3}
+     \textbf{obs}: Embedding into the existing architecture is important for usability, in the form of acceptance.
+\end{obs}
 
 \paragraph{Classify}
-\begin{enumerate}
-    \item rq1-86:30-11: \A{classify} is a specialization of a concept.
-    No experience has been gained with this.
-    \newline\textbf{obs}: There was no place for this in the research.
-
-\end{enumerate}
+\begin{obs}[{rq1-86:30-11:} Classify is a specialization of a concept.
+    No experience has been gained with this.]\label{obs:rq1-86:30-11}
+    \textbf{obs}: There was no place for this in the research.
+\end{obs}
 
 \paragraph{Concept}
-\begin{enumerate}
-    \item rq1-16 Notation method of \A{concept} and {relation}s and {rule}s are defined for a very small part.
+\begin{obs}[{rq1-16} Notation method of Concept and Relations and {Rule}s are defined for a very small part.
     Only the first position is uppercase or lowercase.
     There is no rule about other spelling.
-    So using CamelCase or underscore or hyphen.
-    \newline\textbf{obs}: You are not forced to work in any particular structure.
+    So using CamelCase or underscore or hyphen.]\label{obs:rq1-16}
+    \textbf{obs}: You are not forced to work in any particular structure.
     There is no need for coercion in this area, but advice is practical for novice users.
+\end{obs}
      
-    \item rq1-79:20-11: Once the \A{concept} Define date and then it can be used anywhere in the context.
-    The question then is how to deal with shared Concepts and how to manage them.
-    \newline\textbf{obs}: Within the context, a concept is reused.
+\begin{obs}[{rq1-79:20-11:} Once a concept for a date or other element is defined, it can be used anywhere in the context.
+    The question then is how to deal with shared Concepts and how to manage them.]\label{obs:rq1-79:20-11}
+    \textbf{obs}: Within the context, a concept is reused.
     The operation of shared concept within other contexts is not self-evident.
+\end{obs}
      
-    \item rq1-30:12-9: Defining the meaning and definition of the \A{concept} is free.
-    There is no fixed pattern for documentation.
-    \newline\textbf{obs}: Defining the meaning and definition is very free.
+\begin{obs}[{rq1-30:12-9:} Defining the meaning and definition of the concept is free of rules.
+    There is no fixed pattern for documentation.]\label{obs:rq1-30:12-9}
+    \textbf{obs}: Defining the meaning and definition is very free.
+\end{obs}
      
-    \item rq1-42:19-10: Immediately add the description when recording a \A{concept} and {relation}.
-    Later it is difficult to find out why the recording took place.
-    \newline\textbf{obs}: To avoid rework, the definition and meaning and purpose should be defined immediately when defining concepts and relationships.
+\begin{obs}[{rq1-42:19-10:} Immediately add the description when recording a concept and {relation}.
+    Later it is difficult to find out why the recording took place.]\label{obs:rq1-42:19-10}
+    \textbf{obs}: To avoid rework, the definition and meaning and purpose should be defined immediately when defining concepts and relationships.
+\end{obs}
 
-    \item rq1-48:27-10: The \A{concept} current date is solved very complicated.
+\begin{obs}[{rq1-48:27-10:} The concept current date is solved very complicated.
     But eventually it works.
     Current time does not seem to have developed yet.
-    Although the example scripts seem to say something different.
-    \newline\textbf{obs}: A frequently used element like date and time is not easily solved in Ampersand.
+    Although the example scripts seem to say something different.]\label{obs:rq1-48:27-10}
+    \textbf{obs}: A frequently used element like date and time is not easily solved in Ampersand.
+\end{obs}
     
-    \item rq1-46:24-10: There is no find able relationship between the {relation} and the \A{concept} in the script.
-    \newline\textbf{obs}: The {overview} where a concept is used is difficult to obtain.
+\begin{obs}[{rq1-46:24-10:} There is no find able relationship between the {relation} and the concept in the script.]\label{obs:rq1-46:24-10}
+    \textbf{obs}: The {overview} where a concept is used is difficult to obtain.
     The IDE used also does not provide any tooling to obtain this overview.
+\end{obs}
 
-    \item rq1-80:20-11: A consistent naming of a \A{concept} is necessary.
-    \newline\textbf{obs}: A once defined concept could just be redefined (due to lack of overview).
+\begin{obs}[{rq1-80:20-11:} A consistent naming of a concept is necessary.]\label{obs:rq1-80:20-11}
+    \textbf{obs}: A once defined concept could just be redefined (due to lack of overview).
     With just a different format or definition.
+\end{obs}
     
-    \item rq1-84:30-11: A \A{concept} is immutable.
+\begin{obs}[{rq1-84:30-11:} A concept is immutable.
     for example a person is concept, not doctor.
-    It must be an intrinsic property, which cannot be changed.
-    \newline\textbf{obs}: The important property of concept within Ampersand.
+    It must be an intrinsic property, which cannot be changed.]\label{obs:rq1-84:30-11}
+    \textbf{obs}: The important property of concept within Ampersand.
+\end{obs}
     
-    \item rq1-89:7-12: Items named as common \A{concept}s.
-    \newline\textbf{obs}: There are common elements across registers. The question is how to address this commonality.
+\begin{obs}[{rq1-89:7-12:} Items named as common concepts.]\label{obs:rq1-89:7-12}
+    \textbf{obs}: There are common elements across registers. The question is how to address this commonality.
+\end{obs}
     
-    \item rq1-91:14-12: A \A{concept} and a {relation} can be defined several times within your own patterns.
-    So that the patterns can stand on their own.
-    \newline\textbf{obs}: Dangerous because it allows the same concepts to have different definitions.
-\end{enumerate}
+\begin{obs}[{rq1-91:14-12:} A concept and a {relation} can be defined several times within your own patterns.
+    So that the patterns can stand on their own.]\label{obs:rq1-91:14-12}
+    \textbf{obs}: Dangerous because it allows the same concepts to have different definitions. 
+    This behaviour shows up in the \acrshort{ca}.
+\end{obs}
+
+\begin{obs}[rq2-7:4-10: A {concept} Person is not equal to BIG-number.
+    A big number is an attribute of the registration.
+    A person can have multiple BIG-numbers.]\label{obs:rq2-7:4-10}
+    \textbf{obs}: It seems in the text that a BIG-number is equated with a person.
+\end{obs}
+
+\begin{obs}[rq3-2 By reading the law, a structure becomes clear.
+    The {concept} \mbox{Person}, \mbox{Registration} and \mbox{Registration} with management and Discipline(Discipline) with measures.]\label{obs:rq3-2}
+    \textbf{obs}: The main lines of the law seem clear to a non-lawyer.
+\end{obs}
+
+\begin{obs}[rq1-95:29-12: The format of a {concept} big number is not included in the law]\label{obs:rq1-95:29-12}
+    \textbf{obs}: Should there be requirements for the big number now I think it is 8 digits, but there should be.
+    A guid may not be very useful for user-friendliness.
+\end{obs}
+
+\begin{obs}[rq2-17:10-11: A dutch person has an {concept} address that must conform to the BRP format (should be a standard building block for it!).
+    A foreign address is unclear what to do with this.]\label{obs:rq2-17:10-11}
+    \textbf{obs}: It is unclear how to handle addresses.
+\end{obs}
+
+\begin{obs}[rq3-14:19-10: A {concept} person and a big number are very different things.
+    Person is immutable, big number is not.
+    They do have a {relation} with each other.]\label{obs:rq3-14:19-10}
+    \textbf{obs}: In speech, these are sometimes used interchangeably, so that it seems that a person is equivalent to a big number.
+\end{obs}
+    
+\begin{obs}[rq2-1 Substantively includes \acrshort{big} also includes disciplinary law (tuchtrecht), which is another branch of sport.]\label{obs:rq2-1}
+    \textbf{obs}: Disciplinary law is not easy to capture in {concept} and {relation}s.
+    Disciplinary law consists more of processes and procedures.
+\end{obs}
 
 \paragraph{Conceptual analysis}
-\begin{enumerate}
-    \item rq1-1 Formatting in Ampersand ({pattern}s) has consequences for the \A{Conceptual analysis}.
-    \newline\textbf{obs}: \textbf{\textit{**welke dan ?? nog even over nadenken**}}
+\begin{obs}[{rq1-1} Formatting in Ampersand ({pattern}s) has consequences for the Conceptual analysis.]\label{obs:rq1-1}
+    \textbf{obs}: \textbf{\textit{**welke dan ?? nog even over nadenken**}}
+\end{obs}
     
-    \item rq1-43:23-10: The order of the data in the \A{Conceptual analysis} is a bit strange.
-    First the definition is shown, then the name of the relation and below that the meaning again.
-    \newline\textbf{obs}: The layout of the Conceptual design doesn't seem quite logical and is therefore confusing.
+\begin{obs}[{rq1-43:23-10:} The order of the data in the Conceptual analysis is a bit strange.
+    First the definition is shown, then the name of the relation and below that the meaning again.]\label{obs:rq1-43:23-10}
+    \textbf{obs}: The layout of the Conceptual design doesn't seem quite logical and is therefore confusing.
+\end{obs}
 
-    \item rq1-44:23-10: In the \A{Conceptual analysis} enters must be taken into account in the texts.
-    These come back directly in the documents and then yield broken sentences.
-    \newline\textbf{obs}: Break enters in the \acrshort{ide} also produce extra newlines in the output.
+\begin{obs}[{rq1-44:23-10:} In the Conceptual analysis enters must be taken into account in the texts.
+    These come back directly in the documents and then yield broken sentences.]\label{obs:rq1-44:23-10}
+    \textbf{obs}: Break enters in the \acrshort{ide} also produce extra newlines in the output.
     This causes the formatting to go wrong.
+\end{obs}
 
-    \item rq1-76:20-11: The "disclaimer" does not appear in the \A{Conceptual analysis}.
-    \newline\textbf{obs}: The "disclaimer" does not appear in the Conceptual analysis.
+\begin{obs}[{rq1-76:20-11:} The "disclaimer" does not appear in the Conceptual analysis.]\label{obs:rq1-76:20-11}
+    \textbf{obs}: The "disclaimer" does not appear in the Conceptual analysis.
+\end{obs}
 
-    \item rq1-99:6-1: when generating a \A{Conceptual analysis} the doc gets the name of the first concept.
-    \newline\textbf{obs}: The name of the generated document will be the name of the first draft contained in the document.
+\begin{obs}[{rq1-99:6-1:} when generating a Conceptual analysis the doc gets the name of the first concept.]\label{obs:rq1-99:6-1}
+    \textbf{obs}: The name of the generated document will be the name of the first draft contained in the document.
+\end{obs}
 
-    \item rq1-35:14-9: The law has been drawn up in Dutch, which means that the \A{Conceptual analysis} can also be done in Dutch.
-    \newline\textbf{obs}: The starting point is to make the Conceptual analysis in Dutch.
+\begin{obs}[{rq1-35:14-9:} The law has been drawn up in Dutch, which means that the Conceptual analysis can also be done in Dutch.]\label{obs:rq1-35:14-9}
+    \textbf{obs}: The starting point is to make the Conceptual analysis in Dutch.
+\end{obs}
 
-    \item rq1-51:2-11: Discussing the \A{Conceptual analysis} should be done theme by theme.
-    \newline\textbf{obs}: Where a theme equals pattern.
+\begin{obs}[{rq1-51:2-11:} Discussing the Conceptual analysis should be done theme by theme.]\label{obs:rq1-51:2-11}
+    \textbf{obs}: Where a theme equals pattern.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-4:30-9: Which agreements must be made regarding the structure of the descriptions for {Conceptual analysis}.
+    Do agreements have to be made about it or leave it unstructured?]\label{obs:rq2-4:30-9}
+    \textbf{obs}: To prevent the description from becoming a mess, agreements (implicit or explicit) must be made about the way of describing and name the references.
+\end{obs}
 
-\paragraph{\acrlong{crud}}
-\begin{enumerate}
-    \item rq1-53:2-11: The \A{crud} (\acrlong{crud}) and \acrshort{crud} in the {interface} don't always work as it should be.
-    There is no full validation on usage.
-    So an on/off does not make sense everywhere.
-    \newline rq1-37:3-10: CRUD/crud options also need some study before they can be applied properly.
-    \newline\textbf{obs}: No (full) validation on the use of crud.
-    It is possible to apply variations that have no impact.
-
-\end{enumerate}
+\begin{obs}[rq2-18:16-11: Good to realize that the {meaning} you write down also ends up in the {Conceptual analysis}.
+    So looking at the way of writing it down can form a story in the analysis.]\label{obs:rq2-18:16-11}
+    \textbf{obs}: The meaning must be worded in such a way that all these meanings form a story.
+\end{obs}
 
 \paragraph{Docker}
-\begin{enumerate}
-    \item rq1-11 Implementation in \A{Docker} with RAP creates new directories all the time.
-    \newline\textbf{obs}: The Docker environment is polluted by adding new directories all the time.
+\begin{obs}[{rq1-11} Implementation in Docker with RAP creates new directories all the time.]\label{obs:rq1-11}
+    \textbf{obs}: The Docker environment is polluted by adding new directories all the time.
     This makes analysis difficult because it is not clear which directory is used.
+\end{obs}
 
-    \item rq1-6:21-10/30-10: \A{Docker} is also another thing to learn.
+\begin{obs}[{rq1-6:21-10:} Docker is also another thing to learn.
     There should also be an introductory course to quickly understand Docker usage for Ampersand.
-    A waste of time to have to look this up yourself or it is preconditions to be able to use Ampersand.
-    \newline\textbf{obs}: Docker knowledge (limited) is required
-
-    \item rq1-49:30-10: Isolating a {pattern} or subsystem for testing does not work.
-    This has to do with setting up \A{Docker} and possible ignorance on my part.
-    \newline\textbf{obs}: The goal was to put a part of the system on its own so that only that part could be tested.
-    But due to the Docker setup, this doesn't seem possible.
-    Or I don't have enough knowledge of Docker to make this possible.
-
-\end{enumerate}
+    A waste of time to have to look this up yourself or it is preconditions to be able to use Ampersand.]\label{obs:rq1-6:21-10}
+    \textbf{obs}: Docker knowledge (limited) is required
+\end{obs}
 
 \paragraph{Documentation}
-\begin{enumerate}
-    \item rq1-78:20-11: The \A{documentation} generated in HTML loaded in firefox and no PNG's are visible.
-    Chrome is doing well.
-    \newline\textbf{obs}: Firefox does not show the generated models.
+\begin{obs}[{rq1-78:20-11:} The documentation generated in HTML loaded in firefox and no PNG's are visible.
+    Chrome is doing well.]\label{obs:rq1-78:20-11}
+    \textbf{obs}: Firefox does not show the generated models.
+\end{obs}
 
-    \item rq1-41:19-10: The law bank website contains a persistent hyperlink, which can be used in the \A{documentation} as reference.
-    \newline\textbf{obs}: References to persistent links can be included.
+\begin{obs}[{rq1-41:19-10:} The "wettenbank" website contains a persistent hyperlink, which can be used in the documentation as reference.]\label{obs:rq1-41:19-10}
+    \textbf{obs}: References to persistent links can be included.
     But is the output still pleasant to read because of the continuous references.
+\end{obs}
 
-    \item rq1-54:2-11: The \A{documentation} can be written in different ways.
-    This can be done using mark down, html and latex.
-    \newline\textbf{obs}: You will encounter this in usage, even though the documentation states this as well.
+\begin{obs}[{rq1-54:2-11:} The documentation can be written in different ways.
+    This can be done using mark down, html and latex.]\label{obs:rq1-54:2-11}
+    \textbf{obs}: You will encounter this in usage, even though the documentation states this as well.
+\end{obs}
 
-    \item rq1-97:30-12: By puzzling with Ampersand people quickly forget to make correct \A{documentation}.
-    Often you are happy that something works.
-    \newline\textbf{obs}: Too much trying and figuring distracts from documenting.
+\begin{obs}[{rq1-97:30-12:} By puzzling with Ampersand people quickly forget to make correct documentation.
+    Often you are happy that something works.]\label{obs:rq1-97:30-12}
+    \textbf{obs}: Too much trying and figuring distracts from documenting.
+\end{obs}
 
-    \item rq1-75:20-11: Some more experimentation with the \A{documentation} in the prototype.
+\begin{obs}[{rq1-75:20-11:} Some more experimentation with the documentation in the prototype.
     When describing the purpose of the context, it takes a while to figure out how this text can be properly conveyed.
-    An <h1> results in an extra chapter in H4 and H4 then becomes H5. And H5 has then become a meaningless piece.
-    With an <h2> and <h3> it works well.
-    \newline\textbf{obs}: Interfering with structure can have unexpected consequences.
+    An <h1> results in an extra chapter in H4 and H4 then becomes H5 and H5 has then become a meaningless piece.
+    With an <h2> and <h3> it works well.]\label{obs:rq1-75:20-11}
+    \textbf{obs}: Interfering with structure can have unexpected consequences.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq3-7 Adding {documentation} with the correct description to a concept and relation is not so easy.
+    Easy to stray and add your own interpretation.]\label{obs:rq3-7}
+    \textbf{obs}: While drafting concepts and relationships, a description of the position where the element comes from must be immediately included.
+    This doesn't always happen because the scripting language keeps you so busy (a lot of messing around) that you forget to add the text.
+
+\end{obs}
 
 \paragraph{Flexible}
-\begin{enumerate}
-    \item rq1-63:10-11: Ampersand is \A{flexible} by extension concepts and relationships.
+\begin{obs}[{rq1-63:10-11:} Ampersand is flexible by extension concepts and relationships.
     Such as dividing an address into street name, house number and addition is quickly realized.
     Actual address formatting is not in the law.
-    The usual method within the government is to conform to BRP use of addresses.
-    \newline\textbf{obs}: Ampersand is very flexible.
+    The usual method within the government is to conform to BRP use of addresses.]\label{obs:rq1-63:10-11}
+    \textbf{obs}: Ampersand is very flexible.
     Define a Concept and relationship and it is realized.
     Second observation is that in the case of the address it is not immediately clear what this should look like.
     But there are other sources for that.
     It takes some searching and making assumptions.
-
-\end{enumerate}
+\end{obs}
 
 \paragraph{Include}
-\begin{enumerate}
-    \item rq1-81:20-11: Compilation error due to a \A{include} that no longer existed.
+\begin{obs}[{rq1-81:20-11:} Compilation error due to a include that no longer existed.
     Observation here is that an adl has been renamed or moved or deleted.
-    The tool \acrlong{vsc} does not support a refactoring stroke on said changes.
-    \newline\textbf{obs}: Refactoring is not supported with \acrlong{vsc}.
+    The tool \acrlong{vsc} does not support a refactoring stroke on said changes.]\label{obs:rq1-81:20-11}
+    \textbf{obs}: Refactoring is not supported with \acrlong{vsc}.
+\end{obs}
 
-    \item rq1-15:4-10 With \A{include} statements the order of the contents of the document is determined.
-    The expectation was that includes are needed to link parts of code together but includes are not everywhere necessary to get the code working.
-    \newline\textbf{obs}: Includes are not only to run the scripts completely, but also to send the documentation.
+\begin{obs}[{rq1-15:4-10} With include statements the order of the contents of the document is determined.
+    The expectation was that includes are needed to link parts of code together but includes are not everywhere necessary to get the code working.]\label{obs:rq1-15:4-10}
+    \textbf{obs}: Includes are not only to run the scripts completely, but also to send the documentation.
+\end{obs}
 
-    \item rq1-82:20-11: \A{include} don't always seem necessary on compilation.
+\begin{obs}[{rq1-82:20-11:} include don't always seem necessary on compilation.
     It is not entirely clear when this is necessary or not.
-    Another function of includes is to format the analysis.
-    \newline\textbf{obs}: Includes are useful and necessary, but it's not always clear how to use them.
+    Another function of includes is to format the analysis.]\label{obs:rq1-82:20-11}
+    \textbf{obs}: Includes are useful and necessary, but it's not always clear how to use them.
+\end{obs}
 
-    \item rq1-90:14-12: Collection model of regulations than by means of \A{include}s keep it small and therefore clear.
+\begin{obs}[{rq1-90:14-12:} Collection model of regulations than by means of includes keep it small and therefore clear.
     This is for the reusability of the script.
-    One module per feature.
-    \newline\textbf{obs}: Small modules with reusability in mind.
-
-\end{enumerate}
+    One module per feature.]\label{obs:rq1-90:14-12}
+    \textbf{obs}: Small modules with reusability in mind.
+\end{obs}
  
 \paragraph{Interface}
-\begin{enumerate}
-    \item rq1-12 At the start it is not clear when a capital letter or small letter should be used with the crud in the \A{interface}.
-    \newline\textbf{obs}: It is in the manual\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/crud}}, 
+\begin{obs}[rq1-12: At the start it is not clear when a capital letter or small letter should be used with the crud in the interface.]\label{obs:rq1-12}
+    \textbf{obs}: It is in the manual\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/crud}}, 
     but you have to find out by trial and error how it really works.
+\end{obs}
     
-    \item rq1-40:10-10/27-11: The concepts used in the \A{interface} must be of type "object" (represent).
-    The concept may therefore not be alpha or integer.
-    \newline\textbf{obs}: Interface did not start correctly.
+\begin{obs}[{rq1-40:10-10:} The concepts used in the interface must be of type "object" (represent).
+    The concept may therefore not be alpha or integer.]\label{obs:rq1-40:10-10}
+    \textbf{obs}: Interface did not start correctly.
     This was caused by the interface concept not being of type "object".
+\end{obs}
 
-    \item rq1-53:2-11: The {crud} (\acrlong{crud}) and \acrshort{crud} in the \A{interface} don't always work as it should be.
+\begin{obs}[{rq1-53:2-11:} The {crud} (\acrlong{crud}) and \acrshort{crud} in the interface don't always work as it should be.
     There is no full validation on usage.
     So an on/off does not make sense everywhere.
-    \newline rq1-37:3-10: CRUD/crud options also need some study before they can be applied properly.
-    \newline\textbf{obs}: No (full) validation on the use of crud.
+    rq1-37:3-10: CRUD/crud options also need some study before they can be applied properly.]\label{obs:rq1-53:2-11}
+    \textbf{obs}: No (full) validation on the use of crud.
     It is possible to apply variations that have no impact.
+\end{obs}
 
-    \item rq1-58:8-11: Per \A{interface} max 1 {multiplicity}, otherwise you won't get data stored.
-    \newline\textbf{obs}: Within an interface, multiple total constraints were included in the relationships.
+\begin{obs}[{rq1-58:8-11:} Per interface max one {multiplicity}, otherwise you won't get data stored.]\label{obs:rq1-58:8-11}
+    \textbf{obs}: Within an interface, multiple total constraints were included in the relationships.
     The result was that no more data could be added within the prototype.
+\end{obs}
 
-    \item rq1-71:14-11/16-11: The \A{interface} also belongs to the design and not just to the prototype.
-    Changing the \acrlong{crud} changes the behavior of the API.
-    \newline\textbf{obs}: API behavior changes by changing \acrshort{crud}.
+\begin{obs}[{rq1-71:14-11:} The interface also belongs to the design and not just to the prototype.
+    Changing the \acrlong{crud} changes the behavior of the API.]\label{obs:rq1-71:14-11}
+    \textbf{obs}: API behavior changes by changing \acrshort{crud}.
+\end{obs}
 
-    \item rq1-83:27-11: Experiment with HTML view within the \A{interface} fails.
+\begin{obs}[{rq1-83:27-11:} Experiment with HTML view within the interface fails.
     Documentation of this is not conclusive.
-    The examples are not enough
-    \newline\textbf{obs}: This part was not made to work.    
+    The examples are not enough]\label{obs:rq1-83:27-11}
+    \textbf{obs}: This part was not made to work.    
+\end{obs}
 
-    \item rq1-98:30-12: When using {linkto} in the \A{interface} as last element in the interface and the signature occurs more often than a dropdown to all subinterfaces (of the same signature) appears.
-    \newline\textbf{obs}: Unexpected behavior of the LINKTO.
+\begin{obs}[{rq1-98:30-12:} When using {linkto} in the interface as last element in the interface and the signature occurs more often than a dropdown to all subinterfaces (of the same signature) appears.]\label{obs:rq1-98:30-12}
+    \textbf{obs}: Unexpected behavior of the LINKTO.
+\end{obs}
     
-    \item rq1-5:30-10: The browser is holding data from the \A{interface} and periodically the cache needs to be cleared for customization to work.
-    \newline\textbf{obs}: It looks like the changes made to the script don't affect operation.
+\begin{obs}[{rq1-5:30-10:} The browser is holding data from the interface and periodically the cache needs to be cleared for customization to work.]\label{obs:rq1-5:30-10}
+    \textbf{obs}: It looks like the changes made to the script don't affect operation.
     It is caused by the browser's cache not being emptied automatically.
     There are browser extensions to still do this manually.
+\end{obs}
 
-    \item rq1-10 The function html href with target blank does not work within the \A{interface}
-    \newline rq1-77:20-11: In html mode the 
-    \begin{lstlisting}
+\begin{obs}[{rq1-10 The function HTML href with target blank does not work within the interface
+     rq1-77:20-11:} In HTML mode the 
+    %\begin{lstlisting}
     <a href="x" target=\_blank>
-    \end{lstlisting}
+    %\end{lstlisting}
     is not supported.
-    The target is removed in the complation.
-    \newline\textbf{obs}: The expectation was that the target \_blank would open a new tab in the html text, but that does not happen.
+    The target is removed in the compilation.]\label{obs:rq1-10}
+    \textbf{obs}: The expectation was that the target \_blank would open a new tab in the HTML text, but that does not happen.
+\end{obs}
+
+\begin{obs}[rq2-12:19-10: TOT has the property that this must be entered in the {interface} because otherwise the data will not be saved.
+    A variant of this is an {rule} with this property
+    As a result, the other items are stored in the database, but a notification of incompleteness continues to appear.]\label{obs:rq2-12:19-10}
+    \textbf{obs}: so there are several ways to deal with a TOT.
+    Therefore, the use of this resource must also be considered.
+\end{obs}
     
-\end{enumerate}
+\begin{obs}[rq1-21:7-11: TOT is usually overcome by a tot-rule, it turns out that a TOT causes something to be saved when entered, while a tot-rule allows a save to occur while the notification remains open to stand.]\label{obs:rq1-21:7-11}
+    \textbf{obs}: so there are several ways to deal with a TOT.
+    Therefore, the use of this resource must also be considered.
+\end{obs}
+
+\begin{obs}[rq2-15:19-10: In the {interface} a FOR can also be used.
+    This populates user roles.]\label{obs:rq2-15:19-10}
+    \textbf{obs}: So be {authorized} can be arranged here.
+    The question is how this works in, for example, a combination of api with FOR.
+\end{obs}
+
+\begin{obs}[rq4-4 The {interface} produces many messages and these remain.]\label{obs:rq4-4}
+    \textbf{obs}: Prototype screens fill up with messages when they are not resolved.
+\end{obs}
 
 \paragraph{Latex}
-\begin{enumerate}
-    \item rq1-33:9-1: \A{VSC} does not support the \A{latex} environment well.
+\begin{obs}[{rq1-33:9-1:} VSC does not support the latex environment well.
     My PC often hangs on this.
-    \newline rq1-87:3-12: Latex can also be written in VSC.
+    {rq1-87:3-12:} Latex can also be written in VSC.
     Apparently it is a different version, because the import does not immediately succeed.
-    Does not work really well and the result is poor.
-    \newline\textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
+    Does not work really well and the result is poor.]\label{obs:rq1-33:9-1}
+    \textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
     But this add-on completely hangs my system.
     I got a 100\% cpu load for a long time. 
+\end{obs}
+
+\paragraph{Law}
+\begin{obs}[rq3-3:12-9 There are parts of the {law} that are no longer valid, they are not included]\label{obs:rq3-3:12-9}
+    \textbf{obs}: The law is quite complex, and it is possible to go back in time.
+    The choice that has been made is not to go back in time within this scope.
+\end{obs}
+
+\begin{obs}[rq3-4:12-9 There are more {law}s involved than just the \acrshort{big}.
+     rq3-6 12-9 In addition to the law, decisions are also important.]\label{obs:rq3-4:12-9}
+    \textbf{obs}: The law website contains references to other laws and regulations.
+\end{obs}
 
 
-\end{enumerate}
+\begin{obs}[rq1-42:21-10: It is easy to deviate from the legal texts.
+    Because they are so hard to read.
+    Some knowledge of the {law} or the process means that your own {interpretation} is quickly made.
+    Action research also means that you quickly fall into this trap.]\label{obs:rq1-42:21-10}
+    \textbf{obs}: Due to complex texts, there is a danger that knowledge is trusted on your own background.
+\end{obs}
 
-\paragraph{Lifecycle}
-\begin{enumerate}
-    \item rq1-39:3-10: Do not forget to create delete rules in addition to append and edit rules in the {rule}\textbf{s} in the context of the \A{Lifecycle} approach.
-    \newline\textbf{obs}: Completeness of functions on the relations.
+\begin{obs}[rq1-29:12-9: Not all {law}- and regulations using \acrshort{big} can be found under the search term "big".]\label{obs:rq1-29:12-9}
+    \textbf{obs}: There is more than just \acrshort{big}.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq1-26:12-9: Also the {law}s and the regulations can still have {references} to other laws and regulations.
+    Because they can be based on these laws or extend it.]\label{obs:rq1-26:12-9}
+    \textbf{obs}: Scoping is important.
+\end{obs}
 
-\paragraph{Linkto}
-\begin{enumerate}
-    \item rq1-98:30-12: When using \A{linkto} in the {interface} as last element in the interface and the signature occurs more often than a dropdown to all subinterfaces (of the same signature) appears.
-    \newline\textbf{obs}: Unexpected behavior of the LINKTO.
-    
+\begin{obs}[rq1-27:12-9: There are also laws and regulations that are not included in this particular {law}, but are valid from a higher law (implicit references).
+    In case of \acrshort{big} this could be eg the Archives Act or the Time Limits Act and Criminal Law.]\label{obs:rq1-27:12-9}
+    \textbf{obs}: To get a complete overview of laws and regulations, the help of a lawyer is needed.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq1-23:24-10: {law} Reading is a skill.]\label{obs:rq1-23:24-10}
+    \textbf{obs}: The law consists of jargon and you need a lawyer for that.
+\end{obs}
+
+\begin{obs}[rq3-16:24-10: For the Netherlands, we have a country table from the RvIG.
+    These are nationally established and maintained tables.
+    No maintenance function is therefore required.]\label{obs:rq3-16:24-10}
+    \textbf{obs}: There is more than the {law}.
+\end{obs}
+
+\begin{obs}[rq3-15:24-10: In the {law} the nationality is mentioned, it also refers to the EU and non-eu residents.
+    It is not recognized that the nationality definition is defined per country.]\label{obs:rq3-15:24-10}
+    \textbf{obs}: This is a limitation of the law.
+\end{obs}
+
+\begin{obs}[rq3-10:12-10: Formatting of the name is not stated literally in the {law}, but must conform to BRP standards.]\label{obs:rq3-10:12-10}
+    \textbf{obs}: Is it relevant that this is not in there.
+    This could be enforced elsewhere than in Ampersand.
+    Input validations at a front-end system.
+\end{obs}
+
+\begin{obs}[rq3-11:12-10: Matters such as authorization decisions that allow an information system to retrieve BRP data are not found in the {law}.]\label{obs:rq3-11:12-10}
+    \textbf{obs}: The law does not focus on the translation to ICT.
+\end{obs}
+
+\begin{obs}[rq1-25:12-9: First make {overview} of all laws and regulations]\label{obs:rq1-25:12-9}
+    \textbf{obs}: Scoping is important.
+\end{obs}
 
 \paragraph{Multiplicity}
-\begin{enumerate}
-    \item rq1-58:8-11: Per \A{interface} max 1 \A{multiplicity}, otherwise you won't get data stored.
-    \newline\textbf{obs}: Within an interface, multiple total constraints were included in the relationships.
-    The result was that no more data could be added within the prototype.
+\begin{obs}[{rq1-66:10-11:} XLSX files format is created partly on the basis of {multiplicity}.
+    one on n relation produces its own tab.]\label{obs:rq1-66:10-11}
+    \textbf{obs}: The Excel file is a reflection of the database structure so that insight can be obtained in the database structure.
+\end{obs}
 
-    \item rq1-66:10-11: XLSX files format is created partly on the basis of \A{multiplicity}.
-    1 on n relation produces its own tab.
-    \newline\textbf{obs}: The Excel file is a reflection of the database structure so that insight can be obtained in the database structure.
-
-    \item rq2-5:2-10: Making the \A{multiplicity} explicit.\newline
+\begin{obs}[{rq2-5:2-10:} Making the {multiplicity} explicit.]\label{obs:rq2-5:2-10}
+    \textbf{obs}: Since you don't always have a clear picture of how this works, it needs to be written out to make it workable.\\
     \begin{tabular}{ || l | l | l ||}
     \hline
     UNI & P->0-1 H &  most\\  \hline    
@@ -346,237 +500,265 @@
     INJ & H->1 P  &   one\\  \hline
     SUR & H->1-* P &  at least 1\\ \hline
     \end{tabular}
-    \newline\textbf{obs}: Since you don't always have a clear picture of how this works, it needs to be written out to make it workable.
+\end{obs}
     
-    \item rq1-3 Created a separate excel to write out and discover the \A{multiplicity} of the relations.
-    \newline\textbf{obs}: As a method this is a clear way.
+\begin{obs}[{rq1-3} Created a separate excel to write out and discover the {multiplicity} of the relations.]\label{obs:rq1-3}
+    \textbf{obs}: As a method this is a clear way.
     Did notice that it is difficult (from a management perspective) to keep the Excel document in sync with the scripts.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-2 Only UNI, TOT, INJ and SUR are used.]\label{obs:rq2-2}
+    \textbf{obs}: Although there are more forms of {multiplicity}, in practice (also in the examples) UNI and TOT are mainly used.
+    To a lesser extent INJ and SUR.
+\end{obs}
+
+\begin{obs}[rq2-13:19-10: What applies to {multiplicity} TOT, also applies to SUR. ]\label{obs:rq2-13:19-10}
+    \textbf{obs}: There are several ways to deal with a SUR.
+    Therefore, the use of this resource must also be considered.
+\end{obs}
 
 \paragraph{Obsedian}
-\begin{enumerate}
-    \item rq1-88:5-12: Tried the tool \A{Obsidian} as a new tool.
+\begin{obs}[{rq1-88:5-12:} Tried the tool {Obsidian} as a new tool.
     But here too I do not get an immediate overview and it is digital.
-    Apparently writing in a log is more convenient for me
-    \newline\textbf{obs}: Also tried a new tool while writing the logs.
+    Apparently writing in a log is more convenient for me]\label{obs:rq1-88:5-12}
+    \textbf{obs}: Also tried a new tool while writing the logs.
     Either this one does not work for me or I need to be more patient.
-
-\end{enumerate}
+\end{obs}
 
 \paragraph{Pattern}
-\begin{enumerate}
-    \item rq1-1 Formatting in Ampersand (\A{pattern}s) has consequences for the {Conceptual analysis}.
-    \newline\textbf{obs}: \textbf{\textit{**welke dan ?? nog even over nadenken**}}
-    
-    \item rq1-49:30-10: Isolating a \A{pattern} or subsystem for testing does not work.
-    This has to do with setting up {Docker} and possible ignorance on my part.
-    \newline\textbf{obs}: The goal was to put a part of the system on its own so that only that part could be tested.
+\begin{obs}[{rq1-49:30-10:} Isolating a {pattern} or subsystem for testing does not work.
+    This has to do with setting up {Docker} and possible ignorance on my part.]\label{obs:rq1-49:30-10}
+    \textbf{obs}: The goal was to put a part of the system on its own so that only that part could be tested.
     But due to the Docker setup, this doesn't seem possible.
     Or I don't have enough knowledge of Docker to make this possible.
+\end{obs}
 
-    \item rq1-33:14-9: The use of \A{pattern}s within Ampersand is important.
+\begin{obs}[{rq1-33:14-9:} The use of {pattern}s within Ampersand is important.
     These are the subsystems of the information system.
-    The question is whether this should be classified in advance or whether it builds up on its own.
-    \newline\textbf{obs}: Use of patterns is necessary for the subsystem layout.
+    The question is whether this should be classified in advance or whether it builds up on its own.]\label{obs:rq1-33:14-9}
+    \textbf{obs}: Use of patterns is necessary for the subsystem layout.
+\end{obs}
 
-    \item rq1-34:14-9: The spelling of a \A{pattern} is capitalized.
-    And the pattern ends with an end-pattern.
-    Multiple patterns are possible within one script.
-    \newline\textbf{obs}: It's in the documentation, but you read about it.
+\begin{obs}[{rq1-34:14-9:} The spelling of a {pattern} is capitalized and the pattern ends with an end-pattern.
+    Multiple patterns are possible within one script.]\label{obs:rq1-34:14-9}
+    \textbf{obs}: It's in the documentation, but you read about it.
     It must happen to you.
+\end{obs}
 
-    \item rq1-38:3-10: Should the subsystems be mapped in advance.
-    This is controlled via \A{pattern}\textbf{s}.
-    \newline\textbf{obs}: It is not necessary to divide the analysis in advance into patterns or subsystems.
+\begin{obs}[{rq1-38:3-10:} Should the subsystems be mapped in advance.]\label{obs:rq1-38:3-10}
+    This is controlled via {pattern}\textbf{s}.
+    \textbf{obs}: It is not necessary to divide the analysis in advance into patterns or subsystems.
     It is possible, but then there must already be a good picture of the text.
-
-\end{enumerate}
+\end{obs}
 
 \paragraph{PDF, RTF, XML, JSON}
-\begin{enumerate}
-    \item rq1-24 12-9/14-9 \A{XML} download from wetBig seems like a logical step for the analysis and processing, but it is too complex.
+\begin{obs}[{rq1-24:12-9} {XML} download from wetBig seems like a logical step for the analysis and processing, but it is too complex.
     This also applies to the JSON structure.
     Both structures are not pleasant to read.
-    The thought that comes to mind here is why SDU doesn't directly annotate the concepts and relationships.
-    \newline\textbf{obs}: Both structures have been downloaded to add the annotations to them.
+    The thought that comes to mind here is why SDU doesn't directly annotate the concepts and relationships.]\label{obs:rq1-24:12-9}
+    \textbf{obs}: Both structures have been downloaded to add the annotations to them.
     To later use a program to extract the annotation (xml/json annotations) together with the definitions and meaning and to generate a script or part of a script with this.
+\end{obs}
 
-    \item rq1-31:14-9: Besides \A{XML} and {JSON}, {RTF} and {PDF} are also an option.
+\begin{obs}[{rq1-31:14-9:} Besides {XML} and {JSON}, {RTF} and {PDF} are also an option.
     In rtf (doc) you can add items in the margins via "comments".
-    With a PDF, annotations and color highlighting can be given this feature.
-    \newline\textbf{obs}: To get the overview and to keep track of what has already been processed.
-    
-\end{enumerate}
+    With a PDF, annotations and color highlighting can be given this feature.]\label{obs:rq1-31:14-9}
+    \textbf{obs}: To get the overview and to keep track of what has already been processed.
+\end{obs}
 
 \paragraph{Php}
-\begin{enumerate}
-    \item rq1-9 Adding pieces of \A{php} code in the script is possible, but it is not clear how
-    \newline\textbf{obs}: Information is missing  on how to do this.
+\begin{obs}[{rq1-9} Adding pieces of {php} code in the script is possible, but it is not clear how]\label{obs:rq1-9}
+    \textbf{obs}: Information is missing  on how to do this.
+\end{obs}
      
-    \item rq1-57-2:7-11: Parts like next big number or now() and today() are better solved in a dev language, like \A{php}.
-    \newline\textbf{obs}: A development language like php because it's in the Ampersand software stack.
+\begin{obs}[{rq1-57-2:7-11:} Parts like next big number or now() and today() are better solved in a dev language, like {php}.]\label{obs:rq1-57-2:7-11}
+    \textbf{obs}: A development language like php because it's in the Ampersand software stack.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-9:7-10: Subscription time is added automatically.
+    This is done by means of a {rule}.]\label{obs:rq2-9:7-10}
+    \textbf{obs}: Despite not being able to add {php} functions, it appears to be possible to add a date-time automatically.
+    That failed in previous attempts.
+    This only worked with support.
+\end{obs}
+
+\begin{obs}[rq2-16:19-10/11-11: Ampersand has a hard time determining a period.
+    Ampersand cannot calculate out of the box.
+    This requires the {php} functions, which are also not easy to allocate.]\label{obs:rq2-16:19-10}
+    \textbf{obs}: Ampersand cannot calculate out-of-the-box.
+    Is this actually a problem or do you have to solve these types of elements at Ampersand.
+\end{obs}
 
 \paragraph{Prototype}
-\begin{enumerate}
-    \item rq1-36:29-9: Failed to run \A{prototype} under localhost in Windows\-10.
+\begin{obs}[{rq1-36:29-9:} Failed to run {prototype} under localhost in Windows\-10.
     The service would not start in localhost.
     We did manage to get the service running within Docker.
     There was an error in the installation documentation.
-    Turns out that is was not the installation directory RapInstall, but the directory RAP.
-    \newline\textbf{obs}: Unable to run the service in localhost, but within Docker.
+    Turns out that is was not the installation directory RapInstall, but the directory RAP.]\label{obs:rq1-36:29-9}
+    \textbf{obs}: Unable to run the service in localhost, but within Docker.
+\end{obs}
 
-    \item rq1-69:14-11: Postman\footnote{\url{https://www.postman.com/product/what-is-postman/}} application installed and works with the \A{prototype}.
-    \newline\textbf{obs}: An external resource that can perform tests using api.
+\begin{obs}[{rq1-69:14-11:} Postman application installed and works with the {prototype}.]\label{obs:rq1-69:14-11}
+    \textbf{obs}: An external resource (Postman\footnote{\url{https://www.postman.com/product/what-is-postman/}}) that can perform tests using api.
+\end{obs}
 
-    \item rq1-36:3-10: What about \A{prototype} test scenarios.
-    \newline\textbf{obs}: Apparently lacking testing tools.
+\begin{obs}[{rq1-36:3-10:} What about {prototype} test scenarios.]\label{obs:rq1-36:3-10}
+    \textbf{obs}: Apparently lacking testing tools.
     Generic tools such as Selenium may need to be used.
-
-\end{enumerate}
-
-\paragraph{RAP}
-\begin{enumerate}
-    \item rq1-11 Implementation in \A{RAP} works, but not with includes.
-    \newline\textbf{obs}: By using RAP all the used scripts must be included in one total script.
-     
-\end{enumerate}
+\end{obs}
 
 \paragraph{Register}
-\begin{enumerate}
-    \item rq1-85:30-11: A new structure where the \A{register}s can operate independently of each other, with only the generic elements as common items.
-    \newline\textbf{obs}: This does not work due to multicontext issue.
+\begin{obs}[{rq1-85:30-11:} A new structure where the {register}s can operate independently of each other, with only the generic elements as common items.]\label{obs:rq1-85:30-11}
+    \textbf{obs}: This does not work due to multicontext issue.
+\end{obs}
 
-    \item rq1-92:14-12: Basically trying to create its own container per \A{register}.
+\begin{obs}[{rq1-92:14-12:} Basically trying to create its own container per {register}.
     Multi-context problem.
-    This makes it impossible to isolate these containers.
-    \newline\textbf{obs}: It is not possible in the current setup of Ampersand to create your own container per registry.
+    This makes it impossible to isolate these containers.]\label{obs:rq1-92:14-12}
+    \textbf{obs}: It is not possible in the current setup of Ampersand to create your own container per registry.
+\end{obs}
     
-    \item rq1-93:19-12/21-12: Implementation choice for separate \A{register}s has an impact on the whole.
+\begin{obs}[{rq1-93:19-12:} Implementation choice for separate {register}s has an impact on the whole.
     How to deal with shared modules.
     How to deal with shared data (such as person).
-    Should the choice be made to only share the concepts and relationships and not implementation.
-    \newline\textbf{obs}: solution could be to provide each register with its own db and a shared db for eg people
+    Should the choice be made to only share the concepts and relationships and not implementation.]\label{obs:rq1-93:19-12}
+    \textbf{obs}: solution could be to provide each register with its own db and a shared db for eg people
     Port usage is therefore an issue.
     Can something be arranged in the .env.
     Elaboration of the own containers does not seem to work, the db structure is always overwritten by the new registry.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq3-9:19-9: The structure of the {register}'s is the same, registers are also called registrations]\label{obs:rq3-9:19-9}
+    \textbf{obs}: Commonality emerges here.
+\end{obs}
+
+\begin{obs}[rq3-8:19-9: The law states that there are multiple registers.
+    There is a {register} per profession.
+    The scripts may also need to be formatted that way.]\label{obs:rq3-8:19-9}
+    \textbf{obs}: Multiple registers are mentioned in the text of the law.
+    The current implementation of Zorro shows that only one register has been implemented, with different workflows for handling the professions (the actual registers).
+
+\end{obs}
 
 \paragraph{Relation}
-\begin{enumerate}
-    \item rq1-7:10-11: Each \A{relation} is part of a record structure.
-    \newline\textbf{obs}: Good to discover how the database structure is established.
+\begin{obs}[{rq1-7:10-11:} Each {relation} is part of a record structure.]\label{obs:rq1-7:10-11}
+    \textbf{obs}: Good to discover how the database structure is established.
     It is probably stated somewhere how this happens.
     But this can be determined through reversed engineering.
     Above all, it provides insight and makes it more tangible.
+\end{obs}
 
-    \item rq2-11:19-10: An \A{relation} that is univalent is a function.
+\begin{obs}[{rq2-11:19-10:} An {relation} that is univalent is a function.
     A one function there can only come out one thing.
-    The description of UNI is therefore P ->0-1 H at most (see 2-5)
-    \newline\textbf{obs}: An relation that is univalent is a function.
+    The description of UNI is therefore P ->0-1 H at most (see 2-5)]\label{obs:rq2-11:19-10}
+    \textbf{obs}: An relation that is univalent is a function.
+\end{obs}
+
+\begin{obs}[rq2-10:19-10: The naming of a {relation} is usually assigned to the TRG attribute of the set.
+    Such as \textit{[Persoon * Voornaam]} with relation name "voornaam".]\label{obs:rq2-10:19-10}
+    \textbf{obs}: Making agreements about processing is important.
+    When there are agreements, things can also be found again.
+\end{obs}
     
-    \item rq1-16 Notation method of {concept} and \A{relation}s and {rule}s are defined for a very small part.
-    Only the first position is uppercase or lowercase.
-    There is no rule about other spelling.
-    So using CamelCase or underscore or hyphen.
-    \newline\textbf{obs}: You are not forced to work in any particular structure.
-    There is no need for coercion in this area, but advice is practical for novice users.
-
-    \item rq1-42:19-10: Immediately add the description when recording a {concept} and \A{relation}.
-    Later it is difficult to find out why the recording took place.
-    \newline\textbf{obs}: To avoid rework, the definition and meaning and purpose should be defined immediately when defining concepts and relationships.
-    
-    \item rq1-91:14-12: A {concept} and a \A{relation} can be defined several times within your own patterns.
-    So that the patterns can stand on their own.
-    \newline\textbf{obs}: Dangerous because it allows the same concepts to have different definitions.
-
-    \item rq1-46:24-10: There is no find able relationship between the \A{relation} and the {concept} in the script.
-    \newline\textbf{obs}: The {overview} where a concept is used is difficult to obtain.
-    The IDE used also does not provide any tooling to obtain this overview.
-
-\end{enumerate}
-
 \paragraph{Represent}
-\begin{enumerate}
-    \item rq1-50:30-10: The \A{represent} statement makes the interface react differently.
-    When using the represent statement, the append option ("+") disappears.
-    \newline\textbf{obs}: Unexpected behavior, it is not immediately clear why this is happening.
+\begin{obs}[{rq1-50:30-10:} The {represent} statement makes the interface react differently.
+    When using the represent statement, the append option ("+") disappears.]\label{obs:rq1-50:30-10}
+    \textbf{obs}: Unexpected behavior, it is not immediately clear why this is happening.
+\end{obs}
 
-    \item rq1-65:10-11: DATETIME (\A{represent}) field could not be converted to Excel.
-    The compilation process hangs on this.
-    \newline\textbf{obs}: Crashing while building the application using DATETIME in the represent statement.
+\begin{obs}[{rq1-65:10-11:} DATETIME ({represent}) field could not be converted to Excel.
+    The compilation process hangs on this.]\label{obs:rq1-65:10-11}
+    \textbf{obs}: Crashing while building the application using DATETIME in the represent statement.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-8:7-10/10-10: Date of birth must be formatted as date.
+    The {represent} seems to have to fulfill that role.
+    Represent defines a type of a concept, but DATETIME causes interface problems.]\label{obs:rq2-8:7-10}
+    \textbf{obs}: Type of elements can be sent, subject to conditions.
+\end{obs}
 
 \paragraph{Rule}
-\begin{enumerate}
-    \item rq1-4 Automatically executed \A{rule} are easy to describe, but implementation here also takes a lot of patience and trying.
-    \newline\textbf{obs}: Rules are not easy to create.
+\begin{obs}[{rq1-4} Automatically executed {rule} are easy to describe, but implementation here also takes a lot of patience and trying.]\label{obs:rq1-4}
+    \textbf{obs}: Rules are not easy to create.
     To implement rules, knowledge of Ampersand is required and many examples must be used.
     It is usually not possible to immediately implement a rule.
     Many attempts are needed to realize this.
+\end{obs}
 
-    \item rq1-55:2-11: At the \A{rule} it is necessary to add a ROLE with a MAINTAINS, otherwise the rule will not work.
-    \newline\textbf{obs}: In the beginning this is not obvious.
+\begin{obs}[{rq1-55:2-11:} At the {rule} it is necessary to add a ROLE with a MAINTAINS, otherwise the rule will not work.]\label{obs:rq1-55:2-11}
+    \textbf{obs}: In the beginning this is not obvious.
     This becomes clear when studying examples.
+\end{obs}
 
-    \item rq1-59:9-11: Many messages remain open if not all \A{rule}s are met.
-    \newline\textbf{obs}: When the input is handled easily, more and more messages appear.
+\begin{obs}[{rq1-59:9-11:} Many messages remain open if not all {rule}s are met.]\label{obs:rq1-59:9-11}
+    \textbf{obs}: When the input is handled easily, more and more messages appear.
     The messages are grouped by type.
     The workable screen is getting smaller and smaller.    
+\end{obs}
 
-    \item rq1-17 Applying a \A{rule}\textbf{s} takes a lot of patience and practice.
-    This is quite a steep learning curve.
-    \newline\textbf{obs}: Implementing a rule requires knowledge of relation algebra and a lot of trying and looking at examples.
+\begin{obs}[{rq1-17} Applying a {rule}\textbf{s} takes a lot of patience and practice.
+    This is quite a steep learning curve.]\label{obs:rq1-17}
+    \textbf{obs}: Implementing a rule requires knowledge of relation algebra and a lot of trying and looking at examples.
+\end{obs}
 
-    \item rq1-39:3-10: Do not forget to create delete rules in addition to append and edit rules in the \A{rule}\textbf{s} in the context of the \A{Lifecycle} approach.
-    \newline\textbf{obs}: Completeness of functions on the relations.
+\begin{obs}[{rq1-39:3-10:} Do not forget to create delete rules in addition to append and edit rules in the {rule}\textbf{s} in the context of the {Lifecycle} approach.]\label{obs:rq1-39:3-10}
+    \textbf{obs}: Completeness of functions on the relations.
+\end{obs}
 
-    \item rq1-67:11-11: If there is an automatic \A{rule}, should there still be a validation rule on it?
-    \newline\textbf{obs}: Yes, if there is a chance that the automatic rule is (accidentally) removed or changed.
+\begin{obs}[{rq1-67:11-11:} If there is an automatic {rule}, should there still be a validation rule on it?]\label{obs:rq1-67:11-11}
+    \textbf{obs}: Yes, if there is a chance that the automatic rule is (accidentally) removed or changed.
     Use as an intrinsic control agent.
+\end{obs}
 
-    \item rq1-16 Notation method of {concept} and {relation}s and \A{rule}s are defined for a very small part.
-    Only the first position is uppercase or lowercase.
-    There is no rule about other spelling.
-    So using CamelCase or underscore or hyphen.
-    \newline\textbf{obs}: You are not forced to work in any particular structure.
-    There is no need for coercion in this area, but advice is practical for novice users.
-    
+\begin{obs}[rq2-6:2-10/13-11: A {rule} is not easy to realize.
+    There are tricks to realize this.
+     rq1-17 Applying a rule requires a lot of patience and practice.]\label{obs:rq2-6:2-10}
+    \textbf{obs}: Rules require knowledge of Ampersand, but also many examples and they are not very available.
+\end{obs}
 
-\end{enumerate}
+\begin{obs}[rq2-14:19-10: The role gives control to the user.
+    A user is {authorized} for use.
+    It indicates which user is allowed to use the function.]\label{obs:rq2-14:19-10}
+    \textbf{obs}: In the beginning I left this element out of consideration, assuming there was some kind of authorization.
+    But this is necessary to get the {rule} working.
+\end{obs}
+
+\begin{obs}[rq1-61:9-11: There should be a check on the draft date of birth({rule}), so that someone must be at least 18.
+    Sounds logical, but is a derived rule.
+    This is already implicit in the training requirement.
+    The duration of the training means that someone is at least 18 years old before the training is completed.]\label{obs:rq1-61:9-11}
+    \textbf{obs}: You don't have to think of anything yourself.
+
+\end{obs}
+
+\paragraph{Specialism}
+\begin{obs}[rq3-13:17-10: There is no list of specialties in \acrshort{big}, where is it?]\label{obs:rq3-13:17-10}
+    \textbf{obs}: The law does refer to {specialism}.
+\end{obs}
 
 \paragraph{Validation}
-\begin{enumerate}
-    \item rq1-57-1:7-11: Using Ampersand for \A{validation}.
-    \newline\textbf{obs}: Building an Ampersand script delivers a core on all defined validations and can be used immediately.
-
-\end{enumerate}
+\begin{obs}[{rq1-57-1:7-11:} Using Ampersand for {validation}.]\label{obs:rq1-57-1:7-11}
+    \textbf{obs}: Building an Ampersand script delivers a core on all defined validations and can be used immediately.
+\end{obs}
 
 \paragraph{\acrlong{vsc}}
-\begin{enumerate}
-    \item rq1-22 The tool \A{VSC} also doesn't have a generic search option across the adls.
-    \newline\textbf{obs}: Not being able to search globally is inconvenient when looking for usage of concepts and relationships or when refactoring them.
+\begin{obs}[{rq1-22} The tool VSC also doesn't have a generic search option across the adls.]\label{obs:rq1-22}
+    \textbf{obs}: Not being able to search globally is inconvenient when looking for usage of concepts and relationships or when refactoring them.
     To promote reuse, findability is necessary.
     Now tools outside of \acrshort{vsc} must be used, within the OS being used, to search within files.
+\end{obs}
 
-    \item rq1-32:14-9: The tool \A{VSC} has an Ampersand extension.
-    It hangs once in a while.
-    \newline\textbf{obs}: Must be my system, but it's annoying.
-
-    \item rq1-33:9-1: \A{VSC} does not support the {latex} environment well.
+\begin{obs}[{rq1-32:14-9:} The tool VSC has an Ampersand extension.
+    It hangs once in a while.]\label{obs:rq1-32:14-9}
+    \textbf{obs}: Must be my system, but it's annoying.
     My PC often hangs on this.
-    \newline rq1-87:3-12: Latex can also be written in VSC.
+     {rq1-87:3-12:} Latex can also be written in VSC.
     Apparently it is a different version, because the import does not immediately succeed.
     Does not work really well and the result is poor.
-    \newline\textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
+    \textbf{obs}: \acrlong{vsc} also supports the TEX environment through add-ons.
     But this add-on completely hangs my system.
     I got a 100\% cpu load for a long time. 
-    
-\end{enumerate}
+\end{obs}    
 
-\input{docs/AF-SE/22_results/tabledef}
+%\input{docs/AF-SE/22_results/tabledef}
 \newpage

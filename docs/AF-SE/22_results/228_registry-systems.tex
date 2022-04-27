@@ -1,23 +1,48 @@
 \subsection{Registry systems} \label{Registry systems}
 \def\cat{4}
 There are few observations about registration systems.
-In the interviews, some comments were made about the systems.
-But that is often not very specific registration systems.
+In the interviews, some comments were made about information systems, but that is often not very specific registration systems.
 
 \begin{table}[H]
+    \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
         \hline
         Category        & CAT1-\cat \\\hline
         Category Title  & \acrshort{cat\cat} \\\hline
         Definition      & \acrlong{cat\cat} \\\hline
-        Anchor examples & The usual procedure within a register is the application process for a registration. \\\hline
-        Coding rules    & All about use of software \\\hline
+        Anchor examples & 
+        \begin{itemize}
+            \setlength{\itemindent}{-2em}
+                \item \nameref{obs:rq3-9:19-9}
+            \end{itemize}\\\hline
+        Coding rules    & All about use of information systems \\\hline
     \end{tabularx}
-    \caption{Category \acrshort{cat\cat}}
     \label{tab:Registry systems}
 \end{table}
+\sbbs{1}{Registerkern}
+\POstart{%1
+    \PIS{int:I-2.10}            %\iref{int:I-2.10}    x
+    \PIS{int:I-2.6}             %\iref{int:I-2.6}    x
+    \PIS{int:I-2.7}             %\iref{int:I-2.7}    x
+    \PIS{int:I-2.9}             %\iref{int:I-2.9}    x
+}
 
-The term \acrlong{rk} is often used in the observations and interviews.
-\acrlong{rk} is a component created specifically for registries.
-However, the link between the registry core and the Ampersand analysis is in terms of Concepts used.
-And that is not by definition part of a register.
+Registration systems are aligned with \acrshort{rk} at the \acrshort{cibg}.
+The approach advocated by Ampersand is conceptually in line with \acrshort{rk} (\iref{int:I-2.10}).
+The terminology used by \acrshort{rk} differs in many areas from what the \acrshort{big} prescribes.
+This is not an Ampersand issue, but means that a mapping of terms must take place after the analysis (\iref{int:I-2.6}, \iref{int:I-2.7}).
+A number of functions that we model in Ampersand also appear as generic functions in \acrshort{rk} (\iref{int:I-2.9}).
+Since Ampersand is a reactive system, process support is controlled from \acrshort{rk} (\iref{int:I-2.9}).
+\sbbs{2}{Demarcation}
+\POstart{%2
+    \POS{obs:rq1-85:30-11}      %\oref{obs:rq1-85:30-11}    x
+    \POS{obs:rq1-92:14-12}      %\oref{obs:rq1-92:14-12}    x
+    \POS{obs:rq3-8:19-9}        %\oref{obs:rq3-8:19-9}    x
+    \POS{obs:rq3-9:19-9}        %\oref{obs:rq3-9:19-9}    x
+}
+
+Across registers, independent of \acrshort{rk}, there are common values between the laws.
+Here also the generic elements must be marked, so that reuse can take place (\oref{obs:rq1-85:30-11}).
+When reusing and separating elements, the multicontext problem is encountered (\oref{obs:rq1-92:14-12}).
+The format of a register is subjective (\oref{obs:rq3-8:19-9}, \oref{obs:rq3-9:19-9}).
+

@@ -1,42 +1,42 @@
 \subsection{Design method} \label{design_method}
-The method used in this study is the Ampersand method.
-The Ampersand method is based on relational algebra.
-Ampersand makes it possible to make a conceptual analysis of problems. The data model created thereby makes it possible to accelerate implementation.
-
+We use Ampersand's method in this study.
+The Ampersand method is based on relation algebra.
+Ampersand makes it possible to create a Conceptual analysis of the source text. 
+The conceptual and technical data model created with the descriptions in the Conceptual analysis allows the implementation to be based on it.
 
 \subsubsection{Relation Algebra} \label{relation_algebra}
-The field of the relation algebra, founded by De Morgan, focuses on operations with sets.
-The signature item of relational algebra is the relationship, as the name implies.
-This relationship has several properties, namely the attributes.
-The attributes in the example of \acrshort{big} would be the surname, first names, gender, date of birth, nationality and address of the person concerned and the number and time of registration~\footnote{\acrlong{big} article 3, paragraph 2}.
-In addition, the relationship consists of tuples.
-Since the relationship is always between two objects, this is called 2-tuples.
+The field of relational algebra focuses on operations on sets.
+The characteristic item of relation algebra is the relation.
+This relation has its attributes.
+The attributes in the example of \acrshort{big} would be the person's name, first names, gender, date of birth, nationality, and address, as well as the number and time of enrollment~\footnote{\acrlong{big} article 3, paragraph 2}.
+The relation consists of tuples.
+Since the relationship is always between two objects, one speaks of 2-tuples.
 The tuples contain the attributes of the relation.
 
-Basically the operations on sets are the following:
+\begin{samepage}The operations on sets are the following:
 \begin{itemize}
     \item Union, $R \cup S$ %vereniging
     \item Intersection, $R \cap S$ %doorsnede
     \item Difference, $R - S$ or $S - R$ %verschil
 \end{itemize}
-A distinction must be made between relation algebra and relational algebra.
-Ampersand uses relation algebra, so is tuple related and the relational algebra is the foundation of e.g. relational databases.
-This includes projections, selections and joins.
+\end{samepage}
+A distinction must be made between relation algebra~\citep{maddux_bibliography_2006} and relational algebra~\citep{codd_relational_1970}.
+Ampersand uses relation algebra, so it is tuple related.
+The relational algebra is the basis of e.g. relational databases which includes projections, selections and joins.
 The latter are therefore not part of relation algebra.
 
 
 \subsubsection{Ampersand} \label{ampersand}
 Ampersand is based on relation algebra and focuses on business rules~\citepNonPub{wedemeijer_l_joosten_smm_michels_garkenbout_jlc_werkboek_ontwerpen_met_bedrijfsregelspdf_nodate}.
-Ampersand supplies correct information systems.
-In this case, Ampersand's goal is to provide a correct registry system.
+It supplies correct information systems.
+Our goal is to use it to create a correct and error-free registration system.
 Ampersand's other strengths are its support for conceptual analysis.
 It is a platform for reactive programming and generates prototypes.
-Ampersand describes the goals rather than the steps.
+Ampersand script describes the goals rather than the steps.
 
 Business rules are there to pursue a common goal.
-These rules are converted into an information system. 
-The Ampersand method ensures that when a precise set of rules has been established, an information system can be generated. 
-Ampersand focuses on business rules.
+These rules are converted to an information system using the Ampersand method.
+The Ampersand method ensures that when a precise set of rules has been established, an information system can be generated.
 To learn how Ampersand works in real life, we design a registry in Ampersand that implements the \acrshort{big}~\citepNonPub{van_wet_2018} .
 
 \begin{wrapfigure} {r}{0.52\textwidth} 
@@ -51,11 +51,11 @@ This is described in the section \nameref{reactive_approach}.
 
 Ampersand consists of concepts that in turn consist of atoms.
 An atom is an implementation of the concept.
-Inside the \acrshort{big} is a concept "beroep" with associated atoms like "arts, tandarts, etc".
-The concepts are given a name, and the name must be recognized by the business.
-This also applies to the definition and purpose of the concepts.
+Inside the \acrshort{big} is a concept $beroep$ with associated atoms like $arts$, $tandarts$, etc" see listing~\ref{list:beroepen}.
+We give the concepts a name so that the Concepts are recognized by the company.
+This also applies to the definition and purpose of the terms.
 These attributes are not mandatory, but when one wants to generate a functional design, these descriptions of the attributes are very useful.
-\begin{lstlisting}[language=Octave] 
+\begin{lstlisting}[language=Octave, caption={Listing Concept Beroep},captionpos=b, label={list:beroepen}]
 CONCEPT Beroep "Beroep van een persoon zoals bedoeld in de wet" 
 PURPOSE CONCEPT Beroep 
 {+Beroep dat uitgeoefend wordt+}
@@ -74,22 +74,22 @@ POPULATION Beroep CONTAINS [
 \end{lstlisting}
 
 Concepts can have relationships with each other.
-If the data of the concepts is true and the rules yield consistent data then the relationships between real data are facts.
+If the data of the concepts is true and the rules yield consistent data, then the relationships between real data are facts.
 These facts together form one truth.
 Not all concepts are directly related.
-Within the domain of the \acrshort{big} we could distinguish the concept of "registratie" and the concept of "beroep".
-This name is also referred to within ~\citeNonPub{van_wet_2018} in article 3 of \acrshort{big}.
-Even the name of the relationship is mentioned in this article, which the legislator calls a "beroepsbeoefenaar".
-The law requires that data of the "registratie" be recorded, indicating the corresponding profession (beroep).
-In Ampersand, this is modelled as follows.
-On the one hand, the "beroep" and also the concept "registratie".
-\begin{lstlisting}[language=Octave] 
+Within the domain of the \acrshort{big} we could distinguish the concept $registratie$ and the concept $beroep$.
+These terms come from ~\citeNonPub{van_wet_2018} in article 3 of \acrshort{big}.
+Even the name of the relationship is mentioned in this article, which the legislator calls a practitioner.
+The law requires that details of the $registratie$ be recorded, stating the corresponding profession.
+In Ampersand this is modeled as follows.
+On the one hand the $beroep$ and also the concept $registratie$, see listing~\ref{list:concept_registratie}.
+\begin{lstlisting}[language=Octave, caption={Listing Concept Registratie },captionpos=b, label={list:concept_registratie}] 
     CONCEPT Registratie "De registratie van een persoon binnen het register" 
     PURPOSE CONCEPT Registratie 
     {+Vastlegging in het register geeft toegang tot uitoefenen taak binnen de gezondheidszorg+}
 \end{lstlisting}
-Between the "registratie" and the $persoon$ exists the relationship "beroepsbeoefenaar".
-\begin{lstlisting}[language=Octave] 
+Between the $registratie$ and the $persoon$ exists the relationship $beroepsbeoefenaar$, see listing~\ref{list:relatie_beroepsbeoefenaar}.
+\begin{lstlisting}[language=Octave, caption={Listing RELATION "beroepsbeoefenaar" },captionpos=b, label={list:relatie_beroepsbeoefenaar}] 
 RELATION beroepsbeoefenaar [Persoon*Registratie] 
 MEANING "geregistreerd persoon"
 POPULATION beroepsbeoefenaar CONTAINS 
@@ -99,14 +99,13 @@ POPULATION beroepsbeoefenaar CONTAINS
   ("Gerard",3);
   ("John",4)
 ]\end{lstlisting}
-Also adding the concepts of $persoon$ and $handeling$.
-Persons may perform the medical actions, but only when they are qualified.
-\begin{lstlisting}[language=Octave] 
+By adding the concepts of $persoon$ (see listing~\ref{list:concept_persoon}) and $handeling$ (see listing~\ref{list:concept_handeling}), people may perform  medical actions, but only when they are qualified.
+\begin{lstlisting}[language=Octave, caption={Listing Concept Persoon },captionpos=b, label={list:concept_persoon}] 
     CONCEPT Persoon "Persoon die werkzaam wilt zijn binnen de zorg"
     PURPOSE CONCEPT Persoon 
     {+Vastleggen van de identiteit van de persoon+}
 \end{lstlisting}
-\begin{lstlisting}[language=Octave] 
+\begin{lstlisting}[language=Octave, caption={Listing Concept Handeling },captionpos=b, label={list:concept_handeling}] 
     CONCEPT Handeling "Acties die uitgevoerd worden" 
     PURPOSE CONCEPT Handeling 
     {+Vastleggen van de mogelijke handelingen die uitgevoerd kunnen worden binnen de zorg+}
@@ -120,26 +119,27 @@ These concepts can lead us to the following scheme.
 \end{figure}
 The multiplicity must also be determined for each relation.
 \begin{table}[h!]
+    \caption{multiplicity}
     \begin{tabular}{||l | l||} 
      \hline
     function & The corresponding control question for the above relation $voerUit$ is\\
     \hline\hline
-        Univalent & For each $Persoon$ there is at most 1 $Handeling$\\ %elke P max 1 H
-        Total & For each $Persoon$ there is at least 1 $Handeling$ \\ %elke P minimaal 1 H
-        Injective & For each $Handeling$ there is only 1 $Persoon$\\ %elke H max 1 P 
-        Surjection & For each $Handeling$ there is at least 1 $Persoon$\\ %elke H minimaal 1 P
+        Univalent & For each $Persoon$ there is at most one $Handeling$\\ %elke P max 1 H
+        Total & For each $Persoon$ there is at least one $Handeling$ \\ %elke P minimaal 1 H
+        Injective & For each $Handeling$ there is only one $Persoon$\\ %elke H max 1 P 
+        Surjection & For each $Handeling$ there is at least one $Persoon$\\ %elke H minimaal 1 P
     \end{tabular}
-    \caption{multiplicity}
     \label{tab:multiplicity}
 \end{table}
 
-By modelling using the Ampersand method, the question can be answered whether Ampersand provides more insight into the relationships.
-As part of the research question, Ampersand can help you gain insight into the relationships.
-Although you have to recognize and define these yourself, Ampersand will be helpful in generating functional design and prototype.
-The generated prototype will validate the named constraints.
-This will prevent registrations that do not meet the constraints.
-These constraints are laid down in rules within Ampersand.
-For example, a rule can be drawn up that determines whether a person is allowed to perform a certain action.
+Modeling using the Ampersand method determines which Concepts and Relationships arise within the research case.
+Ampersand helps to gain insight into these connections.
+This must be recognized by the analyst in the source text and defined in the script.
+Ampersand then helps generate the functional design (the \acrshort{ca}) and the prototype.
+Using the generated prototype, Ampersand validates the data with constraints on relationships.
+This prevents registrations (data) that do not meet the requirements.
+These restrictions are defined in rules within Ampersand (see for example list~\ref{list:rule_handelingdoorpersoon}).
+A rule can be drawn up that determines whether a person is allowed to perform a certain action.
 In figure \ref{fig:relations} the relations are named.
 It was previously established that there are 2-tuple relationships.
 Here we use the following notation:"$\mathit{relation [Concept \times Concept]}$".
@@ -154,7 +154,7 @@ The compared sets are
 \newline $\mathit{[Persoon \times Beroep]}$
 \newline The rule then will determine if the previous equation is true.
 \newline If this is the case, then the rule is validated, otherwise the violation message occurs.
-\begin{lstlisting}
+\begin{lstlisting} [language=Octave, caption={Listing Rule HandelingDoorPersoon },captionpos=b, label={list:rule_handelingdoorpersoon}] 
     RULE HandelingDoorPersoon: voertUit; omvatVoorBehouden[Beroep*Handeling]~ |- beroepsbeoefenaar; beroep
     MEANING "Een persoon mag handelingen uitvoeren wanneer hij een bepaald beroep uitoefend"
     MESSAGE "Geen toegestane handeling."
@@ -163,11 +163,12 @@ The compared sets are
 
 
 \subsection{Reactive approach} \label{reactive_approach}
+One of the benefits of Ampersand~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/why-ampersand}} mentioned is the following statement "Use Ampersand as a platform for reactive programming, to help you of workflows and workflow models."
 
-The start of the reactive approach started with the reactive manifesto~\citepNonPub{reactive_manifesto}.
-This defines the aspects that a reactive system should meet.
-This includes Responsive, Resilient, Elastic and Message Driven.
-These are systems that are flexible, loosely coupled and scalable and that makes them easier to develop and maintain.
+This reactive approach started with the reactive manifest~\citepNonPub{reactive_manifesto}.
+The approach  defines the requirements that a reactive system should meet.
+These include Responsive, Resilient, Elastic and Message Driven.
+These requirements lead to systems that are flexible, loosely coupled and scalable, making them easier to develop and maintain.
 Reactive Systems are made highly responsive and provide interactive feedback.
 \begin{figure}[H] 
 \includegraphics[scale=0.3]{reactive_manifesto.png}
@@ -176,35 +177,13 @@ Reactive Systems are made highly responsive and provide interactive feedback.
 \label{fig:reactive manifesto}
 \end{figure}
 
-
 Ampersand is a form of Functional Reactive Programming (FRP)~\citep{elliott_functional_1997}.
 The basic of reactive programming is the fact that it involves asynchronous communication.
-This means that, as the \citeNonPub{reactive_manifesto} prescribes, use is made of message driven systems, but Ampersand is more than a message-driven system.
-It is actually an event-driven system.
+The Reactive Manifest (see ~\citepNonPub{reactive_manifesto}) states that like uses message-driven systems, but Ampersand is more than a message-driven system.
+This means that, as the Reactive Manifest prescribes, it uses message-driven systems, but Ampersand is more than a message-driven system.It is actually an event-driven system.
 The glossary of the \citeNonPub{reactive_manifesto} indicates the difference between message driven systems and event driven systems.
 An event-driven system targets event-bus while a message-driven system targets recipients~\citep{bainomugisha_survey_2013}.
 The essence is that the order of the flow cannot be determined in advance.
-The system will respond to events caused by constraints, Ampersand determines a dynamic flow~\citep{joosten_relation_2018}.
+The system will respond to events caused by constraints.
+Ampersand determines the dynamic flow~\citep{joosten_relation_2018}.
 
-
-
-
-\subsubsection{Law analysis} \label{law_analysis}
-The tax authorities have developed a method that is intended to analyse tax laws and other laws.
-This is performed in these 6 steps:
-\begin{enumerate}
-    \item Determining the work area.
-    \item Making the structure visible in legislation.
-    \item Defining the meaning of legislation.
-    \item Validate the analysis results.
-    \item Identify missing execution policy.
-    \item Setting up the knowledge model.
-\end{enumerate}
-Emphasis is placed on the cooperation between the implementer, ICT and policy.
-By going through the method step by step, one arrives at a shared language.
-This shared language includes the definition of concepts by the collaborating parties.
-An important part of the approach is dividing the law into small pieces and always refer to these pieces of law in the implementation.
-As a result, the method meets the requirement of the justification of government decisions.
-The decisions are traceable, explainable, and it is possible to account for them.
-What is not clear from the webinar~\citeNonPub{belastingdienst_webinar_2021} is how these steps were converted into an implementation.
-The book~\citeNonPub{ausems_wetsanalyse_2021} indicates that the legal analysis method does not contain a development tool, but that the Tax and Customs Administration has developed an instrument based on the legal model, which is not freely available.

@@ -23,74 +23,158 @@ When asked whether Ampersand can be used, different axes can be considered.
 This can be measured along the line of \cite{HORNBAEK200679}, which looks at effectiveness, efficiency and satisfaction.
 The other line is the line prescribed by ISO~\footnote{\url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010?limit=1&start=4}} and then it is about Appropriateness recognisability, learnability, operability, user error protection, accessibility and user interface aesthetics.
 \begin{table}[H]
+    \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
         \hline
         Category        & CAT1-\cat \\\hline
         Category Title  & \acrshort{cat\cat} \\\hline
         Definition      & \acrlong{cat\cat} \\\hline
-        Anchor examples &                                                                 \\\hline
+        Anchor examples & 
+        \begin{itemize}
+        \setlength{\itemindent}{-2em}
+            \item \nameref{obs:rq1-17}
+            \item \nameref{obs:rq1-46:24-10}
+        \end{itemize}
+        \\\hline
         Coding rules    & is it suitable, is it adaptable, has it relevance, has it value \\\hline
     \end{tabularx}
-    \caption{Category \acrshort{cat\cat}}
     \label{tab:useful}
 \end{table}
+\sbbs{1}{Setup}
+\POstart{%1
+\POS{obs:rq1-11}     %\oref{obs:rq1-11}    x
+\POS{obs:rq1-18}     %\oref{obs:rq1-18}    x
+\POS{obs:rq1-13:17-10}     %\oref{obs:rq1-13:17-10}    x
+\POS{obs:rq1-36:29-9}     %\oref{obs:rq1-36:29-9}    x
+\POS{obs:rq1-47:27-10}     %\oref{obs:rq1-47:27-10}    x
+\POS{obs:rq1-6:21-10}     %\oref{obs:rq1-6:21-10}    x
+\POS{obs:rq4-8:22-11}     %\oref{obs:rq4-8:22-11}    x
+}
 
-In order to use Ampersand, a number of conditions must be met.
-In practice, the Ampersand setup is not always smooth and error-free.
-Ampersand can be used as a development tool in various ways.
-These ways are installing on localhost, using the RAP environment and installing within a Docker environment.
-Docker installation, with help from the Ampersand team, has proven to be the most successful.
-Note that to Ampersand knowledge, basic knowledge about Docker is also required.
-This help was also necessary because the information on the internet proved to be insufficient.
-The appropriateness recognisability for the installation leaves much to be desired.
+To use Ampersand, a number of conditions must be met.
+In practice, the Ampersand setup is not always smooth and error-free (\oref{obs:rq1-47:27-10}, \oref{obs:rq1-13:17-10}, \iref{int:I-4.5}, obs.\ref{obs:rq1-11}, \oref{obs:rq1-36:29-9}).
+We can install Ampersand as a development tool in several ways.
+These ways of installing is on localhost, or using the RAP~\footnote{Student development environment of Ampersand(\url{https://rap.cs.ou.nl/page/home})} environment or installing Ampersand within a Docker~\footnote{\url{https://www.docker.com/}} environment (obs.\ref{obs:rq1-13:17-10}).
+Docker installation, with help from the Ampersand team, has proven to be the most successful (obs.\ref{obs:rq4-8:22-11}).
+Note that knowledge of Ampersand also requires basic knowledge of Docker (obs.\ref{obs:rq1-6:21-10}).
+This help was also needed because there is not much information on the internet (obs.\ref{obs:rq1-18}).
+\sbbs{2}{Script creation}
+\POstart{%2
+    \POS{obs:rq1-60:9-11}
+    \POS{obs:rq1-96:30-12}
+    \POS{obs:rq1-17}}
 
-To make a useful Ampersand script, it is necessary to gain knowledge of how to create scripts.
+To make a useful Ampersand script, it is necessary to gain knowledge of how to create scripts (obs.\ref{obs:rq1-60:9-11}) and 
+requires quite some knowledge of Ampersand and relation algebra.
 Concepts, Relations and Rules are used within the scripts.
-It should be noted that making Rules in particular is a difficult task.
-It requires quite some knowledge of Ampersand and relation algebra.
-This knowledge of Rules and also other knowledge of Ampersand must be kept up to date, otherwise it will disappear very quickly.
+It should be noted that making Rules in particular is a difficult task (obs.\ref{obs:rq1-17}).
+This knowledge of Rules and also other knowledge of Ampersand must be kept up to date, otherwise it will disappear very quickly (obs.\ref{obs:rq1-96:30-12}).
+\sbbs{3}{Source handling}
+\POstart{%3
+    \POS{obs:rq1-2}
+    \POS{obs:rq1-25:12-9}
+    \POS{obs:rq1-31:14-9}
+    \PIS{int:I-3.7}}
 
-To maintain an overview at work, resources are needed to maintain this overview.
-An overview is needed to keep track of where people have left off in the text of the law.
+To maintain an overview at work, resources are needed to maintain this overview (obs.\ref{obs:rq1-25:12-9}, \iref{int:I-3.7}).
+An overview is needed to keep track of where people have left off in the text of the law (obs.\ref{obs:rq1-2}, obs.\ref{obs:rq1-31:14-9}).
 An overview of the created scripts is also necessary to avoid duplication of Concepts and Relations.
 Due to the lack of an overview and the refactoring of scripts, possible duplication's arise.
 These are reflected in the conceptual design by multiple display.
+\sbbs{4}{Script overview}
+\POstart{%4
+    \POS{obs:rq1-42:19-10}
+    \POS{obs:rq1-45:24-10}
+    \POS{obs:rq1-46:24-10}
+    \POS{obs:rq1-97:30-12}}
 
-In addition to the necessary overview at work, it also requires self-discipline.
-Ampersand requires that the description, meaning and purpose are also recorded during the development of Concepts, Relations and Rules.
-Due to inexperience with Ampersand, it happens that the meaning and purpose are not recorded.
-When these are forgotten and not noticed that it is missing, information is lost in the process.
-This is almost impossible to recover afterwards and is expressed in the incomplete Conceptual analysis.
+In addition to the necessary overview at work, it also requires self-discipline to maintain the script properly (obs.\ref{obs:rq1-42:19-10}).
+Ampersand requires that the description, meaning and purpose also be established during the development of Concepts, Relations and Rules.
+Due to inexperience with Ampersand it happens that meaning and purpose are not captured (obs.\ref{obs:rq1-97:30-12}).
+As the scripts grow, the need for overview increases (obs.\ref{obs:rq1-45:24-10}) as more and more Concepts and Relationships are added (obs.\ref{obs:rq1-46:24-10}).
+\sbbs{5}{Data add}
+\POstart{%5
+    \POS{obs:rq3-7}
+    \PIS{int:I-3.2}}
 
-Adding the information to the Ampersand concepts is not very self-evident.
+Adding the information to the Ampersand concepts is not very self-evident (obs.\ref{obs:rq3-7}).
 It is a matter of searching the legal text for the correct phrase.
 Taking into account the final layout in the Conceptual analysis.
-The Conceptual analysis must be clearly legible.
+The Conceptual analysis must be clearly legible (\iref{int:I-3.2}).
+\sbbs{6}{Deviation}
+\POstart{%6
+    \POS{obs:rq1-42:21-10}}
 
-Noting the meaning and purpose requires knowledge of being able to read legal texts.
+Noting the meaning and purpose requires knowledge of being able to read legal texts (obs.\ref{obs:rq1-42:21-10}).
 Knowledge of the information domain seems to be an advantage, but can cause prejudice.
 This means that the text is less carefully looked at.
+\sbbs{7}{Architecture and registerkern}
+\POstart{%7
+    \POS{obs:rq1-62:10-11}
+    \POS{obs:rq1-63:10-11}
+    \PIS{int:I-2.10}
+    \PIS{int:I-1.3}}
 
-The design of the architecture partly determines the usefulness of Ampersand.
-In particular, the overlap of what Ampersand contributes with the existing structure seems to be a bottleneck.
-And the willingness of the organization to change and to use Ampersand as a method and as a tool.
+The design of the architecture partly determines the usefulness of Ampersand (obs.\ref{obs:rq1-62:10-11}), despite its flexibility by extends concepts and relationships (obj.\ref{obs:rq1-63:10-11}).
+In particular, the overlap of what Ampersand contributes with the existing structure seems to be a bottleneck (\iref{int:I-2.10}, \iref{int:I-1.3}).
+\sbbs{8}{Api}
+\POstart{%8
+    \PIS{int:I-2.2}     %\iref{int:I-2.2}    x
+    \POS{obs:rq4-2}     %\oref{obs:rq4-2}    x
+    \POS{obs:rq4-5}     %\oref{obs:rq4-5}    x
+    \POS{obs:rq1-70:14-11}     %\oref{obs:rq1-70:14-11}    x
+    \POS{obs:rq1-72:14-11}     %\oref{obs:rq1-72:14-11}    x
+    \POS{obs:rq1-73:14-11}     %\oref{obs:rq1-73:14-11}    x
+    \POS{obs:rq1-74:16-11}     %\oref{obs:rq1-74:16-11}    x
+    \POS{obs:rq1-8:14-11}     %\oref{obs:rq1-8:14-11}    x
+}
 
-The availability of APIs ensures that Ampersand can be used from outside.
-In an organization, frameworks and tools are usually available that work with APIs.
-A framework at \acrshort{cibg} is the application framework that talks to a back-end through rest calls.
-Tooling such as Postman also works with APIs and makes an Ampersand model externally testable.
-One point is that the API model is not documented, for example in Swagger.
-Another point is that no response code is returned after calling an API, but a text that is defined in the script.
+The availability of APIs ensures that Ampersand can be used from outside (obj.\ref{obs:rq4-5}).
+In an organization, frameworks and tools are usually available that work with APIs (\iref{int:I-2.2}).
+Tooling such as Postman also works with APIs and makes an Ampersand model externally testable (obj.\ref{obs:rq1-70:14-11}, \oref{obs:rq1-72:14-11}, oref{obs:rq1-74:16-11}).
+One point is that the API model is not documented, for example in Swagger (obj.\ref{obs:rq1-8:14-11}).
+Another point is that no response code is returned after calling an API, but a text that is defined in the script (obj.\ref{obs:rq4-2}, obj.\ref{obs:rq1-73:14-11}).
+\sbbs{9}{Model maintenance}
+\POstart{%9
+    \POS{obs:rq1-63:10-11}
+    \POS{obs:rq4-7}
+    \PIS{int:I-4.8}
+    \PIS{int:I-2.5}}
 
-After a change in the law, there is a change in the Ampersand model.
-There is no possibility to implement a modified model and simply transfer the data to the new model.
-Ampersand's new model stands alone and has no physical relationship with the originaly implemented model.
-It is very easy to extend and modify an existing model.
-Ampersand is very flexible in that regard.
-A project team will have to take care of the conversion from IST to SOLL.
-The advantage of this approach is that there is no technical debt due to maintenance.
+After a change in the law, there is a change in the Ampersand model (obj.\ref{obs:rq4-7}).
+There is no possibility to implement a modified model and simply transfer the data to the new model (\iref{int:I-2.5}).
+Ampersand's new model stands alone and has no physical relationship with the originaly implemented model (\iref{int:I-4.8}).
+It is very easy to extend and modify an existing model (obj.\ref{obs:rq1-63:10-11}), Ampersand is very flexible in that regard.
+\sbbs{10}{Ampersand design method}
+\POstart{%10
+    \POS{obs:rq2-18:16-11}
+    \PIS{int:I-4.6}}
 
 A project always has to be designed.
-One of the interviewees commented that it doesn't matter much in which tool that happens.
+One of the interviewees commented that it doesn't matter much in which tool that happens (\iref{int:I-4.6}).
 Many tools work from a model, model driven development~\citep{kulkarni_abstraction_2008}, after which code is generated.
-Ampersand is declarative and generates workable and reliable software from the declaration and generates documentation with associated models.
+Ampersand is declarative and generates workable and reliable software from the declaration and generates documentation with associated models (obj.\ref{obs:rq2-18:16-11}).
+\sbbs{11}{Law effective}
+\POstart{%11
+    \PIS{int:I-1.2}
+    \PIS{int:I-1.6}}
+
+Because the analysis takes place at the source, it is possible to find conflicting matters in the law (\iref{int:I-1.2}).
+In the current system \acrshort{zorro} it is possible to specify a date when a change in law takes effect.
+The interviewee wonders whether this functionality can also be set via Ampersand (\iref{int:I-1.6})
+\sbbs{12}{Excluded}
+\POstart{%12
+    \PIS{int:I-2.11}
+    \PIS{int:I-4.11}
+    \PIS{int:I-4.12}
+    \PIS{int:I-4.2}
+    \PIS{int:I-4.3}
+    \PIS{int:I-4.9}
+    \POS{obs:rq1-39:3-10}
+    \POS{obs:rq1-7:10-11}
+    \POS{obs:rq2-12:19-10}
+    \POS{obs:rq2-16:19-10}
+    \POS{obs:rq2-4:30-9}
+    \POS{obs:rq3-16:24-10}}
+
+The following observations have not been explicitly included.
