@@ -1,0 +1,59 @@
+\subsection{Setup law for Ampersand}\label{subsection:setup-law-for-ampersand}
+Reading and understanding the legal texts requires special skills.
+For example, article 13 paragraph 1, here it reads:
+\textit{"Indien bij besluit van Onze Minister inschrijving in een register is geweigerd, de afgifte van een verklaring van vakbekwaamheid wordt geweigerd of een beroepsbeoefenaar de bevoegdheid zijn beroep uit te oefenen heeft verloren omdat hij de aanvraag tot inschrijving of tot afgifte van een verklaring gebaseerd heeft op valse kwalificaties, kan Onze Minister besluiten, onverminderd de hoofdstuk V van de Algemene verordening gegevensbescherming, de bevoegde autoriteiten van andere staten dan de staten bedoeld in artikel 31a, eerste lid, van de Algemene wet erkenning EU-beroepskwalificaties, daarvan in kennis stellen."}
+Due to the length of the sentences and the many parentheses, the analysis of a piece of legal text can only be read properly by a person with experience in reading legal documents.
+
+The sub-question "\acrlong{RQ3}" deals with the law, in the case of the \acrshort{big}, and the way in which it can be analyzed and processed using Ampersand.
+To answer this question we use the links as showed in table~\ref{tab:results_to_rq}.
+The categories are again clustered according to the following aggregated topics. In this respect \nameref{subsub:3_complexity}, \nameref{subsub:3_define_concepts}, \nameref{subsub:3_legal_knowledge}, \nameref{subsub:3_lifecycle} and \nameref{subsub:3_structure_of_the_law}.
+
+\subsubsection{Complexity}\label{subsub:3_complexity}
+Interviews paint a picture of a law that originated in the 19th century.
+Although this has been adapted to the current times, the structure is not equipped for a one-to-one translation to an information system.
+It has been indicated that there are new laws that are much better suited for translation, such as, for example, "Regeling bewijsstukken sociale hygiëne Drank- en Horecawet 2015".
+Since we have not analyzed any other laws, it cannot be determined whether this is the case, however the \acrshort{big} is a large and complex law, according to a lawyer at the \acrshort{cibg}.
+(Ref. to \nameref{s:6_5_suitability_of_the_law})
+
+\subsubsection{Legal knowledge}\label{subsub:3_legal_knowledge}
+Analyzing the law requires legal knowledge.
+Reading the legal texts also requires the necessary experience.
+Analyzing the law is usually not the domain of a business analyst.
+At the start of the analysis, a team should be set up that should include at least an analyst and a lawyer.
+The analyst for building and managing the script and the lawyer for the translation of the law into Concepts and Relationships.
+This ensures consistency and completeness of the analysis.
+It has been found that even a lawyer can understand the concepts and the relationships of conceptual analysis.
+As a result, the cooperation on this point will run smoothly.
+(Ref. to \nameref{s:6_2_law}) 
+
+\subsubsection{Structure of the law}\label{subsub:3_structure_of_the_law}
+By starting with the analysis of the law with the help of a lawyer, an overview can be obtained at an early stage of the content and structure of the law.
+By looking at the structure, the analyst can better understand what the law is about.
+The structure can also help to determine the structure of the patterns.
+It is certainly not the case that every chapter is a separate pattern, but it certainly influences the setup of the \acrlong{ca} and thereby help to gain an overview of the law and, on the other hand, of the analysis to be performed.
+(Ref. to \nameref{s:6_4_tools}, \nameref{s:6_3_parts})
+
+\subsubsection{Define Concepts}\label{subsub:3_define_concepts}
+In order to extract the correct data and understandable data from the source text, experience is required in reading and interpreting the legal texts.
+Some laws lend themselves to this better than others.
+In addition to the understandable law, a law analyst is also needed.
+(Ref. to \nameref{s:1_5_script_metadata}, \nameref{s:1_6_deviation})
+
+\subsubsection{Lifecycle management within the law}\label{subsub:3_lifecycle}
+The set-up of the \acrshort{big} is limited in nature, in the sense that it does not include lifecycle management.
+The law regulates how a person can register and deregister.
+The law also specifies the requirements that the person must meet in order to remain registered.
+This is partly general and partly per register.
+The missing life cycle management relates to the management of the registers themselves.
+The law states that they are there, in regulations more registers are added within the \acrshort{big}, but nowhere does it say what should be done when cleaning one or more registers.
+(Ref. to \nameref{s:4_3_lifecycle_law},  \nameref{s:4_4_register_unbundling})
+
+\subsubsection{Scope}\label{subsub:3_scope}
+In the first step of the analysis of an assignment in which Ampersand is used, the scope of the analysis is determined.
+This scope is often more than the law itself.
+In the case of \acrshort{big} there is a list of rules and decisions (see listing~\ref{list:ass-laws-regulations}).
+In addition to the immediately findable legislation and regulations, there are also overarching regulations that play a role.
+In some cases, it is the laws and regulations that affect the scope, but they are rules set by another source.
+Such as the NORA architecture rules and the BRP address formatting rules.
+It takes people from different disciplines to determine the scope.
+(Ref. to \nameref{s:6_1_environment}, \nameref{s:4_6_brp})

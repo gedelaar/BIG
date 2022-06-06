@@ -22,6 +22,7 @@ Toegankelijkheid (Accessibility)
 When asked whether Ampersand can be used, different axes can be considered.
 This can be measured along the line of \cite{HORNBAEK200679}, which looks at effectiveness, efficiency and satisfaction.
 The other line is the line prescribed by ISO~\footnote{\url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010?limit=1&start=4}} and then it is about Appropriateness recognisability, learnability, operability, user error protection, accessibility and user interface aesthetics.
+
 \begin{table}[H]
     \caption{Category \acrshort{cat\cat}}
     \begin{tabularx}{\linewidth}{|X|X|}
@@ -30,17 +31,35 @@ The other line is the line prescribed by ISO~\footnote{\url{https://iso25000.com
         Category Title  & \acrshort{cat\cat} \\\hline
         Definition      & \acrlong{cat\cat} \\\hline
         Anchor examples & 
-        \begin{itemize}
-        \setlength{\itemindent}{-2em}
+        \begin{itemize}[leftmargin=1em]
+        %\setlength{\itemindent}{-2em}
             \item \nameref{obs:rq1-17}
             \item \nameref{obs:rq1-46:24-10}
         \end{itemize}
         \\\hline
-        Coding rules    & is it suitable, is it adaptable, has it relevance, has it value \\\hline
+        Coding rules    & is it suitable, is it adaptable, has it relevance, has it value. \\\hline
     \end{tabularx}
     \label{tab:useful}
 \end{table}
-\sbbs{1}{Setup}
+\begin{samepage}
+    We have broken down ``\acrshort{cat\cat}'' into the following subcategories.
+    We distinguish the following subcategories:
+    \begin{itemize}[nosep,topsep=-1pt,parsep=1pt]
+        \item \nameref{s:1_1_setup}
+        \item \nameref{s:1_2_script_creation}
+        \item \nameref{s:1_3_source_handling}
+        \item \nameref{s:1_4_script_overview}
+        \item \nameref{s:1_5_script_metadata}
+        \item \nameref{s:1_6_deviation}
+        \item \nameref{s:1_7_architecture_and_registerkern}
+        \item \nameref{s:1_8_api}
+        \item \nameref{s:1_9_model_maintenance}
+        \item \nameref{s:1_10_ampersand_design_method}
+        \item \nameref{s:1_11_law_effective}
+    \end{itemize}
+\end{samepage}
+Per subcategory, the observations (obs.) and the interview fragments (int.) are clustered and provided with a description of the results.
+\sbbs{1}{Setup}\label{s:1_1_setup}
 \POstart{%1
 \POS{obs:rq1-11}     %\oref{obs:rq1-11}    x
 \POS{obs:rq1-18}     %\oref{obs:rq1-18}    x
@@ -49,6 +68,7 @@ The other line is the line prescribed by ISO~\footnote{\url{https://iso25000.com
 \POS{obs:rq1-47:27-10}     %\oref{obs:rq1-47:27-10}    x
 \POS{obs:rq1-6:21-10}     %\oref{obs:rq1-6:21-10}    x
 \POS{obs:rq4-8:22-11}     %\oref{obs:rq4-8:22-11}    x
+\PIS{int:I-4.5}
 }
 
 To use Ampersand, a number of conditions must be met.
@@ -58,7 +78,7 @@ These ways of installing is on localhost, or using the RAP~\footnote{Student dev
 Docker installation, with help from the Ampersand team, has proven to be the most successful (obs.\ref{obs:rq4-8:22-11}).
 Note that knowledge of Ampersand also requires basic knowledge of Docker (obs.\ref{obs:rq1-6:21-10}).
 This help was also needed because there is not much information on the internet (obs.\ref{obs:rq1-18}).
-\sbbs{2}{Script creation}
+\sbbs{2}{Script creation}\label{s:1_2_script_creation}
 \POstart{%2
     \POS{obs:rq1-60:9-11}
     \POS{obs:rq1-96:30-12}
@@ -69,19 +89,19 @@ requires quite some knowledge of Ampersand and relation algebra.
 Concepts, Relations and Rules are used within the scripts.
 It should be noted that making Rules in particular is a difficult task (obs.\ref{obs:rq1-17}).
 This knowledge of Rules and also other knowledge of Ampersand must be kept up to date, otherwise it will disappear very quickly (obs.\ref{obs:rq1-96:30-12}).
-\sbbs{3}{Source handling}
+\sbbs{3}{Source handling}\label{s:1_3_source_handling}
 \POstart{%3
     \POS{obs:rq1-2}
     \POS{obs:rq1-25:12-9}
     \POS{obs:rq1-31:14-9}
     \PIS{int:I-3.7}}
 
-To maintain an overview at work, resources are needed to maintain this overview (obs.\ref{obs:rq1-25:12-9}, \iref{int:I-3.7}).
-An overview is needed to keep track of where people have left off in the text of the law (obs.\ref{obs:rq1-2}, obs.\ref{obs:rq1-31:14-9}).
+To maintain the overview at work, resources are needed to maintain this overview (ob.\ref{obs:rq1-25:12-9}, \iref{int:I-3.7}).
+The overview is necessary to keep track of where the analysis in the legal text has gone (obs.\ref{obs:rq1-2}, obs.\ref{obs:rq1-31:14-9}).
 An overview of the created scripts is also necessary to avoid duplication of Concepts and Relations.
-Due to the lack of an overview and the refactoring of scripts, possible duplication's arise.
-These are reflected in the conceptual design by multiple display.
-\sbbs{4}{Script overview}
+Due to the lack of overview and the refactoring of scripts, possible duplications arise.
+These are reflected in the conceptual design through multiple views.
+\sbbs{4}{Script overview}\label{s:1_4_script_overview}
 \POstart{%4
     \POS{obs:rq1-42:19-10}
     \POS{obs:rq1-45:24-10}
@@ -92,32 +112,32 @@ In addition to the necessary overview at work, it also requires self-discipline 
 Ampersand requires that the description, meaning and purpose also be established during the development of Concepts, Relations and Rules.
 Due to inexperience with Ampersand it happens that meaning and purpose are not captured (obs.\ref{obs:rq1-97:30-12}).
 As the scripts grow, the need for overview increases (obs.\ref{obs:rq1-45:24-10}) as more and more Concepts and Relationships are added (obs.\ref{obs:rq1-46:24-10}).
-\sbbs{5}{Data add}
+\sbbs{5}{Script metadata}\label{s:1_5_script_metadata}
 \POstart{%5
     \POS{obs:rq3-7}
     \PIS{int:I-3.2}}
 
-Adding the information to the Ampersand concepts is not very self-evident (obs.\ref{obs:rq3-7}).
-It is a matter of searching the legal text for the correct phrase.
-Taking into account the final layout in the Conceptual analysis.
-The Conceptual analysis must be clearly legible (\iref{int:I-3.2}).
-\sbbs{6}{Deviation}
+Adding the information to the Ampersand concepts is not very straightforward (obs.\ref{obs:rq3-7}).
+It is a matter of finding the right sentence in the legal texts.
+When drafting the script, the final layout in the \acrlong{ca} must be taken into account.
+There is a connection between the description in the meta information and the \acrlong{ca}, because the \acrlong{ca} must be clearly readable (\iref{int:I-3.2}).
+\sbbs{6}{Deviation}\label{s:1_6_deviation}
 \POstart{%6
     \POS{obs:rq1-42:21-10}}
 
 Noting the meaning and purpose requires knowledge of being able to read legal texts (obs.\ref{obs:rq1-42:21-10}).
 Knowledge of the information domain seems to be an advantage, but can cause prejudice.
 This means that the text is less carefully looked at.
-\sbbs{7}{Architecture and registerkern}
+\sbbs{7}{Architecture and registerkern}\label{s:1_7_architecture_and_registerkern}
 \POstart{%7
     \POS{obs:rq1-62:10-11}
     \POS{obs:rq1-63:10-11}
     \PIS{int:I-2.10}
     \PIS{int:I-1.3}}
 
-The design of the architecture partly determines the usefulness of Ampersand (obs.\ref{obs:rq1-62:10-11}), despite its flexibility by extends concepts and relationships (obj.\ref{obs:rq1-63:10-11}).
+The architecture used by the \acrshort{cibg} partly determines the usefulness of Ampersand (obs.\ref{obs:rq1-62:10-11}), despite its flexibility of concepts and relationships that are easily extensible (obj.\ref{obs:rq1-63:10-11}).
 In particular, the overlap of what Ampersand contributes with the existing structure seems to be a bottleneck (\iref{int:I-2.10}, \iref{int:I-1.3}).
-\sbbs{8}{Api}
+\sbbs{8}{Api}\label{s:1_8_api}
 \POstart{%8
     \PIS{int:I-2.2}     %\iref{int:I-2.2}    x
     \POS{obs:rq4-2}     %\oref{obs:rq4-2}    x
@@ -131,10 +151,10 @@ In particular, the overlap of what Ampersand contributes with the existing struc
 
 The availability of APIs ensures that Ampersand can be used from outside (obj.\ref{obs:rq4-5}).
 In an organization, frameworks and tools are usually available that work with APIs (\iref{int:I-2.2}).
-Tooling such as Postman also works with APIs and makes an Ampersand model externally testable (obj.\ref{obs:rq1-70:14-11}, \oref{obs:rq1-72:14-11}, oref{obs:rq1-74:16-11}).
+Tooling such as Postman also works with APIs and makes an Ampersand model externally testable (obj.\ref{obs:rq1-70:14-11}, \oref{obs:rq1-72:14-11}, \oref{obs:rq1-74:16-11}).
 One point is that the API model is not documented, for example in Swagger (obj.\ref{obs:rq1-8:14-11}).
 Another point is that no response code is returned after calling an API, but a text that is defined in the script (obj.\ref{obs:rq4-2}, obj.\ref{obs:rq1-73:14-11}).
-\sbbs{9}{Model maintenance}
+\sbbs{9}{Model maintenance}\label{s:1_9_model_maintenance}
 \POstart{%9
     \POS{obs:rq1-63:10-11}
     \POS{obs:rq4-7}
@@ -142,19 +162,19 @@ Another point is that no response code is returned after calling an API, but a t
     \PIS{int:I-2.5}}
 
 After a change in the law, there is a change in the Ampersand model (obj.\ref{obs:rq4-7}).
-There is no possibility to implement a modified model and simply transfer the data to the new model (\iref{int:I-2.5}).
-Ampersand's new model stands alone and has no physical relationship with the originaly implemented model (\iref{int:I-4.8}).
+There is no possibility to implement a modified model and simply transfer the data to the new model, error free specifications (\iref{int:I-2.5}).
+Ampersand its new model stands alone and has no physical relationship with the originally implemented model (\iref{int:I-4.8}).
 It is very easy to extend and modify an existing model (obj.\ref{obs:rq1-63:10-11}), Ampersand is very flexible in that regard.
-\sbbs{10}{Ampersand design method}
+\sbbs{10}{Ampersand design method}\label{s:1_10_ampersand_design_method}
 \POstart{%10
     \POS{obs:rq2-18:16-11}
     \PIS{int:I-4.6}}
 
 A project always has to be designed.
-One of the interviewees commented that it doesn't matter much in which tool that happens (\iref{int:I-4.6}).
+One of the interviewees commented that it does not matter much in which tool that happens (\iref{int:I-4.6}).
 Many tools work from a model, model driven development~\citep{kulkarni_abstraction_2008}, after which code is generated.
 Ampersand is declarative and generates workable and reliable software from the declaration and generates documentation with associated models (obj.\ref{obs:rq2-18:16-11}).
-\sbbs{11}{Law effective}
+\sbbs{11}{Law effective}\label{s:1_11_law_effective}
 \POstart{%11
     \PIS{int:I-1.2}
     \PIS{int:I-1.6}}
@@ -162,7 +182,7 @@ Ampersand is declarative and generates workable and reliable software from the d
 Because the analysis takes place at the source, it is possible to find conflicting matters in the law (\iref{int:I-1.2}).
 In the current system \acrshort{zorro} it is possible to specify a date when a change in law takes effect.
 The interviewee wonders whether this functionality can also be set via Ampersand (\iref{int:I-1.6})
-\sbbs{12}{Excluded}
+\sbbs{12}{Excluded}\label{s:1_12_exclude_1}
 \POstart{%12
     \PIS{int:I-2.11}
     \PIS{int:I-4.11}
@@ -177,4 +197,4 @@ The interviewee wonders whether this functionality can also be set via Ampersand
     \POS{obs:rq2-4:30-9}
     \POS{obs:rq3-16:24-10}}
 
-The following observations have not been explicitly included.
+The above comments are not explicitly included.

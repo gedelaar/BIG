@@ -1,0 +1,32 @@
+\subsubsection{Weaknesses}\label{subsub:4_weaknesses}
+
+\paragraph{\textbf{API description}}\label{swot:w_api_its_description}:
+A strong point of Ampersand is the availability of APIs.
+The description and definition of the APIs would be an addition in the usage of the APIs.
+Although the designed system is not intended to be used in production, APIs can be used to test against from an external source.
+(Ref. to \nameref{s:1_8_api})
+
+\paragraph{\textbf{Manual mapping}}\label{swot:w_manual_mapping}:
+To link an Ampersand design to an existing system such as \acrshort{rk} mapping actions are needed.
+The Ampersand design and \acrshort{rk} have similar elements.
+These elements must be found and mapped onto each other.
+The elements do not necessarily have the same name and if they already have the same name, the definition may differ.
+The manual mapping is a design point of attention and measures will have to be taken to identify it.
+The agreement could be to detect this already during the design and have a comment about this included in the \acrshort{ca}.
+(Ref. to \nameref{s:4_1_architectural_fit}, \nameref{s:1_7_architecture_and_registerkern}, \nameref{s:5_2_demarcation})
+
+\paragraph{\textbf{Data migration}}\label{swot:w_data_migration}:
+Ampersand does not provide any resources to guide the conversion from the old model to the new model.
+The development team will therefore have to make an analysis of the old and the new situation and have to develop conversion software for that.
+This is a method that is different from usual.
+The downside is that the conversion is likely to be complex.
+Data that was previously valid may be invalid in a subsequent model.
+(Ref. to \nameref{s:3_5_model_maintenance})
+
+\paragraph{\textbf{Documentation }}\label{swot:w_documentation}:
+During the setup and use of Ampersand, we often fall back on the available documentation of the tool.
+The documentation is mainly available on the formal Ampersand site (\footnote{\url{https://ampersandtarski.gitbook.io/documentation/}} and very little on other sites.
+A common method is, for example, to perform a search in which a question is specified.
+Because Ampersand is not widely used, there is not much support on the internet and you can only fall back on the formal site and the examples that are available on github.
+This sometimes makes it difficult to resolve an issue.
+(Ref. to \nameref{s:1_1_setup}, \nameref{s:3_3_crud})

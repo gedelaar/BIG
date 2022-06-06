@@ -1,0 +1,842 @@
+\begin{lstlisting}[language=TeX]
+Confluence analysis statistics from 306 expressions.
+
+This script contains
+29 non-confluent expressions
+
+
+Total number of derived expressions: 58
+
+Confluence analysis for Persoon
+
+
+expression: bignummer [InschrijfId*Bignummer]~; -I[InschrijfId];bignummer [InschrijfId*Bignummer] |- -I[Bignummer]
+
+    -I[Bignummer]\/ - -I[InschrijfId];bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Bignummer], B->I[Bignummer], r->bignummer [InschrijfId*Bignummer]~;-I[InschrijfId];bignummer [InschrijfId*Bignummer], s->I[Bignummer]} }
+
+    -I[Bignummer]/\ -I[InschrijfId];bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    { }
+
+    -I[Bignummer]\/ - -I[InschrijfId];bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Bignummer], B->I[Bignummer], r->I[Bignummer], s->bignummer [InschrijfId*Bignummer]~;-I[InschrijfId];bignummer [InschrijfId*Bignummer]} }
+
+    -I[Bignummer]/\ -I[InschrijfId];bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    { }
+
+
+expression: doorgehaald [InschrijfId*Doorhaling]~; -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling] |- -I[Doorhaling]
+
+    -I[Doorhaling]\/ - -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling];doorgehaald [InschrijfId*Doorhaling]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Doorhaling], B->I[Doorhaling], r->doorgehaald [InschrijfId*Doorhaling]~;-I[InschrijfId];doorgehaald [InschrijfId*Doorhaling], s->I[Doorhaling]} }
+
+    -I[Doorhaling]/\ -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling];doorgehaald [InschrijfId*Doorhaling]~
+
+    { }
+
+    -I[Doorhaling]\/ - -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling];doorgehaald [InschrijfId*Doorhaling]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Doorhaling], B->I[Doorhaling], r->I[Doorhaling], s->doorgehaald [InschrijfId*Doorhaling]~;-I[InschrijfId];doorgehaald [InschrijfId*Doorhaling]} }
+
+    -I[Doorhaling]/\ -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling];doorgehaald [InschrijfId*Doorhaling]~
+
+    { }
+
+
+expression: inschrijving [Persoon*InschrijfId]~; -I[Persoon];inschrijving [Persoon*InschrijfId] |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[Persoon];inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->inschrijving [Persoon*InschrijfId]~;-I[Persoon];inschrijving [Persoon*InschrijfId], s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Persoon];inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    { }
+
+    -I[InschrijfId]\/ - -I[Persoon];inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->inschrijving [Persoon*InschrijfId]~;-I[Persoon];inschrijving [Persoon*InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Persoon];inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    { }
+
+
+expression: inschrijving [RegisterId*InschrijfId]~; -I[RegisterId];inschrijving [RegisterId*InschrijfId] |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[RegisterId];inschrijving [RegisterId*InschrijfId];inschrijving [RegisterId*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->inschrijving [RegisterId*InschrijfId]~;-I[RegisterId];inschrijving [RegisterId*InschrijfId], s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[RegisterId];inschrijving [RegisterId*InschrijfId];inschrijving [RegisterId*InschrijfId]~
+
+    { }
+
+    -I[InschrijfId]\/ - -I[RegisterId];inschrijving [RegisterId*InschrijfId];inschrijving [RegisterId*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->inschrijving [RegisterId*InschrijfId]~;-I[RegisterId];inschrijving [RegisterId*InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[RegisterId];inschrijving [RegisterId*InschrijfId];inschrijving [RegisterId*InschrijfId]~
+
+    { }
+
+
+expression: nationaliteit [Nationaliteitid*Nationaliteit]~; -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit] |- -I[Nationaliteit]
+
+    -I[Nationaliteit]\/ - -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteit], B->I[Nationaliteit], r->nationaliteit [Nationaliteitid*Nationaliteit]~;-I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit], s->I[Nationaliteit]} }
+
+    -I[Nationaliteit]/\ -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+
+    { }
+
+    -I[Nationaliteit]\/ - -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteit], B->I[Nationaliteit], r->I[Nationaliteit], s->nationaliteit [Nationaliteitid*Nationaliteit]~;-I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit]} }
+
+    -I[Nationaliteit]/\ -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+
+    { }
+
+
+expression: register [RegisterId*Register]~; -I[RegisterId];register [RegisterId*Register] |- -I[Register]
+
+    -I[Register]\/ - -I[RegisterId];register [RegisterId*Register];register [RegisterId*Register]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Register], B->I[Register], r->register [RegisterId*Register]~;-I[RegisterId];register [RegisterId*Register], s->I[Register]} }
+
+    -I[Register]/\ -I[RegisterId];register [RegisterId*Register];register [RegisterId*Register]~
+
+    { }
+
+    -I[Register]\/ - -I[RegisterId];register [RegisterId*Register];register [RegisterId*Register]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Register], B->I[Register], r->I[Register], s->register [RegisterId*Register]~;-I[RegisterId];register [RegisterId*Register]} }
+
+    -I[Register]/\ -I[RegisterId];register [RegisterId*Register];register [RegisterId*Register]~
+
+    { }
+
+
+expression: registratie [Registratie*InschrijfId]~; -I[Registratie];registratie [Registratie*InschrijfId] |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[Registratie];registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->registratie [Registratie*InschrijfId]~;-I[Registratie];registratie [Registratie*InschrijfId], s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Registratie];registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+
+    { }
+
+    -I[InschrijfId]\/ - -I[Registratie];registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->registratie [Registratie*InschrijfId]~;-I[Registratie];registratie [Registratie*InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Registratie];registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+
+    { }
+
+
+expression: beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~ |- -I[Aantekening]
+
+    -I[Aantekening]\/ - -I[Beschikking];beschikking [Aantekening*Beschikking]~;beschikking [Aantekening*Beschikking]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Aantekening], B->I[Aantekening], r->beschikking [Aantekening*Beschikking];-I[Beschikking];beschikking [Aantekening*Beschikking]~, s->I[Aantekening]} }
+
+    -I[Aantekening]/\ -I[Beschikking];beschikking [Aantekening*Beschikking]~;beschikking [Aantekening*Beschikking]
+
+    { }
+
+    -I[Aantekening]\/ - -I[Beschikking];beschikking [Aantekening*Beschikking]~;beschikking [Aantekening*Beschikking]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Aantekening], B->I[Aantekening], r->I[Aantekening], s->beschikking [Aantekening*Beschikking];-I[Beschikking];beschikking [Aantekening*Beschikking]~} }
+
+    -I[Aantekening]/\ -I[Beschikking];beschikking [Aantekening*Beschikking]~;beschikking [Aantekening*Beschikking]
+
+    { }
+
+
+expression: bignummer [InschrijfId*Bignummer]; -I[Bignummer];bignummer [InschrijfId*Bignummer]~ |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[Bignummer];bignummer [InschrijfId*Bignummer]~;bignummer [InschrijfId*Bignummer]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->bignummer [InschrijfId*Bignummer];-I[Bignummer];bignummer [InschrijfId*Bignummer]~, s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Bignummer];bignummer [InschrijfId*Bignummer]~;bignummer [InschrijfId*Bignummer]
+
+    { }
+
+    -I[InschrijfId]\/ - -I[Bignummer];bignummer [InschrijfId*Bignummer]~;bignummer [InschrijfId*Bignummer]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->bignummer [InschrijfId*Bignummer];-I[Bignummer];bignummer [InschrijfId*Bignummer]~} }
+
+    -I[InschrijfId]/\ -I[Bignummer];bignummer [InschrijfId*Bignummer]~;bignummer [InschrijfId*Bignummer]
+
+    { }
+
+
+expression: binnenlandsadres [Adres*Binnenlandsadres]; -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~ |- -I[Adres]
+
+    -I[Adres]\/ - -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~;binnenlandsadres [Adres*Binnenlandsadres]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Adres], B->I[Adres], r->binnenlandsadres [Adres*Binnenlandsadres];-I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~, s->I[Adres]} }
+
+    -I[Adres]/\ -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~;binnenlandsadres [Adres*Binnenlandsadres]
+
+    { }
+
+    -I[Adres]\/ - -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~;binnenlandsadres [Adres*Binnenlandsadres]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Adres], B->I[Adres], r->I[Adres], s->binnenlandsadres [Adres*Binnenlandsadres];-I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~} }
+
+    -I[Adres]/\ -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~;binnenlandsadres [Adres*Binnenlandsadres]
+
+    { }
+
+
+expression: buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~ |- -I[Adres]
+
+    -I[Adres]\/ - -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Adres], B->I[Adres], r->buitenlandsadres [Adres*Buitenlandsadres];-I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~, s->I[Adres]} }
+
+    -I[Adres]/\ -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]
+
+    { }
+
+    -I[Adres]\/ - -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Adres], B->I[Adres], r->I[Adres], s->buitenlandsadres [Adres*Buitenlandsadres];-I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~} }
+
+    -I[Adres]/\ -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~;buitenlandsadres [Adres*Buitenlandsadres]
+
+    { }
+
+
+expression: deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~ |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->deelToegang [InschrijfId*Ja_of_Nee];-I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~, s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]
+
+    { }
+
+    -I[InschrijfId]\/ - -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->deelToegang [InschrijfId*Ja_of_Nee];-I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~} }
+
+    -I[InschrijfId]/\ -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~;deelToegang [InschrijfId*Ja_of_Nee]
+
+    { }
+
+
+expression: doorgehaald [InschrijfId*Doorhaling]; -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~ |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~;doorgehaald [InschrijfId*Doorhaling]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->doorgehaald [InschrijfId*Doorhaling];-I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~, s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~;doorgehaald [InschrijfId*Doorhaling]
+
+    { }
+
+    -I[InschrijfId]\/ - -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~;doorgehaald [InschrijfId*Doorhaling]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->doorgehaald [InschrijfId*Doorhaling];-I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~} }
+
+    -I[InschrijfId]/\ -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~;doorgehaald [InschrijfId*Doorhaling]
+
+    { }
+
+
+expression: einddatum [Nationaliteitid*Datum]; -I[Datum];einddatum [Nationaliteitid*Datum]~ |- -I[Nationaliteitid]
+
+    -I[Nationaliteitid]\/ - -I[Datum];einddatum [Nationaliteitid*Datum]~;einddatum [Nationaliteitid*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->einddatum [Nationaliteitid*Datum];-I[Datum];einddatum [Nationaliteitid*Datum]~, s->I[Nationaliteitid]} }
+
+    -I[Nationaliteitid]/\ -I[Datum];einddatum [Nationaliteitid*Datum]~;einddatum [Nationaliteitid*Datum]
+
+    { }
+
+    -I[Nationaliteitid]\/ - -I[Datum];einddatum [Nationaliteitid*Datum]~;einddatum [Nationaliteitid*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->I[Nationaliteitid], s->einddatum [Nationaliteitid*Datum];-I[Datum];einddatum [Nationaliteitid*Datum]~} }
+
+    -I[Nationaliteitid]/\ -I[Datum];einddatum [Nationaliteitid*Datum]~;einddatum [Nationaliteitid*Datum]
+
+    { }
+
+
+expression: einddatum [RegisterId*Datum]; -I[Datum];einddatum [RegisterId*Datum]~ |- -I[RegisterId]
+
+    -I[RegisterId]\/ - -I[Datum];einddatum [RegisterId*Datum]~;einddatum [RegisterId*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->einddatum [RegisterId*Datum];-I[Datum];einddatum [RegisterId*Datum]~, s->I[RegisterId]} }
+
+    -I[RegisterId]/\ -I[Datum];einddatum [RegisterId*Datum]~;einddatum [RegisterId*Datum]
+
+    { }
+
+    -I[RegisterId]\/ - -I[Datum];einddatum [RegisterId*Datum]~;einddatum [RegisterId*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->I[RegisterId], s->einddatum [RegisterId*Datum];-I[Datum];einddatum [RegisterId*Datum]~} }
+
+    -I[RegisterId]/\ -I[Datum];einddatum [RegisterId*Datum]~;einddatum [RegisterId*Datum]
+
+    { }
+
+
+expression: geboortedatum [Persoon*Datum]; -I[Datum];geboortedatum [Persoon*Datum]~ |- -I[Persoon]
+
+    -I[Persoon]\/ - -I[Datum];geboortedatum [Persoon*Datum]~;geboortedatum [Persoon*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->geboortedatum [Persoon*Datum];-I[Datum];geboortedatum [Persoon*Datum]~, s->I[Persoon]} }
+
+    -I[Persoon]/\ -I[Datum];geboortedatum [Persoon*Datum]~;geboortedatum [Persoon*Datum]
+
+    { }
+
+    -I[Persoon]\/ - -I[Datum];geboortedatum [Persoon*Datum]~;geboortedatum [Persoon*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->I[Persoon], s->geboortedatum [Persoon*Datum];-I[Datum];geboortedatum [Persoon*Datum]~} }
+
+    -I[Persoon]/\ -I[Datum];geboortedatum [Persoon*Datum]~;geboortedatum [Persoon*Datum]
+
+    { }
+
+
+expression: geslacht [Geslacht*Omschrijving]; -I[Omschrijving];geslacht [Geslacht*Omschrijving]~ |- -I[Geslacht]
+
+    -I[Geslacht]\/ - -I[Omschrijving];geslacht [Geslacht*Omschrijving]~;geslacht [Geslacht*Omschrijving]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Geslacht], B->I[Geslacht], r->geslacht [Geslacht*Omschrijving];-I[Omschrijving];geslacht [Geslacht*Omschrijving]~, s->I[Geslacht]} }
+
+    -I[Geslacht]/\ -I[Omschrijving];geslacht [Geslacht*Omschrijving]~;geslacht [Geslacht*Omschrijving]
+
+    { }
+
+    -I[Geslacht]\/ - -I[Omschrijving];geslacht [Geslacht*Omschrijving]~;geslacht [Geslacht*Omschrijving]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Geslacht], B->I[Geslacht], r->I[Geslacht], s->geslacht [Geslacht*Omschrijving];-I[Omschrijving];geslacht [Geslacht*Omschrijving]~} }
+
+    -I[Geslacht]/\ -I[Omschrijving];geslacht [Geslacht*Omschrijving]~;geslacht [Geslacht*Omschrijving]
+
+    { }
+
+
+expression: geslacht [Persoon*Geslacht]; -I[Geslacht];geslacht [Persoon*Geslacht]~ |- -I[Persoon]
+
+    -I[Persoon]\/ - -I[Geslacht];geslacht [Persoon*Geslacht]~;geslacht [Persoon*Geslacht]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->geslacht [Persoon*Geslacht];-I[Geslacht];geslacht [Persoon*Geslacht]~, s->I[Persoon]} }
+
+    -I[Persoon]/\ -I[Geslacht];geslacht [Persoon*Geslacht]~;geslacht [Persoon*Geslacht]
+
+    { }
+
+    -I[Persoon]\/ - -I[Geslacht];geslacht [Persoon*Geslacht]~;geslacht [Persoon*Geslacht]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->I[Persoon], s->geslacht [Persoon*Geslacht];-I[Geslacht];geslacht [Persoon*Geslacht]~} }
+
+    -I[Persoon]/\ -I[Geslacht];geslacht [Persoon*Geslacht]~;geslacht [Persoon*Geslacht]
+
+    { }
+
+
+expression: getuigschrift [RegisterId*Ja_of_Nee]; -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~ |- -I[RegisterId]
+
+    -I[RegisterId]\/ - -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~;getuigschrift [RegisterId*Ja_of_Nee]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->getuigschrift [RegisterId*Ja_of_Nee];-I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~, s->I[RegisterId]} }
+
+    -I[RegisterId]/\ -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~;getuigschrift [RegisterId*Ja_of_Nee]
+
+    { }
+
+    -I[RegisterId]\/ - -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~;getuigschrift [RegisterId*Ja_of_Nee]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->I[RegisterId], s->getuigschrift [RegisterId*Ja_of_Nee];-I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~} }
+
+    -I[RegisterId]/\ -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~;getuigschrift [RegisterId*Ja_of_Nee]
+
+    { }
+
+
+expression: ingangsdatum [Nationaliteitid*Datum]; -I[Datum];ingangsdatum [Nationaliteitid*Datum]~ |- -I[Nationaliteitid]
+
+    -I[Nationaliteitid]\/ - -I[Datum];ingangsdatum [Nationaliteitid*Datum]~;ingangsdatum [Nationaliteitid*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->ingangsdatum [Nationaliteitid*Datum];-I[Datum];ingangsdatum [Nationaliteitid*Datum]~, s->I[Nationaliteitid]} }
+
+    -I[Nationaliteitid]/\ -I[Datum];ingangsdatum [Nationaliteitid*Datum]~;ingangsdatum [Nationaliteitid*Datum]
+
+    { }
+
+    -I[Nationaliteitid]\/ - -I[Datum];ingangsdatum [Nationaliteitid*Datum]~;ingangsdatum [Nationaliteitid*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->I[Nationaliteitid], s->ingangsdatum [Nationaliteitid*Datum];-I[Datum];ingangsdatum [Nationaliteitid*Datum]~} }
+
+    -I[Nationaliteitid]/\ -I[Datum];ingangsdatum [Nationaliteitid*Datum]~;ingangsdatum [Nationaliteitid*Datum]
+
+    { }
+
+
+expression: ingangsdatum [RegisterId*Datum]; -I[Datum];ingangsdatum [RegisterId*Datum]~ |- -I[RegisterId]
+
+    -I[RegisterId]\/ - -I[Datum];ingangsdatum [RegisterId*Datum]~;ingangsdatum [RegisterId*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->ingangsdatum [RegisterId*Datum];-I[Datum];ingangsdatum [RegisterId*Datum]~, s->I[RegisterId]} }
+
+    -I[RegisterId]/\ -I[Datum];ingangsdatum [RegisterId*Datum]~;ingangsdatum [RegisterId*Datum]
+
+    { }
+
+    -I[RegisterId]\/ - -I[Datum];ingangsdatum [RegisterId*Datum]~;ingangsdatum [RegisterId*Datum]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->I[RegisterId], s->ingangsdatum [RegisterId*Datum];-I[Datum];ingangsdatum [RegisterId*Datum]~} }
+
+    -I[RegisterId]/\ -I[Datum];ingangsdatum [RegisterId*Datum]~;ingangsdatum [RegisterId*Datum]
+
+    { }
+
+
+expression: inschrijftijdstip [InschrijfId*InschrijfTijdstip]; -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~ |- -I[InschrijfId]
+
+    -I[InschrijfId]\/ - -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~;inschrijftijdstip [InschrijfId*InschrijfTijdstip]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->inschrijftijdstip [InschrijfId*InschrijfTijdstip];-I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~, s->I[InschrijfId]} }
+
+    -I[InschrijfId]/\ -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~;inschrijftijdstip [InschrijfId*InschrijfTijdstip]
+
+    { }
+
+    -I[InschrijfId]\/ - -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~;inschrijftijdstip [InschrijfId*InschrijfTijdstip]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[InschrijfId], B->I[InschrijfId], r->I[InschrijfId], s->inschrijftijdstip [InschrijfId*InschrijfTijdstip];-I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~} }
+
+    -I[InschrijfId]/\ -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~;inschrijftijdstip [InschrijfId*InschrijfTijdstip]
+
+    { }
+
+
+expression: naam [Persoon*Naam]; -I[Naam];naam [Persoon*Naam]~ |- -I[Persoon]
+
+    -I[Persoon]\/ - -I[Naam];naam [Persoon*Naam]~;naam [Persoon*Naam]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->naam [Persoon*Naam];-I[Naam];naam [Persoon*Naam]~, s->I[Persoon]} }
+
+    -I[Persoon]/\ -I[Naam];naam [Persoon*Naam]~;naam [Persoon*Naam]
+
+    { }
+
+    -I[Persoon]\/ - -I[Naam];naam [Persoon*Naam]~;naam [Persoon*Naam]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->I[Persoon], s->naam [Persoon*Naam];-I[Naam];naam [Persoon*Naam]~} }
+
+    -I[Persoon]/\ -I[Naam];naam [Persoon*Naam]~;naam [Persoon*Naam]
+
+    { }
+
+
+expression: nationaliteit [Nationaliteitid*Nationaliteit]; -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~ |- -I[Nationaliteitid]
+
+    -I[Nationaliteitid]\/ - -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~;nationaliteit [Nationaliteitid*Nationaliteit]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->nationaliteit [Nationaliteitid*Nationaliteit];-I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~, s->I[Nationaliteitid]} }
+
+    -I[Nationaliteitid]/\ -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~;nationaliteit [Nationaliteitid*Nationaliteit]
+
+    { }
+
+    -I[Nationaliteitid]\/ - -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~;nationaliteit [Nationaliteitid*Nationaliteit]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Nationaliteitid], B->I[Nationaliteitid], r->I[Nationaliteitid], s->nationaliteit [Nationaliteitid*Nationaliteit];-I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~} }
+
+    -I[Nationaliteitid]/\ -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~;nationaliteit [Nationaliteitid*Nationaliteit]
+
+    { }
+
+
+expression: register [RegisterId*Register]; -I[Register];register [RegisterId*Register]~ |- -I[RegisterId]
+
+    -I[RegisterId]\/ - -I[Register];register [RegisterId*Register]~;register [RegisterId*Register]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->register [RegisterId*Register];-I[Register];register [RegisterId*Register]~, s->I[RegisterId]} }
+
+    -I[RegisterId]/\ -I[Register];register [RegisterId*Register]~;register [RegisterId*Register]
+
+    { }
+
+    -I[RegisterId]\/ - -I[Register];register [RegisterId*Register]~;register [RegisterId*Register]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[RegisterId], B->I[RegisterId], r->I[RegisterId], s->register [RegisterId*Register];-I[Register];register [RegisterId*Register]~} }
+
+    -I[RegisterId]/\ -I[Register];register [RegisterId*Register]~;register [RegisterId*Register]
+
+    { }
+
+
+expression: registratie [Registratie*InschrijfId]; -I[InschrijfId];registratie [Registratie*InschrijfId]~ |- -I[Registratie]
+
+    -I[Registratie]\/ - -I[InschrijfId];registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Registratie], B->I[Registratie], r->registratie [Registratie*InschrijfId];-I[InschrijfId];registratie [Registratie*InschrijfId]~, s->I[Registratie]} }
+
+    -I[Registratie]/\ -I[InschrijfId];registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    { }
+
+    -I[Registratie]\/ - -I[InschrijfId];registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Registratie], B->I[Registratie], r->I[Registratie], s->registratie [Registratie*InschrijfId];-I[InschrijfId];registratie [Registratie*InschrijfId]~} }
+
+    -I[Registratie]/\ -I[InschrijfId];registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    { }
+
+
+expression: specialist [Persoon*SpecialistenRegister]; -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~ |- -I[Persoon]
+
+    -I[Persoon]\/ - -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~;specialist [Persoon*SpecialistenRegister]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->specialist [Persoon*SpecialistenRegister];-I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~, s->I[Persoon]} }
+
+    -I[Persoon]/\ -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~;specialist [Persoon*SpecialistenRegister]
+
+    { }
+
+    -I[Persoon]\/ - -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~;specialist [Persoon*SpecialistenRegister]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->I[Persoon], s->specialist [Persoon*SpecialistenRegister];-I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~} }
+
+    -I[Persoon]/\ -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~;specialist [Persoon*SpecialistenRegister]
+
+    { }
+
+
+expression: voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam]~ |- -I[Persoon]
+
+    -I[Persoon]\/ - -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->voornaam [Persoon*Voornaam];-I[Voornaam];voornaam [Persoon*Voornaam]~, s->I[Persoon]} }
+
+    -I[Persoon]/\ -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]
+
+    { }
+
+    -I[Persoon]\/ - -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]
+
+    <=> { weight: 856, -r[A*B] \/ -s[A*B] = -(r[A*B] /\ s[A*B]) with unifier: {A->I[Persoon], B->I[Persoon], r->I[Persoon], s->voornaam [Persoon*Voornaam];-I[Voornaam];voornaam [Persoon*Voornaam]~} }
+
+    -I[Persoon]/\ -I[Voornaam];voornaam [Persoon*Voornaam]~;voornaam [Persoon*Voornaam]
+
+    { }
+
+
+expression: I[Registratie];(registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~)
+
+    registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~;I[Registratie]
+
+    <=> { weight: 76, I[A];r[A*B] = r[A*B] with unifier: {A->I[Registratie], B->I[Registratie], r->registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~} }
+
+    registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    { }
+
+    registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~;I[Registratie]
+
+    <=> { weight: 76, I[A];r[A*B] = r[A*B] with unifier: {A->I[Registratie], B->I[InschrijfId], r->registratie [Registratie*InschrijfId]} }
+
+    registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    { }
+
+
+--------------
+
+Rules and their conjuncts for Persoon
+
+    rule r: Compute kwalificatiedatum[InschrijfId*Datum] using DelPair
+    formalExpression r: kwalificatiedatum [InschrijfId*Datum] |- getuigschriftdatum [InschrijfId*Datum]\/verklaringdatum [InschrijfId*Datum]\/diplomadatum [InschrijfId*Datum]
+    conjNF: -kwalificatiedatum [InschrijfId*Datum]\/getuigschriftdatum [InschrijfId*Datum]\/verklaringdatum [InschrijfId*Datum]\/diplomadatum [InschrijfId*Datum]
+    conj: -kwalificatiedatum [InschrijfId*Datum]\/getuigschriftdatum [InschrijfId*Datum]\/verklaringdatum [InschrijfId*Datum]\/diplomadatum [InschrijfId*Datum]
+
+    rule r: Compute kwalificatiedatum[InschrijfId*Datum] using InsPair
+    formalExpression r: getuigschriftdatum [InschrijfId*Datum]\/verklaringdatum [InschrijfId*Datum]\/diplomadatum [InschrijfId*Datum] |- kwalificatiedatum [InschrijfId*Datum]
+    conjNF: -getuigschriftdatum [InschrijfId*Datum]/\ -verklaringdatum [InschrijfId*Datum]/\ -diplomadatum [InschrijfId*Datum]\/kwalificatiedatum [InschrijfId*Datum]
+    conj: -getuigschriftdatum [InschrijfId*Datum]/\ -verklaringdatum [InschrijfId*Datum]/\ -diplomadatum [InschrijfId*Datum]\/kwalificatiedatum [InschrijfId*Datum]
+
+    rule r: Create Inschrijving
+    formalExpression r: I[Persoon] |- inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+    conjNF: -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+    conj: -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    rule r: DefaultDeelToegang
+    formalExpression r: I[InschrijfId] |- deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+    conjNF: -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+    conj: -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+
+    rule r: Elke nationaliteit heeft een ingangsdatum
+    formalExpression r: I[Nationaliteitid] |- ingangsdatum [Nationaliteitid*Datum];ingangsdatum [Nationaliteitid*Datum]~
+    conjNF: -I[Nationaliteitid]\/ingangsdatum [Nationaliteitid*Datum];ingangsdatum [Nationaliteitid*Datum]~
+    conj: -I[Nationaliteitid]\/ingangsdatum [Nationaliteitid*Datum];ingangsdatum [Nationaliteitid*Datum]~
+
+    rule r: Elke persoon heeft een nationaliteit
+    formalExpression r: I[Persoon] |- nationaliteit [Persoon*Nationaliteitid];nationaliteit [Persoon*Nationaliteitid]~
+    conjNF: -I[Persoon]\/nationaliteit [Persoon*Nationaliteitid];nationaliteit [Persoon*Nationaliteitid]~
+    conj: -I[Persoon]\/nationaliteit [Persoon*Nationaliteitid];nationaliteit [Persoon*Nationaliteitid]~
+
+    rule r: INJ bignummer[InschrijfId*Bignummer]
+    formalExpression r: bignummer [InschrijfId*Bignummer]~; -I[InschrijfId];bignummer [InschrijfId*Bignummer] |- -I[Bignummer]
+    conjNF: -bignummer [InschrijfId*Bignummer]~; -I[InschrijfId];bignummer [InschrijfId*Bignummer]\/ -I[Bignummer]
+    conj: -bignummer [InschrijfId*Bignummer]~; -I[InschrijfId];bignummer [InschrijfId*Bignummer]\/ -I[Bignummer]
+
+    rule r: INJ doorgehaald[InschrijfId*Doorhaling]
+    formalExpression r: doorgehaald [InschrijfId*Doorhaling]~; -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling] |- -I[Doorhaling]
+    conjNF: -doorgehaald [InschrijfId*Doorhaling]~; -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling]\/ -I[Doorhaling]
+    conj: -doorgehaald [InschrijfId*Doorhaling]~; -I[InschrijfId];doorgehaald [InschrijfId*Doorhaling]\/ -I[Doorhaling]
+
+    rule r: INJ inschrijving[Persoon*InschrijfId]
+    formalExpression r: inschrijving [Persoon*InschrijfId]~; -I[Persoon];inschrijving [Persoon*InschrijfId] |- -I[InschrijfId]
+    conjNF: -inschrijving [Persoon*InschrijfId]~; -I[Persoon];inschrijving [Persoon*InschrijfId]\/ -I[InschrijfId]
+    conj: -inschrijving [Persoon*InschrijfId]~; -I[Persoon];inschrijving [Persoon*InschrijfId]\/ -I[InschrijfId]
+
+    rule r: INJ inschrijving[RegisterId*InschrijfId]
+    formalExpression r: inschrijving [RegisterId*InschrijfId]~; -I[RegisterId];inschrijving [RegisterId*InschrijfId] |- -I[InschrijfId]
+    conjNF: -inschrijving [RegisterId*InschrijfId]~; -I[RegisterId];inschrijving [RegisterId*InschrijfId]\/ -I[InschrijfId]
+    conj: -inschrijving [RegisterId*InschrijfId]~; -I[RegisterId];inschrijving [RegisterId*InschrijfId]\/ -I[InschrijfId]
+
+    rule r: INJ nationaliteit[Nationaliteitid*Nationaliteit]
+    formalExpression r: nationaliteit [Nationaliteitid*Nationaliteit]~; -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit] |- -I[Nationaliteit]
+    conjNF: -nationaliteit [Nationaliteitid*Nationaliteit]~; -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit]\/ -I[Nationaliteit]
+    conj: -nationaliteit [Nationaliteitid*Nationaliteit]~; -I[Nationaliteitid];nationaliteit [Nationaliteitid*Nationaliteit]\/ -I[Nationaliteit]
+
+    rule r: INJ register[RegisterId*Register]
+    formalExpression r: register [RegisterId*Register]~; -I[RegisterId];register [RegisterId*Register] |- -I[Register]
+    conjNF: -register [RegisterId*Register]~; -I[RegisterId];register [RegisterId*Register]\/ -I[Register]
+    conj: -register [RegisterId*Register]~; -I[RegisterId];register [RegisterId*Register]\/ -I[Register]
+
+    rule r: INJ registratie[Registratie*InschrijfId]
+    formalExpression r: registratie [Registratie*InschrijfId]~; -I[Registratie];registratie [Registratie*InschrijfId] |- -I[InschrijfId]
+    conjNF: -registratie [Registratie*InschrijfId]~; -I[Registratie];registratie [Registratie*InschrijfId]\/ -I[InschrijfId]
+    conj: -registratie [Registratie*InschrijfId]~; -I[Registratie];registratie [Registratie*InschrijfId]\/ -I[InschrijfId]
+
+    rule r: Initialize today's date
+    formalExpression r: I[SESSION] |- sessionToday [SESSION*Datum];sessionToday [SESSION*Datum]~
+    conjNF: -I[SESSION]\/sessionToday [SESSION*Datum];sessionToday [SESSION*Datum]~
+    conj: -I[SESSION]\/sessionToday [SESSION*Datum];sessionToday [SESSION*Datum]~
+
+    rule r: SUR naam[Persoon*Naam]
+    formalExpression r: I[Naam] |- naam [Persoon*Naam]~;naam [Persoon*Naam]
+    conjNF: -I[Naam]\/naam [Persoon*Naam]~;naam [Persoon*Naam]
+    conj: -I[Naam]\/naam [Persoon*Naam]~;naam [Persoon*Naam]
+
+    rule r: TOT geslacht[Geslacht*Omschrijving]
+    formalExpression r: I[Geslacht] |- geslacht [Geslacht*Omschrijving];geslacht [Geslacht*Omschrijving]~
+    conjNF: -I[Geslacht]\/geslacht [Geslacht*Omschrijving];geslacht [Geslacht*Omschrijving]~
+    conj: -I[Geslacht]\/geslacht [Geslacht*Omschrijving];geslacht [Geslacht*Omschrijving]~
+
+    rule r: TOT ingangsdatum[RegisterId*Datum]
+    formalExpression r: I[RegisterId] |- ingangsdatum [RegisterId*Datum];ingangsdatum [RegisterId*Datum]~
+    conjNF: -I[RegisterId]\/ingangsdatum [RegisterId*Datum];ingangsdatum [RegisterId*Datum]~
+    conj: -I[RegisterId]\/ingangsdatum [RegisterId*Datum];ingangsdatum [RegisterId*Datum]~
+
+    rule r: TOT inschrijving[Persoon*InschrijfId]
+    formalExpression r: I[Persoon] |- inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+    conjNF: -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+    conj: -I[Persoon]\/inschrijving [Persoon*InschrijfId];inschrijving [Persoon*InschrijfId]~
+
+    rule r: TOT naam[Persoon*Naam]
+    formalExpression r: I[Persoon] |- naam [Persoon*Naam];naam [Persoon*Naam]~
+    conjNF: -I[Persoon]\/naam [Persoon*Naam];naam [Persoon*Naam]~
+    conj: -I[Persoon]\/naam [Persoon*Naam];naam [Persoon*Naam]~
+
+    rule r: TOT nationaliteit[Nationaliteitid*Nationaliteit]
+    formalExpression r: I[Nationaliteitid] |- nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+    conjNF: -I[Nationaliteitid]\/nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+    conj: -I[Nationaliteitid]\/nationaliteit [Nationaliteitid*Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~
+
+    rule r: TOT register[RegisterId*Register]
+    formalExpression r: I[RegisterId] |- register [RegisterId*Register];register [RegisterId*Register]~
+    conjNF: -I[RegisterId]\/register [RegisterId*Register];register [RegisterId*Register]~
+    conj: -I[RegisterId]\/register [RegisterId*Register];register [RegisterId*Register]~
+
+    rule r: TOT registratie[Registratie*InschrijfId]
+    formalExpression r: I[Registratie] |- registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+    conjNF: -I[Registratie]\/registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+    conj: -I[Registratie]\/registratie [Registratie*InschrijfId];registratie [Registratie*InschrijfId]~
+
+    rule r: TotAdres
+    formalExpression r: I[Persoon] |- adres [Persoon*Adres];adres [Persoon*Adres]~
+    conjNF: -I[Persoon]\/adres [Persoon*Adres];adres [Persoon*Adres]~
+    conj: -I[Persoon]\/adres [Persoon*Adres];adres [Persoon*Adres]~
+
+    rule r: TotGeboortedatum
+    formalExpression r: I[Persoon] |- geboortedatum [Persoon*Datum];geboortedatum [Persoon*Datum]~
+    conjNF: -I[Persoon]\/geboortedatum [Persoon*Datum];geboortedatum [Persoon*Datum]~
+    conj: -I[Persoon]\/geboortedatum [Persoon*Datum];geboortedatum [Persoon*Datum]~
+
+    rule r: TotGeslacht
+    formalExpression r: I[Persoon] |- geslacht [Persoon*Geslacht];geslacht [Persoon*Geslacht]~
+    conjNF: -I[Persoon]\/geslacht [Persoon*Geslacht];geslacht [Persoon*Geslacht]~
+    conj: -I[Persoon]\/geslacht [Persoon*Geslacht];geslacht [Persoon*Geslacht]~
+
+    rule r: TotGetuigschrift
+    formalExpression r: I[RegisterId] |- getuigschrift [RegisterId*Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~
+    conjNF: -I[RegisterId]\/getuigschrift [RegisterId*Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~
+    conj: -I[RegisterId]\/getuigschrift [RegisterId*Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~
+
+    rule r: TotInschrijvingBig
+    formalExpression r: I[InschrijfId] |- bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+    conjNF: -I[InschrijfId]\/bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+    conj: -I[InschrijfId]\/bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    rule r: TotNaam
+    formalExpression r: I[Persoon] |- naam [Persoon*Naam];naam [Persoon*Naam]~
+    conjNF: -I[Persoon]\/naam [Persoon*Naam];naam [Persoon*Naam]~
+    conj: -I[Persoon]\/naam [Persoon*Naam];naam [Persoon*Naam]~
+
+    rule r: TotVoornaam
+    formalExpression r: I[Persoon] |- voornaam [Persoon*Voornaam];voornaam [Persoon*Voornaam]~
+    conjNF: -I[Persoon]\/voornaam [Persoon*Voornaam];voornaam [Persoon*Voornaam]~
+    conj: -I[Persoon]\/voornaam [Persoon*Voornaam];voornaam [Persoon*Voornaam]~
+
+    rule r: UNI beschikking[Aantekening*Beschikking]
+    formalExpression r: beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~ |- -I[Aantekening]
+    conjNF: -beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~\/ -I[Aantekening]
+    conj: -beschikking [Aantekening*Beschikking]; -I[Beschikking];beschikking [Aantekening*Beschikking]~\/ -I[Aantekening]
+
+    rule r: UNI bignummer[InschrijfId*Bignummer]
+    formalExpression r: bignummer [InschrijfId*Bignummer]; -I[Bignummer];bignummer [InschrijfId*Bignummer]~ |- -I[InschrijfId]
+    conjNF: -bignummer [InschrijfId*Bignummer]; -I[Bignummer];bignummer [InschrijfId*Bignummer]~\/ -I[InschrijfId]
+    conj: -bignummer [InschrijfId*Bignummer]; -I[Bignummer];bignummer [InschrijfId*Bignummer]~\/ -I[InschrijfId]
+
+    rule r: UNI binnenlandsadres[Adres*Binnenlandsadres]
+    formalExpression r: binnenlandsadres [Adres*Binnenlandsadres]; -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~ |- -I[Adres]
+    conjNF: -binnenlandsadres [Adres*Binnenlandsadres]; -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~\/ -I[Adres]
+    conj: -binnenlandsadres [Adres*Binnenlandsadres]; -I[Binnenlandsadres];binnenlandsadres [Adres*Binnenlandsadres]~\/ -I[Adres]
+
+    rule r: UNI buitenlandsadres[Adres*Buitenlandsadres]
+    formalExpression r: buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~ |- -I[Adres]
+    conjNF: -buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~\/ -I[Adres]
+    conj: -buitenlandsadres [Adres*Buitenlandsadres]; -I[Buitenlandsadres];buitenlandsadres [Adres*Buitenlandsadres]~\/ -I[Adres]
+
+    rule r: UNI deelToegang[InschrijfId*Ja_of_Nee]
+    formalExpression r: deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~ |- -I[InschrijfId]
+    conjNF: -deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~\/ -I[InschrijfId]
+    conj: -deelToegang [InschrijfId*Ja_of_Nee]; -I[Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~\/ -I[InschrijfId]
+
+    rule r: UNI doorgehaald[InschrijfId*Doorhaling]
+    formalExpression r: doorgehaald [InschrijfId*Doorhaling]; -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~ |- -I[InschrijfId]
+    conjNF: -doorgehaald [InschrijfId*Doorhaling]; -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~\/ -I[InschrijfId]
+    conj: -doorgehaald [InschrijfId*Doorhaling]; -I[Doorhaling];doorgehaald [InschrijfId*Doorhaling]~\/ -I[InschrijfId]
+
+    rule r: UNI einddatum[Nationaliteitid*Datum]
+    formalExpression r: einddatum [Nationaliteitid*Datum]; -I[Datum];einddatum [Nationaliteitid*Datum]~ |- -I[Nationaliteitid]
+    conjNF: -einddatum [Nationaliteitid*Datum]; -I[Datum];einddatum [Nationaliteitid*Datum]~\/ -I[Nationaliteitid]
+    conj: -einddatum [Nationaliteitid*Datum]; -I[Datum];einddatum [Nationaliteitid*Datum]~\/ -I[Nationaliteitid]
+
+    rule r: UNI einddatum[RegisterId*Datum]
+    formalExpression r: einddatum [RegisterId*Datum]; -I[Datum];einddatum [RegisterId*Datum]~ |- -I[RegisterId]
+    conjNF: -einddatum [RegisterId*Datum]; -I[Datum];einddatum [RegisterId*Datum]~\/ -I[RegisterId]
+    conj: -einddatum [RegisterId*Datum]; -I[Datum];einddatum [RegisterId*Datum]~\/ -I[RegisterId]
+
+    rule r: UNI geboortedatum[Persoon*Datum]
+    formalExpression r: geboortedatum [Persoon*Datum]; -I[Datum];geboortedatum [Persoon*Datum]~ |- -I[Persoon]
+    conjNF: -geboortedatum [Persoon*Datum]; -I[Datum];geboortedatum [Persoon*Datum]~\/ -I[Persoon]
+    conj: -geboortedatum [Persoon*Datum]; -I[Datum];geboortedatum [Persoon*Datum]~\/ -I[Persoon]
+
+    rule r: UNI geslacht[Geslacht*Omschrijving]
+    formalExpression r: geslacht [Geslacht*Omschrijving]; -I[Omschrijving];geslacht [Geslacht*Omschrijving]~ |- -I[Geslacht]
+    conjNF: -geslacht [Geslacht*Omschrijving]; -I[Omschrijving];geslacht [Geslacht*Omschrijving]~\/ -I[Geslacht]
+    conj: -geslacht [Geslacht*Omschrijving]; -I[Omschrijving];geslacht [Geslacht*Omschrijving]~\/ -I[Geslacht]
+
+    rule r: UNI geslacht[Persoon*Geslacht]
+    formalExpression r: geslacht [Persoon*Geslacht]; -I[Geslacht];geslacht [Persoon*Geslacht]~ |- -I[Persoon]
+    conjNF: -geslacht [Persoon*Geslacht]; -I[Geslacht];geslacht [Persoon*Geslacht]~\/ -I[Persoon]
+    conj: -geslacht [Persoon*Geslacht]; -I[Geslacht];geslacht [Persoon*Geslacht]~\/ -I[Persoon]
+
+    rule r: UNI getuigschrift[RegisterId*Ja_of_Nee]
+    formalExpression r: getuigschrift [RegisterId*Ja_of_Nee]; -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~ |- -I[RegisterId]
+    conjNF: -getuigschrift [RegisterId*Ja_of_Nee]; -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~\/ -I[RegisterId]
+    conj: -getuigschrift [RegisterId*Ja_of_Nee]; -I[Ja_of_Nee];getuigschrift [RegisterId*Ja_of_Nee]~\/ -I[RegisterId]
+
+    rule r: UNI ingangsdatum[Nationaliteitid*Datum]
+    formalExpression r: ingangsdatum [Nationaliteitid*Datum]; -I[Datum];ingangsdatum [Nationaliteitid*Datum]~ |- -I[Nationaliteitid]
+    conjNF: -ingangsdatum [Nationaliteitid*Datum]; -I[Datum];ingangsdatum [Nationaliteitid*Datum]~\/ -I[Nationaliteitid]
+    conj: -ingangsdatum [Nationaliteitid*Datum]; -I[Datum];ingangsdatum [Nationaliteitid*Datum]~\/ -I[Nationaliteitid]
+
+    rule r: UNI ingangsdatum[RegisterId*Datum]
+    formalExpression r: ingangsdatum [RegisterId*Datum]; -I[Datum];ingangsdatum [RegisterId*Datum]~ |- -I[RegisterId]
+    conjNF: -ingangsdatum [RegisterId*Datum]; -I[Datum];ingangsdatum [RegisterId*Datum]~\/ -I[RegisterId]
+    conj: -ingangsdatum [RegisterId*Datum]; -I[Datum];ingangsdatum [RegisterId*Datum]~\/ -I[RegisterId]
+
+    rule r: UNI inschrijftijdstip[InschrijfId*InschrijfTijdstip]
+    formalExpression r: inschrijftijdstip [InschrijfId*InschrijfTijdstip]; -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~ |- -I[InschrijfId]
+    conjNF: -inschrijftijdstip [InschrijfId*InschrijfTijdstip]; -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~\/ -I[InschrijfId]
+    conj: -inschrijftijdstip [InschrijfId*InschrijfTijdstip]; -I[InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~\/ -I[InschrijfId]
+
+    rule r: UNI naam[Persoon*Naam]
+    formalExpression r: naam [Persoon*Naam]; -I[Naam];naam [Persoon*Naam]~ |- -I[Persoon]
+    conjNF: -naam [Persoon*Naam]; -I[Naam];naam [Persoon*Naam]~\/ -I[Persoon]
+    conj: -naam [Persoon*Naam]; -I[Naam];naam [Persoon*Naam]~\/ -I[Persoon]
+
+    rule r: UNI nationaliteit[Nationaliteitid*Nationaliteit]
+    formalExpression r: nationaliteit [Nationaliteitid*Nationaliteit]; -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~ |- -I[Nationaliteitid]
+    conjNF: -nationaliteit [Nationaliteitid*Nationaliteit]; -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~\/ -I[Nationaliteitid]
+    conj: -nationaliteit [Nationaliteitid*Nationaliteit]; -I[Nationaliteit];nationaliteit [Nationaliteitid*Nationaliteit]~\/ -I[Nationaliteitid]
+
+    rule r: UNI register[RegisterId*Register]
+    formalExpression r: register [RegisterId*Register]; -I[Register];register [RegisterId*Register]~ |- -I[RegisterId]
+    conjNF: -register [RegisterId*Register]; -I[Register];register [RegisterId*Register]~\/ -I[RegisterId]
+    conj: -register [RegisterId*Register]; -I[Register];register [RegisterId*Register]~\/ -I[RegisterId]
+
+    rule r: UNI registratie[Registratie*InschrijfId]
+    formalExpression r: registratie [Registratie*InschrijfId]; -I[InschrijfId];registratie [Registratie*InschrijfId]~ |- -I[Registratie]
+    conjNF: -registratie [Registratie*InschrijfId]; -I[InschrijfId];registratie [Registratie*InschrijfId]~\/ -I[Registratie]
+    conj: -registratie [Registratie*InschrijfId]; -I[InschrijfId];registratie [Registratie*InschrijfId]~\/ -I[Registratie]
+
+    rule r: UNI specialist[Persoon*SpecialistenRegister]
+    formalExpression r: specialist [Persoon*SpecialistenRegister]; -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~ |- -I[Persoon]
+    conjNF: -specialist [Persoon*SpecialistenRegister]; -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~\/ -I[Persoon]
+    conj: -specialist [Persoon*SpecialistenRegister]; -I[SpecialistenRegister];specialist [Persoon*SpecialistenRegister]~\/ -I[Persoon]
+
+    rule r: UNI voornaam[Persoon*Voornaam]
+    formalExpression r: voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam]~ |- -I[Persoon]
+    conjNF: -voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam]~\/ -I[Persoon]
+    conj: -voornaam [Persoon*Voornaam]; -I[Voornaam];voornaam [Persoon*Voornaam]~\/ -I[Persoon]
+
+    rule r: Voeg datum registratie toe
+    formalExpression r: I[Registratie] |- registratiedatum [Registratie*Datum];registratiedatum [Registratie*Datum]~
+    conjNF: -I[Registratie]\/registratiedatum [Registratie*Datum];registratiedatum [Registratie*Datum]~
+    conj: -I[Registratie]\/registratiedatum [Registratie*Datum];registratiedatum [Registratie*Datum]~
+
+    rule r: Voeg_Bignummer_toe(automatisch)
+    formalExpression r: I[InschrijfId] |- bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+    conjNF: -I[InschrijfId]\/bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+    conj: -I[InschrijfId]\/bignummer [InschrijfId*Bignummer];bignummer [InschrijfId*Bignummer]~
+
+    rule r: Voeg_Registratie_toe(automatisch)
+    formalExpression r: I[InschrijfId]/\inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId] |- registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+    conjNF: -I[InschrijfId]\/ -inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId]\/registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+    conj: -I[InschrijfId]\/ -inschrijving [RegisterId*InschrijfId]~;inschrijving [RegisterId*InschrijfId]\/registratie [Registratie*InschrijfId]~;registratie [Registratie*InschrijfId]
+
+    rule r: Voeg_default_deeltoegang_toe_(automatisch)
+    formalExpression r: I[InschrijfId] |- deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+    conjNF: -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+    conj: -I[InschrijfId]\/deelToegang [InschrijfId*Ja_of_Nee];deelToegang [InschrijfId*Ja_of_Nee]~
+
+    rule r: Voeg_inschrijftijd_toe_(automatisch)
+    formalExpression r: I[InschrijfId] |- inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~
+    conjNF: -I[InschrijfId]\/inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~
+    conj: -I[InschrijfId]\/inschrijftijdstip [InschrijfId*InschrijfTijdstip];inschrijftijdstip [InschrijfId*InschrijfTijdstip]~
+\end{lstlisting}

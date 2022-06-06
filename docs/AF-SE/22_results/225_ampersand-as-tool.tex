@@ -21,7 +21,19 @@ To view Ampersand as a tool, we look more closely at the technical functioning o
     \end{tabularx}
     \label{tab:Ampersand as tool}
 \end{table}
-\sbbs{1}{Includes}
+\begin{samepage}
+    We have broken down ``\acrshort{cat\cat}'' into the following subcategories.
+    We distinguish the following subcategories:
+    \begin{itemize}[nosep,topsep=-1pt,parsep=1pt]
+        \item \nameref{s:3_1_includes}
+        \item \nameref{s:3_2_common_objects}
+        \item \nameref{s:3_3_crud}
+        \item \nameref{s:3_4_php}
+        \item \nameref{s:3_5_model_maintenance}
+    \end{itemize}
+\end{samepage}
+Per subcategory, the observations (obs.) and the interview fragments (int.) are clustered and provided with a description of the results.
+\sbbs{1}{Includes}\label{s:3_1_includes}
 \POstart{%1
     \POS{obs:rq1-15:4-10}     %\oref{obs:rq1-15:4-10}    x
     \POS{obs:rq1-81:20-11}     %\oref{obs:rq1-81:20-11}    x
@@ -30,15 +42,16 @@ To view Ampersand as a tool, we look more closely at the technical functioning o
 }
 
 When the script is ready for compilation, removing Includes appears to cause a compilation error (\oref{obs:rq1-81:20-11}).
-On the other hand, it also doesn't seem necessary to include everything via includes (\oref{obs:rq1-82:20-11}) and appears to be includes especially for structuring the Conceptual analysis (\oref{obs:rq1-15:4-10}).
+On the other hand, it also does not seem necessary to include everything via includes (\oref{obs:rq1-82:20-11}) and appears to be includes especially for structuring the Conceptual analysis (\oref{obs:rq1-15:4-10}).
 Keep the includes small (\oref{obs:rq1-90:14-12}).
-\sbbs{2}{Common objects}
+\sbbs{2}{Common objects}\label{s:3_2_common_objects}
 \POstart{%2
     \POS{obs:rq1-49:30-10}     %\oref{obs:rq1-49:30-10}    x
     \POS{obs:rq1-63:10-11}     %\oref{obs:rq1-63:10-11}    x
     \POS{obs:rq1-85:30-11}     %\oref{obs:rq1-85:30-11}    x
     \POS{obs:rq1-89:7-12}     %\oref{obs:rq1-89:7-12}    x
     \POS{obs:rq1-92:14-12}     %\oref{obs:rq1-92:14-12}    x
+    \POS{obs:rq1-22}
 }
 
 Ampersand is flexible and easily expandable (\oref{obs:rq1-63:10-11}), but it is not possible to split a model (\oref{obs:rq1-49:30-10}).
@@ -47,7 +60,8 @@ The case is that we wanted to realize an implementation for each registry.
 The common part is the recording of the person and the registration (\oref{obs:rq1-85:30-11}, \oref{obs:rq1-89:7-12}).
 This component is used for all registries, but there may be differences in the requirements for each registry.
 The moment a second registry is set up, the common part is also overwritten and all data, including database structure, is gone from the first defined registry (\oref{obs:rq1-92:14-12}).
-\sbbs{3}{Crud}
+The IDE, \acrshort{vsc}, uses a plugin that supports the use of Ampersand to a limited extent (\oref{obs:rq1-22}).
+\sbbs{3}{Crud}\label{s:3_3_crud}
 \POstart{%3
     \POS{obs:rq1-12}            %\oref{obs:rq1-12}    x
     \POS{obs:rq1-50:30-10}      %\oref{obs:rq1-50:30-10}    x
@@ -59,13 +73,13 @@ The moment a second registry is set up, the common part is also overwritten and 
 
 An important part of the prototype is the use of the Interface~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/services/layout-of-user-interfaces}}.
 The \acrshort{crud} interface defines whether \acrshort{crud} items are active at the place in the interface (\oref{obs:rq1-12}).
-Uppercase is active and lowercase is not active (\oref{obs:rq1-12}).
-In not all cases the \acrshort{crud} works correctly.
-Validation on used is missing in some cases (\oref{obs:rq1-53:2-11}).
-After performing the validations on the data and in case of input errors, the interface delivers many messages and these remain active across the screens (\oref{obs:rq4-4}).
-The Respresent~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/atoms}} definition (\oref{obs:rq1-50:30-10}) of a Concept also has an effect on the Interface (\oref{obs:rq1-40:10-10}).
-Experiment with HTML in the interface was not successful, due to the lack of examples (\oref{obs:rq1-83:27-11}).
-\sbbs{4}{PhP}
+Uppercase means method is active and lowercase is not active method(\oref{obs:rq1-12}).
+In some cases the \acrshort{crud} works incorrectly, in which case the prototype does not respond to the change of the case.
+Validation on used is missing in those cases (\oref{obs:rq1-53:2-11}).
+After performing the validations on the data and on input errors, the interface returns many messages and they remain active across the screens (\oref{obs:rq4-4}).
+The Represent~\footnote{\url{https://ampersandtarski.gitbook.io/documentation/the-language-ampersand/atoms}} definition (\oref{obs:rq1-50:30-10}) of a Concept also has an effect on the interface (\oref{obs:rq1-40:10-10}).
+Experiment with HTML in the interface failed due to lack of examples (\oref{obs:rq1-83:27-11}).
+\sbbs{4}{PhP}\label{s:3_4_php}
 \POstart{%4
     \POS{obs:rq1-9}     %\oref{obs:rq1-9}    x
     \POS{obs:rq1-48:27-10}     %\oref{obs:rq1-48:27-10}    x
@@ -73,10 +87,9 @@ Experiment with HTML in the interface was not successful, due to the lack of exa
 }
 
 Ampersand supports creating new functions via php.
-The documentation doesn't tell you exactly how to do this (\oref{obs:rq1-9}).
-But in the examples and during the research it appears that it is possible (\oref{obs:rq1-48:27-10}, \oref{obs:rq2-16:19-10}).
-This is done in PHP and can then be called within a line using "ExecEngine" (see~\ref{lst:persoon}).
-\sbbs{5}{Model maintance}
+The documentation does not tell you exactly how to do this (\oref{obs:rq1-9}), but in the examples and during the research it appears that it is possible (\oref{obs:rq1-48:27-10}, \oref{obs:rq2-16:19-10}).
+This is done in PHP and can then be called within a line using ``ExecEngine'' (see listing~\ref{lst:persoon}).
+\sbbs{5}{Model maintenance}\label{s:3_5_model_maintenance}
 \POstart{%5
     \PIS{int:I-1.5}     %\iref{int:I-1.5}    x
     \PIS{int:I-1.7}     %\iref{int:I-1.7}    x
@@ -91,7 +104,7 @@ When performing the analysis, we always create a new model (\iref{int:I-1.7}).
 There is no question of maintaining a model, because a new model is always being developed (\iref{int:I-2.5}).
 When we go from model version one to model version two, we now have no tools available to facilitate the data conversion (\oref{obs:rq4-7}).
 The data from Ampersand prototype is stored in a MariaDB database (\iref{int:I-2.4}).
-\sbbs{6}{Excluded}
+\sbbs{6}{Excluded}\label{s:3_6_exclude}
 \POstart{%6
     \PIS{int:I-4.4}     %\iref{int:I-4.4}    o
     \POS{obs:rq1-10}     %\oref{obs:rq1-10}    o
@@ -102,4 +115,4 @@ The data from Ampersand prototype is stored in a MariaDB database (\iref{int:I-2
     \POS{obs:rq2-9:7-10}     %\oref{obs:rq2-9:7-10}    o
 }
 
-The following observations have not been explicitly included.
+The above comments are not explicitly included.

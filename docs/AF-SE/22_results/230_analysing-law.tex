@@ -19,7 +19,20 @@ Reading and understanding the legal texts requires special skills.
     \end{tabularx}
     \label{tab:Analysing law}
 \end{table}
-\sbbs{1}{Environment}
+\begin{samepage}
+    We have broken down ``\acrshort{cat\cat}'' into the following subcategories.
+    We distinguish the following subcategories:
+    \begin{itemize}[nosep,topsep=-1pt,parsep=1pt]
+        \item \nameref{s:6_1_environment}
+        \item \nameref{s:6_2_law}
+        \item \nameref{s:6_3_parts}
+        \item \nameref{s:6_4_tools}
+        \item \nameref{s:6_5_suitability_of_the_law}
+    \end{itemize}
+\end{samepage}
+Per subcategory, the observations (obs.) and the interview fragments (int.) are clustered and provided with a description of the results.
+
+\sbbs{1}{Environment}\label{s:6_1_environment}
 \POstart{%1
     \POS{obs:rq3-4:12-9}     %\oref{obs:rq3-4:12-9}    x
     \POS{obs:rq1-26:12-9}     %\oref{obs:rq1-26:12-9}    x
@@ -33,7 +46,7 @@ The \acrshort{big} contains references to other laws and regulations (\oref{obs:
 Such as article 14~\footnote{\url{https://wetten.overheid.nl/jci1.3:c:BWBR0006251&hoofdstuk=II&paragraaf=2&article=14&z=2022-04-01&g=2022-04-01}} paragraph 11 refers to the kaderwet~\footnote{\url{https://wetten.overheid.nl/jci1.3:c:BWBR0020495&g=2022-04-04&z=2022-04-04}}.
 It must always be examined whether the law is in the scope for the analysis (\oref{obs:rq1-27:12-9}, \oref{obs:rq1-29:12-9}).
 In other situations no reference is given and knowledge must be available that general laws, such as the "wet algemeen bestuursrecht~\footnote{\url{https://wetten.overheid.nl/BWBR0005537/2022-03-02} }" must be included (\oref{obs:rq1-26:12-9}, \oref{obs:rq3-15:24-10}).
-\sbbs{2}{law}
+\sbbs{2}{Law}\label{s:6_2_law}
 \POstart{%2
     \POS{obs:rq1-23:24-10}     %\oref{obs:rq1-23:24-10}    x
     \POS{obs:rq1-35:14-9}     %\oref{obs:rq1-35:14-9}    x
@@ -45,7 +58,7 @@ A risk that is run by the difficult texts (\oref{obs:rq1-23:24-10}) is that peop
 That risk increases the more familiar the domain is to the researcher.
 The text has been analyzed in Dutch because it is a Dutch law (\oref{obs:rq1-35:14-9}).
 Persistent hyperlinks are also included in the law, these could also have been included in the meanings and purpose (\oref{obs:rq1-41:19-10}).
-\sbbs{3}{Parts}
+\sbbs{3}{Parts}\label{s:6_3_parts}
 \POstart{%3
     \POS{obs:rq2-1}     %\oref{obs:rq2-1}    x
     \POS{obs:rq3-2}     %\oref{obs:rq3-2}    x
@@ -59,17 +72,18 @@ Disciplinary law usually concerns the wrong actions or treatments that have been
 The current implementation at \acrshort{cibg} also reflects this, because there is one department that deals with the surveillance of the professions and another department that focuses on the disciplinary part.
 On the advice of the lawyer, we have not analyzed the disciplinary part (\oref{obs:rq2-1}).
 The disciplinary section usually contains guidelines for the disciplinary committee.
-\sbbs{4}{Tools}
+\sbbs{4}{Tools}\label{s:6_4_tools}
 \POstart{%4
     \POS{obs:rq1-24:12-9}     %\oref{obs:rq1-24:12-9}    x
     \POS{obs:rq1-25:12-9}     %\oref{obs:rq1-25:12-9}    x
     \POS{obs:rq1-31:14-9}     %\oref{obs:rq1-31:14-9}    x
 }
 
-The overall approach to the analysis of the law is to first get an overview of the law (\oref{obs:rq1-25:12-9}).
+The general approach to law analysis is to get an overview of law first (\oref{obs:rq1-25:12-9}).
 Going through the law and clarifying the highlights of the articles.
-Keeping an overview via XML, PDF, RTF or JSON is very laborious and also too complex to execute (\oref{obs:rq1-24:12-9}, \oref{obs:rq1-31:14-9}).
-\sbbs{5}{Suitability of the law}
+The law is updated online, but can also be downloaded in various formats such as XML, PDF, RTF and JSON.
+When processing the text, keeping an overview via XML, PDF, RTF or JSON is very cumbersome and also too complex (\oref{obs:rq1-24:12-9}, \oref{obs:rq1-31:14-9}).
+\sbbs{5}{Suitability of the law}\label{s:6_5_suitability_of_the_law}
 \POstart{%5
     \PIS{int:I-1.11}     %\iref{int:I-1.11}    x
     \PIS{int:I-1.8}     %\iref{int:I-1.8}    x
@@ -78,17 +92,16 @@ Keeping an overview via XML, PDF, RTF or JSON is very laborious and also too com
     \PIS{int:I-4.1}     %\iref{int:I-4.1}    x
 }
 
-From various interviews the statement was made whether \acrshort{big} is the most suitable law to analyze it with Ampersand (\iref{int:I-1.8}).
-The reason is that the law of origin is very old (\iref{int:I-1.11}) see section~\ref{section:big} and it is quite comprehensive.
+From various interviews the statement was made whether \acrshort{big} is the most suitable law to analyze with Ampersand (\iref{int:I-1.8}).
+The reason is that the law of origin is very old (\iref{int:I-1.11}) (see subsection~\ref{subsubsection:wet-big}) and it is quite comprehensive.
 The law has been updated several times, but the structure is not easy to convert to an ICT system (\iref{int:I-4.1}).
-In addition, the law contains many implicit and explicit references to other laws and regulations.
-And the law itself is not explicit enough (\iref{int:I-3.6}).
+In addition, the law contains many implicit and explicit references to other laws and regulations and the law itself is not explicit enough (\iref{int:I-3.6}).
 There are quite a lot of interpretation possibilities (\iref{int:I-3.3}).
-\sbbs{6}{Excluded}
+\sbbs{6}{Excluded}\label{s:6_6_excluded}
 \POstart{%6
     \POS{obs:rq1-93:19-12}     %\oref{obs:rq1-93:19-12}    o
     \POS{obs:rq1-95:29-12}     %\oref{obs:rq1-95:29-12}    o
     \POS{obs:rq3-13:17-10}     %\oref{obs:rq3-13:17-10}    o
 }
 
-The following observations have not been explicitly included.
+The above comments are not explicitly included.

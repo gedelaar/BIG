@@ -15,6 +15,8 @@
 \usepackage{wrapfig}
 %\usepackage{amssymb}
 %\usepackage{amsmath}
+\usepackage{xurl}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{booktabs}
 \usepackage{amsthm}
 \usepackage{thmtools}
@@ -22,7 +24,7 @@
 \declaretheoremstyle{}
 \newtheorem{obs}{observation}
 \newtheorem{inva}{int}
-\newcommand\INVA[2]{\begin{inva}[#1,#2]\label{int:#1}\end{inva}}
+\newcommand\INVA[2]{\begin{inva}[#1: #2]\label{int:#1}\end{inva}}
 
 %test
 \usepackage{selinput}
@@ -50,8 +52,8 @@
 
 \newcommand\POstart[1]{
     \noindent\footnotesize\fbox{\begin{minipage}{49em}
-        \textbf{Used observations}(see appendix~\ref{appendixContentAnalysis} and~\ref{appendixInterviews} for full text)
-            \begin{itemize}
+        \textbf{Used observations(unsorted)} (see appendix~\ref{appendixContentAnalysis} and~\ref{appendixInterviews} for full text)
+            \begin{itemize}[leftmargin=1.5em]
                 #1
             \end{itemize}
     \end{minipage}}\normalsize}
@@ -177,7 +179,7 @@
 
 \pagenumbering{roman} % to prevent that the title page will be referred as page 1, which will give the warning that there is a page 1 twice.
 \pagestyle{plain}
-\title{Usability of Ampersand for designing register systems.} 
+\title{Usability of Ampersand for designing register systems} 
 \begin{comment}
 Bruikbaarheid van Ampersand voor het ontwerpen van registersystemen.
 \end{comment}
@@ -201,7 +203,7 @@ Bruikbaarheid van Ampersand voor het ontwerpen van registersystemen.
 \input{./23_discussion/main}
 
 \input{./25_conclusions and recommendation/main}
-\input{./26_Reflection/main}
+
 \input{./27_acknowledgements/main}
 
 %\input{./60_test/main}
@@ -220,6 +222,7 @@ Bruikbaarheid van Ampersand voor het ontwerpen van registersystemen.
 %appendix
 \input{./70_bijlage/main}
 
+%\input{./26_Reflection/main}
 \end{document}
 
 

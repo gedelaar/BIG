@@ -1,0 +1,160 @@
+\subsection{Conclusions}\label{conclusions}
+
+In this research we investigated how useful Ampersand is for designing registry systems by analyzing legislation and regulations.
+We did this in the form of \acrshort{ar} and the case used is the \acrshort{big}.
+
+The Ampersand method was used to analyze part of the law and to process it via scripting (see appendix~\ref{appendixAdl}) into a prototype (see appendix~\ref{appendixPrototype}) and \acrlong{ca} ( see appendix~\ref{ConceptualAnalysis}).
+During the analysis phase, observations (see appendix~\ref{appendixLoglines}) were made.
+These are recorded with date and time stamp.
+In addition to the analysis, there were interviews (see appendix~\ref{appendixInterviews}) with a number of people from the \acrshort{cibg} organization.
+During the interviews the Ampersand approach was discussed and the \acrlong{ca} and the prototype were discussed.
+The collected data from observations and interview has been input for the content analysis (see appendix~\ref{appendixContentAnalysis}).
+
+In addition to the main question "\acrlong{research question}" sub-questions have been defined. 
+The sub-questions contribute to answering the main question.
+The parts of this question are discussed in subsection~\ref{subsection:ampersand-knowledge}.
+
+\subsubsection{Engineering perspective}\label{subsub:engineering_perspective}
+The knowledge that the software engineer needs to be able to work with Ampersand is not limited to the knowledge of Ampersand.
+Due to the setup of Ampersand, it was eventually set up in Docker, after we experimented with a RAP environment on the server of \acrlong{ou} and later a local environment in \acrshort{x}.
+We need knowledge about the design, use and operation of Docker.
+
+\acrlong{ra} is used to establish relationships between Concepts and to compose the Rules.
+Knowledge of Relation Algebra in combination with Ampersand can be gained by following the Rule-Based Design course of the \acrshort{ou}, or at least by reading the accompanying book.
+
+Once Ampersand its knowledge has been acquired, through theory and practice, it is important to keep this knowledge up to date.
+Ampersand its application knowledge should now be available on the Internet, at sites like \url{https://stackoverflow.com} and other trusted information sites.
+Due to a small community and, as noted earlier, low usage, application knowledge on the internet is very limited.
+To build a readable \acrlong{ca} we use the scripts from Ampersand.
+
+For the \acrlong{ca} we use the Include statements to control the build.
+Best practices should be collected to simplify the start of an Ampersand project.
+
+When performing the analysis, there is a need for overview.
+On the one hand, an overview of the treatment of the source document, because it is necessary to keep track of which parts of the legal texts have already been processed and which have not yet been processed.
+For this you need an annotation tool, which helps you to record the processing and helps you to keep the overview.
+
+On the other hand, an overview is also needed while creating the script to be able to refactor things and avoid duplication.
+There is a tool for this called Atlas, but it is only available in the RAP environment and not in the local setup.
+
+Ampersand has built in a form of authorization that works through Rules and on the Interfaces.
+With this authorization, a distinction can be made between user roles and the applications that are allowed to run in the prototype.
+
+Knowledge is also required about dealing with shared Concepts.
+Sharing can relate to Concepts within one project, sharing or reusing, as in the case, generic patterns with associated Concepts.
+This form of sharing works if all components are deployed simultaneously, but it is then not possible to run different non-generic components side by side (see figure~\ref{fig:arts-deploy}, \ref{fig:tandarts-deploy} and \ref{fig:monoliet-deployment}).
+The foregoing concerns the sharing of Concepts within a project.
+
+Connections must be made to existing Drafts, which are not always called Drafts, within the organization.
+The mapping between the Concepts found and the existing ones, with which the Ampersand implementation has a relationship, must be performed.
+
+Another form of sharing Concepts concerns projects.
+Defined concepts included in Patterns will be reused by other projects.
+
+The prototype is an HTML website in combination with CSS.
+When changes are made to this, knowledge of HTML and CSS is required.
+The extra functions that are not (yet) in Ampersand can be made in PHP.
+So using this requires knowledge of PHP.
+
+\subsubsection{Components perspective}\label{subsub:components_perspective}
+The question about Concepts, Relations and Rules, which appear in the \acrshort{big}, can be referred to the appendix~\ref{ConceptualAnalysis}.
+Here we find an overview of all these elements.
+
+A finding that emerges here concerns the embedding in the software architecture of the ICT organization.
+In the software architecture, the software components are managed and there is an overview of the relationships between these components.
+We can see the subsystems or patterns found as software components.
+It then appears that there is a certain overlap of Concepts and Relations in the existing architecture and the model that Ampersand has made.
+A very careful analysis is needed to discover this overlap.
+The name of a Concept or Relation does not have to match, but the meaning does.
+It is also possible that the naming matches, but the meaning does not.
+
+In short, the existing software landscape needs to be carefully examined to determine which parts of the Ampersand model can be implemented
+
+For the legal registers, no agreements in the form of data may be shared, so no data reuse.
+For example, the customer in the Donor Register may never be linked to a BIG registration for the purpose of reusing customer data.
+
+\subsubsection{Laws perspective}\label{subsub:laws_perspective}
+With the question of the usability of the law for the Ampersand method, the aspects are named in subsection~\ref{subsection:setup-law-for-ampersand}.
+
+We chose the \acrshort{big} to analyze with the Ampersand method.
+This law was chosen because there was a need from \acrshort{cibg} to redesign and build the system that supports the law.
+With Ampersand we are going to do part of the redesign.
+
+During the analysis phase, we encountered a number of issues that do not support the choice of law and that a later choice of law should preferably comply with.
+For example, the law appears to be ambiguous on some points, according to the lawyer.
+
+Experience with law is necessary to be able to analyze law properly.
+This is especially true if the law, such as \acrshort{big}, has options for interpretation.
+
+The age of the original law may give rise to interpretation.
+The complexity and scope of the law makes the analysis less straightforward.
+
+When we start with the legal analysis, a team consists of at least one lawyer and two analysts.
+This guarantees legal knowledge and experience in reading and interpreting laws and regulations.
+The analysts have to keep each other on their toes when making the \acrlong{ca}.
+
+At the start, we map out all relevant legislation and regulations and determine which legislation is included in the analysis.
+After the step, the structure is determined for each part and we probably have an idea of what the system can look like.
+We assume here that the structure of the analysis will follow the structure of the law.
+
+We can do the analysis of the law, even though this law is ambiguous, complex, old and large, but it does make the journey difficult.
+One way is to be closer to the legislature so that he is already aware of the writing of the law and is considering the translation of the law into a registry system.
+One idea is that the law would already be designed directly in \acrshort{ar}.
+The formal approach makes it completely clear what the law complies with.
+
+This just goes to show why it is necessary to work with a lawyer.
+The lawyer can interpret the law and knows how to navigate the law.
+
+\subsubsection{Organization perspective}\label{subsub:organization_perspective}
+What are the strengths and weaknesses of using Ampersand for registry systems in a government organization.
+We can say that the analysis of a law can lead to a register system and because it is a register system, which is derived from the law, it will always be placed with a government organization.
+We also concluded that there are not many observations and comments about registry systems.
+Then it remains to map the strengths and weaknesses of Ampersand for a government organization and then specifically for the \acrshort{cibg}.
+From the perspective of weakness and strength we will go through all parts.
+
+API availability at Ampersand at the prototype stage and many systems use APIs to communicate with the source.
+The description of the APIs are missing and can be retrieved from the log.
+Pushing the description of the APIs to Swagger, for example, makes it easier to use the APIs.
+Adapting response from the API to the calling system would be an improvement.
+
+The mapping from Ampersand Concepts to \acrshort{rk} is performed so that Ampersand analysis connects to \acrshort{rk}, thereby integration takes place.
+This is a manual operation and can cause errors such that incorrect mappings take place or mapping does not take place.
+
+The \acrshort{rk} has a customization that makes it possible to place register values in the editable part.
+The mapping and customization will bring Ampersand and \acrshort{rk} closer together.
+
+The issue of maintenance on the Ampersand model has been discussed before.
+A strong point here is that after every maintenance a completely new model is created and no technical debt is introduced, but by always setting up a completely new system, it is now not possible to migrate the data.
+Ampersand systems are not used live, so the data conversion is only needed for the prototype environment.
+
+Ampersand is a reactive designed system.
+The business rules actually define the process.
+The tool generates error-free specifications to support the business process.
+The \acrshort{cibg} is a strong process oriented organization.
+
+The analyst needs an overview when managing the Concepts, Relations and Rules.
+Within RAP, the Atlas tool is available for this, but not for the local environment.
+We were working with an Excel sheet during the research, but this results in duplication of records and problems.
+Within the IDE, for example IntelIJ, programming languages have refactoring tools.
+We have been working with \acrshort{vsc}, here the refactoring was not present and it happened that this caused inconsistency and the compilation did not run correctly.
+
+The \acrlong{ca} is created as deliverable.
+This is used as a design for the implementation and because it is available early in the process, it can also be used as a validation tool and to base tests on.
+The prototype can also be used as a test basis and real tests can be performed on this.
+In combination with the API, the prototype can act in whole or in part as a stub.
+
+For an organisation, a new method can be experienced as threatening~\citep{antons_assessing_2017}.
+It is therefore possible that one reacts with an NIH action.
+To deal with this, it is wise to conduct an extensive POC and actively inform the parties.
+Assemble a team and use them as promoters.
+Non-ICT professionals can also be deployed as Ampersand modellers within the team, provided they have knowledge of Relation Algebra.
+
+Ampersand should get a little more exposure than it is now just in the scientific environment.
+The more it is known, the more it is used, making it more famous again.
+Now there is a certain reluctance to use and that has the basis in the obscurity of Ampersand.
+
+Overall conclusion is that Ampersand is a useful product for translating the law.
+The output products are very useful for the \acrshort{cibg}.
+Not all laws are equally suitable and the application of Ampersand in the development process must be incorporated.
+The latter still requires some mission work because it is different from what people are used to and it is very unknown.
+An organization will have to focus on using this and the organization \acrshort{cibg}is not very change-oriented.

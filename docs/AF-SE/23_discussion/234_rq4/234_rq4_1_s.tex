@@ -1,0 +1,65 @@
+\subsubsection{Strength}\label{subsub:4_strength}
+The Strength encompasses Ampersand its strengths for the \acrshort{cibg} organization.
+
+\paragraph{\textbf{API availability}}\label{swot:s_api_availability}:
+Although Ampersand is intended as a design and prototyping tool, it does have APIs at its disposal.
+This can only be obtained from log lines and apparently not intended as a means of communication from external systems.
+This is also apparent from the fact that no API description is made in, for example, Swagger~\footnote{\url{https://swagger.io}}, but it can work that way.
+It is possible to communicate with the Ampersand core from an external source.
+(Ref. to \nameref{s:1_8_api})
+
+\paragraph{\textbf{No technical debt}}\label{swot:s_no_technical_debt}:
+In conversations with an architect of the \acrshort{cibg}, the maintenance of the Ampersand model is discussed.
+When a model is created, it results in a particular version of the model.
+The model consists of a database model and middleware and an \acrshort{ca}, visualized using a prototype.
+This model can be implemented by a development team.
+Legislation will certainly be amended during the software lifecycle.
+By incorporating these changes into the model, a new model is created.
+The advantage of a new model is that the software does not have to do with legacy.
+It is therefore always a state-of-the-art model.
+(Ref. to \nameref{s:1_9_model_maintenance}, \nameref{s:4_8_user_experience})
+
+\paragraph{\textbf{Low code}}\label{swot:s_low_code}:
+Ampersand is a declarative textual language, which uses relation algebra.
+The language is descriptive and eliminates the need for programming code to build the application.
+Basically it should not be necessary for an \acrshort{se} to do the job.
+Creating an Ampersand application can be made by a business analyst.
+(Ref. to \nameref{s:3_5_model_maintenance})
+
+\paragraph{\textbf{Reactive approach}}\label{swot:s_reactive_approach}:
+Ampersand is declarative and reactive, so the Ampersand implementation always responds to the current situation through validations.
+The execution of management processes is left to the \acrshort{rk}, which supports the process handling.
+(Ref. to \nameref{s:5_1_registerkern})
+
+\paragraph{\textbf{Error free specifications}}\label{swot:s_error_free_specifications}:
+The Ampersand method causes the \acrshort{se} from the \acrshort{big} to create a declarative script that generates an \acrshort{ca} and a prototype.
+Due to Ampersand its reactive design, the generated specifications ensure error-free implementation of the requirements.
+Ampersand uses a formal language to define the specifications.
+Using formal language means that system boundaries can be described, the functional behavior of the system can be defined and the system can be proven to conform to specifications (see appendix~\ref{appendixProof}).
+(Ref. to \nameref{s:1_9_model_maintenance})
+
+\paragraph{\textbf{\acrlong{ca}}}\label{swot:s_conceptual_analysis}:
+The design process of an information system relies heavily on documentation.
+While descriptive and analysing, the model grows.
+In the case of the use of Ampersand, the basis of the realization is therefore the \acrshort{ca}.
+The \acrshort{ca} can be assessed in different ways.
+This can be viewed from both the business and the technology perspective.
+(Ref. to \nameref{s:2_2_multiplicity}, \nameref{s:4_7_total_design})
+
+\paragraph{\textbf{Prototype}}\label{swot:s_prototype}:
+The \acrshort{ca} not only gives a description of Concepts, Relations and Rules, but also generates a logical (see figure~\ref{fig:LogicalDataModel}) and technical data model (see appendix~\ref{appendixTechDatamodel} ).
+At an early stage of the realization of an information system, test scenarios can already be made on the basis of the \acrshort{ca} and these can be tested directly on the co-generated prototype.
+(Ref. to \nameref{s:2_6_prototype_use}, \nameref{s:4_5_test_scenario})
+
+\paragraph{\textbf{Team effort}}\label{swot:s_team_effort}:
+To properly perform the \acrshort{big} analysis, it is not enough to have it performed by one person, as in the study.
+Due to inexperience with the use of Ampersand, the first set of agreements regarding use was not made.
+Ampersand knowledge is only really gained during implementation.
+In addition, the amount of legal texts is so large that it cannot be read within a reasonable period of time.
+In addition to IT knowledge, legal knowledge is also required, on the one hand to be able to read the law and on the other hand to find the implicitly related laws and regulations.
+A team size is determined depending on the scope of the legislation and regulations to be analyzed and the lead time that one wants to use.
+A team consists of at least a lawyer and an (Ampersand) experienced business analyst and a third person to validate the data.
+An additional aspect is that it is possible to test for inconsistencies within the law.
+It should be assumed that there are no inconsistencies but with larger and older laws this could happen.
+When inconsistencies are discovered, they can be sent back to the appropriate policy directorate.
+(Ref. to \nameref{s:2_5_team}, \nameref{s:1_11_law_effective}, \nameref{s:2_7_organisation_ampersand_use})

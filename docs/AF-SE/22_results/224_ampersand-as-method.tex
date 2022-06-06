@@ -23,7 +23,22 @@ Keeping an overview helps when there are agreements about the naming of the Conc
     \end{tabularx}
     \label{tab:Ampersand as method}
 \end{table}
-\sbbs{1}{Naming}
+\begin{samepage}
+    We have broken down ``\acrshort{cat\cat}'' into the following subcategories.
+    We distinguish the following subcategories:
+    \begin{itemize}[nosep,topsep=-1pt,parsep=1pt]
+        \item \nameref{s:2_1_naming}
+        \item \nameref{s:2_2_multiplicity}
+        \item \nameref{s:2_3_rules}
+        \item \nameref{s:2_4_concept_reuse}
+        \item \nameref{s:2_5_team}
+        \item \nameref{s:2_6_prototype_use}
+        \item \nameref{s:2_7_organisation_ampersand_use}
+    \end{itemize}
+\end{samepage}
+Per subcategory, the observations (obs.) and the interview fragments (int.) are clustered and provided with a description of the results.
+
+\sbbs{1}{Naming}\label{s:2_1_naming}
 \POstart{%1
     \POS{obs:rq1-30:12-9}     %\oref{obs:rq1-30:12-9}
     \POS{obs:rq1-33:14-9}     %\oref{obs:rq1-33:14-9}    x
@@ -37,7 +52,7 @@ Having consistent naming conventions (\oref{obs:rq1-30:12-9}, \oref{obs:rq2-4:30
 Working with Includes and Patterns to get small delineated bits of functionality is important for overview (\oref{obs:rq1-33:14-9}, \oref{obs:rq1-38:3-10} ).
 The agreements are also necessary to find concepts and relationships in the scripting.
 Agreements are needed to be able to find Concepts and Relations in the script (\oref{obs:rq1-46:24-10}).
-\sbbs{2}{Multiplicity}
+\sbbs{2}{Multiplicity}\label{s:2_2_multiplicity}
 \POstart{%2
     \POS{obs:rq1-3}     %\oref{obs:rq1-3}    x
     \POS{obs:rq2-2}     %\oref{obs:rq2-2}    x
@@ -49,18 +64,21 @@ Agreements are needed to be able to find Concepts and Relations in the script (\
     \POS{obs:rq2-5:2-10}     %\oref{obs:rq2-5:2-10}    x
 }
 
-In order to maintain an overview of the relations, an Excel sheet(see~\ref{fig:excel relation overview}) was drawn up in which the relations could be compiled (\oref{obs:rq2-5:2-10}, \oref{obs:rq1-3}, \oref{obs:rq2-11:19-10}).
-This was to have support in the allocation of the multiplicities and was it possible to copy the relation definition to a script.
+In order to maintain an overview of the relations, an Excel sheet was drawn up in which the relations could be compiled (\oref{obs:rq2-5:2-10}, \oref{obs:rq1-3}, \oref{obs:rq2-11:19-10}).
+This sheet was to have support in the allocation of the multiplicities and was it possible to copy the relation definition to a script.
 Noticed that only the UNI, TOT, INJ and SUR are used, where the UNI is mainly used and the TOT is often solved via a Rule.
 The invariant violation prevents the prototype from storing data when multiple invariant violations occur simultaneously and that is when multiple TOT or SUR constraints are used (\oref{obs:rq1-21:7-11}, \oref{obs:rq2-12:19-10}, \oref{obs:rq2-13:19-10}, \oref{obs:rq1-58:8-11}).
+\begin{comment}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{excel relatie overzicht.PNG}
     \caption{excel relation overview}
     \label{fig:excel relation overview}
 \end{figure}
+\end{comment}
 %\newline\newline
-\sbbs{3}{Rules}
+\sbbs{3}{Rules}\label{s:2_3_rules}
 \POstart{%3
     \POS{obs:rq1-4}     %\oref{obs:rq1-4}    x
     \POS{obs:rq1-61:9-11}     %\oref{obs:rq1-61:9-11}    x
@@ -70,21 +88,21 @@ The invariant violation prevents the prototype from storing data when multiple i
     \POS{obs:rq2-6:2-10}     %\oref{obs:rq2-6:2-10}    x
 }
 
-The method Ampersand uses involves applying rules to relationships.
-In concept the rules are easy to define, but in the Ampersand script a bit more difficult to construct (\oref{obs:rq1-4}, \oref{obs:rq2-6:2-10}).
-It requires knowledge of Relation algebra to work with this correctly and it requires knowledge of Ampersand because it requires a certain way of notation (\oref{obs:rq1-63:10-11}).
-Sometimes it seems logical to implement a rule, but there are implicit restrictions that make it unnecessary (\oref{obs:rq1-61:9-11}, \oref{obs:rq1-67:11-11}).
+The method used by Ampersand involves applying rules to relationships.
+In concept, the rules are easy to define, but a bit more difficult to construct in the Ampersand script (\oref{obs:rq1-4}, \oref{obs:rq2-6:2-10}).
+It requires knowledge of Relation algebra to work with this correctly and it requires knowledge of Ampersand because it requires a certain notation (\oref{obs:rq1-63:10-11}).
+Sometimes it seems logical to implement a rule, but there are implicit constraints (such as enrollment age above 18 in relation to the diploma requirement) that make it redundant (\oref{obs:rq1-61:9-11}, \oref{obs:rq1-67:11-11}).
 In the appendix \ref{appendixAdl} are examples of how to use Rules (\oref{obs:rq2-19:16-11}).
-\sbbs{4}{Concept reuse}
+\sbbs{4}{Concept reuse}\label{s:2_4_concept_reuse}
 \POstart{%4
     \POS{obs:rq1-79:20-11}     %\oref{obs:rq1-79:20-11}    x
     \POS{obs:rq1-91:14-12}     %\oref{obs:rq1-91:14-12}    x
 }
 
-The method allows multiple uses of the same Concepts and Relations (\oref{obs:rq1-91:14-12}, \oref{obs:rq1-79:20-11})
+The method allows multiple uses of the same Concepts and Relations (\oref{obs:rq1-91:14-12}, \oref{obs:rq1-79:20-11}).
 This is only visible when the documentation is generated.
 By allowing the Concepts and Relationships multiple times, it is possible to add different definitions to them.
-\sbbs{5}{Team}
+\sbbs{5}{Team}\label{s:2_5_team}
 \POstart{%5
     \PIS{int:I-1.4}     %\iref{int:I-1.4}    x
     \PIS{int:I-3.7}     %\iref{int:I-3.7}    x
@@ -96,12 +114,12 @@ By allowing the Concepts and Relationships multiple times, it is possible to add
 
 In addition to the technical approach, there is also a working method in which the user is closely involved.
 In this case, it is important that a lawyer is involved at the start of the work to get a picture of the law (\iref{int:I-3.7}, \iref{int:I-1.4}).
-Because Ampersand's approach to the definition is not very technical, a lawyer can easily understand this (\oref{obs:rq1-84:30-11}).
+Because Ampersand its approach to the definition is not very technical, a lawyer can easily understand this (\oref{obs:rq1-84:30-11}).
 The \acrshort{ca} is also understandable for the lawyer.
 It is therefore important to go through this theme (pattern) by theme (\oref{obs:rq1-51:2-11})
 An analyst, as mentioned earlier, can perform this together with a lawyer (\iref{int:I-4.13}).
 When processing it should not be forgotten that this information that is extracted from the \acrshort{big} is also directly processed in the script (\oref{obs:rq1-42:19-10})
-\sbbs{6}{Prototype use}
+\sbbs{6}{Prototype use}\label{s:2_6_prototype_use}
 \POstart{%6
     \PIS{int:I-2.11}     %\iref{int:I-2.11}    x
     \PIS{int:I-3.1}     %\iref{int:I-3.1}    x
@@ -118,7 +136,7 @@ The prototype can be used to test the registry for the application of the law (\
 Test cases can also be developed early in the development process on the basis of \acrshort{ca}.
 The prototype was looked at through ICT glasses (\oref{obs:rq1-57-1:7-11}) and it turned out that it does not meet the \acrshort{cibg} requirements for a website.
 The tutorials indicate that this is possible by means of a CSS adjustment, but how exactly this should be done is not entirely clear and is also outside the scope of this research (\iref{int:I-4.2}).
-\sbbs{7}{Organisation Ampersand use}
+\sbbs{7}{Organisation Ampersand use}\label{s:2_7_organisation_ampersand_use}
 \POstart{%7
     \PIS{int:I-1.1}     %\iref{int:I-1.1}    x
     \PIS{int:I-1.9}     %\iref{int:I-1.9}    x
@@ -126,12 +144,12 @@ The tutorials indicate that this is possible by means of a CSS adjustment, but h
     \PIS{int:I-4.14}     %\iref{int:I-4.14}    x
 }
 
-Ampersand's acknowledgment as instigator of real-time signal violations is not reflected in the interviews.
+Ampersand its acknowledgment as instigator of real-time signal violations is not reflected in the interviews.
 It is expected that Ampersand can be used in the preliminary phase of the design (\iref{int:I-4.14}).
-There was also the expectation that Ampersand would be able to independently process texts into scripts (\iref{int:I-1.1})
+There was also the expectation that Ampersand would be able to independently process texts into scripts (\iref{int:I-1.1}).
 Within the organization people are used to working according to fixed processes, the reactive approach of Ampersand is therefore not always immediately understood (\iref{int:I-1.9}).
-Ampersand's method focuses on text analysis and from there on models (\iref{int:I-4.10}) as opposed to methods that work from the models.
-\sbbs{8}{Excluded}
+Ampersand its method focuses on text analysis and from there on models (\iref{int:I-4.10}) as opposed to methods that work from the models.
+\sbbs{8}{Excluded}\label{s:2_8_excluded}
 \POstart{%8
     \PIS{int:I-4.5}     %\iref{int:I-4.5}    o
     \PIS{int:I-4.9}     %\iref{int:I-4.9}    o
@@ -143,5 +161,4 @@ Ampersand's method focuses on text analysis and from there on models (\iref{int:
     \POS{obs:rq2-8:7-10}     %\oref{obs:rq2-8:7-10}    o
 }
 
-The following observations have not been explicitly included.
-
+The above comments are not explicitly included.

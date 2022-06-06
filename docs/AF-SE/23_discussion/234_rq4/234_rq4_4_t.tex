@@ -1,0 +1,44 @@
+\subsubsection{Threats}\label{subsub:4_treaths}
+
+\paragraph{\textbf{NIH}}\label{swot:t_nih}:
+Ampersand is a completely new method for the \acrshort{cibg} organization.
+People have never heard of it and unfortunately there is not much to be found about it.
+That means that people are not positive about it in advance, and NIH calls it~\footnote{not invented here}\citep{antons_assessing_2017}.
+The expectation of the organization is that the Ampersand method will take more time than the current method (see interview~\ref{int:I-1.8}) and people will be wary of something new.
+Obviously, the advantages of the method are not yet understood.
+Benefits such as working directly at the source, generating a prototype from there (see appendix~\ref{appendixPrototype}) with all validations and full conceptual specifications (see appendix~\ref{ConceptualAnalysis}).
+Having a prototype makes it possible to build test scenarios at an early stage and with the \acrlong{ca} you can start building right away.
+(Ref. to \nameref{s:4_5_test_scenario}, \nameref{s:2_6_prototype_use}, \nameref{s:1_11_law_effective})
+
+\paragraph{\textbf{Process orientation}}\label{swot:t_process_orientation}:
+Many organizations are process oriented.
+With \acrshort{cibg}, the work instructions that the employees use are usually process steps that must be performed.
+Also the design of systems such as \acrshort{zorro} are designed to support a process-oriented approach.
+Ampersand supports a reactive focused approach.
+This cannot be translated into process-oriented work instructions.
+The challenge for the adoption of Ampersand therefore lies partly in the organization its ability to adapt from process-based to reactive.
+Also contributing to this is that the adjacent system, \acrshort{rk}, is a process-oriented system, which supports a number of standard processes that affect (almost) every register.
+(Ref. to \nameref{s:1_7_architecture_and_registerkern}, \nameref{s:5_1_registerkern}, \nameref{s:5_2_demarcation})
+
+\paragraph{\textbf{Redundancy}}\label{swot:t_redundancy_script_tool}:
+The reuse of Concepts, Relations and Rules is on the one hand a powerful means whereby consistency is enforced.
+However, when using Ampersand, it is not always visible that components are already being used.
+For example, it is possible to include these components several times in the analysis and to assign them a different definition each time.
+While this should be detectable by Ampersand.
+Conversely, it is also possible to rename components with the same definition.
+Of course, Ampersand cannot control this.
+The IDE used should support this, but it does not at the moment.
+(Ref. to \nameref{s:5_2_demarcation})
+
+\paragraph{\textbf{IDE-refactoring}}\label{swot:t_ide_refactoring}:
+Ampersand as a tool is supported by an IDE.
+For \acrshort{vsc} there is a plugin that supports the use of Ampersand.
+In addition, the Ampersand tool is built in such a way that the compilation of the script from the \acrshort{vsc} is supported.
+An omission in the use of \acrshort{vsc} is a refactoring option.
+To be able to refactor, the IDE tool needs to know which components are used and where they are used.
+This condition is not met, where refactoring is not possible in advance.
+Not being able to refactor is a cause of causing redundancy in the code (see paragraph~\nameref{swot:t_redundancy_script_tool}).
+(Ref. to \nameref{s:3_2_common_objects})
+
+
+

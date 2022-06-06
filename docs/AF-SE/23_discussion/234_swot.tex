@@ -1,0 +1,94 @@
+\newpage
+\parindent0em
+\begin{figure}[ht]
+    \centering
+
+    \begin{tikzpicture}[
+        pentagon/.style={%
+            shape=regular polygon, regular polygon sides=5, minimum size=7.3cm, inner
+            sep=-1mm, draw, fill=lightgray!75!yellow
+        }, font=\scriptsize\sffamily, thick
+    ]
+    
+    % \draw[help lines] (-16,-16) grid (16,16);
+    \filldraw[thin,gray,fill=gray!25] (-8,-8) rectangle (8,8);
+    \filldraw[thin,gray,fill=white] (-7.15,-7.15) rectangle (7.15,7.15);
+    \draw[thin,gray] (7.15,7.15)--(8,8) (-7.15,7.15)--(-8,8) (-7.15,-7.15)--(-8,-8)
+    (7.15,-7.15)--(8,-8);
+    
+    % Strengths
+    \draw[thin,gray] (-0.025,0.025)--(-7.05,0.025)--(-0.025,7.05)--cycle;
+    \node[pentagon,rotate=0] at (-3.75,3.75) {
+        \begin{varwidth}{\linewidth}
+            \begin{itemize}[leftmargin=*,noitemsep]
+                \item \nameref{swot:s_api_availability}
+                \item \nameref{swot:s_prototype}
+                \item \nameref{swot:s_no_technical_debt}
+                \item \nameref{swot:s_low_code}
+                \item \nameref{swot:s_reactive_approach}
+                \item \nameref{swot:s_error_free_specifications}
+                \item \nameref{swot:s_conceptual_analysis}
+                \item \nameref{swot:s_team_effort}
+            \end{itemize}
+        \end{varwidth}
+    };
+    \draw (-4,2) node[rotate=0] {\large\textbf{Strengths}};
+    
+    % Weaknesses
+    \draw[thin,gray] (0.025,0.025)--(7.05,0.025)--(0.025,7.05)--cycle;
+    \node[pentagon,rotate=0] at (3.75,3.75) {
+        \begin{varwidth}{\linewidth}
+            \begin{itemize}[leftmargin=*,noitemsep]
+                \item \nameref{swot:w_api_its_description}
+                \item \nameref{swot:w_manual_mapping}
+                \item \nameref{swot:w_data_migration}
+                \item \nameref{swot:w_documentation}
+            \end{itemize}
+        \end{varwidth}
+    };
+    \draw (4,2) node[rotate=0] {\large\textbf{Weaknesses}};
+    
+    % Opportunities
+    \draw[thin,gray] (-0.025,-0.025)--(-7.05,-0.025)--(-0.025,-7.05)--cycle;
+    \node[pentagon,rotate=0] at (-3.75,-3.75) {
+        \begin{varwidth}{\linewidth}
+            \begin{itemize}[leftmargin=*,noitemsep]
+                \item \nameref{swot:o_api_http_responsecode}
+                \item \nameref{swot:o_customization}
+                \item \nameref{swot:o_version_gap_analysis}
+                \item \nameref{swot:o_atlas_local}
+                \item \nameref{swot:o_ca_as_testbasis}
+                \item \nameref{swot:o_stub}
+                \item \nameref{swot:o_annotation}
+            \end{itemize}
+        \end{varwidth}
+    };
+    \draw (-4,-2) node[rotate=0] {\large\textbf{Opportunities}};
+    
+    % Threats
+    \draw[thin,gray] (0.025,-0.025)--(7.05,-0.025)--(0.025,-7.05)--cycle;
+    \node[pentagon,rotate=0] at (3.75,-3.75) {
+        \begin{varwidth}{\linewidth}
+            \begin{itemize}[leftmargin=*,noitemsep]
+                \item \nameref{swot:t_nih}
+                \item \nameref{swot:t_process_orientation}
+                \item \nameref{swot:t_redundancy_script_tool}
+                \item \nameref{swot:t_ide_refactoring}
+            \end{itemize}
+        \end{varwidth}
+    };
+    \draw (4,-2) node[rotate=0] {\large\textbf{Threats}};
+    \draw(0,-7.55) node {\Large EXTERNAL};
+    \draw(0,7.55) node {\Large INTERNAL};
+    \draw(-7.55,0) node[rotate=90] {\Large POSITIVE};
+    \draw(7.55,0) node[rotate=270] {\Large NEGATIVE};
+    \draw(-0.6,0.6) node {\Huge\textbf{S}}; 
+    \draw(0.6,0.6) node {\Huge\textbf{W}};
+    \draw(-0.6,-0.6) node {\Huge\textbf{O}};
+    \draw(0.6,-0.6) node {\Huge\textbf{T}};
+    \end{tikzpicture}
+    \caption{SWOT Ampersand for government organization}
+    \label{fig:swot}
+\end{figure}
+
+\parindent2em
